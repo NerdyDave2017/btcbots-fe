@@ -10,8 +10,6 @@ import Button from "../../../components/button";
 const Navbar = () => {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const links = [
     {
       name: "Home",
