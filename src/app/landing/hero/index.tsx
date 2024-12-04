@@ -17,7 +17,7 @@ const Hero = () => {
         <Navbar />
 
         {/* Hero */}
-        <div className="h-[calc(832px-80px)] flex items-center justify-between">
+        <div className="h-[calc(832px-80px)] flex items-center justify-between  ">
           <div className="flex-1 flex flex-col gap-[32px]">
             <p className="text-[64px] font-bold">
               The World's Most Trusted Crypto Trading Bot.
@@ -25,8 +25,9 @@ const Hero = () => {
 
             <div className="flex flex-col gap-[24px]">
               <p className="text-xl">
-                A trading system that empowers you. Retain full control of your
-                funds and pay commissions only on successful trades.
+                A trading system that empowers you. Retain full <br /> control
+                of your funds and pay commissions only on <br />
+                successful trades.
               </p>
               <div className="flex items-center justify-start gap-[30px]">
                 <Link href="/">
@@ -41,7 +42,7 @@ const Hero = () => {
             </div>
 
             <div className="">
-              <p className="text-lg mb-[12px]">We support:</p>
+              <span className="text-lg ">We support:</span>
               <HeroCurrencies />
             </div>
           </div>
