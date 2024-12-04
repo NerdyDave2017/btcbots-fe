@@ -30,42 +30,40 @@ const Exchanges = () => {
   return (
     <div className="bg-[#F4F6F8] text-text-light py-[70px]">
       <Container>
-        <div className="">
-          <p className="text-2xl text-center mb-[24px]">
-            Automated trading on leading exchanges.
-          </p>
-          <div className="max-w-[1100px] mx-auto grid grid-cols-5 justify-items-center gap-y-[40px] mb-[64px]">
-            {exchanges.map((exchange, index) => (
-              <div key={index} className="">
-                <Image
-                  style={{
-                    color: "wheat",
-                  }}
-                  src={exchange.logo}
-                  alt={exchange.name}
-                />
-              </div>
-            ))}
+        <p className="text-2xl text-center mb-[24px]">
+          Automated trading on leading exchanges.
+        </p>
+        <div className="max-w-[1100px] mx-auto grid grid-cols-5 justify-items-center gap-y-[40px] mb-[64px]">
+          {exchanges.map((exchange, index) => (
+            <div key={index} className="">
+              <Image
+                style={{
+                  color: "wheat",
+                }}
+                src={exchange.logo}
+                alt={exchange.name}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="w-full flex items-center justify-center gap-[40px]">
+          <div className="w-[284px] h-[287px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
+            <SleepDollar />
+            <span className="text-2xl">
+              Generate passive cash-flow independently
+            </span>
           </div>
-          <div className="w-full flex items-center justify-center gap-[40px]">
-            <div className="w-[284px] h-[287px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
-              <SleepDollar />
-              <span className="text-2xl">
-                Generate passive cash-flow independently
-              </span>
-            </div>
-            <div className="w-[284px] h-[342px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
-              <Discount />
-              <span className="text-2xl">
-                Earn and withdraw 25% of all your referrals performance fees.
-              </span>
-            </div>
-            <div className="w-[284px] h-[287px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
-              <MoneyNotFound />
-              <span className="text-2xl">
-                0$ to start. no credit card required.
-              </span>
-            </div>
+          <div className="w-[284px] h-[342px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
+            <Discount />
+            <span className="text-2xl">
+              Earn and withdraw 25% of all your referrals performance fees.
+            </span>
+          </div>
+          <div className="w-[284px] h-[287px] bg-[#e8f0f7] rounded-lg px-[32px] py-[50px] flex flex-col items-center justify-center text-center gap-[16px]">
+            <MoneyNotFound />
+            <span className="text-2xl">
+              0$ to start. no credit card required.
+            </span>
           </div>
         </div>
       </Container>

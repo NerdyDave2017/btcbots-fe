@@ -27,6 +27,36 @@ export const ArrowRight = (props: SVGProps<any>) => {
     </svg>
   );
 };
+export const HowBar = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="58"
+      height="5"
+      viewBox="0 0 58 5"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect y="0.382812" width="23.9941" height="4" rx="2" fill="#006FE3" />
+      <rect
+        x="27.9941"
+        y="0.382812"
+        width="12.9941"
+        height="4"
+        rx="2"
+        fill="#8FB8E3"
+      />
+      <rect
+        x="44.9883"
+        y="0.382812"
+        width="12.9941"
+        height="4"
+        rx="2"
+        fill="#8FB8E3"
+      />
+    </svg>
+  );
+};
 export const HeroCurrencies = (props: SVGProps<any>) => {
   return (
     <svg
