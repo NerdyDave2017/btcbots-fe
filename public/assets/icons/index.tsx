@@ -27,6 +27,26 @@ export const ArrowRight = (props: SVGProps<any>) => {
     </svg>
   );
 };
+export const Checkmark = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="25"
+      height="25"
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M5.93555 15.3828C5.93555 15.3828 7.43555 15.3828 9.43555 18.8828C9.43555 18.8828 14.9944 9.71615 19.9355 7.88281"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
 export const HowBar = (props: SVGProps<any>) => {
   return (
     <svg
