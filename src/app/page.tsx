@@ -3,6 +3,8 @@ import Exchanges from "./landing/exchanges";
 import How from "./landing/how";
 import OurBots from "./landing/our-bots";
 import Trading from "./landing/trading";
+import Statistics from "./landing/statistics";
+import Affiliate from "./landing/affiliate";
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <How />
       <OurBots />
       <Trading />
+      <Statistics />
+      <Affiliate />
     </>
   );
 }

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const OurBots = () => {
   return (
-    <div className="bg-primary py-[70px]">
+    <div className="bg-primary py-[70px] overflow-clip">
       <Container>
         <Image
           className="absolute -right-[73.46px] 2xl:right-0 top-[84.83px]"

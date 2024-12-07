@@ -9,7 +9,7 @@ import Image from "next/image";
 
 const Trading = () => {
   return (
-    <div className="w-full py-[70px]">
+    <div className="w-full py-[70px] text-text-light">
       <Container>
         <div className="w-full flex items-center justify-between ">
           <div className="">
@@ -40,7 +40,7 @@ const Trading = () => {
                 <p className="text-[40px]">Faster approach</p>
                 <ArrowRight className="absolute -right-14 top-5 w-6 h-6" />
               </div>
-
+ 
               <div className="font-light space-y-[20px]">
                 <div className="flex items-start gap-2">
                   <Checkmark className="text-primary" />
