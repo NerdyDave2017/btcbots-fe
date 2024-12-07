@@ -85,6 +85,10 @@ const Footer = () => {
             </div>
           </div>
         </div>
+        <div className="text-center text-[#ebeef1] text-base font-light mt-[60px]">
+          <p className="">© 2024 Cryptobots.io LLC Miami Beach, FL 33141</p>{" "}
+          <p className="mt-[22px]">All Rights Reserved.</p>
+        </div>
       </Container>
     </div>
   );
