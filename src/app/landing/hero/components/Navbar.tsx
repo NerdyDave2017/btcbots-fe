@@ -1,5 +1,5 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Logo from "@/public/assets/images/LOGO.svg";

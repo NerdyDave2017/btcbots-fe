@@ -5,6 +5,7 @@ import OurBots from "./landing/our-bots";
 import Trading from "./landing/trading";
 import Statistics from "./landing/statistics";
 import Affiliate from "./landing/affiliate";
+import Footer from "./landing/footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Trading />
       <Statistics />
       <Affiliate />
+      <Footer />
     </>
   );
 }

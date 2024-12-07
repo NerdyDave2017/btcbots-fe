@@ -1,0 +1,93 @@
+import React from "react";
+import Container from "../components/container";
+import Logo from "@/public/assets/images/LOGO.svg";
+import { Facebook, Instagram, TikTok, YouTube, X } from "@/public/assets/icons";
+import Image from "next/image";
+import Link from "next/link";
+
+const Footer = () => {
+  const socials = [
+    {
+      name: "Facebook",
+      icon: Facebook,
+      link: "https://www.facebook.com/",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      link: "https://www.instagram.com/",
+    },
+    {
+      name: "TikTok",
+      icon: TikTok,
+      link: "https://www.tiktok.com/",
+    },
+    {
+      name: "YouTube",
+      icon: YouTube,
+      link: "https://www.youtube.com/",
+    },
+    {
+      name: "X",
+      icon: X,
+      link: "https://www.X.com/",
+    },
+  ];
+
+  return (
+    <div className="py-[70px] bg-dark-background text-text-dark">
+      <Container>
+        <div className="w-full flex items-start justify-between">
+          <div className="">
+            <Image src={Logo} alt="Logo" />
+          </div>
+          <div className="">
+            <nav className="h-[148px] flex justify-center items-start gap-12 text-[#ebeef1] text-lg font-normal">
+              <Link href="/bots">Bots</Link>
+              <Link href="/store">Store</Link>
+              <Link href="/blog">Blog</Link>
+              <Link href="/features">Features</Link>
+              <div className="flex flex-col gap-6">
+                <div className="text-[#ebeef1] text-lg font-normal">
+                  Company
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Link href="/contact">Contact Us</Link>
+                  <Link href="/about">About Us</Link>
+                </div>
+              </div>
+              <div className="flex flex-col gap-6">
+                <div className="text-[#ebeef1] text-lg font-normal">
+                  Learn more
+                </div>
+                <div className="flex flex-col gap-4">
+                  <Link href="https://usdbots.com">USDbots.com</Link>
+                  <Link href="/knowledge-base">Knowledge Base</Link>
+                  <Link href="/performance">Performance</Link>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div className="">
+            <p className="text-lg mb-[16px]">Connect with us</p>
+            <div className="flex">
+              {socials.map((social, index) => (
+                <Link
+                  key={index}
+                  href={social.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mr-4"
+                >
+                  <social.icon />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+export default Footer;
