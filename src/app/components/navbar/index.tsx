@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Logo from "@/public/assets/images/LOGO.svg";
@@ -10,6 +10,7 @@ import Container from "../container";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const links = [
     {
@@ -78,10 +79,18 @@ const Navbar = () => {
             <span className="">EN</span>
           </div>
 
-          <Link href="" className="">
+          <Link href="/signup" className="">
             Sign Up
           </Link>
-          <Button text="Login" className="font-normal text-text-dark" />
+
+          <Link href="/login" className="">
+            <Button text="Login" className="font-normal text-text-dark" />
+          </Link>
+          {/* <Button
+            onClick={() => router.push("/login")}
+            text="Login"
+            className="font-normal text-text-dark"
+          /> */}
         </div>
       </div>
     </Container>

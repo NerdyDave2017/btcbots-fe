@@ -6,7 +6,7 @@ import { GoogleIcon, UserIcon } from "@/public/assets/icons";
 
 const page = () => {
   return (
-    <div className="w-full flex flex-col items-center py-[70px] px-[160px] gap-[48px]">
+    <div className="w-full flex flex-col items-center py-[70px] px-[160px] gap-[48px] text-text-light">
       <div className="w-[475px]">
         <p className="text-[40px] text-primary">Welcome back!</p>
         <p className="text-sm font-light text-text-light">
@@ -26,14 +26,14 @@ const page = () => {
           />
           <div className="text-right mt-[16px]">
             <Link
-              href=""
+              href="/forgot-password"
               className="text-primary text-sm font-normal  underline"
             >
               Forgot password?
             </Link>{" "}
             <span className="text-text-light text-sm font-normal ">or</span>{" "}
             <Link
-              href=""
+              href="/signup"
               className="text-primary text-sm font-normal  underline"
             >
               Sign Up
