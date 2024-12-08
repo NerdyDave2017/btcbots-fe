@@ -27,7 +27,8 @@ const Input = ({ label, icon = "text", setValue, value }: Props) => {
       <label className="text-text-light">{label}</label>
 
       <div className="w-full flex items-center justify-between border-b border-[#3c3c43]/60">
-        <input type={icon} className="w-full p-2" /> {returnIcon(icon)}
+        <input type={icon} className="w-full p-2 outline-none" />{" "}
+        {returnIcon(icon)}
       </div>
     </div>
   );

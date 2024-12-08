@@ -1,7 +1,26 @@
 import React from "react";
+import Input from "../../components/input";
+import Button from "../../components/button";
+import Link from "next/link";
+import { GoogleIcon, UserIcon } from "@/public/assets/icons";
 
 const page = () => {
-  return <div>page</div>;
+  return (
+    <div className="w-full flex flex-col items-center justify-center py-[70px] px-[160px] gap-[48px] text-text-light">
+      <div className="w-[475px]">
+        <p className="text-[40px] text-primary">Forgot Password</p>
+        <p className="text-sm font-light text-text-light">
+          A reset link would sent to your mailbox or spam folder.
+        </p>
+      </div>
+
+      <div className="w-[475px] flex flex-col gap-[32px]">
+        <Input label="Email" icon="email" value="" setValue={() => {}} />
+
+        <Button text="Submit" className="w-full flex text-text-dark" />
+      </div>
+    </div>
+  );
 };
 
 export default page;
