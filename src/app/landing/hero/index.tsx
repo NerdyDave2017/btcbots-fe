@@ -1,21 +1,20 @@
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../../components/button";
-import Navbar from "./components/Navbar";
+import Navbar from "../../components/navbar";
 import HeroImg from "@/public/assets/images/heroimage.jpeg";
 import { HeroCurrencies } from "@/public/assets/icons";
 
 const Hero = () => {
   return (
-    <div className="h-[832px] bg-dark-background text-text-dark font-light relative">
+    <div className="bg-dark-background text-text-dark font-light relative">
       <div className="top-[47.5px] right-[27.2px] absolute w-[86.54px] h-[86.54px] bg-[#006fe3] rounded-full blur-[120px]" />
       <div className="top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 absolute w-[86.54px] h-[86.54px] bg-[#006fe3] rounded-full blur-[120px]" />
+      {/* Nav Bar */}
+      <Navbar />
       <Container>
-        {/* Nav Bar */}
-        <Navbar />
-
         {/* Hero */}
         <div className="h-[calc(832px-80px)] flex items-center justify-between  ">
           <div className="flex-1 flex flex-col gap-[32px]">

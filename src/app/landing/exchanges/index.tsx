@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import binanceUs from "@/public/assets/icons/binance-us.svg";
 import binance from "@/public/assets/icons/binance-vector-logo 1.svg";
 import bitget from "@/public/assets/icons/bitget.svg";

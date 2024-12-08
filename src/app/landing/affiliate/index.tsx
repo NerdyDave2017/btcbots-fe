@@ -1,6 +1,6 @@
 import { Checkmark } from "@/public/assets/icons";
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import Button from "../../components/button";
 
 const Affiliate = () => {
@@ -9,7 +9,7 @@ const Affiliate = () => {
       <Container>
         <div className="flex gap-[80px]">
           <div className="">
-            <div className="w-[720px] h-[550px] bg-[#D9D9D9] absolute -top-[148px] z-50"></div>
+            <div className="w-[720px] h-[550px] bg-[#D9D9D9] rounded-lg absolute -top-[148px] z-50"></div>
             <div className="w-[720px] h-"></div>
           </div>
           <div className="">

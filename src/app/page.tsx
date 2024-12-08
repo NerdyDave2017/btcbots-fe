@@ -5,7 +5,7 @@ import OurBots from "./landing/our-bots";
 import Trading from "./landing/trading";
 import Statistics from "./landing/statistics";
 import Affiliate from "./landing/affiliate";
-import Footer from "./landing/footer";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (

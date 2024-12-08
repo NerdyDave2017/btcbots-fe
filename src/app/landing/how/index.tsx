@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import { HowBar } from "@/public/assets/icons";
 
 const How = () => {

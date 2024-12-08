@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import Image from "next/image";
 import bloomberg from "@/public/assets/icons/bloomberg.svg";
 import coindesk from "@/public/assets/icons/coindesk.svg";
@@ -55,7 +55,7 @@ const Statistics = () => {
                 ))}
               </div>
             </div>
-            <div className="flex-1 h-[628px] text-[#f4f6f8]">
+            <div className="flex-1 h-[628px] text-[#f4f6f8] ">
               <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-primary top-[364px] right-[480.13px]">
                 <p className="text-5xl leading-snug">$3.9m+</p>
                 <p className="text-2xl">In profits generated since 2020</p>

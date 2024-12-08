@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../components/container";
+import Container from "../../components/container";
 import Chart from "@/public/assets/images/Chart.svg";
 import robot from "@/public/assets/images/robotic.svg";
 import Image from "next/image";
