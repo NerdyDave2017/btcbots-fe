@@ -1,8 +1,6 @@
 import React from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
-import Link from "next/link";
-import { GoogleIcon, UserIcon } from "@/public/assets/icons";
 
 const page = () => {
   return (
