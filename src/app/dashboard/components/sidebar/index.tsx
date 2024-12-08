@@ -76,7 +76,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light">
+    <div className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light">
       <div className="w-full flex flex-col justify-center items-center">
         <Image src={Logo} alt="Logo" />
 
