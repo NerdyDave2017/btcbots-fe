@@ -57,7 +57,7 @@ const page = () => {
         </button>
 
         <button className="w-full  px-8 py-4 rounded-full border border-primary justify-center items-center gap-2.5 inline-flex">
-          <UserIcon />
+          <UserIcon className="text-primary" />
           <p className="text-primary  font-normal ">Sign in as guest</p>
         </button>
       </div>

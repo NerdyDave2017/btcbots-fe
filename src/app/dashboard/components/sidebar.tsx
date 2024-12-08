@@ -1,0 +1,130 @@
+"use client";
+import React from "react";
+import Logo from "@/public/assets/images/LogoBig.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+  HomeIcon,
+  ExploreIcon,
+  MyBotsIcon,
+  ProfitIcon,
+  AffiliateIcon,
+  NotificationIcon,
+  DataIcon,
+  HelpIcon,
+  LogoutIcon,
+  UserIcon,
+} from "@/public/assets/icons";
+
+const Sidebar = () => {
+  const pathname = usePathname();
+
+  const navigation = [
+    {
+      name: "Home",
+      icon: HomeIcon,
+      link: "/dashboard",
+    },
+    {
+      name: "Explorer",
+      icon: ExploreIcon,
+      link: "/dashboard/explorer",
+    },
+    {
+      name: "My Bots",
+      icon: MyBotsIcon,
+      link: "/dashboard/my-bots",
+    },
+    {
+      name: "Profit Share",
+      icon: ProfitIcon,
+      link: "/dashboard/profit-share",
+    },
+    {
+      name: "Affiliate Center",
+      icon: AffiliateIcon,
+      link: "/dashboard/affiliate",
+    },
+    {
+      name: "Notifications",
+      icon: NotificationIcon,
+      link: "/dashboard/notifications",
+    },
+    {
+      name: "Data Room",
+      icon: DataIcon,
+      link: "/dashboard/data-room",
+    },
+    {
+      name: "Help",
+      icon: HelpIcon,
+      link: "/dashboard/help",
+    },
+  ];
+
+  const user = [
+    {
+      name: "Logout",
+      icon: LogoutIcon,
+    },
+    {
+      name: "Jordan Great",
+      icon: UserIcon,
+      link: "/dashboard/profile",
+    },
+  ];
+
+  return (
+    <div className="w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light">
+      <div className="w-full flex flex-col justify-center items-center">
+        <Image src={Logo} alt="Logo" />
+
+        <div className="w-full space-y-[32px] mt-[36px]">
+          {navigation.map((item, index) => (
+            <Link
+              href={item.link}
+              key={index}
+              className={`${
+                pathname === item.link && "bg-primary rounded-full"
+              } flex items-center gap-[8px] py-[12px] px-[16px]`}
+            >
+              <item.icon
+                className={`${
+                  pathname === item.link ? "text-[#f4f6f8]" : "text-primary"
+                } `}
+              />
+              <span
+                className={`${
+                  pathname === item.link && "text-[#f4f6f8]"
+                } text-lg font-normal`}
+              >
+                {item.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex flex-col">
+        {user.map((item, index) => (
+          <button
+            key={index}
+            className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
+              index === 1 && "bg-[#f4f6f8] rounded-full"
+            } `}
+          >
+            <item.icon className="" />
+            <span
+              className={`text-lg font-normal ${index === 1 && "text-base"} `}
+            >
+              {item.name}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Sidebar;
