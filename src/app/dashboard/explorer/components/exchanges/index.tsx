@@ -52,10 +52,10 @@ const Exchanges = ({
             {exchanges.map((exchange) => (
               <div
                 key={exchange}
-                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in duration-200 ${
+                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in duration-200 ${
                   selectedExchange === exchange
                     ? "border-primary"
-                    : "border-[#d0e0f1]"
+                    : "border-transparent"
                 }`}
                 onClick={() => setSelectedExchange(exchange as ExchangesType)}
               >

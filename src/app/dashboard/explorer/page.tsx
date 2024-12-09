@@ -19,7 +19,8 @@ export type ExchangesType =
 
 const page = () => {
   const [selected, setSelected] = useState<SelectedType>(null);
-  const [selectedCoin, setSelectedCoin] = useState<CoinsType>(null);
+  const [depositCoin, setDepositCoin] = useState<CoinsType>(null);
+  const [profitCoin, setProfitCoin] = useState<CoinsType>(null);
   const [selectedExchange, setSelectedExchange] = useState<ExchangesType>(null);
 
   return (
@@ -30,8 +31,10 @@ const page = () => {
       {selected === "coin" && (
         <Coins
           setSelected={setSelected}
-          setSelectedCoin={setSelectedCoin}
-          selectedCoin={selectedCoin}
+          setDepositCoin={setDepositCoin}
+          depositCoin={depositCoin}
+          setProfitCoin={setProfitCoin}
+          profitCoin={profitCoin}
         />
       )}
       {selected === "exchange" && (
