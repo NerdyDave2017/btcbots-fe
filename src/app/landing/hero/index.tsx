@@ -29,7 +29,7 @@ const Hero = () => {
                 successful trades.
               </p>
               <div className="flex items-center justify-start gap-[30px]">
-                <Link href="/">
+                <Link href="/dashboard">
                   <Button text="Go to dashboard" className="font-normal" />
                 </Link>
                 <Link href="/">

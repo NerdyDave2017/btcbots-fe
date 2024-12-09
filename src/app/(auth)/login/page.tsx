@@ -41,7 +41,7 @@ const page = () => {
           </div>
         </div>
 
-        <Button text="Login" className="w-full flex text-text-dark" />
+        <Button text="Login" className="w-full flex text-text-dark" size="lg" />
       </div>
 
       <div className="w-[475px] justify-center items-center gap-4 inline-flex">

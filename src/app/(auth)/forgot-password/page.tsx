@@ -15,7 +15,11 @@ const page = () => {
       <div className="w-[475px] flex flex-col gap-[32px]">
         <Input label="Email" icon="email" value="" setValue={() => {}} />
 
-        <Button text="Submit" className="w-full flex text-text-dark" />
+        <Button
+          text="Submit"
+          className="w-full flex text-text-dark"
+          size="lg"
+        />
       </div>
     </div>
   );

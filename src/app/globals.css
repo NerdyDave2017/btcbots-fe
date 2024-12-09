@@ -9,3 +9,7 @@
 
 body {
 }
+
+div {
+  box-sizing: border-box !important;
+}

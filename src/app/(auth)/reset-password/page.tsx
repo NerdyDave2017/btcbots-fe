@@ -26,7 +26,11 @@ const page = () => {
           setValue={() => {}}
         />
 
-        <Button text="Continue" className="w-full flex text-text-dark" />
+        <Button
+          text="Continue"
+          className="w-full flex text-text-dark"
+          size="lg"
+        />
       </div>
     </div>
   );

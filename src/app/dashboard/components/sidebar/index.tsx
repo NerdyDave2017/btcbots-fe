@@ -97,7 +97,7 @@ const Sidebar = () => {
               <span
                 className={`${
                   pathname === item.link && "text-[#f4f6f8]"
-                } text-lg font-normal`}
+                } text-base font-normal`}
               >
                 {item.name}
               </span>
@@ -116,7 +116,7 @@ const Sidebar = () => {
           >
             <item.icon className="" />
             <span
-              className={`text-lg font-normal ${index === 1 && "text-base"} `}
+              className={`text-base font-normal ${index === 1 && "text-sm"} `}
             >
               {item.name}
             </span>
