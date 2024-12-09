@@ -1,12 +1,12 @@
 import React from "react";
 import { HouseIcon, ArrowRight } from "@/public/assets/icons";
 import Button from "@/src/app/components/button";
-import { type ExchangesType } from "../../page";
+import { type SelectedType, type ExchangesType } from "../../page";
 
 type Props = {
-  setSelected: (value: "coin" | "exchange" | null) => void;
-  setSelectedExchange: (value: ExchangesType | null) => void;
-  selectedExchange: ExchangesType | null;
+  setSelected: (value: SelectedType) => void;
+  setSelectedExchange: (value: ExchangesType) => void;
+  selectedExchange: ExchangesType;
 };
 
 const Exchanges = ({
@@ -52,7 +52,7 @@ const Exchanges = ({
             {exchanges.map((exchange) => (
               <div
                 key={exchange}
-                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border ${
+                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in duration-200 ${
                   selectedExchange === exchange
                     ? "border-primary"
                     : "border-[#d0e0f1]"

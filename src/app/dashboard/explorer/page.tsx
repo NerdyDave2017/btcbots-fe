@@ -4,7 +4,8 @@ import Main from "./components/main";
 import Coins from "./components/coins";
 import Exchanges from "./components/exchanges";
 
-export type CoinsType = "BTC" | "ETH" | " SOL" | "USDT" | "USDC";
+export type SelectedType = "coin" | "exchange" | null;
+export type CoinsType = "BTC" | "ETH" | " SOL" | "USDT" | "USDC" | null;
 export type ExchangesType =
   | "Binance.US"
   | "Bybit"
@@ -13,13 +14,13 @@ export type ExchangesType =
   | "Gemini"
   | "Bitget"
   | "Kraken"
-  | "Gate.io";
+  | "Gate.io"
+  | null;
 
 const page = () => {
-  const [selected, setSelected] = useState<"coin" | "exchange" | null>(null);
-  const [selectedCoin, setSelectedCoin] = useState<CoinsType | null>(null);
-  const [selectedExchange, setSelectedExchange] =
-    useState<ExchangesType | null>(null);
+  const [selected, setSelected] = useState<SelectedType>(null);
+  const [selectedCoin, setSelectedCoin] = useState<CoinsType>(null);
+  const [selectedExchange, setSelectedExchange] = useState<ExchangesType>(null);
 
   return (
     <div className="w-full p-[48px] text-text-light font-light">

@@ -5,12 +5,12 @@ import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
 import Usdt from "@/public/assets/icons/usdt.svg";
 import Usdc from "@/public/assets/icons/usdc.svg";
-import { type CoinsType } from "../../page";
+import { type SelectedType, type CoinsType } from "../../page";
 
 type Props = {
-  setSelected: (value: "coin" | "exchange" | null) => void;
-  setSelectedCoin: (value: CoinsType | null) => void;
-  selectedCoin: CoinsType | null;
+  setSelected: (value: SelectedType) => void;
+  setSelectedCoin: (value: CoinsType) => void;
+  selectedCoin: CoinsType;
 };
 
 const Coins = ({ setSelected, setSelectedCoin, selectedCoin }: Props) => {
