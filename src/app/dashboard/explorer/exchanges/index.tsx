@@ -3,6 +3,7 @@ import { HouseIcon, ArrowRight } from "@/public/assets/icons";
 import Button from "@/src/app/components/button";
 import { type SelectedType, type ExchangesType } from "../page";
 import SelectExchange from "../components/select-exchange";
+import Header from "../../components/header";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -17,7 +18,13 @@ const Exchanges = ({
 }: Props) => {
   return (
     <div className="w-full px-[48px] font-normal">
-      <div className="w-full relative mb-[48px]">
+      <Header
+        text="Explore our bots and their performance"
+        showArrow={true}
+        onClick={() => setSelected(null)}
+      />
+
+      {/* <div className="w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected(null)}
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
@@ -25,7 +32,7 @@ const Exchanges = ({
         <p className="text-2xl text-center">
           Explore our bots and their performance
         </p>
-      </div>
+      </div> */}
 
       <div className="w-[516px] mx-auto">
         <SelectExchange

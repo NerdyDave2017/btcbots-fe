@@ -26,7 +26,7 @@ const page = () => {
   const [selectedExchange, setSelectedExchange] = useState<ExchangesType>(null);
 
   return (
-    <div className="w-full py-[48px] text-text-light font-light overflow-scroll">
+    <div className="w-full text-text-light font-light overflow-scroll">
       {selected === null && (
         <Main selected={selected} setSelected={setSelected} />
       )}

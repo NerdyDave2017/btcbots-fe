@@ -1,6 +1,7 @@
 import React from "react";
 import { MultiDataIcon, HouseIcon } from "@/public/assets/icons";
 import { type SelectedType } from "../page";
+import Header from "../../components/header";
 
 type Props = {
   selected: SelectedType;
@@ -26,14 +27,18 @@ const Main = ({ selected, setSelected }: Props) => {
   ];
 
   return (
-    <div className="px-[48px]">
-      <div className="w-full">
+    <div className="">
+      <Header
+        text="Get Started: Choose Your Preferred Method"
+        showArrow={false}
+      />
+      {/* <div className="w-full">
         <p className="text-2xl font-normal text-center">
           Get Started: Choose Your Preferred Method
         </p>
-      </div>
+      </div> */}
 
-      <div className="w-full flex items-center justify-center gap-[76px] mt-[48px]">
+      <div className="w-full flex items-center justify-center gap-[76px] ">
         {options.map((option) => (
           <div
             key={option.key}

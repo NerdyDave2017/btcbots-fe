@@ -8,6 +8,7 @@ import Usdc from "@/public/assets/icons/usdc.svg";
 import { type SelectedType, type CoinsType } from "../page";
 import Button from "@/src/app/components/button";
 import Image from "next/image";
+import Header from "../../components/header";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -49,7 +50,12 @@ const Coins = ({
 
   return (
     <div className="w-full px-[48px] font-normal">
-      <div className="w-full relative mb-[48px]">
+      <Header
+        text="Explore our bots and their performance"
+        showArrow={true}
+        onClick={() => setSelected(null)}
+      />
+      {/* <div className="w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected(null)}
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
@@ -57,7 +63,7 @@ const Coins = ({
         <p className="text-2xl font-normal text-center">
           Explore our bots and their performance
         </p>
-      </div>
+      </div> */}
 
       <div className="w-[516px] mx-auto">
         <div className="w-full px-4 py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">

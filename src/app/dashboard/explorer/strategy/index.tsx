@@ -3,6 +3,7 @@ import { ArrowRight, SearchIcon, SettingsIcon } from "@/public/assets/icons";
 import { SelectedType } from "../page";
 import Link from "next/link";
 import Card from "../components/card";
+import Header from "../../components/header";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -92,7 +93,13 @@ const Strategy = ({ setSelected }: Props) => {
 
   return (
     <div className="w-full font-normal overflow-scroll">
-      <div className="px-[48px] w-full relative mb-[48px]">
+      <Header
+        text="Select Your Desired Strategy"
+        showArrow={true}
+        onClick={() => setSelected(null)}
+      />
+
+      {/* <div className="px-[48px] w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected(null)}
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
@@ -100,7 +107,7 @@ const Strategy = ({ setSelected }: Props) => {
         <p className="text-2xl font-normal text-center">
           Select Your Desired Strategy
         </p>
-      </div>
+      </div> */}
 
       <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-between items-center inline-flex">
         <div className="justify-start items-center gap-6 inline-flex">

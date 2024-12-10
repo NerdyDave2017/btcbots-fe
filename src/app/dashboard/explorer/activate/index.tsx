@@ -16,6 +16,7 @@ import Button from "@/src/app/components/button";
 import Input from "@/src/app/components/input";
 import Link from "next/link";
 import SelectExchange from "../components/select-exchange";
+import Header from "../../components/header";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -57,13 +58,19 @@ const Activate = ({
 
   return (
     <div className="w-full font-normal">
-      <div className=" px-[48px] w-full relative mb-[48px]">
+      <Header
+        text="Activate your bot"
+        showArrow={true}
+        onClick={() => setSelected("strategy")}
+      />
+
+      {/* <div className=" px-[48px] w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected("strategy")}
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
         />
         <p className="text-2xl font-normal text-center">Activate your bot</p>
-      </div>
+      </div> */}
 
       <div className="w-full px-[48px] flex justify-center gap-[48px]">
         <div className="w-full max-w-[550px]">
@@ -180,7 +187,7 @@ const Activate = ({
             />
           </div>
 
-          <div className="w-[500px] mt-[40px]">
+          <div className="w-[500px] mt-[40px] mb-[48px]">
             <span className="text-text-light text-xl font-normal">
               IMPORTANT INFORMATION ABOUT THIS STRATEGY
               <br />
