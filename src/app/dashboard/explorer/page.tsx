@@ -49,7 +49,13 @@ const page = () => {
 
       {selected === "strategy" && <Strategy setSelected={setSelected} />}
 
-      {selected === "activate" && <Activate setSelected={setSelected} />}
+      {selected === "activate" && (
+        <Activate
+          setSelected={setSelected}
+          setSelectedExchange={setSelectedExchange}
+          selectedExchange={selectedExchange}
+        />
+      )}
     </div>
   );
 };

@@ -132,9 +132,9 @@ const Strategy = ({ setSelected }: Props) => {
 
       <div className="columns-3 justify-items-center w-[1070px] m-auto mt-6">
         {/* {data.map((item, index) => ( */}
-        <Card />
-        <Card />
-        <Card />
+        <Card onClick={() => setSelected("activate")} />
+        <Card onClick={() => setSelected("activate")} />
+        <Card onClick={() => setSelected("activate")} />
         {/* ))} */}
       </div>
     </div>

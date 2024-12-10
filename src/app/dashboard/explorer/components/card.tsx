@@ -12,7 +12,11 @@ import {
 import Image from "next/image";
 import Button from "@/src/app/components/button";
 
-const Card = () => {
+type Props = {
+  onClick: () => void;
+};
+
+const Card = ({ onClick }: Props) => {
   const echanges = [
     "Binance",
     "Kraken",
@@ -75,7 +79,7 @@ const Card = () => {
         {/* Section 1 */}
         <div className="w-full  items-center justify-between">
           <div className="flex items-center justify-between">
-            <p className="text-[#090909] text-base font-normal mb-2 flex-1">
+            <p className="text-[#090909] text-base font-normal mb-2 ">
               Deposit with
             </p>
             <div className="flex-1"></div>
@@ -154,7 +158,12 @@ const Card = () => {
           </div>
         </div>
 
-        <Button text="Activate Bots" className="w-full" size="lg" />
+        <Button
+          onClick={onClick}
+          text="Activate Bots"
+          className="w-full"
+          size="lg"
+        />
       </div>
     </div>
   );
