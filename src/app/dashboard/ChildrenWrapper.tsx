@@ -4,7 +4,7 @@ import Container from "../components/container";
 
 const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="w-full h-screen flex">
+    <div className="w-full h-screen flex relative">
       <Sidebar />
       {children}
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { HouseIcon, ArrowRight } from "@/public/assets/icons";
 import Button from "@/src/app/components/button";
-import { type SelectedType, type ExchangesType } from "../../page";
+import { type SelectedType, type ExchangesType } from "../page";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -26,7 +26,7 @@ const Exchanges = ({
   ];
 
   return (
-    <div className="w-full font-normal">
+    <div className="w-full px-[48px] font-normal">
       <div className="w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected(null)}
@@ -52,7 +52,7 @@ const Exchanges = ({
             {exchanges.map((exchange) => (
               <div
                 key={exchange}
-                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in duration-200 ${
+                className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in-out duration-200 ${
                   selectedExchange === exchange
                     ? "border-primary"
                     : "border-transparent"
@@ -64,7 +64,12 @@ const Exchanges = ({
             ))}
           </div>
 
-          <Button text="Proceed" className="w-full" size="lg" />
+          <Button
+            onClick={() => setSelected("strategy")}
+            text="Proceed"
+            className="w-full"
+            size="lg"
+          />
         </div>
       </div>
     </div>

@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import Main from "./components/main";
-import Coins from "./components/coins";
-import Exchanges from "./components/exchanges";
+import Main from "./main";
+import Coins from "./coins";
+import Exchanges from "./exchanges";
+import Strategy from "./strategy";
+import Activate from "./activate";
 
-export type SelectedType = "coin" | "exchange" | null;
+export type SelectedType = "coin" | "exchange" | "strategy" | "activate" | null;
 export type CoinsType = "BTC" | "ETH" | " SOL" | "USDT" | "USDC" | null;
 export type ExchangesType =
   | "Binance.US"
@@ -24,7 +26,7 @@ const page = () => {
   const [selectedExchange, setSelectedExchange] = useState<ExchangesType>(null);
 
   return (
-    <div className="w-full p-[48px] text-text-light font-light">
+    <div className="w-full py-[48px] text-text-light font-light overflow-scroll">
       {selected === null && (
         <Main selected={selected} setSelected={setSelected} />
       )}
@@ -44,6 +46,10 @@ const page = () => {
           selectedExchange={selectedExchange}
         />
       )}
+
+      {selected === "strategy" && <Strategy setSelected={setSelected} />}
+
+      {selected === "activate" && <Activate setSelected={setSelected} />}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
 import Usdt from "@/public/assets/icons/usdt.svg";
 import Usdc from "@/public/assets/icons/usdc.svg";
-import { type SelectedType, type CoinsType } from "../../page";
+import { type SelectedType, type CoinsType } from "../page";
 import Button from "@/src/app/components/button";
 import Image from "next/image";
 
@@ -48,7 +48,7 @@ const Coins = ({
   ];
 
   return (
-    <div className="w-full font-normal">
+    <div className="w-full px-[48px] font-normal">
       <div className="w-full relative mb-[48px]">
         <ArrowRight
           onClick={() => setSelected(null)}
@@ -73,7 +73,7 @@ const Coins = ({
                 {coins.map((coin) => (
                   <div
                     key={coin.name}
-                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-primary box-border transition-all ease-in duration-200  ${
+                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-primary box-border transition-all ease-in-out duration-200  ${
                       depositCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"
@@ -118,7 +118,12 @@ const Coins = ({
             </div>
           </div>
 
-          <Button text="Proceed" className="w-full" size="lg" />
+          <Button
+            onClick={() => setSelected("strategy")}
+            text="Proceed"
+            className="w-full"
+            size="lg"
+          />
         </div>
       </div>
     </div>
