@@ -25,6 +25,33 @@ const Card = () => {
     "Bitget",
   ];
 
+  const cardData = [
+    {
+      title: "Avg. Monthly Return",
+      value: "4%+",
+    },
+    {
+      title: "Safety Net",
+      value: "-40% to -50%",
+    },
+    {
+      title: "Minimum Deposit",
+      value: "$10,000",
+    },
+    {
+      title: "Market Type",
+      value: "Inverse Derivation",
+    },
+    {
+      title: "Strategy Direction",
+      value: "Long / Short",
+    },
+    {
+      title: "Leverage Used",
+      value: "1x to 1.5x",
+    },
+  ];
+
   return (
     <div className="w-[350px] break-inside-avoid mb-[10px]">
       <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
@@ -76,48 +103,40 @@ const Card = () => {
         <div className="w-full border border-[#E3E3E3]/50"></div>
 
         <div className="w-full flex-col justify-start items-start gap-3 inline-flex">
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">
-              Avg. Monthly Return
-            </p>
-            <p className="text-[#090909] text-base font-normal">4%+</p>
-          </div>
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">Safety Net</p>
-            <p className="text-[#090909] text-base font-normal">-40% to -50%</p>
-          </div>
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">
-              Minimum Deposit
-            </p>
-            <p className="text-[#090909] text-base font-normal">$10,000</p>
-          </div>
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">Market Type</p>
-            <p className="text-[#090909] text-base font-normal">
-              Inverse Derivation
-            </p>
-          </div>
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">
-              Strategy Direction
-            </p>
-            <div>
-              <span className="text-[#14ae5c] text-base font-normal">Long</span>
-              <span className="text-[#090909] text-base font-normal"> / </span>
-              <span className="text-[#e9362b] text-base font-normal">
-                Short
-              </span>
+          {cardData.map((item, index) => (
+            <div
+              key={index}
+              className="self-stretch justify-between items-start inline-flex"
+            >
+              <p className="text-[#3c3c43]/60 text-sm font-normal">
+                {item.title}
+              </p>
+              {index === 4 ? (
+                <div>
+                  {item.value.includes("Long") && (
+                    <span className="text-[#14ae5c] text-base font-normal">
+                      Long
+                    </span>
+                  )}
+                  {item.value.includes("/") && (
+                    <span className="text-[#090909] text-base font-normal">
+                      {" "}
+                      /{" "}
+                    </span>
+                  )}
+                  {item.value.includes("Short") && (
+                    <span className="text-[#e9362b] text-base font-normal">
+                      Short
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <p className="text-[#090909] text-base font-normal">
+                  {item.value}
+                </p>
+              )}
             </div>
-          </div>
-          <div className="self-stretch justify-between items-start inline-flex">
-            <p className="text-[#3c3c43]/60 text-sm font-normal">
-              Leverage Used
-            </p>
-            <div className="text-[#090909] text-base font-normal">
-              1x to 1.5x
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="w-full border border-[#E3E3E3]/50"></div>
