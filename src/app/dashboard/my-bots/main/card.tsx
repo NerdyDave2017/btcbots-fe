@@ -12,7 +12,11 @@ import {
   InfoIcon,
 } from "@/public/assets/icons";
 
-const Card = () => {
+type Props = {
+  onClick: () => void;
+};
+
+const Card = ({ onClick }: Props) => {
   return (
     <div className="w-[350px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex flex-col items-center gap-4">
       <div className="w-full flex items-center gap-4">
@@ -87,20 +91,23 @@ const Card = () => {
       <div className="w-full border border-[#E3E3E3]/50"></div>
 
       <div className="w-full px-4 flex-col justify-start items-start gap-2.5 inline-flex">
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex">
+        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
           <p className="text-primary text-base font-normal">Resume Bot</p>
 
           <InfoIcon />
         </div>
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex">
+        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
           <p className="text-primary text-base font-normal">Force Stop Bot</p>
           <InfoIcon />
         </div>
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex">
+        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
           <p className="text-primary text-base font-normal">Soft Stop Bot</p>
           <InfoIcon />
         </div>
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex">
+        <div
+          onClick={onClick}
+          className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer"
+        >
           <CastIcon />
           <p className="text-primary text-base font-normal">
             Display Live data

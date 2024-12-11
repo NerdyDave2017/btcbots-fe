@@ -15,7 +15,7 @@ const Home = () => {
       title: "My Active Bots",
     },
     {
-      value: "23%",
+      value: "80%",
       icon: MultipleUsersIcon,
       title: "Win Rate",
     },

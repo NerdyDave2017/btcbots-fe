@@ -1,13 +1,20 @@
 import React from "react";
 import Header from "../../components/header";
-import Card from "../components/card";
+import Card from "./card";
+import { SelectedType } from "../page";
 
-const Main = () => {
+type Props = {
+  setSelected: (value: SelectedType) => void;
+};
+
+const Main = ({ setSelected }: Props) => {
   return (
-    <div className="">
+    <div className="w-full">
       <Header text="All active bots" showArrow={false} />
-      <div className="mx-[48px]">
-        <Card />
+      <div className="grid grid-cols-3 justify-items-center w-[1070px] gap-4 mx-auto">
+        <Card onClick={() => setSelected("LiveTrade")} />
+        <Card onClick={() => setSelected("LiveTrade")} />
+        <Card onClick={() => setSelected("LiveTrade")} />
       </div>
     </div>
   );
