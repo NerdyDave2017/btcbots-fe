@@ -1385,3 +1385,29 @@ export const DollarArrowIcon = (props: SVGProps<any>) => {
     </svg>
   );
 };
+
+export const CastIcon = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="18"
+      height="16"
+      viewBox="0 0 18 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3 14.8672C3 14.0388 2.32843 13.3672 1.5 13.3672M6 14.8672C6 12.3819 3.98528 10.3672 1.5 10.3672M9 14.8672C9 10.7251 5.64214 7.36719 1.5 7.36719"
+        stroke="#006FE3"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M2.25 5.11739C2.30842 3.71309 2.49678 2.85208 3.10403 2.24592C3.98433 1.36719 5.40115 1.36719 8.23479 1.36719H10.4889C13.3226 1.36719 14.7394 1.36719 15.6197 2.24592C16.5 3.12464 16.5 4.53893 16.5 7.36752V8.11756C16.5 10.9461 16.5 12.3604 15.6197 13.2392C14.8209 14.0365 13.5804 14.1104 11.2403 14.1172"
+        stroke="#006FE3"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
