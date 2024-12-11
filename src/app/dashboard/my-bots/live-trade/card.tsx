@@ -15,7 +15,7 @@ const card = () => {
     },
     {
       title: "Bought average price",
-      value: "59199.",
+      value: "59199.0",
     },
     {
       title: "Liquidation Price",
