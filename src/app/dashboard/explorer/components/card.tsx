@@ -150,8 +150,11 @@ const Card = ({ onClick }: Props) => {
             Available Exchanges
           </p>
           <div className="self-stretch justify-start items-center gap-2 flex flex-wrap">
-            {echanges.map((exchange) => (
-              <div className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex">
+            {echanges.map((exchange, index) => (
+              <div
+                key={index}
+                className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex"
+              >
                 <p className="text-[#090909] text-sm font-normal">{exchange}</p>
               </div>
             ))}

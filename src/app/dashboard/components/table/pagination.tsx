@@ -1,0 +1,132 @@
+import { useState, useEffect } from "react";
+import { Table } from "@tanstack/react-table";
+import { ArrowRight } from "@/public/assets/icons";
+import { range } from "../../../../lib/index";
+
+type Props = {
+  table: Table<any>;
+};
+
+const PaginationControl = ({ table }: Props) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [visible, setVisible] = useState({
+    visibleStart: 1,
+    visibleEnd: 5,
+  });
+
+  // Function to render visible page tile
+  const showVisiblePages = () => {
+    const tiles = range(visible.visibleEnd, visible.visibleStart);
+
+    return tiles;
+  };
+
+  useEffect(() => {
+    if (table) {
+      const totalNoOfPages = table.getPageCount();
+      const currentPage = table.getState().pagination.pageIndex + 1;
+
+      // Function to check if pages left are 2 or less
+      if (currentPage >= totalNoOfPages - 2) {
+        //Render last 3 pages only
+        setVisible({
+          ...visible,
+          visibleStart: totalNoOfPages - 2 < 1 ? 1 : totalNoOfPages - 2,
+          visibleEnd: totalNoOfPages,
+        });
+      } else {
+        setVisible({
+          ...visible,
+          visibleStart: currentPage,
+          visibleEnd: currentPage + 2,
+        });
+      }
+
+      setCurrentPage(table.getState().pagination.pageIndex + 1);
+    }
+  }, [table, table.getState().pagination.pageIndex]);
+
+  return (
+    <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-[#ffffffb3]">
+      <div className="">
+        Showing 1 to {table.getRowModel().rows.length.toLocaleString()} of{" "}
+        {table.getRowCount().toLocaleString()} models
+      </div>
+
+      <div className="flex items-center gap-5 ">
+        <div className="">
+          <select
+            className="bg-transparent cursor-pointer"
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+          >
+            {[10, 20, 30, 40, 50].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                Show {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className=" flex gap-1 text-[#ffffffb3]">
+          <button
+            className="w-7 h-7 flex items-center justify-center rounded-md  hover:bg-[#3C3C3C] text-[#ffffffb3]  cursor-pointer"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            <ArrowRight className="transform rotate-180" />
+          </button>
+
+          <div className="flex gap-1">
+            {showVisiblePages().map(
+              (tile, index) =>
+                // Check if total no of pages is greater than one before render
+                table.getPageCount() > 1 && (
+                  <div
+                    key={index}
+                    className={`w-7 h-7 flex items-center justify-center ${
+                      currentPage === tile ? "bg-[#3C3C3C] text-white" : ""
+                    }  rounded-md  hover:bg-[#3C3C3C] hover:text-white cursor-pointer`}
+                    onClick={() => table.setPageIndex(tile - 1)}
+                  >
+                    {tile}
+                  </div>
+                )
+            )}
+            {/* Check if number of pages left is 2 or less */}
+            {!(currentPage + 2 >= table.getPageCount()) && (
+              <div
+                className={`px-4 py-2  rounded-md text-[#ffffffb3] cursor-pointer`}
+              >
+                ...
+              </div>
+            )}
+            <div
+              className={`w-7 h-7 flex items-center justify-center ${
+                table.getState().pagination.pageIndex + 1 ===
+                table.getPageCount()
+                  ? "bg-[#3C3C3C] text-white"
+                  : ""
+              } rounded-md  hover:bg-[#3C3C3C] hover:text-white cursor-pointer`}
+              onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+            >
+              {table.getPageCount()}
+            </div>
+          </div>
+
+          <button
+            className="w-7 h-7 flex items-center justify-center rounded-md  hover:bg-[#3C3C3C] text-[#ffffffb3] "
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            <ArrowRight />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PaginationControl;

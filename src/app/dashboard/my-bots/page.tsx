@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Main from "./main";
 import LiveChart from "./live-chart";
 import LiveTrade from "./live-trade";
+import TradeOrders from "./trade-orders";
+import ClosedTrades from "./closed-trades";
 
 export type SelectedType =
   | "LiveTrade"
@@ -19,6 +21,14 @@ const page = () => {
       {selected === null && <Main setSelected={setSelected} />}
 
       {selected === "LiveTrade" && <LiveTrade setSelected={setSelected} />}
+
+      {selected === "LiveChart" && <LiveChart setSelected={setSelected} />}
+
+      {selected === "TradeOrders" && <TradeOrders setSelected={setSelected} />}
+
+      {selected === "ClosedTrades" && (
+        <ClosedTrades setSelected={setSelected} />
+      )}
     </div>
   );
 };

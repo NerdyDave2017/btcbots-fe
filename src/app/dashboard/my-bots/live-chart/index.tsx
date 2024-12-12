@@ -1,7 +1,17 @@
 import React from "react";
+import { SelectedType } from "../page";
+import Header from "../../components/header";
 
-const LiveChart = () => {
-  return <div>LiveChart</div>;
+type Props = {
+  setSelected: (value: SelectedType) => void;
+};
+
+const LiveChart = ({ setSelected }: Props) => {
+  return (
+    <div className="w-full">
+      <Header text="Live Chart" onClick={() => setSelected("LiveTrade")} />
+    </div>
+  );
 };
 
 export default LiveChart;

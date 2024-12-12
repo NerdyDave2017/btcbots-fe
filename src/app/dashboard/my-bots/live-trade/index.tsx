@@ -13,7 +13,7 @@ const LiveTrade = ({ setSelected }: Props) => {
     <div className="w-full">
       <Header text="Live Trade" onClick={() => setSelected(null)} />
       <div className="w-full mx-auto px-[48px] flex justify-center gap-10">
-        <Card />
+        <Card setSelected={setSelected} />
         <Events />
       </div>
     </div>

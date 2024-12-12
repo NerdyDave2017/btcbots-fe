@@ -1411,3 +1411,59 @@ export const CastIcon = (props: SVGProps<any>) => {
     </svg>
   );
 };
+
+export const FilterIcon = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="18"
+      height="17"
+      viewBox="0 0 18 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.33984 6.94922L14.1732 6.94927"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.33984 10.2852H12.5065"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.33984 13.6172H10.8398"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.33984 3.61719H16.6732"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M5.00391 14.2943C4.67622 14.663 3.80406 16.1172 3.33724 16.1172M1.67057 14.2943C1.99826 14.663 2.87042 16.1172 3.33724 16.1172M3.33724 16.1172L3.33724 11.1172"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M1.67188 2.9401C1.99956 2.57137 2.87172 1.11719 3.33854 1.11719M5.00521 2.9401C4.67752 2.57137 3.80536 1.11719 3.33854 1.11719M3.33854 1.11719L3.33854 6.11719"
+        stroke="#5FA3EC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
