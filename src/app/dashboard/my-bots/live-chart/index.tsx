@@ -1,15 +1,20 @@
 import React from "react";
 import { SelectedType } from "../page";
 import Header from "../../components/header";
-import { TVChartContainer } from "./tv-chart-container";
 import {
   ChartingLibraryWidgetOptions,
   ResolutionString,
 } from "@/public/static/charting_library/charting_library";
+import dynamic from "next/dynamic";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
 };
+
+const TVChartContainer = dynamic(
+  () => import("./tv-chart-container").then((mod) => mod.TVChartContainer),
+  { ssr: false }
+);
 
 const defaultWidgetProps: Partial<ChartingLibraryWidgetOptions> = {
   symbol: "BTCUSD",
