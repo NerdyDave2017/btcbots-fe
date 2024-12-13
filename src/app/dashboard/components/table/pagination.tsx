@@ -44,10 +44,14 @@ const PaginationControl = ({ table }: Props) => {
 
       setCurrentPage(table.getState().pagination.pageIndex + 1);
     }
-  }, [table, table.getState().pagination.pageIndex]);
+  }, [
+    table,
+    table.getState().pagination.pageIndex,
+    table.getState().pagination.pageSize,
+  ]);
 
   return (
-    <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-[#ffffffb3]">
+    <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-primary">
       <div className="">
         Showing 1 to {table.getRowModel().rows.length.toLocaleString()} of{" "}
         {table.getRowCount().toLocaleString()} models
@@ -56,7 +60,7 @@ const PaginationControl = ({ table }: Props) => {
       <div className="flex items-center gap-5 ">
         <div className="">
           <select
-            className="bg-transparent cursor-pointer"
+            className="bg-transparent cursor-pointer outline-none"
             value={table.getState().pagination.pageSize}
             onChange={(e) => {
               table.setPageSize(Number(e.target.value));
@@ -70,13 +74,14 @@ const PaginationControl = ({ table }: Props) => {
           </select>
         </div>
 
-        <div className=" flex gap-1 text-[#ffffffb3]">
+        <div className=" flex gap-5 text-primary">
           <button
-            className="w-7 h-7 flex items-center justify-center rounded-md  hover:bg-[#3C3C3C] text-[#ffffffb3]  cursor-pointer"
+            className="flex items-center justify-center rounded-md   text-primary cursor-pointer gap-2"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            <ArrowRight className="transform rotate-180" />
+            <ArrowRight className="transform rotate-180 " />
+            <span>Previous</span>
           </button>
 
           <div className="flex gap-1">
@@ -87,8 +92,8 @@ const PaginationControl = ({ table }: Props) => {
                   <div
                     key={index}
                     className={`w-7 h-7 flex items-center justify-center ${
-                      currentPage === tile ? "bg-[#3C3C3C] text-white" : ""
-                    }  rounded-md  hover:bg-[#3C3C3C] hover:text-white cursor-pointer`}
+                      currentPage === tile ? "bg-primary text-white" : ""
+                    }  rounded-md    cursor-pointer`}
                     onClick={() => table.setPageIndex(tile - 1)}
                   >
                     {tile}
@@ -98,7 +103,7 @@ const PaginationControl = ({ table }: Props) => {
             {/* Check if number of pages left is 2 or less */}
             {!(currentPage + 2 >= table.getPageCount()) && (
               <div
-                className={`px-4 py-2  rounded-md text-[#ffffffb3] cursor-pointer`}
+                className={`h-full  flex rounded-md text-primary cursor-pointer`}
               >
                 ...
               </div>
@@ -107,9 +112,9 @@ const PaginationControl = ({ table }: Props) => {
               className={`w-7 h-7 flex items-center justify-center ${
                 table.getState().pagination.pageIndex + 1 ===
                 table.getPageCount()
-                  ? "bg-[#3C3C3C] text-white"
+                  ? "bg-primary text-white"
                   : ""
-              } rounded-md  hover:bg-[#3C3C3C] hover:text-white cursor-pointer`}
+              } rounded-md    cursor-pointer`}
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             >
               {table.getPageCount()}
@@ -117,10 +122,11 @@ const PaginationControl = ({ table }: Props) => {
           </div>
 
           <button
-            className="w-7 h-7 flex items-center justify-center rounded-md  hover:bg-[#3C3C3C] text-[#ffffffb3] "
+            className="flex items-center gap-2 justify-center rounded-md   text-primary"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
+            <span className="">Next</span>
             <ArrowRight />
           </button>
         </div>

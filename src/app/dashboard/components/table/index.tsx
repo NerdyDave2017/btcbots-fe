@@ -9,14 +9,11 @@ export default function BasicTable({
   noRouting?: boolean;
 }) {
   return (
-    <div className="w-[100%]">
+    <div className="w-[100%] bg-[#eaf0f6] rounded-2xl  px-4 overflow-scroll">
       <table className="h-[100%] w-[100%]">
         <thead className="w-[100%]">
           {table.getHeaderGroups().map((headerGroup: any) => (
-            <tr
-              key={headerGroup.id}
-              className="border-b-[0.5px] border-[#ffffff] border-opacity-20 whitespace-nowrap"
-            >
+            <tr key={headerGroup.id} className="whitespace-nowrap">
               {headerGroup.headers.map((header: any) => (
                 <th
                   key={header.id}
@@ -49,7 +46,7 @@ export default function BasicTable({
 
         <tbody className="w-[100%]">
           {table.getRowModel().rows.map((row: any) => (
-            <tr key={row.id}>
+            <tr key={row.id} className="border-t border-[#E3E3E3]">
               {row.getVisibleCells().map((cell: any) => (
                 <td key={cell.id} className="">
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
