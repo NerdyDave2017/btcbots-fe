@@ -1,5 +1,5 @@
 import { makeApiRequest, generateSymbol, parseFullSymbol } from "./helpers";
-import { subscribeOnStream, unsubscribeFromStream } from "./streaming";
+// import { subscribeOnStream, unsubscribeFromStream } from "./streaming";
 
 type ExchangesResponse = {
   Data: {
@@ -245,24 +245,24 @@ export default {
     onResultReadyCallback(newSymbols);
   },
 
-  subscribeBars: (
-    symbolInfo: SymbolInfo,
-    resolution: any,
-    onRealtimeCallback: any,
-    subscriberUID: string,
-    onResetCacheNeededCallback: any
-  ) => {
-    subscribeOnStream(
-      symbolInfo,
-      resolution,
-      onRealtimeCallback,
-      subscriberUID,
-      onResetCacheNeededCallback,
-      lastBarsCache.get(symbolInfo.full_name)
-    );
-  },
+  // subscribeBars: (
+  //   symbolInfo: SymbolInfo,
+  //   resolution: any,
+  //   onRealtimeCallback: any,
+  //   subscriberUID: string,
+  //   onResetCacheNeededCallback: any
+  // ) => {
+  //   subscribeOnStream(
+  //     symbolInfo,
+  //     resolution,
+  //     onRealtimeCallback,
+  //     subscriberUID,
+  //     onResetCacheNeededCallback,
+  //     lastBarsCache.get(symbolInfo.full_name)
+  //   );
+  // },
 
-  unsubscribeBars: (subscriberUID: string) => {
-    unsubscribeFromStream(subscriberUID);
-  },
+  // unsubscribeBars: (subscriberUID: string) => {
+  //   unsubscribeFromStream(subscriberUID);
+  // },
 };

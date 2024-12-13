@@ -3,11 +3,12 @@ import { ArrowRight } from "@/public/assets/icons";
 
 type Props = {
   text: string;
+  description?: React.ReactNode;
   onClick?: () => void;
   showArrow?: boolean;
 };
 
-const Header = ({ text, onClick, showArrow = true }: Props) => {
+const Header = ({ text, description, onClick, showArrow = true }: Props) => {
   return (
     <div className="p-[48px] w-full relative">
       {showArrow && (
@@ -16,7 +17,14 @@ const Header = ({ text, onClick, showArrow = true }: Props) => {
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
         />
       )}
-      <p className="text-2xl font-normal text-center">{text}</p>
+      <div className="w-full">
+        <p className="text-2xl font-normal text-center mb-3">{text}</p>
+        {description && (
+          <p className="text-base font-light text-center text-text-light">
+            {description}
+          </p>
+        )}
+      </div>
     </div>
   );
 };

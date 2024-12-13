@@ -1,23 +1,7 @@
 import React from "react";
 import BasicTable from "../../components/table";
 import useTableGlobal from "@/src/hooks/useTableGlobal";
-import { FilterIcon } from "@/public/assets/icons";
-import Image from "next/image";
-import Bitcoin from "@/public/assets/icons/bitcoin.svg";
-import Ethereum from "@/public/assets/icons/ethereum.svg";
-import Solana from "@/public/assets/icons/solana.svg";
-import Usdt from "@/public/assets/icons/usdt.svg";
-import Usdc from "@/public/assets/icons/usdc.svg";
 import { formatDate } from "@/src/lib";
-
-const coins = [
-  { name: "BTC", value: Bitcoin },
-  { name: "ETH", value: Ethereum },
-  { name: "SOL", value: Solana },
-  { name: "USDC", value: Usdc },
-  { name: "USDT", value: Usdt },
-  { name: "USD", value: Usdc, value2: Usdt },
-];
 
 export type BotDealOrder = {
   order_id: string;
