@@ -137,7 +137,6 @@ const columns = [
     header: () => (
       <div className="flex gap-1 items-center text-left px-8 py-4 font-medium text-sm">
         <span className="">SO</span>
-        {/* <Image  alt="" className="w-4 h-4" src={direction} /> */}
       </div>
     ),
     accessorKey: "so",
