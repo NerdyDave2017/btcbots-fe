@@ -5,7 +5,7 @@ import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
 import Usdt_Usdc from "@/public/assets/icons/usdt_usdc.svg";
 
-const Assets = () => {
+const Assets = ({ onClick }: { onClick: () => void }) => {
   const data = [
     {
       name: "Bitcoin",
@@ -49,7 +49,10 @@ const Assets = () => {
             </p>
 
             <div className="flex-1 flex justify-end items-center ">
-              <button className="px-4 py-2 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex">
+              <button
+                onClick={onClick}
+                className="px-4 py-2 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex"
+              >
                 <span className="text-[#006fe3] text-sm font-normal">
                   Withdraw
                 </span>

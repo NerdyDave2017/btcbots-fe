@@ -1,24 +1,19 @@
 "use client";
-import React from "react";
-import Header from "../components/header";
+import React, { useState } from "react";
+
 import Main from "./main";
+import Withdraw from "./withdraw";
+
+export type SelectedType = "Main" | "Withdraw";
 
 const page = () => {
+  const [selected, setSelected] = useState<SelectedType>("Main");
+
   return (
     <div className="w-full pb-[48px]">
-      <Header
-        text="Affiliate Center"
-        description={
-          <span>
-            Every time your referral pay their profit share of the month, 25%
-            get automatically credited in your account and <br /> settled in the
-            current they paid with, for you to withdraw immediately.
-          </span>
-        }
-        showArrow={false}
-      />
+      {selected === "Main" && <Main setSelected={setSelected} />}
 
-      <Main />
+      {selected === "Withdraw" && <Withdraw setSelected={setSelected} />}
     </div>
   );
 };

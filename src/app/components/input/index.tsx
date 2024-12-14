@@ -6,9 +6,10 @@ type Props = {
   value: string;
   setValue: (value: string) => void;
   icon: "email" | "password" | "text";
+  action?: React.ReactNode;
 };
 
-const Input = ({ label, icon = "text", setValue, value }: Props) => {
+const Input = ({ label, icon = "text", setValue, value, action }: Props) => {
   const icons: Record<string, any> = {
     email: <Mail />,
     password: [<EyeClosed />, <EyeOpen />],
@@ -29,6 +30,7 @@ const Input = ({ label, icon = "text", setValue, value }: Props) => {
       <div className="w-full flex items-center justify-between border-b border-[#3c3c43]/60">
         <input type={icon} className="w-full p-2 outline-none" />{" "}
         {returnIcon(icon)}
+        {action && <div className="text-nowrap">{action}</div>}
       </div>
     </div>
   );
