@@ -74,13 +74,13 @@ const Home = () => {
         <div className="w-full py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-4 inline-flex">
           {transactions.map((transaction) => (
             <div className="self-stretch px-[18px] flex-col justify-start items-start gap-4 flex">
-              <div className="text-[#090909] text-base font-normal font-['Sora']">
+              <div className="text-[#090909] text-base font-medium font-['Sora']">
                 {transaction.type}
               </div>
-              <div className="self-stretch text-[#090909] text-base font-light font-['Sora']">
+              <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
                 {transaction.message}
               </div>
-              <div className="self-stretch text-right text-[#3c3c43]/60 text-sm font-light font-['Sora']">
+              <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light font-['Sora']">
                 {transaction.date}
               </div>
             </div>

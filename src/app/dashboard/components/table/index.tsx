@@ -44,7 +44,7 @@ export default function BasicTable({
           ))}
         </thead>
 
-        <tbody className="w-[100%]">
+        <tbody className="w-[100%] font-light">
           {table.getRowModel().rows.map((row: any) => (
             <tr key={row.id} className="border-t border-[#E3E3E3]">
               {row.getVisibleCells().map((cell: any) => (
