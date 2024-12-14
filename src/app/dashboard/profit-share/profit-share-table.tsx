@@ -84,7 +84,8 @@ const columns = [
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
           <span className="">
-            {item.start} - {item.end}
+            {formatDate(item.start, "MMM DD")} -{" "}
+            {formatDate(item.end, "MMM DD")}
           </span>
         </div>
       );
