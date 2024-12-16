@@ -5,8 +5,13 @@ import Bitcoin from "@/public/assets/icons/bitcoin.svg";
 import Button from "../../components/button";
 import Dropdown from "../../components/dropdown/dropdown";
 import Chart from "@/public/assets/icons/performance-chart.svg";
+import { SelectedType } from "./page";
 
-const Performance = () => {
+type Props = {
+  setSelected: (value: SelectedType) => void;
+};
+
+const Performance = ({ setSelected }: Props) => {
   const data = [
     {
       title: " Market Strategy",
@@ -36,7 +41,11 @@ const Performance = () => {
 
   return (
     <div className="w-full px-[48px]">
-      <Header text="Performance Data" showArrow />
+      <Header
+        text="Performance Data"
+        showArrow
+        onClick={() => setSelected("Main")}
+      />
 
       <div className="w-full mb-[60px]">
         <Image src={Chart} alt="" />

@@ -12,7 +12,7 @@ const page = () => {
     <div className="w-full text-text-light font-light overflow-scroll">
       {selected === "Main" && <Main setSelected={setSelected} />}
 
-      {selected === "Performance" && <Performance />}
+      {selected === "Performance" && <Performance setSelected={setSelected} />}
     </div>
   );
 };
