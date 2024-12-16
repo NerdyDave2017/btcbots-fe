@@ -161,14 +161,12 @@ const Card = ({ onClick }: Props) => {
           </div>
         </div>
 
-        <Button
-          onClick={onClick}
-          text="Activate Bots"
-          className="w-full"
-          size="lg"
-        />
+        <Button text="Activate Bots" className="w-full" size="lg" />
 
-        <button className="w-full px-8 py-4 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex text-[#006fe3] ">
+        <button
+          onClick={onClick}
+          className="w-full px-8 py-4 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex text-[#006fe3] "
+        >
           See Performance Data
         </button>
       </div>

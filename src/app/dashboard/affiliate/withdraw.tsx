@@ -24,10 +24,10 @@ const Withdraw = ({ setSelected }: Props) => {
               setValue={() => {}}
             />
             <div className="text-right mt-4">
-              <span className="text-[#3c3c43]/60 text-sm font-normal font-['Sora']">
+              <span className="text-[#3c3c43]/60 text-sm font-normal">
                 Available balance:{" "}
               </span>
-              <span className="text-[#090909] text-sm font-normal font-['Sora']">
+              <span className="text-[#090909] text-sm font-normal">
                 239.3823USD
               </span>
             </div>

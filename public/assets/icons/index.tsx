@@ -27,6 +27,26 @@ export const ArrowRight = (props: SVGProps<any>) => {
     </svg>
   );
 };
+export const ChevronDown = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="14"
+      height="9"
+      viewBox="0 0 14 9"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M1.20312 1.61719L6.49602 6.91008C6.82935 7.24341 6.99602 7.41008 7.20312 7.41008C7.41023 7.41008 7.5769 7.24341 7.91023 6.91008L13.2031 1.61719"
+        stroke="#090909"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
 
 export const Checkmark = (props: SVGProps<any>) => {
   return (

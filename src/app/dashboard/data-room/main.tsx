@@ -1,24 +1,20 @@
 import React from "react";
 import { ArrowRight, SearchIcon, SettingsIcon } from "@/public/assets/icons";
-import { SelectedType } from "../page";
+import { SelectedType } from "./page";
 import Link from "next/link";
-import Card from "../components/card";
-import Header from "../../components/header";
+import Card from "./components/card";
+import Header from "../components/header";
 
 type Props = {
   setSelected: (value: SelectedType) => void;
 };
 
-const Strategy = ({ setSelected }: Props) => {
+const Main = ({ setSelected }: Props) => {
   const nav = ["Data Room", "FAQ", "Help", "Knowledge Base"];
 
   return (
     <div className="w-full font-normal overflow-scroll pb-[48px]">
-      <Header
-        text="Select Your Desired Strategy"
-        showArrow={true}
-        onClick={() => setSelected(null)}
-      />
+      <Header text="Data Room" showArrow={false} />
 
       <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-between items-center inline-flex">
         <div className="justify-start items-center gap-6 inline-flex">
@@ -50,13 +46,13 @@ const Strategy = ({ setSelected }: Props) => {
 
       <div className="columns-3 justify-items-center w-[1070px] m-auto mt-6">
         {/* {data.map((item, index) => ( */}
-        <Card onClick={() => setSelected("activate")} />
-        <Card onClick={() => setSelected("activate")} />
-        <Card onClick={() => setSelected("activate")} />
+        <Card onClick={() => setSelected("Performance")} />
+        <Card onClick={() => setSelected("Performance")} />
+        <Card onClick={() => setSelected("Performance")} />
         {/* ))} */}
       </div>
     </div>
   );
 };
 
-export default Strategy;
+export default Main;

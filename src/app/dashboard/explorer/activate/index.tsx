@@ -95,7 +95,6 @@ const Activate = ({
               </div>
             </div>
             <div className="py-4 px-4 bg-[#eaf0f6] rounded-bl-[32px] rounded-br-[32px] flex-col justify-start items-center gap-6 flex">
-              {/* Section 1 */}
               <div className="w-full flex items-center justify-between">
                 <div className="">
                   <p className="text-text-light text-base font-normal mb-2 ">
