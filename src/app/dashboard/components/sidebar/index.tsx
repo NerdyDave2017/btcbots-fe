@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import Logo from "@/public/assets/images/LogoBig.svg";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,7 @@ import {
 
 const Sidebar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   const navigation = [
     {
@@ -109,6 +111,7 @@ const Sidebar = () => {
       <div className="flex flex-col">
         {user.map((item, index) => (
           <button
+            onClick={() => router.push(item.link ?? "")}
             key={index}
             className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
               index === 1 && "bg-[#f4f6f8] rounded-full"
