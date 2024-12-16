@@ -80,7 +80,9 @@ const Sidebar = () => {
   return (
     <div className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light sticky z-50 top-0 bottom-0">
       <div className="w-full flex flex-col justify-center items-center">
-        <Image src={Logo} alt="Logo" />
+        <Link href="/">
+          <Image src={Logo} alt="Logo" />
+        </Link>
 
         <div className="w-full space-y-[32px] mt-[36px]">
           {navigation.map((item, index) => (

@@ -5,7 +5,7 @@ import ProfitShareTable from "./profit-share-table";
 
 const page = () => {
   return (
-    <div className="w-full pb-[48px]">
+    <div className="w-full max-w-[1154px] mx-auto pb-[48px]">
       <Header
         text="Profits Share"
         description={

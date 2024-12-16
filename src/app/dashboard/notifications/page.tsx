@@ -16,7 +16,7 @@ const page = () => {
     },
   ];
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[1154px] mx-auto">
       <Header text="Notifications" showArrow={false} />
       <div className="px-[48px]">
         <div className="w-full  flex-col justify-center items-start gap-4 inline-flex">

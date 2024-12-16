@@ -48,7 +48,7 @@ const Performance = ({ setSelected }: Props) => {
       />
 
       <div className="w-full mb-[60px]">
-        <Image src={Chart} alt="" />
+        <Image className="mx-auto" src={Chart} alt="" />
       </div>
 
       <div className="flex w-full justify-center gap-[48px]">
@@ -111,7 +111,7 @@ const Performance = ({ setSelected }: Props) => {
             <Button className="w-full" text="Activate Bot" size="lg" />
           </div>
         </div>
-        <div className="flex-1 flex flex-col gap-8">
+        <div className="flex-1 flex flex-col gap-8 w-full max-w-[550px]">
           <Dropdown
             label="Year"
             setValue={() => {}}
