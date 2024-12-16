@@ -12,6 +12,7 @@ import {
   ApiIcon,
 } from "@/public/assets/icons";
 import Button from "../../components/button";
+import Link from "next/link";
 
 type Props = {
   setSelected: (selected: SelectedType) => void;
@@ -41,27 +42,40 @@ const Main = ({ setSelected }: Props) => {
     {
       icon: <MessageIcon />,
       text: "Frequently Asked Questions",
+      link: "",
     },
     {
       icon: <ComputerDollarIcon />,
       text: "Strategies",
+      link: "",
     },
     {
       icon: <HouseIcon />,
       text: "Exchanges",
+      link: "",
     },
     {
       icon: <DataIcon className="text-primary w-6 h-6" />,
       text: "Data Room",
+      link: "",
     },
     {
       icon: <MyBotsIcon className="text-primary w-6 h-6" />,
       text: "Automated Trading",
+      link: "",
     },
     {
       icon: <ApiIcon />,
       text: "API",
+      link: "",
     },
+  ];
+
+  const videos = [
+    "All about crypbots.io",
+    "Affiliate program",
+    "Step by step",
+    "Overview",
   ];
 
   return (
@@ -95,14 +109,40 @@ const Main = ({ setSelected }: Props) => {
           ))}
         </div>
 
-        <div className="flex">
-          <div className="mt-8 flex gap-8">
+        <div className="flex mt-8 ">
+          <div className="flex gap-8">
             {links.map((link, index) => (
-              <div key={index} className="flex items-center gap-2">
+              <Link
+                href={link.link}
+                key={index}
+                className="flex items-center gap-2"
+              >
                 {link.icon}
                 <span className="text-[#090909] text-base font-light text-wrap">
                   {link.text}
                 </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full mt-8">
+          <p className="text-[#090909] text-xl font-normal">
+            Quick Start Video Guides
+          </p>
+
+          <div className="w-full mt-6 flex gap-6 overflow-scroll">
+            {videos.map((video, index) => (
+              <div
+                key={index}
+                className="flex-col justify-start items-center gap-3 inline-flex"
+              >
+                <div className="self-stretch w-[615px] h-[359.42px] flex-col justify-start items-start gap-4 flex">
+                  <div className="self-stretch grow shrink basis-0 bg-black/40" />
+                </div>
+                <p className="self-stretch text-center text-[#090909] text-base font-normal font-['Sora']">
+                  {video}
+                </p>
               </div>
             ))}
           </div>
