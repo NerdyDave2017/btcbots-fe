@@ -99,7 +99,7 @@ const Main = ({ setSelected }: Props) => {
                   <p className="text-[#090909] text-base font-normal">
                     {card.title}
                   </p>
-                  <p className="self-stretch text-[#090909] text-base font-light">
+                  <p className="self-stretch text-[#090909] text-sm font-light">
                     {card.description}
                   </p>
                 </div>

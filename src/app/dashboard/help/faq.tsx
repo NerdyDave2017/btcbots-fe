@@ -65,7 +65,7 @@ const FAQ = ({ setSelected }: Props) => {
               >
                 <div className="self-stretch justify-between items-start inline-flex">
                   <p className="text-[#090909] text-sm font-light">{info}</p>
-                  <ArrowRight className="w-6 h-6 cursor-pointer" />
+                  <ArrowRight className="cursor-pointer" />
                 </div>
               </div>
             </>
@@ -91,7 +91,7 @@ const FAQ = ({ setSelected }: Props) => {
               >
                 <div className="self-stretch justify-between items-start inline-flex">
                   <p className="text-[#090909] text-sm font-light">{info}</p>
-                  <ArrowRight className="w-6 h-6 cursor-pointer" />
+                  <ArrowRight className="cursor-pointer" />
                 </div>
               </div>
             </>
