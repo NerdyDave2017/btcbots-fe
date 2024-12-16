@@ -9,7 +9,7 @@ const page = () => {
   const [selected, setSelected] = useState<SelectedType>("Main");
 
   return (
-    <div className="w-full max-w-[1154px] mx-auto text-text-light font-light overflow-scroll">
+    <div className="w-full  text-text-light font-light overflow-scroll">
       {selected === "Main" && <Main setSelected={setSelected} />}
 
       {selected === "Performance" && <Performance setSelected={setSelected} />}

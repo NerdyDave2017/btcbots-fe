@@ -49,7 +49,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full max-w-[1154px] mx-auto p-[48px] text-text-light font-light">
+    <div className="w-full  p-[48px] text-text-light font-light">
       <div className="w-full">
         <p className="text-2xl font-normal">
           Welcome to your dashboard, Jordan

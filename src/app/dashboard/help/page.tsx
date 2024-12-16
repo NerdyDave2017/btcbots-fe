@@ -8,7 +8,7 @@ const page = () => {
   const [selected, setSelected] = useState<SelectedType>("main");
 
   return (
-    <div className="w-full max-w-[1154px] mx-auto">
+    <div className="w-full overflow-scroll">
       {selected === "main" && <Main setSelected={setSelected} />}
     </div>
   );

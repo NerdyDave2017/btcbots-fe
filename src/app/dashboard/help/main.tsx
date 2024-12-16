@@ -32,8 +32,8 @@ const Main = ({ setSelected }: Props) => {
       icon: <SpeakerIcon className="w-8 h-8" />,
       title: "FAQ",
       description:
-        "Connect with our AI assistant or support team for immediate help. We're here 24/7 to assist you with any questions or technical issues.",
-      buttonText: "Start Chat",
+        "Find answers to the most frequently asked questions about our platform. Get quick solutions to common issues and learn more about our services.",
+      buttonText: "View FAQ",
       onClick: () => setSelected("faq"),
     },
   ];
@@ -109,7 +109,7 @@ const Main = ({ setSelected }: Props) => {
           ))}
         </div>
 
-        <div className="flex mt-8 ">
+        <div className="flex mt-8 justify-center">
           <div className="flex gap-8">
             {links.map((link, index) => (
               <Link
