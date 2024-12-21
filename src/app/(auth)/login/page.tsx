@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div className="w-full flex flex-col items-center py-[70px] px-[160px] gap-[48px] text-text-light">
       <div className="w-[475px]">
-        <p className="text-[40px] text-primary">Welcome back!</p>
+        <p className="text-[40px] text-main">Welcome back!</p>
         <p className="text-sm font-light text-text-light">
           Please log in to access your account.
         </p>
@@ -27,14 +27,14 @@ const page = () => {
           <div className="text-right mt-[16px]">
             <Link
               href="/forgot-password"
-              className="text-primary text-sm font-normal  underline"
+              className="text-main text-sm font-normal  underline"
             >
               Forgot password?
             </Link>{" "}
             <span className="text-text-light text-sm font-normal ">or</span>{" "}
             <Link
               href="/signup"
-              className="text-primary text-sm font-normal  underline"
+              className="text-main text-sm font-normal  underline"
             >
               Sign Up
             </Link>
@@ -55,12 +55,12 @@ const page = () => {
       <div className="w-[475px] flex flex-col gap-[32px]">
         <button className="w-full  px-8 py-4 rounded-full border border-primary justify-center items-center gap-2.5 inline-flex">
           <GoogleIcon />
-          <p className="text-primary  font-normal ">Continue with Google</p>
+          <p className="text-main  font-normal ">Continue with Google</p>
         </button>
 
         <button className="w-full  px-8 py-4 rounded-full border border-primary justify-center items-center gap-2.5 inline-flex">
-          <UserIcon className="text-primary" />
-          <p className="text-primary  font-normal ">Sign in as guest</p>
+          <UserIcon className="text-main" />
+          <p className="text-main  font-normal ">Sign in as guest</p>
         </button>
       </div>
     </div>

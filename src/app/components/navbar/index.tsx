@@ -55,16 +55,16 @@ const Navbar = () => {
             {links.map((item, index) => (
               <Link
                 className={`${
-                  pathname === item.href && "text-accent"
-                } hover:text-accent group relative transition-colors ease-in-out`}
+                  pathname === item.href && "text-touch"
+                } hover:text-touch group relative transition-colors ease-in-out`}
                 href={item.href}
                 key={index}
               >
                 <li>{item.name}</li>
                 <span
                   className={`absolute left-0 -translate-x-0 bottom-0 w-0 h-[1.5px] ${
-                    pathname === item.href && "w-1/2 bg-accent"
-                  } bg-accent transition-all duration-300 ease-in-out group-hover:w-1/2`}
+                    pathname === item.href && "w-1/2 bg-touch"
+                  } bg-touch transition-all duration-300 ease-in-out group-hover:w-1/2`}
                 ></span>
               </Link>
             ))}

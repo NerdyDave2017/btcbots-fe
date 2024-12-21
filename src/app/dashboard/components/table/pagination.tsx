@@ -51,7 +51,7 @@ const PaginationControl = ({ table }: Props) => {
   ]);
 
   return (
-    <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-primary">
+    <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-main">
       <div className="">
         Showing 1 to {table.getRowModel().rows.length.toLocaleString()} of{" "}
         {table.getRowCount().toLocaleString()} models
@@ -74,9 +74,9 @@ const PaginationControl = ({ table }: Props) => {
           </select>
         </div>
 
-        <div className=" flex gap-5 text-primary">
+        <div className=" flex gap-5 text-main">
           <button
-            className="flex items-center justify-center rounded-md   text-primary cursor-pointer gap-2"
+            className="flex items-center justify-center rounded-md   text-main cursor-pointer gap-2"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
@@ -92,7 +92,7 @@ const PaginationControl = ({ table }: Props) => {
                   <div
                     key={index}
                     className={`w-7 h-7 flex items-center justify-center ${
-                      currentPage === tile ? "bg-primary text-white" : ""
+                      currentPage === tile ? "bg-main text-white" : ""
                     }  rounded-md    cursor-pointer`}
                     onClick={() => table.setPageIndex(tile - 1)}
                   >
@@ -103,7 +103,7 @@ const PaginationControl = ({ table }: Props) => {
             {/* Check if number of pages left is 2 or less */}
             {!(currentPage + 2 >= table.getPageCount()) && (
               <div
-                className={`h-full  flex rounded-md text-primary cursor-pointer`}
+                className={`h-full  flex rounded-md text-main cursor-pointer`}
               >
                 ...
               </div>
@@ -112,7 +112,7 @@ const PaginationControl = ({ table }: Props) => {
               className={`w-7 h-7 flex items-center justify-center ${
                 table.getState().pagination.pageIndex + 1 ===
                 table.getPageCount()
-                  ? "bg-primary text-white"
+                  ? "bg-main text-white"
                   : ""
               } rounded-md    cursor-pointer`}
               onClick={() => table.setPageIndex(table.getPageCount() - 1)}
@@ -122,7 +122,7 @@ const PaginationControl = ({ table }: Props) => {
           </div>
 
           <button
-            className="flex items-center gap-2 justify-center rounded-md   text-primary"
+            className="flex items-center gap-2 justify-center rounded-md   text-main"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >

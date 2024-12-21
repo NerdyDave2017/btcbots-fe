@@ -28,3 +28,10 @@ export const calculateTimeDuration = (startTime: string, endTime: string) => {
 
   return { hours: diffHours, minutes: diffMinutes, seconds: diffSeconds };
 };
+
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}

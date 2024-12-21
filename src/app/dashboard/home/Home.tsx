@@ -61,7 +61,7 @@ const Home = () => {
           <div className="w-full flex-1 h-[162px] py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-between items-center flex">
             <p className="text-[32px] font-normal text-center">{item.value}</p>
             <div className="justify-center items-center gap-2 inline-flex">
-              <item.icon className="text-primary" />
+              <item.icon className="text-main" />
               <p className="text-base font-light ">{item.title}</p>
             </div>
           </div>

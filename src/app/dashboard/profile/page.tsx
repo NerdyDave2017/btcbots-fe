@@ -36,7 +36,7 @@ const page = () => {
                   Password
                 </p>
                 <div className="w-5 h-5 p-[3.33px] justify-center items-center flex">
-                  <WriteIcon className="w-[13.33px] h-[13.33px] relative text-primary cursor-pointer" />
+                  <WriteIcon className="w-[13.33px] h-[13.33px] relative text-main cursor-pointer" />
                 </div>
               </div>
               <input

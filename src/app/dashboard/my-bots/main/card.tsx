@@ -22,8 +22,8 @@ const Card = ({ onClick }: Props) => {
       <div className="w-full flex items-center gap-4">
         <Image src={Bitcoin} className="w-12 h-12" alt="" />
         <p className="text-xl text-text-light font-normal">Bitcoin Bot</p>
-        <div className="px-2.5 py-1.5 bg-primary/20 rounded-[90px] justify-center items-center flex">
-          <p className="text-primary text-sm font-normal">CB001</p>
+        <div className="px-2.5 py-1.5 bg-main/20 rounded-[90px] justify-center items-center flex">
+          <p className="text-main text-sm font-normal">CB001</p>
         </div>
       </div>
 
@@ -92,16 +92,16 @@ const Card = ({ onClick }: Props) => {
 
       <div className="w-full px-4 flex-col justify-start items-start gap-2.5 inline-flex">
         <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-primary text-base font-normal">Resume Bot</p>
+          <p className="text-main text-base font-normal">Resume Bot</p>
 
           <InfoIcon />
         </div>
         <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-primary text-base font-normal">Force Stop Bot</p>
+          <p className="text-main text-base font-normal">Force Stop Bot</p>
           <InfoIcon />
         </div>
         <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-primary text-base font-normal">Soft Stop Bot</p>
+          <p className="text-main text-base font-normal">Soft Stop Bot</p>
           <InfoIcon />
         </div>
         <div
@@ -109,9 +109,7 @@ const Card = ({ onClick }: Props) => {
           className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer"
         >
           <CastIcon />
-          <p className="text-primary text-base font-normal">
-            Display Live data
-          </p>
+          <p className="text-main text-base font-normal">Display Live data</p>
         </div>
       </div>
     </div>

@@ -14,11 +14,11 @@ const Affiliate = () => {
           </div>
           <div className="">
             <div className="font-light space-y-[20px]">
-              <p className="text-[40px] text-primary">
+              <p className="text-[40px] text-main">
                 Affiliate partner <br /> program
               </p>
               <div className="flex items-start gap-2">
-                <Checkmark className="text-primary" />
+                <Checkmark className="text-main" />
                 <p className="text-lg">
                   Earn Passive Income with Our Referral <br /> Program. Refer
                   friends, and receive a 25% <br /> commission on their profit
@@ -26,7 +26,7 @@ const Affiliate = () => {
                 </p>
               </div>
               <div className="flex items-start gap-2">
-                <Checkmark className="text-primary" />
+                <Checkmark className="text-main" />
                 <p className="text-lg">
                   No active trading required. Simply register <br /> and start
                   earning.

@@ -105,11 +105,11 @@ const KnowledgeBase = ({ setSelected }: Props) => {
           <div className="flex-col justify-start items-start gap-2 inline-flex">
             {QuickLinks.map((link, index) => (
               <div className="flex gap-1 items-center" key={index}>
-                <ChevronDown className="text-primary  -rotate-90 justify-center items-center flex" />
+                <ChevronDown className="text-main  -rotate-90 justify-center items-center flex" />
 
                 <div
                   key={index}
-                  className="text-[#090909] text-base font-light cursor-pointer hover:text-primary underline"
+                  className="text-[#090909] text-base font-light cursor-pointer hover:text-main underline"
                 >
                   {link}
                 </div>

@@ -14,7 +14,7 @@ const Trading = () => {
         <div className="w-full flex items-center justify-between ">
           <div className="">
             <div className="flex flex-col gap-[24px]">
-              <div className="relative flex items-start text-primary gap-[22px]">
+              <div className="relative flex items-start text-main gap-[22px]">
                 <p className="text-[40px]">
                   Start trading in <br /> two steps
                 </p>
@@ -23,11 +23,11 @@ const Trading = () => {
 
               <div className="font-light space-y-[20px]">
                 <div className="flex items-start gap-2">
-                  <Checkmark className="text-primary" />
+                  <Checkmark className="text-main" />
                   <p className="text-lg">Select your currency deposit.</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Checkmark className="text-primary" />
+                  <Checkmark className="text-main" />
                   <p className="text-lg">
                     Select the currency you would <br /> like to receive profits
                     in.
@@ -36,14 +36,14 @@ const Trading = () => {
               </div>
             </div>
             {/* <div className="flex flex-col gap-[24px]">
-              <div className="relative flex items-start text-primary gap-[22px]">
+              <div className="relative flex items-start text-main gap-[22px]">
                 <p className="text-[40px]">Faster approach</p>
                 <ArrowRight className="absolute -right-14 top-5 w-6 h-6" />
               </div>
  
               <div className="font-light space-y-[20px]">
                 <div className="flex items-start gap-2">
-                  <Checkmark className="text-primary" />
+                  <Checkmark className="text-main" />
                   <p className="text-lg">
                     Simply select your favorite <br /> exchange and see what we
                     have <br /> available for it.{" "}

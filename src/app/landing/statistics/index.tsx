@@ -30,7 +30,7 @@ const Statistics = () => {
           <div className="flex mb-20">
             <div className="flex-1"></div>
             <div className="flex-1 flex items-center justify-ce">
-              <p className="text-[40px] text-primary">Our Statistics</p>
+              <p className="text-[40px] text-main">Our Statistics</p>
             </div>
           </div>
 
@@ -56,7 +56,7 @@ const Statistics = () => {
               </div>
             </div>
             <div className="flex-1 h-[628px] text-[#f4f6f8] ">
-              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-primary top-[364px] right-[480.13px]">
+              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-main top-[364px] right-[480.13px]">
                 <p className="text-5xl leading-snug">$3.9m+</p>
                 <p className="text-2xl">In profits generated since 2020</p>
               </div>
@@ -66,7 +66,7 @@ const Statistics = () => {
                   helping people achieve their financial goals.
                 </p>
               </div>
-              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-primary right-0">
+              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-main right-0">
                 <p className="text-5xl leading-snug">$323K+</p>
                 <p className="text-2xl">paid out to our affiliate partners. </p>
               </div>

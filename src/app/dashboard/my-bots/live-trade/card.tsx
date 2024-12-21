@@ -39,8 +39,8 @@ const card = ({ setSelected }: Props) => {
         <div className="flex flex-col items-start justify-center gap-3">
           <div className="flex items-center gap-4">
             <p className="text-xl text-text-light font-normal">Bitcoin Bot</p>
-            <div className="px-2.5 py-1.5 bg-primary/20 rounded-[90px] justify-center items-center flex">
-              <p className="text-primary text-sm font-normal">CB001</p>
+            <div className="px-2.5 py-1.5 bg-main/20 rounded-[90px] justify-center items-center flex">
+              <p className="text-main text-sm font-normal">CB001</p>
             </div>
           </div>
 

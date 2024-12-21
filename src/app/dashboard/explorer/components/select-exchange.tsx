@@ -29,7 +29,7 @@ function SelectExchange({
     <div className="w-full">
       <div className="w-full px-4 py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">
         <HouseIcon />
-        <p className="text-primary text-lg">Select an exchange</p>
+        <p className="text-main text-lg">Select an exchange</p>
       </div>
 
       <div className="w-full py-6 px-[18px] bg-[#eaf0f6] rounded-bl-2xl rounded-br-2xl">

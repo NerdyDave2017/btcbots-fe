@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div className="w-full flex flex-col items-center justify-center py-[70px] px-[160px] gap-[48px] text-text-light">
       <div className="w-[475px]">
-        <p className="text-[40px] text-primary">Reset Password</p>
+        <p className="text-[40px] text-main">Reset Password</p>
         <p className="text-sm font-light text-text-light">
           Type in your new password.
         </p>

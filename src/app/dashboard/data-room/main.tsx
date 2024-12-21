@@ -19,11 +19,7 @@ const Main = ({ setSelected }: Props) => {
       <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-between items-center inline-flex">
         <div className="justify-start items-center gap-6 inline-flex">
           {nav.map((item) => (
-            <Link
-              href=""
-              key={item}
-              className="text-primary text-lg font-normal"
-            >
+            <Link href="" key={item} className="text-main text-lg font-normal">
               {item}
             </Link>
           ))}

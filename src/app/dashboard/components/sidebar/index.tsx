@@ -90,12 +90,12 @@ const Sidebar = () => {
               href={item.link}
               key={index}
               className={`${
-                pathname === item.link && "bg-primary rounded-full"
+                pathname === item.link && "bg-main rounded-full"
               } flex items-center gap-[8px] py-[12px] px-[16px]`}
             >
               <item.icon
                 className={`${
-                  pathname === item.link ? "text-[#f4f6f8]" : "text-primary"
+                  pathname === item.link ? "text-[#f4f6f8]" : "text-main"
                 } `}
               />
               <span

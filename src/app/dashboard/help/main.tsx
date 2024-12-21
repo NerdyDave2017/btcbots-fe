@@ -55,12 +55,12 @@ const Main = ({ setSelected }: Props) => {
       link: "",
     },
     {
-      icon: <DataIcon className="text-primary w-6 h-6" />,
+      icon: <DataIcon className="text-main w-6 h-6" />,
       text: "Data Room",
       link: "",
     },
     {
-      icon: <MyBotsIcon className="text-primary w-6 h-6" />,
+      icon: <MyBotsIcon className="text-main w-6 h-6" />,
       text: "Automated Trading",
       link: "",
     },

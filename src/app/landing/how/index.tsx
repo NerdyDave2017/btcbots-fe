@@ -7,12 +7,12 @@ const How = () => {
     <div className="text-text-light py-[70px]">
       <Container>
         <div className="w-[880px] mx-auto flex flex-col items-center justify-center gap-[50px]">
-          <p className="text-primary text-[40px]">How it works?</p>
+          <p className="text-main text-[40px]">How it works?</p>
           <div className="w-full flex items-center justify-between">
             <div className="">
               <p className="text-2xl">
                 Completely <br />
-                <span className="text-primary">FREE</span>
+                <span className="text-main">FREE</span>
               </p>
             </div>
             <div className="w-[540px] text-2xl">
