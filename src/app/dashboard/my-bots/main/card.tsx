@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Bitcoin from "@/public/assets/icons/bitcoin.svg";
 import Ethereum from "@/public/assets/icons/ethereum.svg";
@@ -11,12 +11,17 @@ import {
   CastIcon,
   InfoIcon,
 } from "@/public/assets/icons";
+import { motion } from "framer-motion";
 
 type Props = {
   onClick: () => void;
 };
 
 const Card = ({ onClick }: Props) => {
+  const [enabled, setEnabled] = useState(false);
+
+  const toggleSwitch = () => setEnabled(!enabled);
+
   return (
     <div className="w-[350px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex flex-col items-center gap-4">
       <div className="w-full flex items-center gap-4">
@@ -55,8 +60,21 @@ const Card = ({ onClick }: Props) => {
 
       <div className="justify-center items-center gap-4 inline-flex">
         <p className="text-[#090909] text-base font-normal">Disabled</p>
-        <div className="w-[51px] h-[31px] pl-[22px] pr-0.5 py-0.5 bg-[#34c759] rounded-[100px] justify-end items-center flex">
-          <div className="w-[27px] h-[27px] relative bg-white rounded-[100px] shadow" />
+        <div
+          onClick={toggleSwitch}
+          className={`w-[51px] h-[31px] p-0.5 bg-[#34c759] rounded-[100px] ${
+            enabled ? "justify-end" : "justify-start"
+          } items-center flex cursor-pointer`}
+        >
+          <motion.div
+            layout
+            transition={{
+              type: "spring",
+              visualDuration: 0.4,
+              bounce: 0.4,
+            }}
+            className="w-[27px] h-[27px] bg-white rounded-[100px] shadow"
+          />
         </div>
         <p className="text-[#090909] text-base font-normal">Enabled</p>
       </div>

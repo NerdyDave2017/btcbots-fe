@@ -35,12 +35,12 @@ const Trading = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="flex flex-col gap-[24px]">
+            <div className="flex flex-col gap-[24px]">
               <div className="relative flex items-start text-main gap-[22px]">
                 <p className="text-[40px]">Faster approach</p>
                 <ArrowRight className="absolute -right-14 top-5 w-6 h-6" />
               </div>
- 
+
               <div className="font-light space-y-[20px]">
                 <div className="flex items-start gap-2">
                   <Checkmark className="text-main" />
@@ -50,7 +50,7 @@ const Trading = () => {
                   </p>
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
           <div className="">
             <div className="w-[695px] h-[775px] bg-[#8fb8e3] rounded-[32px] relative overflow-clip">
