@@ -7,9 +7,17 @@ type Props = {
   setValue: (value: string) => void;
   icon: "email" | "password" | "text";
   action?: React.ReactNode;
+  disabled?: boolean;
 };
 
-const Input = ({ label, icon = "text", setValue, value, action }: Props) => {
+const Input = ({
+  label,
+  icon = "text",
+  setValue,
+  value,
+  action,
+  disabled,
+}: Props) => {
   const icons: Record<string, any> = {
     email: <Mail />,
     password: [<EyeClosed />, <EyeOpen />],
@@ -27,10 +35,14 @@ const Input = ({ label, icon = "text", setValue, value, action }: Props) => {
     <div className="w-full flex flex-col gap-[16px]">
       <label className="text-text-light">{label}</label>
 
-      <div className="w-full flex items-center justify-between border-b border-[#3c3c43]/60">
-        <input type={icon} className="w-full p-2 outline-none" />{" "}
+      <div className="w-full flex items-center justify-between border-b border-[#3c3c43]/60 gap-4">
+        <input
+          type={icon}
+          className="w-full p-2 outline-none bg-transparent"
+          disabled={disabled}
+        />{" "}
         {returnIcon(icon)}
-        {action && <div className="text-nowrap">{action}</div>}
+        {action && <div className="text-nowrap cursor-pointer">{action}</div>}
       </div>
     </div>
   );

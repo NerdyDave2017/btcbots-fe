@@ -1,6 +1,5 @@
 import React from "react";
 import { UserIcon, MultipleUsersIcon, MyBotsIcon } from "@/public/assets/icons";
-import { title } from "process";
 
 const Home = () => {
   const data = [
