@@ -17,6 +17,7 @@ import {
   LogoutIcon,
   UserIcon,
 } from "@/public/assets/icons";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -78,57 +79,76 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0 transition-all duration-300">
-      <div className="w-full flex flex-col justify-center items-center">
-        <Link href="/">
-          <Image src={Logo} alt="Logo" />
-        </Link>
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{
+          x: -300,
+        }}
+        animate={{
+          x: 0,
+        }}
+        exit={{
+          x: -300,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeIn",
+          type: "spring",
+          bounce: 0.25,
+        }}
+        className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0"
+      >
+        <div className="w-full flex flex-col justify-center items-center">
+          <Link href="/">
+            <Image src={Logo} alt="Logo" />
+          </Link>
 
-        <div className="w-full space-y-[32px] mt-[36px]">
-          {navigation.map((item, index) => (
-            <Link
-              href={item.link}
+          <div className="w-full space-y-[32px] mt-[36px]">
+            {navigation.map((item, index) => (
+              <Link
+                href={item.link}
+                key={index}
+                className={`${
+                  pathname === item.link && "bg-main rounded-full"
+                } flex items-center gap-[8px] py-[12px] px-[16px]`}
+              >
+                <item.icon
+                  className={`${
+                    pathname === item.link ? "text-[#f4f6f8]" : "text-main"
+                  } `}
+                />
+                <span
+                  className={`${
+                    pathname === item.link && "text-[#f4f6f8]"
+                  } text-base font-normal`}
+                >
+                  {item.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-col">
+          {user.map((item, index) => (
+            <button
+              onClick={() => router.push(item.link ?? "")}
               key={index}
-              className={`${
-                pathname === item.link && "bg-main rounded-full"
-              } flex items-center gap-[8px] py-[12px] px-[16px]`}
+              className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
+                index === 1 && "bg-[#f4f6f8] rounded-full"
+              } `}
             >
-              <item.icon
-                className={`${
-                  pathname === item.link ? "text-[#f4f6f8]" : "text-main"
-                } `}
-              />
+              <item.icon className="" />
               <span
-                className={`${
-                  pathname === item.link && "text-[#f4f6f8]"
-                } text-base font-normal`}
+                className={`text-base font-normal ${index === 1 && "text-sm"} `}
               >
                 {item.name}
               </span>
-            </Link>
+            </button>
           ))}
         </div>
-      </div>
-
-      <div className="flex flex-col">
-        {user.map((item, index) => (
-          <button
-            onClick={() => router.push(item.link ?? "")}
-            key={index}
-            className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
-              index === 1 && "bg-[#f4f6f8] rounded-full"
-            } `}
-          >
-            <item.icon className="" />
-            <span
-              className={`text-base font-normal ${index === 1 && "text-sm"} `}
-            >
-              {item.name}
-            </span>
-          </button>
-        ))}
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 
