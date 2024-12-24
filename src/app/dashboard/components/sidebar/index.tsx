@@ -78,7 +78,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light sticky z-50 top-0 bottom-0">
+    <div className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0 transition-all duration-300">
       <div className="w-full flex flex-col justify-center items-center">
         <Link href="/">
           <Image src={Logo} alt="Logo" />

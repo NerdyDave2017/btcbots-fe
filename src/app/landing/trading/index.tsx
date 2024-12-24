@@ -83,7 +83,7 @@ const Trading = () => {
                       active === "faster"
                         ? "text-main"
                         : "text-[#989898] scale-[0.85]"
-                    }  relative flex items-start text-main gap-[22px] transition-transform duration-150 ease-in`}
+                    }  relative flex items-start gap-[22px] transition-transform duration-150 ease-in`}
                   >
                     <p className="text-[40px] ">Faster approach</p>
                     <ArrowRight
