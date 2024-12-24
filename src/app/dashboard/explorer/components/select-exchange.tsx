@@ -41,9 +41,9 @@ function SelectExchange({
           {exchanges.map((exchange) => (
             <div
               key={exchange}
-              className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-primary justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in-out duration-200 ${
+              className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-main justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in-out duration-200 ${
                 selectedExchange === exchange
-                  ? "border-primary"
+                  ? "border-main"
                   : "border-transparent"
               }`}
               onClick={() => setSelectedExchange(exchange as ExchangesType)}

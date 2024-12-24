@@ -79,7 +79,7 @@ const Coins = ({
                 {coins.map((coin) => (
                   <div
                     key={coin.name}
-                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-primary box-border transition-all ease-in-out duration-200  ${
+                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in-out duration-200  ${
                       depositCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"
@@ -105,7 +105,7 @@ const Coins = ({
                 {coins.map((coin) => (
                   <div
                     key={coin.name}
-                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-primary box-border transition-all ease-in duration-200  ${
+                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in duration-200  ${
                       profitCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"

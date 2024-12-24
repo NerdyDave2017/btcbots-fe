@@ -1,3 +1,4 @@
+"use client";
 import Hero from "./landing/hero";
 import Exchanges from "./landing/exchanges";
 import How from "./landing/how";

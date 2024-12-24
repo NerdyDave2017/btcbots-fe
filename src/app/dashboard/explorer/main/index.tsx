@@ -42,8 +42,8 @@ const Main = ({ selected, setSelected }: Props) => {
         {options.map((option) => (
           <div
             key={option.key}
-            className={`w-[366px] h-[237px] py-8 px-[18px] bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-6 inline-flex hover:border hover:border-primary cursor-pointer border border-transparent box-border transition-all ease-in-out duration-200 ${
-              selected === option.key && "border border-primary"
+            className={`w-[366px] h-[237px] py-8 px-[18px] bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-6 inline-flex hover:border hover:border-main cursor-pointer border border-transparent box-border transition-all ease-in-out duration-200 ${
+              selected === option.key && "border border-main"
             }`}
             onClick={() => setSelected(option.key as SelectedType)}
           >

@@ -55,12 +55,12 @@ const page = () => {
       </div>
 
       <div className="w-[475px] flex flex-col gap-[32px]">
-        <button className="w-full  px-8 py-4 rounded-full border border-primary justify-center items-center gap-2.5 inline-flex">
+        <button className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex">
           <GoogleIcon />
           <p className="text-main  font-normal ">Sign up with Google</p>
         </button>
 
-        <button className="w-full  px-8 py-4 rounded-full border border-primary justify-center items-center gap-2.5 inline-flex">
+        <button className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex">
           <UserIcon className="text-main" />
           <p className="text-main  font-normal ">Sign in as guest</p>
         </button>
