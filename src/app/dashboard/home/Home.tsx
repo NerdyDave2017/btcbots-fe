@@ -48,18 +48,20 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full  p-[48px] text-text-light font-light">
+    <div className="w-full p-5 lg:p-[48px] text-text-light font-light">
       <div className="w-full">
-        <p className="text-2xl font-normal">
+        <p className="text-lg lg:text-2xl font-normal">
           Welcome to your dashboard, Jordan
         </p>
         <p className="text-sm">Start by explorer your home</p>
       </div>
 
-      <div className="w-full flex gap-[48px] mt-[48px]">
+      <div className="w-full flex flex-col md:flex-row gap-5 lg:gap-[48px] mt-8 lg:mt-[48px]">
         {data.map((item) => (
           <div className="w-full flex-1 h-[162px] py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-between items-center flex">
-            <p className="text-[32px] font-normal text-center">{item.value}</p>
+            <p className="text-[24px] lg:text-[32px] font-normal text-center">
+              {item.value}
+            </p>
             <div className="justify-center items-center gap-2 inline-flex">
               <item.icon className="text-main" />
               <p className="text-base font-light ">{item.title}</p>
@@ -68,8 +70,10 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="w-full mt-[48px]">
-        <div className="text-xl font-normal mb-[12px]">Recent Transactions</div>
+      <div className="w-full mt-8 lg:mt-[48px]">
+        <div className="text-lg lg:text-xl font-normal mb-[12px]">
+          Recent Transactions
+        </div>
         <div className="w-full py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-4 inline-flex">
           {transactions.map((transaction) => (
             <div className="self-stretch px-[18px] flex-col justify-start items-start gap-4 flex">

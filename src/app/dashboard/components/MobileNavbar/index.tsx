@@ -4,9 +4,9 @@ import Logo from "@/public/assets/images/LogoBig.svg";
 import Image from "next/image";
 import { UserIcon, MenuIcon } from "@/public/assets/icons";
 
-const Navbar = ({onClick}: {onClick: ()=>void}) => {
+const Navbar = ({ onClick }: { onClick: () => void }) => {
   return (
-    <div className="px-[20px] py-6 w-full flex items-center justify-between">
+    <div className=" lg:hidden px-[20px] py-6 w-full flex items-center justify-between">
       <Link href="/">
         <Image className="w-[59px]" src={Logo} alt="Logo" />
       </Link>
