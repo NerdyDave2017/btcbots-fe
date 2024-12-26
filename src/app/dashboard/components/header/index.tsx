@@ -10,7 +10,7 @@ type Props = {
 
 const Header = ({ text, description, onClick, showArrow = true }: Props) => {
   return (
-    <div className="p-[48px] w-full relative">
+    <div className="p-5 lg:p-[48px] w-full relative">
       {showArrow && (
         <ArrowRight
           onClick={onClick}
@@ -18,7 +18,9 @@ const Header = ({ text, description, onClick, showArrow = true }: Props) => {
         />
       )}
       <div className="w-full">
-        <p className="text-2xl font-normal text-center mb-3">{text}</p>
+        <p className="text-xl md:text-2xl font-normal text-center mb-3">
+          {text}
+        </p>
         {description && (
           <p className="text-base font-light text-center text-text-light">
             {description}

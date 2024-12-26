@@ -27,7 +27,7 @@ const Main = ({ selected, setSelected }: Props) => {
   ];
 
   return (
-    <div className="">
+    <div className="px-5">
       <Header
         text="Get Started: Choose Your Preferred Method"
         showArrow={false}
@@ -38,11 +38,11 @@ const Main = ({ selected, setSelected }: Props) => {
         </p>
       </div> */}
 
-      <div className="w-full flex items-center justify-center gap-[76px] ">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-[76px] ">
         {options.map((option) => (
           <div
             key={option.key}
-            className={`w-[366px] h-[237px] py-8 px-[18px] bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-6 inline-flex hover:border hover:border-main cursor-pointer border border-transparent box-border transition-all ease-in-out duration-200 ${
+            className={`w-full md:w-[366px] h-[237px] py-8 px-[18px] bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-6 inline-flex hover:border hover:border-main cursor-pointer border border-transparent box-border transition-all ease-in-out duration-200 ${
               selected === option.key && "border border-main"
             }`}
             onClick={() => setSelected(option.key as SelectedType)}
@@ -53,7 +53,7 @@ const Main = ({ selected, setSelected }: Props) => {
               <p className="text-base font-normal font-['Sora']">
                 {option.title}
               </p>
-              <p className="self-stretch text-base font-light font-['Sora']">
+              <p className="self-stretch text-sm md:text-base font-light font-['Sora']">
                 {option.description}
               </p>
             </div>
