@@ -96,7 +96,7 @@ const Sidebar = () => {
           type: "spring",
           bounce: 0.25,
         }}
-        className="min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0"
+        className="min-w-[288px] lg:min-w-[230px] xl:min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0"
       >
         <div className="w-full flex flex-col justify-center items-center">
           <Link href="/">

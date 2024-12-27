@@ -38,7 +38,7 @@ const Main = ({ selected, setSelected }: Props) => {
         </p>
       </div> */}
 
-      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-[76px] ">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center gap-5 xl:gap-[76px] ">
         {options.map((option) => (
           <div
             key={option.key}

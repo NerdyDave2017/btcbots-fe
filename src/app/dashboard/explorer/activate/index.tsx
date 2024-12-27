@@ -57,7 +57,7 @@ const Activate = ({
   ];
 
   return (
-    <div className="w-full font-normal">
+    <div className="w-full font-normal mb-[48px]">
       <Header
         text="Activate your bot"
         showArrow={true}
@@ -72,8 +72,8 @@ const Activate = ({
         <p className="text-2xl font-normal text-center">Activate your bot</p>
       </div> */}
 
-      <div className="w-full px-[48px] flex justify-center gap-[48px]">
-        <div className="w-full max-w-[550px]">
+      <div className="w-full px-5 lg:px-[48px] flex flex-col lg:flex-row justify-center gap-[48px]">
+        <div className="w-full">
           <div className="w-full">
             <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
               <Image src={Bitcoin} className="w-12 h-12" alt="" />
@@ -186,7 +186,7 @@ const Activate = ({
             />
           </div>
 
-          <div className="w-[500px] mt-[40px] mb-[48px]">
+          <div className="w-full max-w-[500px] mt-[40px] mb-[48px]">
             <span className="text-text-light text-xl font-normal">
               IMPORTANT INFORMATION ABOUT THIS STRATEGY
               <br />
@@ -246,7 +246,7 @@ const Activate = ({
           </div>
         </div>
 
-        <div className="w-full max-w-[550px] flex flex-col gap-8">
+        <div className="w-full flex flex-col gap-8">
           <Input label="API Key" icon="text" setValue={() => {}} value="" />
 
           <div className="w-full">

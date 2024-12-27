@@ -20,10 +20,14 @@ const Strategy = ({ setSelected }: Props) => {
         onClick={() => setSelected(null)}
       />
 
-      <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-between items-center inline-flex">
+      <div className="w-full px-5 xl:px-[48px] py-4 bg-[#eaf0f6] justify-between items-center flex flex-col md:flex-row gap-4">
         <div className="justify-start items-center gap-6 inline-flex">
           {nav.map((item) => (
-            <Link href="" key={item} className="text-main text-lg font-normal">
+            <Link
+              href=""
+              key={item}
+              className="text-main text-base xl:text-lg font-normal text-nowrap"
+            >
               {item}
             </Link>
           ))}
@@ -44,7 +48,7 @@ const Strategy = ({ setSelected }: Props) => {
         </div>
       </div>
 
-      <div className="columns-3 justify-items-center w-[1070px] m-auto mt-6">
+      <div className="columns-1 md:columns-2 xl:columns-3 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
         {/* {data.map((item, index) => ( */}
         <Card onClick={() => setSelected("activate")} />
         <Card onClick={() => setSelected("activate")} />
