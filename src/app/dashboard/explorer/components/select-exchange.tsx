@@ -27,7 +27,7 @@ function SelectExchange({
 
   return (
     <div className="w-full">
-      <div className="w-full px-4 py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">
+      <div className="w-full px-4 py-6 md:py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">
         <HouseIcon />
         <p className="text-main text-lg">Select an exchange</p>
       </div>
@@ -41,7 +41,7 @@ function SelectExchange({
           {exchanges.map((exchange) => (
             <div
               key={exchange}
-              className={`px-6 py-4 bg-[#d0e0f1] rounded border hover:border-main justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in-out duration-200 ${
+              className={`px-2 md:px-4 py-2 bg-[#d0e0f1] rounded border hover:border-main justify-center items-center inline-flex cursor-pointer box-border transition-all ease-in-out duration-200 ${
                 selectedExchange === exchange
                   ? "border-main"
                   : "border-transparent"

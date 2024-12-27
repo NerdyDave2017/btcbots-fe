@@ -17,24 +17,14 @@ const Exchanges = ({
   selectedExchange,
 }: Props) => {
   return (
-    <div className="w-full px-[48px] font-normal">
+    <div className="w-full font-normal px-5">
       <Header
         text="Explore our bots and their performance"
         showArrow={true}
         onClick={() => setSelected(null)}
       />
 
-      {/* <div className="w-full relative mb-[48px]">
-        <ArrowRight
-          onClick={() => setSelected(null)}
-          className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
-        />
-        <p className="text-2xl text-center">
-          Explore our bots and their performance
-        </p>
-      </div> */}
-
-      <div className="w-[516px] mx-auto">
+      <div className="w-full md:w-[516px] mx-auto">
         <SelectExchange
           setSelected={setSelected}
           setSelectedExchange={setSelectedExchange}

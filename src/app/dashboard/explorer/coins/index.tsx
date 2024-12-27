@@ -49,24 +49,15 @@ const Coins = ({
   ];
 
   return (
-    <div className="w-full px-[48px] font-normal">
+    <div className="w-full font-normal">
       <Header
         text="Explore our bots and their performance"
         showArrow={true}
         onClick={() => setSelected(null)}
       />
-      {/* <div className="w-full relative mb-[48px]">
-        <ArrowRight
-          onClick={() => setSelected(null)}
-          className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
-        />
-        <p className="text-2xl font-normal text-center">
-          Explore our bots and their performance
-        </p>
-      </div> */}
 
-      <div className="w-[516px] mx-auto">
-        <div className="w-full px-4 py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">
+      <div className="w-full md:w-[516px] mx-auto px-5">
+        <div className="w-full px-4 py-6 md:py-10 bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] flex items-center gap-3 ">
           <MultiDataIcon />
           <p className="text-main text-lg">Select your asset</p>
         </div>
@@ -79,7 +70,7 @@ const Coins = ({
                 {coins.map((coin) => (
                   <div
                     key={coin.name}
-                    className={`px-4 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in-out duration-200  ${
+                    className={`px-2 md:px-4 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in-out duration-200  ${
                       depositCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"
