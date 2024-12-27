@@ -36,7 +36,7 @@ const LiveChart = ({ setSelected }: Props) => {
     <div className="w-full pb-[48px]">
       <Header text="Live Chart" onClick={() => setSelected("LiveTrade")} />
 
-      <div className="px-[48px]">
+      <div className="px-5 lg:px-[48px]">
         <TVChartContainer props={defaultWidgetProps} data={{}} orders={[]} />
       </div>
     </div>

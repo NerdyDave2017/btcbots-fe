@@ -33,7 +33,7 @@ const card = ({ setSelected }: Props) => {
   ];
 
   return (
-    <div className="w-[350px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex-col justify-start items-start gap-4 flex">
+    <div className="w-full max-w-[350px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex-col justify-start items-start gap-4 flex">
       <div className="flex items-center justify-start gap-4">
         <Image src={Bitcoin} className="w-12 h-12" alt="" />
         <div className="flex flex-col items-start justify-center gap-3">

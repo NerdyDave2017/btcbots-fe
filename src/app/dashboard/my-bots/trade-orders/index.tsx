@@ -9,10 +9,10 @@ type Props = {
 
 const TradeOrders = ({ setSelected }: Props) => {
   return (
-    <div className="w-full pb-[48px]">
+    <div className="w-full pb-[48px] overflow-scroll">
       <Header text="Trade Orders" onClick={() => setSelected("LiveTrade")} />
 
-      <div className="px-[48px]">
+      <div className="w-full px-5 lg:px-[48px] overflow-scroll">
         <OrdersTable />
       </div>
     </div>
