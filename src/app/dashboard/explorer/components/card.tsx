@@ -57,7 +57,7 @@ const Card = ({ onClick }: Props) => {
   ];
 
   return (
-    <div className="w-[350px] break-inside-avoid mb-[10px]">
+    <div className="w-[350px] break-inside-avoid mb-[8px]">
       <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
         <Image src={Bitcoin} className="w-12 h-12" alt="" />
         <div className="flex flex-col items-start justify-center gap-3">

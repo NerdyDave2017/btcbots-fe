@@ -23,7 +23,7 @@ const Card = ({ onClick }: Props) => {
   const toggleSwitch = () => setEnabled(!enabled);
 
   return (
-    <div className="w-[350px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex flex-col items-center gap-4">
+    <div className="w-[350px] break-inside-avoid mb-[8px] py-4 px-3 bg-[#eaf0f6] rounded-[32px] flex flex-col items-center gap-4">
       <div className="w-full flex items-center gap-4">
         <Image src={Bitcoin} className="w-12 h-12" alt="" />
         <p className="text-xl text-text-light font-normal">Bitcoin Bot</p>

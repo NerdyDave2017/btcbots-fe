@@ -17,7 +17,7 @@ const page = () => {
   const [selected, setSelected] = useState<SelectedType>(null);
 
   return (
-    <div className="w-full  text-text-light font-light overflow-scroll">
+    <div className="w-full  text-text-light font-light overflow-scroll pb-[48px]">
       {selected === null && <Main setSelected={setSelected} />}
 
       {selected === "LiveTrade" && <LiveTrade setSelected={setSelected} />}
