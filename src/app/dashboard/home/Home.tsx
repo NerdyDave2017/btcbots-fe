@@ -74,7 +74,7 @@ const Home = () => {
         <div className="text-lg lg:text-xl font-normal mb-[12px]">
           Recent Transactions
         </div>
-        <div className="w-full py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-4 inline-flex">
+        <div className="w-full py-4 md:py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-4 inline-flex">
           {transactions.map((transaction) => (
             <div className="self-stretch px-[18px] flex-col justify-start items-start gap-4 flex">
               <div className="text-[#090909] text-base font-medium font-['Sora']">

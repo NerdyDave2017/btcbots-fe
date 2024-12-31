@@ -18,10 +18,10 @@ const page = () => {
   return (
     <div className="w-full ">
       <Header text="Notifications" showArrow={false} />
-      <div className="px-[48px]">
+      <div className="px-5 lg:px-[48px]">
         <div className="w-full  flex-col justify-center items-start gap-4 inline-flex">
           {transactions.map((transaction) => (
-            <div className="self-stretch bg-[#eaf0f6] rounded-2xl py-8 px-[18px] flex-col justify-start items-start gap-4 flex">
+            <div className="self-stretch bg-[#eaf0f6] rounded-2xl py-4 md:py-8 px-[18px] flex-col justify-start items-start gap-4 flex">
               <div className="text-[#090909] text-base font-medium font-['Sora']">
                 {transaction.type}
               </div>
