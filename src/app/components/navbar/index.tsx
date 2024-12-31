@@ -3,6 +3,7 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Logo from "@/public/assets/images/LOGO.svg";
+import MainLogo from "@/public/assets/images/MainLogo.svg";
 import flag from "@/public/assets/images/Circle.svg";
 import Link from "next/link";
 import Button from "../button";
@@ -48,7 +49,7 @@ const Navbar = () => {
       <div className="w-full h-[80px] flex items-center justify-between">
         <div className="flex items-center gap-[48px]">
           <Link href="">
-            <Image src={Logo} alt="Logo" />
+            <Image className="w-[130px]" src={MainLogo} alt="Logo" />
           </Link>
 
           <ul className="hidden lg:inline-flex gap-5">

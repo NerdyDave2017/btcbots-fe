@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../container";
 import Logo from "@/public/assets/images/LOGO.svg";
+import MainLogo from "@/public/assets/images/MainLogo.svg";
 import { Facebook, Instagram, TikTok, YouTube, X } from "@/public/assets/icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -39,7 +40,7 @@ const Footer = () => {
       <Container>
         <div className="w-full flex items-start justify-between">
           <div className="">
-            <Image className="mt-[5px]" src={Logo} alt="Logo" />
+            <Image className="mt-[5px] w-[130px]" src={MainLogo} alt="Logo" />
           </div>
           <div className="">
             <nav className="h-[148px] flex justify-center items-start gap-12 text-[#ebeef1] text-lg font-normal">
