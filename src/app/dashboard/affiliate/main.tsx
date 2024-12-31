@@ -25,7 +25,7 @@ const Main = ({ setSelected }: Props) => {
       />
       <div className="px-[48px]">
         <Assets onClick={() => setSelected("Withdraw")} />
-        <div className="py-3 px-4 bg-[#eaf0f6] rounded-lg flex gap-10 justify-between items-center my-8 float-right">
+        <div className="py-3 px-4 bg-[#eaf0f6] rounded-lg flex flex-col md:flex-row gap-5 md:gap-10 justify-between items-center my-8 float-right">
           <p className="text-[#090909] text-base font-normal">
             My Referral link
           </p>

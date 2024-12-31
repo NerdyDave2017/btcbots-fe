@@ -30,19 +30,19 @@ const Assets = ({ onClick }: { onClick: () => void }) => {
   ];
 
   return (
-    <div className="w-full py-4 px-6 bg-[#eaf0f6] rounded-2xl flex-col justify-start items-start gap-4 inline-flex">
-      <div className="w-full flex items-center justify-between font-medium px-8">
+    <div className="w-full py-4 px-4 bg-[#eaf0f6] rounded-2xl flex-col justify-start items-start gap-4 inline-flex">
+      <div className="w-full flex items-center justify-between font-medium px-2 md:px-8">
         <p className="text-text-light flex-1">Asset</p>
         <p className="text-text-light flex-1 text-center">Available Balance</p>
         <p className="text-text-light flex-1"></p>
       </div>
-      <div className="w-full">
+      <div className="w-full overflow-scroll">
         {data.map((item, index) => (
           <div
             key={index}
-            className="w-full flex items-center justify-between text-sm py-4 px-8 border-t border-[#E3E3E3]"
+            className="w-full flex items-center justify-between gap-5 text-sm py-4 px-2 md:px-8 border-t border-[#E3E3E3] overflow-scroll"
           >
-            <div className="flex items-center gap-4 flex-1">{item.icon}</div>
+            <div className="flex items-center flex-1">{item.icon}</div>
 
             <p className="text-text-light flex-1 text-center font-light">
               {item.balance}
