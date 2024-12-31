@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Logo from "@/public/assets/images/LogoBig.svg";
+import MainLogo from "@/public/assets/images/MainLogo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -123,7 +124,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       >
         <div className="w-full flex flex-col justify-center items-center">
           <Link href="/">
-            <Image src={Logo} alt="Logo" />
+            <Image className="w-[150px]" src={MainLogo} alt="Logo" />
           </Link>
 
           <div className="w-full space-y-[32px] mt-[36px]">
