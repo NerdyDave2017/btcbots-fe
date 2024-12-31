@@ -12,8 +12,8 @@ const Withdraw = ({ setSelected }: Props) => {
   return (
     <div className="w-full">
       <Header text="Withdraw Balance" onClick={() => setSelected("Main")} />
-      <div className="w-full px-[48px]">
-        <div className="w-[500px] mx-auto flex flex-col gap-8">
+      <div className="w-full px-5 lg:px-[48px]">
+        <div className="max-w-[500px] mx-auto flex flex-col gap-8">
           <Input label="USD address" icon="text" value="" setValue={() => {}} />
 
           <div className="">
