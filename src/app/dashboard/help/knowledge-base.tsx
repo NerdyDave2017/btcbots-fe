@@ -56,8 +56,8 @@ const KnowledgeBase = ({ setSelected }: Props) => {
         showArrow
         onClick={() => setSelected("main")}
       />
-      <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-center items-center inline-flex relative">
-        <div className="w-[510px] bg-[#dfeaf5] rounded-xl justify-between items-center inline-flex gap-2">
+      <div className="w-full px-5 lg:px-[48px] py-4 bg-[#eaf0f6] justify-center items-center flex gap-3 relative">
+        <div className="md:w-[510px] bg-[#dfeaf5] rounded-xl justify-between items-center inline-flex gap-2">
           <input
             className="text-[#3c3c43]/60 text-base font-normal bg-transparent px-4 py-3 w-full outline-none"
             placeholder="Search for an article"
@@ -66,7 +66,7 @@ const KnowledgeBase = ({ setSelected }: Props) => {
           <SearchIcon className="mr-4 cursor-pointer transition-all ease-in-out hover:scale-[1.1]" />
         </div>
 
-        <div className="absolute h-[32px] border-[#bec9d5] border-[1px] px-[8px] py-[6px] flex items-center justify-between rounded cursor-pointer right-[48px]">
+        <div className="md:absolute h-[32px] border-[#bec9d5] border-[1px] px-[8px] py-[6px] flex items-center justify-between rounded cursor-pointer right-[48px]">
           <span className="h-full w-full">
             <Image src={flag} alt="Flag" />
           </span>
@@ -74,23 +74,21 @@ const KnowledgeBase = ({ setSelected }: Props) => {
         </div>
       </div>
 
-      <div className="w-full px-[48px] mt-6">
-        <div className="w-full grid grid-cols-2 gap-8 mb-[48px]">
+      <div className="w-full px-5 lg:px-[48px] mt-6">
+        <div className="w-full grid grid-cols-2 gap-3 md:gap-8 mb-[48px]">
           {CardData.map((card, index) => (
             <div
               key={index}
-              className="w-full h-40 py-8 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start gap-6 inline-flex"
+              className="w-full py-5 md:py-8 px-5 gap-3 bg-[#eaf0f6] rounded-2xl flex-col justify-center items-start inline-flex"
             >
-              <div className="self-stretch h-24 px-[18px] flex-col justify-start items-start gap-4 flex">
-                {card.icon}
-                <div className="self-stretch h-12 flex-col justify-start items-start gap-2 flex">
-                  <div className="text-[#090909] text-base font-normal font-['Sora']">
-                    {card.title}
-                  </div>
-                  <div className="self-stretch h-5 flex-col justify-start items-start gap-6 flex">
-                    <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
-                      {card.description}
-                    </div>
+              {card.icon}
+              <div className="self-stretch flex-col justify-start items-start gap-2 flex">
+                <div className="text-[#090909] text-base font-normal font-['Sora']">
+                  {card.title}
+                </div>
+                <div className="self-stretch flex-col justify-start items-start gap-6 flex">
+                  <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
+                    {card.description}
                   </div>
                 </div>
               </div>
