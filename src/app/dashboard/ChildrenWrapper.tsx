@@ -11,7 +11,7 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="w-full h-screen flex relative overflow-scroll">
-      {isOpen && <Sidebar />}
+      {isOpen && <Sidebar setIsOpen={setIsOpen} />}
 
       <div className="w-full">
         <Navbar onClick={() => setIsOpen(!isOpen)} />

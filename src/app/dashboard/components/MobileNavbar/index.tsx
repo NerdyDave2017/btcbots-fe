@@ -11,9 +11,12 @@ const Navbar = ({ onClick }: { onClick: () => void }) => {
         <Image className="w-[59px]" src={Logo} alt="Logo" />
       </Link>
       <div className="justify-start items-center gap-3 flex">
-        <div className="p-2 bg-[#ebeef1] rounded-[90px] justify-start items-center gap-2 flex">
+        <Link
+          href="/dashboard/profile"
+          className="p-2 bg-[#ebeef1] rounded-[90px] justify-start items-center gap-2 flex"
+        >
           <UserIcon className="w-5 h-5 relative" />
-        </div>
+        </Link>
         <MenuIcon onClick={onClick} className="w-6 h-6" />
       </div>
     </div>
