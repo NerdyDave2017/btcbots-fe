@@ -48,7 +48,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="w-full p-5 lg:p-[48px] text-text-light font-light">
+    <div className="w-full p-5 lg:p-[48px]  text-text-light font-light">
       <div className="w-full">
         <p className="text-lg lg:text-2xl font-normal">
           Welcome to your dashboard, Jordan
@@ -70,7 +70,7 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="w-full mt-8 lg:mt-[48px]">
+      <div className="w-full mt-8 lg:mt-[48px] mb-[48px]">
         <div className="text-lg lg:text-xl font-normal mb-[12px]">
           Recent Transactions
         </div>

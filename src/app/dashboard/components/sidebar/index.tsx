@@ -24,7 +24,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
 
