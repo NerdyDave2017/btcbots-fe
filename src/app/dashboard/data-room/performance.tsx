@@ -40,18 +40,18 @@ const Performance = ({ setSelected }: Props) => {
   ];
 
   return (
-    <div className="w-full px-[48px]">
+    <div className="w-full pb-[48px]">
       <Header
         text="Performance Data"
         showArrow
         onClick={() => setSelected("Main")}
       />
 
-      <div className="w-full mb-[60px]">
+      <div className="w-full mb-10 px-5">
         <Image className="mx-auto" src={Chart} alt="" />
       </div>
 
-      <div className="flex w-full justify-center gap-[48px]">
+      <div className="flex flex-col md:flex-row w-full justify-center gap-[48px] px-5">
         <div className="flex-1 w-full max-w-[550px]">
           <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px] py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
             <Image src={Bitcoin} className="w-12 h-12" alt="" />
