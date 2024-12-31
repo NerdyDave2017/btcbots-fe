@@ -83,7 +83,7 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <span className="">
+          <span className="text-nowrap">
             {formatDate(item.start, "MMM DD")} -{" "}
             {formatDate(item.end, "MMM DD")}
           </span>
@@ -137,7 +137,9 @@ const columns = [
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
           <div className="px-4 py-2 rounded-[90px] border border-main justify-center items-center gap-2.5 inline-flex cursor-pointer">
-            <div className="text-main text-sm font-normal">Proceed to pay</div>
+            <div className="text-main text-sm font-normal text-nowrap">
+              Proceed to pay
+            </div>
           </div>
         </div>
       );

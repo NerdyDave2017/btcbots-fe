@@ -6,7 +6,7 @@ import Navbar from "./components/MobileNavbar";
 import { useMediaQuery } from "react-responsive";
 
 const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1024 });
   const [isOpen, setIsOpen] = useState(isTabletOrMobile ? false : true);
 
   return (

@@ -18,10 +18,13 @@ import {
   UserIcon,
 } from "@/public/assets/icons";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const router = useRouter();
+
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
 
   const navigation = [
     {
@@ -82,7 +85,7 @@ const Sidebar = () => {
     <AnimatePresence mode="wait">
       <motion.div
         initial={{
-          x: -300,
+          x: isTabletOrMobile ? -300 : 0,
         }}
         animate={{
           x: 0,

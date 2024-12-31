@@ -17,7 +17,7 @@ const page = () => {
         }
         showArrow={false}
       />
-      <div className="px-[48px]">
+      <div className=" px-5 lg:px-[48px]">
         <ProfitShareTable />
       </div>
     </div>

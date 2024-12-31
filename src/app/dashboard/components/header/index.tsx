@@ -17,12 +17,10 @@ const Header = ({ text, description, onClick, showArrow = true }: Props) => {
           className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
         />
       )}
-      <div className="w-full">
-        <p className="text-xl md:text-2xl font-normal text-center mb-3">
-          {text}
-        </p>
+      <div className="w-full flex flex-col gap-3 items-center">
+        <p className="text-xl md:text-2xl font-normal text-center">{text}</p>
         {description && (
-          <p className="text-base font-light text-center text-text-light">
+          <p className="text-sm lg:text-base font-light text-center text-text-light">
             {description}
           </p>
         )}

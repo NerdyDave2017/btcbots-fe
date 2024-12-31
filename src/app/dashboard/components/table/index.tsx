@@ -56,7 +56,6 @@ export default function BasicTable({
           ))}
         </tbody>
       </table>
-
       {table.getPageCount() >= 1 && <PaginationControl table={table} />}
     </div>
   );

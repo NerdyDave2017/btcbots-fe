@@ -52,7 +52,7 @@ const PaginationControl = ({ table }: Props) => {
 
   return (
     <div className="w-full my-5 px-8 h-10 flex text-sm justify-between items-center gap-5 text-main">
-      <div className="">
+      <div className="text-nowrap">
         Showing 1 to {table.getRowModel().rows.length.toLocaleString()} of{" "}
         {table.getRowCount().toLocaleString()} models
       </div>
