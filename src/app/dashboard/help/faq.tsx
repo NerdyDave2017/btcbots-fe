@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "../components/header";
 import { SelectedType } from "./page";
-import { SearchIcon, ArrowRight } from "@/public/assets/icons";
-import Image from "next/image";
-import flag from "@/public/assets/images/Circle.svg";
+import { ArrowRight } from "@/public/assets/icons";
+import SearchBar from "./components/searchbar";
 
 type Props = {
   setSelected: (selected: SelectedType) => void;
@@ -29,26 +28,10 @@ const FAQ = ({ setSelected }: Props) => {
         showArrow
         onClick={() => setSelected("main")}
       />
-      <div className="w-full px-[48px] py-4 bg-[#eaf0f6] justify-center items-center inline-flex relative">
-        <div className="w-[510px] bg-[#dfeaf5] rounded-xl justify-between items-center inline-flex gap-2">
-          <input
-            className="text-[#3c3c43]/60 text-base font-normal bg-transparent px-4 py-3 w-full outline-none"
-            placeholder="Search for an article"
-          />
-
-          <SearchIcon className="mr-4 cursor-pointer transition-all ease-in-out hover:scale-[1.1]" />
-        </div>
-
-        <div className="absolute h-[32px] border-[#bec9d5] border-[1px] px-[8px] py-[6px] flex items-center justify-between rounded cursor-pointer right-[48px]">
-          <span className="h-full w-full">
-            <Image src={flag} alt="Flag" />
-          </span>
-          <span className="">EN</span>
-        </div>
-      </div>
-      <div className="w-full px-[48px] ">
+      <SearchBar />
+      <div className="w-full md:max-w-[1058px] mx-auto px-5 lg:px-[48px] ">
         <div className="w-full mt-8 py-4 bg-[#eaf0f6] rounded-2xl flex-col justify-start items-start gap-4 inline-flex">
-          <div className="self-stretch h-5 px-8 flex-col justify-start items-start gap-3 flex">
+          <div className="self-stretch px-4 md:px-8 flex-col justify-start items-start gap-3 flex">
             <p className="text-[#090909] text-base font-normal">
               General Information
             </p>
@@ -61,10 +44,12 @@ const FAQ = ({ setSelected }: Props) => {
               </div>
               <div
                 key={index}
-                className="self-stretch h-6 px-8 flex-col justify-start items-start gap-3 flex"
+                className="self-stretch px-4 md:px-8 flex-col justify-start items-center gap-3 flex"
               >
-                <div className="self-stretch justify-between items-start inline-flex">
-                  <p className="text-[#090909] text-sm font-light">{info}</p>
+                <div className="self-stretch justify-between items-start flex">
+                  <p className="text-[#090909] text-sm font-light flex-1">
+                    {info}
+                  </p>
                   <ArrowRight className="cursor-pointer" />
                 </div>
               </div>
@@ -73,7 +58,7 @@ const FAQ = ({ setSelected }: Props) => {
         </div>
 
         <div className="w-full mt-8 py-4 bg-[#eaf0f6] rounded-2xl flex-col justify-start items-start gap-4 inline-flex">
-          <div className="self-stretch h-5 px-8 flex-col justify-start items-start gap-3 flex">
+          <div className="self-stretch px-4 md:px-8 flex-col justify-start items-start gap-3 flex">
             <div className="self-stretch justify-start items-start gap-[60px] inline-flex">
               <div className="text-[#090909] text-base font-normal">
                 Strategies and Trading
@@ -87,11 +72,13 @@ const FAQ = ({ setSelected }: Props) => {
               </div>
               <div
                 key={index}
-                className="self-stretch h-6 px-8 flex-col justify-start items-start gap-3 flex"
+                className="self-stretch px-4 md:px-8 flex-col justify-start items-center gap-3 flex"
               >
-                <div className="self-stretch justify-between items-start inline-flex">
-                  <p className="text-[#090909] text-sm font-light">{info}</p>
-                  <ArrowRight className="cursor-pointer" />
+                <div className="self-stretch justify-between items-center flex">
+                  <p className="text-[#090909] text-sm font-light flex-1">
+                    {info}
+                  </p>
+                  <ArrowRight className="cursor-pointer w-6" />
                 </div>
               </div>
             </>
