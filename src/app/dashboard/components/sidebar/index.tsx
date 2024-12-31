@@ -26,7 +26,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1224 });
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
 
   const navigation = [
     {
@@ -99,79 +99,78 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
 
   return (
     <AnimatePresence mode="wait">
-      <div className="w-[100vw] h-[100vh]  bg-[#00000048] fixed lg:sticky z-50 top-0 bottom-0">
-        <motion.div
-          ref={ref}
-          initial={{
-            x: isTabletOrMobile ? -300 : 0,
-          }}
-          animate={{
-            x: 0,
-          }}
-          exit={{
-            x: -300,
-          }}
-          transition={{
-            duration: 0.5,
-            ease: "easeIn",
-            type: "spring",
-            bounce: 0.25,
-          }}
-          className="min-w-[288px] lg:min-w-[230px] xl:min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0"
-        >
-          <div className="w-full flex flex-col justify-center items-center">
-            <Link href="/">
-              <Image src={Logo} alt="Logo" />
-            </Link>
+      {isTabletOrMobile && (
+        <div className="w-[100vw] h-[100vh]  bg-[#00000048] fixed lg:absolute z-50 top-0 bottom-0"></div>
+      )}
+      <motion.div
+        ref={isTabletOrMobile ? ref : null}
+        initial={{
+          x: isTabletOrMobile ? -300 : 0,
+        }}
+        animate={{
+          x: 0,
+        }}
+        exit={{
+          x: -300,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeIn",
+          type: "spring",
+          bounce: 0.25,
+        }}
+        className="min-w-[288px] lg:min-w-[230px] xl:min-w-[288px] bg-[#e8f0f7] flex flex-col justify-between px-[16px] py-[40px] text-text-light fixed lg:sticky z-50 top-0 bottom-0"
+      >
+        <div className="w-full flex flex-col justify-center items-center">
+          <Link href="/">
+            <Image src={Logo} alt="Logo" />
+          </Link>
 
-            <div className="w-full space-y-[32px] mt-[36px]">
-              {navigation.map((item, index) => (
-                <Link
-                  href={item.link}
-                  key={index}
-                  className={`${
-                    pathname === item.link && "bg-main rounded-full"
-                  } flex items-center gap-[8px] py-[12px] px-[16px]`}
-                >
-                  <item.icon
-                    className={`${
-                      pathname === item.link ? "text-[#f4f6f8]" : "text-main"
-                    } `}
-                  />
-                  <span
-                    className={`${
-                      pathname === item.link && "text-[#f4f6f8]"
-                    } text-base font-normal`}
-                  >
-                    {item.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div className="flex flex-col">
-            {user.map((item, index) => (
-              <button
-                onClick={() => router.push(item.link ?? "")}
+          <div className="w-full space-y-[32px] mt-[36px]">
+            {navigation.map((item, index) => (
+              <Link
+                href={item.link}
                 key={index}
-                className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
-                  index === 1 && "bg-[#f4f6f8] rounded-full"
-                } `}
+                className={`${
+                  pathname === item.link && "bg-main rounded-full"
+                } flex items-center gap-[8px] py-[12px] px-[16px]`}
               >
-                <item.icon className="" />
-                <span
-                  className={`text-base font-normal ${
-                    index === 1 && "text-sm"
+                <item.icon
+                  className={`${
+                    pathname === item.link ? "text-[#f4f6f8]" : "text-main"
                   } `}
+                />
+                <span
+                  className={`${
+                    pathname === item.link && "text-[#f4f6f8]"
+                  } text-base font-normal`}
                 >
                   {item.name}
                 </span>
-              </button>
+              </Link>
             ))}
           </div>
-        </motion.div>
-      </div>
+        </div>
+
+        <div className="flex flex-col">
+          {user.map((item, index) => (
+            <button
+              onClick={() => router.push(item.link ?? "")}
+              key={index}
+              className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
+                index === 1 && "bg-[#f4f6f8] rounded-full"
+              } `}
+            >
+              <item.icon className="" />
+              <span
+                className={`text-base font-normal ${index === 1 && "text-sm"} `}
+              >
+                {item.name}
+              </span>
+            </button>
+          ))}
+        </div>
+      </motion.div>
     </AnimatePresence>
   );
 };

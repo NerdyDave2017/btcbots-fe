@@ -126,16 +126,16 @@ const Main = ({ setSelected }: Props) => {
           </div>
         </div>
 
-        <div className="w-full mt-8">
+        <div className="max-w-[1058px]  mt-8 mx-auto">
           <p className="text-[#090909] text-xl font-normal">
             Quick Start Video Guides
           </p>
 
-          <div className="w-full mt-6 flex flex-col md:flex-row gap-6 overflow-scroll">
+          <div className="mt-6 flex flex-col md:flex-row gap-6 overflow-scroll ">
             {videos.map((video, index) => (
               <div
                 key={index}
-                className="flex-col justify-start items-center gap-3 inline-flex"
+                className="flex-col justify-start items-center gap-3 flex"
               >
                 <div className="self-stretch w-full md:w-[300px] lg:w-[615px] h-[250px] lg:h-[359.42px] flex-col justify-start items-start gap-4 flex">
                   <div className="self-stretch grow shrink basis-0 bg-black/40" />
