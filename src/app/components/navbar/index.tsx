@@ -48,7 +48,7 @@ const Navbar = () => {
     <Container>
       <div className="w-full h-[80px] flex items-center justify-between text-base font-normal">
         <div className="flex items-center gap-[48px]">
-          <Link href="">
+          <Link href="/">
             <Image className="w-[130px]" src={MainLogo} alt="Logo" />
           </Link>
 
