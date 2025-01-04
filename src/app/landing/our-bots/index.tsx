@@ -4,6 +4,7 @@ import Chart from "@/public/assets/images/Chart.svg";
 import robot from "@/public/assets/images/robotic.svg";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
+import LogoGreyscale from "@/public/assets/images/LogoGreyscale.svg";
 
 const OurBots = () => {
   return (
@@ -23,7 +24,7 @@ const OurBots = () => {
         <div className="w-[880px] mx-auto flex flex-col items-center justify-center gap-[50px]">
           <p className="text-[40px] text-[#f4f6f8] text-center">
             Our bots buy low, sell high. <br /> It's that simple.
-          </p>
+          </p>{" "}
           <CardContainer className="w-full h-full">
             <CardBody className="w-full h-full">
               <CardItem translateZ="50" className="w-full">

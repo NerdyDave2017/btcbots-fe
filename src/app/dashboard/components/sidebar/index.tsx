@@ -76,6 +76,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     {
       name: "Logout",
       icon: LogoutIcon,
+      link: "/login",
     },
     {
       name: "Jordan Great",

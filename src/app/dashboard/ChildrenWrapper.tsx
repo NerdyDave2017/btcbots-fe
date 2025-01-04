@@ -2,7 +2,7 @@
 import React, { ReactNode, useState } from "react";
 import Sidebar from "./components/sidebar";
 import Container from "../components/container";
-import Navbar from "./components/MobileNavbar";
+import MobileNavbar from "./components/MobileNavbar";
 import { useMediaQuery } from "react-responsive";
 
 const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
@@ -14,7 +14,7 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
       {isOpen && <Sidebar setIsOpen={setIsOpen} />}
 
       <div className="w-full">
-        <Navbar onClick={() => setIsOpen(!isOpen)} />
+        <MobileNavbar onClick={() => setIsOpen(!isOpen)} />
 
         {children}
       </div>
