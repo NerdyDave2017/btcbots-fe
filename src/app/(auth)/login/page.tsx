@@ -8,16 +8,18 @@ import {
   useDecode,
   useSignIn,
   useSignInSocial,
+  useGuestSignIn,
 } from "@/src/hooks/postRequests";
 import { useGoogleLogin } from "@react-oauth/google";
 import { toast } from "sonner";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { isAxiosError } from "axios";
 import { useAppContext } from "@/src/context";
+import Loader from "../../components/loader";
 
 const page = () => {
-  const router = Router;
+  const router = useRouter();
   // Access location object using useLocation hook
   const searchParams = useSearchParams();
 
@@ -32,6 +34,36 @@ const page = () => {
   const { mutate: SignInSocial } = useSignInSocial();
   const { mutate: Decode, data: decodeData } = useDecode();
   const { mutate: SignIn, isPending } = useSignIn();
+  const { mutate: GuestSignIn, isPending: guestSignInPending } =
+    useGuestSignIn();
+
+  const handleGuestLogin = async () => {
+    GuestSignIn(
+      {},
+      {
+        onSuccess: (user) => {
+          toast.success("Login successful", { position: "top-center" });
+          setUser(user);
+          setIsAuthenticated(true);
+          router.push("/dashboard");
+        },
+        onError: (error: Error) => {
+          setIsAuthenticated(false);
+          setUser(null);
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data.message, {
+              position: "top-center",
+            });
+          } else {
+            console.error(error);
+            toast.error("An unexpected error occurred", {
+              position: "top-center",
+            });
+          }
+        },
+      }
+    );
+  };
 
   const handleLogin = async () => {
     SignIn(
@@ -49,7 +81,7 @@ const page = () => {
           toast.success("Login successful", { position: "top-center" });
           setUser(user);
           setIsAuthenticated(true);
-          router.push("/dashboard/bot-explorer");
+          router.push("/dashboard");
         },
         onError: (error: Error) => {
           setIsAuthenticated(false);
@@ -103,7 +135,7 @@ const page = () => {
             onSuccess: (res) => {
               toast.success("Login Successful", { position: "top-center" });
               setUser(res);
-              router.push("/dashboard/bot-explorer");
+              router.push("/dashboard");
             },
             onError: (error: Error) => {
               if (isAxiosError(error)) {
@@ -176,6 +208,7 @@ const page = () => {
           text="Login"
           className="w-full flex text-text-dark"
           size="lg"
+          loading={isPending}
         />
       </div>
 
@@ -190,15 +223,21 @@ const page = () => {
       <div className="w-[475px] flex flex-col gap-[32px]">
         <button
           onClick={() => login()}
-          className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
+          className="w-full h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
         >
           <GoogleIcon />
           <p className="text-main  font-normal ">Continue with Google</p>
         </button>
 
-        <button className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex">
-          <UserIcon className="text-main" />
-          <p className="text-main  font-normal ">Sign in as guest</p>
+        <button
+          onClick={handleGuestLogin}
+          className="w-full  h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
+        >
+          {guestSignInPending && <Loader bg="bg-main" />}
+          {!guestSignInPending && <UserIcon className="text-main" />}
+          {!guestSignInPending && (
+            <p className="text-main  font-normal ">Sign in as guest</p>
+          )}
         </button>
       </div>
     </div>

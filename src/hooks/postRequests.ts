@@ -70,6 +70,24 @@ export const useSignIn = () => {
   });
 };
 
+export const useGuestSignIn = () => {
+  const authAxios = useAxiosInstance();
+
+  const guestSignIn = async ({}: any) => {
+    const { data } = await authAxios.post("/guest-login");
+
+    // @ts-ignore
+    useSetCookies("auth_token", data.authToken);
+
+    return data.user as Partial<UserData>;
+  };
+
+  return useMutation({
+    mutationKey: ["user"],
+    mutationFn: guestSignIn,
+  });
+};
+
 export const useSignUp = () => {
   const axios = useAxiosInstance();
 

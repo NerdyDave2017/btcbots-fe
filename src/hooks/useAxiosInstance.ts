@@ -34,7 +34,7 @@ const useAxiosInstance = () => {
           ? toast.error("Unauthorized")
           : toast.error("User has to be logged in!!");
         deleteCookie("auth_token");
-        window.location.assign("/dashboard/home");
+        window.location.assign("/login");
       }
       return Promise.reject(error);
     }

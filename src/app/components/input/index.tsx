@@ -29,10 +29,7 @@ const Input = ({
   };
 
   const returnIcon = (icon: string) => {
-    console.log(icon);
     if (icon === "password") {
-      console.log(showPassword);
-      console.log(icons[icon][1]);
       return showPassword ? icons[icon][1] : icons[icon][0];
     }
     return icons[icon];
