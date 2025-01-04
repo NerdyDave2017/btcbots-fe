@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Mail, EyeClosed, EyeOpen } from "@/public/assets/icons";
+import { show } from "@intercom/messenger-js-sdk";
 
 type Props = {
   label: string;
@@ -18,6 +20,8 @@ const Input = ({
   action,
   disabled,
 }: Props) => {
+  const [showPassword, setShowPassword] = useState(false);
+
   const icons: Record<string, any> = {
     email: <Mail />,
     password: [<EyeClosed />, <EyeOpen />],
@@ -25,8 +29,11 @@ const Input = ({
   };
 
   const returnIcon = (icon: string) => {
+    console.log(icon);
     if (icon === "password") {
-      return value.length > 0 ? icons[icon][1] : icons[icon][0];
+      console.log(showPassword);
+      console.log(icons[icon][1]);
+      return showPassword ? icons[icon][1] : icons[icon][0];
     }
     return icons[icon];
   };
@@ -37,11 +44,20 @@ const Input = ({
 
       <div className="w-full flex items-center justify-between border-b border-[#3c3c43]/60 gap-4">
         <input
-          type={icon}
+          type={icon === "password" && showPassword ? "text" : icon}
           className="w-full p-2 outline-none bg-transparent"
           disabled={disabled}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
         />{" "}
-        {returnIcon(icon)}
+        <div
+          onClick={() => icon === "password" && setShowPassword(!showPassword)}
+          className={`${
+            icon === "password" && "cursor-pointer"
+          } flex items-center h-full`}
+        >
+          {returnIcon(icon)}
+        </div>
         {action && <div className="text-nowrap cursor-pointer">{action}</div>}
       </div>
     </div>

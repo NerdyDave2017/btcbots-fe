@@ -1,6 +1,5 @@
 import axios from "axios";
 import { getCookie } from "cookies-next";
-import { useRouter } from "@/i18n/routing";
 import { deleteCookie } from "cookies-next";
 import { toast } from "sonner";
 

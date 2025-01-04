@@ -1,12 +1,12 @@
 <svg
   width="30"
   height="30"
-  viewBox="5 1 30 30"
+  viewBox="0 0 30 30"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
-<g filter="url(#filter0_dd_6101_1528)">
-<g clip-path="url(#clip0_6101_1528)">
+<g filter="url(#filter0_dd_6203_1881)">
+<g clip-path="url(#clip0_6203_1881)">
 <rect x="7" y="2.38281" width="16" height="16" rx="8" fill="#1A47B8" />
 <path
         fill-rule="evenodd"
@@ -44,7 +44,7 @@
 </g>
 <defs>
 <filter
-      id="filter0_dd_6101_1528"
+      id="filter0_dd_6203_1881"
       x="0.142858"
       y="0.0970984"
       width="29.7143"
@@ -69,7 +69,7 @@
 <feBlend
         mode="normal"
         in2="BackgroundImageFix"
-        result="effect1_dropShadow_6101_1528"
+        result="effect1_dropShadow_6203_1881"
       />
 <feColorMatrix
         in="SourceAlpha"
@@ -86,17 +86,17 @@
       />
 <feBlend
         mode="normal"
-        in2="effect1_dropShadow_6101_1528"
-        result="effect2_dropShadow_6101_1528"
+        in2="effect1_dropShadow_6203_1881"
+        result="effect2_dropShadow_6203_1881"
       />
 <feBlend
         mode="normal"
         in="SourceGraphic"
-        in2="effect2_dropShadow_6101_1528"
+        in2="effect2_dropShadow_6203_1881"
         result="shape"
       />
 </filter>
-<clipPath id="clip0_6101_1528">
+<clipPath id="clip0_6203_1881">
 <rect x="7" y="2.38281" width="16" height="16" rx="8" fill="white" />
 </clipPath>
 </defs>

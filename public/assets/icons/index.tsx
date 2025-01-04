@@ -469,9 +469,9 @@ export const HeroCurrencies = (props: SVGProps<any>) => {
           width="72"
           height="72"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -602,7 +602,7 @@ export const SleepDollar = (props: SVGProps<any>) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <g clip-path="url(#clip0_4320_6258)">
+      <g clipPath="url(#clip0_4320_6258)">
         <path
           d="M52.1352 10.6714C52.5187 8.80117 50.4844 6.80413 47.5914 6.21089C44.6984 5.61764 42.0423 6.65282 41.6587 8.52304C41.2752 10.3933 42.4921 11.7186 46.3017 12.4998C50.1114 13.281 51.8178 14.6391 51.3218 17.0579C50.8257 19.4767 48.0689 19.9196 44.9129 19.2724C41.7569 18.6252 39.5094 16.5845 39.8929 14.7143"
           stroke="#141B34"
@@ -617,7 +617,7 @@ export const SleepDollar = (props: SVGProps<any>) => {
           strokeLinejoin="round"
         />
       </g>
-      <g clip-path="url(#clip1_4320_6258)">
+      <g clipPath="url(#clip1_4320_6258)">
         <path
           d="M36.0589 22.9401C35.8461 21.8146 34.2622 21.169 32.5211 21.4982C30.78 21.8274 29.5411 23.0067 29.754 24.1322C29.9668 25.2578 30.944 25.7165 33.2367 25.283C35.5294 24.8495 36.7859 25.215 37.0611 26.6707C37.3364 28.1264 35.9067 28.9998 34.0074 29.3589C32.108 29.718 30.3958 29.0967 30.183 27.9712"
           stroke="#141B34"
@@ -897,7 +897,7 @@ export const SideBarCard = (props: SVGProps<any>) => {
           y2="411.724"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#006FE3" />
+          <stop stopColor="#006FE3" />
           <stop offset="1" />
         </linearGradient>
       </defs>
@@ -943,31 +943,23 @@ export const Mail = (props: SVGProps<any>) => {
 export const EyeOpen = (props: SVGProps<any>) => {
   return (
     <svg
-      width="22"
-      height="20"
-      viewBox="0 0 22 20"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
     >
       <path
-        d="M2.63624 18.5766C2.63624 18.5766 5.22797 15.8206 11.1405 9.78988C15.8652 4.97064 20.0234 1 20.0234 1"
+        d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
         stroke="#3C3C43"
         stroke-opacity="0.6"
-        strokeWidth="1.5"
-        strokeLinecap="round"
+        stroke-width="1.5"
       />
       <path
-        d="M20.544 9.04498C20.848 9.4713 21 9.68447 21 10C21 10.3155 20.848 10.5287 20.544 10.955C19.1779 12.8706 15.6892 17 11 17C6.31078 17 2.8221 12.8706 1.45604 10.955C1.15201 10.5287 1 10.3155 1 10C1 9.68447 1.15201 9.47131 1.45604 9.04499C2.8221 7.12944 6.31078 3 11 3C15.6892 3 19.1779 7.12944 20.544 9.04498Z"
+        d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
         stroke="#3C3C43"
         stroke-opacity="0.6"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M14 10C14 8.34315 12.6569 7 11 7C9.34315 7 8 8.34315 8 10C8 11.6569 9.34315 13 11 13C12.6569 13 14 11.6569 14 10Z"
-        stroke="#3C3C43"
-        stroke-opacity="0.6"
-        strokeWidth="1.5"
+        stroke-width="1.5"
       />
     </svg>
   );
@@ -975,31 +967,31 @@ export const EyeOpen = (props: SVGProps<any>) => {
 export const EyeClosed = (props: SVGProps<any>) => {
   return (
     <svg
-      width="22"
-      height="20"
-      viewBox="0 0 22 20"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M2.63624 18.5766C2.63624 18.5766 5.22797 15.8206 11.1405 9.78988C15.8652 4.97064 20.0234 1 20.0234 1"
+        d="M3.63624 22.5766C3.63624 22.5766 6.22797 19.8206 12.1405 13.7899C16.8652 8.97064 21.0234 5 21.0234 5"
         stroke="#3C3C43"
         stroke-opacity="0.6"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
       <path
-        d="M20.544 9.04498C20.848 9.4713 21 9.68447 21 10C21 10.3155 20.848 10.5287 20.544 10.955C19.1779 12.8706 15.6892 17 11 17C6.31078 17 2.8221 12.8706 1.45604 10.955C1.15201 10.5287 1 10.3155 1 10C1 9.68447 1.15201 9.47131 1.45604 9.04499C2.8221 7.12944 6.31078 3 11 3C15.6892 3 19.1779 7.12944 20.544 9.04498Z"
+        d="M21.544 13.045C21.848 13.4713 22 13.6845 22 14C22 14.3155 21.848 14.5287 21.544 14.955C20.1779 16.8706 16.6892 21 12 21C7.31078 21 3.8221 16.8706 2.45604 14.955C2.15201 14.5287 2 14.3155 2 14C2 13.6845 2.15201 13.4713 2.45604 13.045C3.8221 11.1294 7.31078 7 12 7C16.6892 7 20.1779 11.1294 21.544 13.045Z"
         stroke="#3C3C43"
         stroke-opacity="0.6"
-        strokeWidth="1.5"
+        stroke-width="1.5"
       />
       <path
-        d="M14 10C14 8.34315 12.6569 7 11 7C9.34315 7 8 8.34315 8 10C8 11.6569 9.34315 13 11 13C12.6569 13 14 11.6569 14 10Z"
+        d="M15 14C15 12.3431 13.6569 11 12 11C10.3431 11 9 12.3431 9 14C9 15.6569 10.3431 17 12 17C13.6569 17 15 15.6569 15 14Z"
         stroke="#3C3C43"
         stroke-opacity="0.6"
-        strokeWidth="1.5"
+        stroke-width="1.5"
       />
     </svg>
   );
@@ -1869,9 +1861,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           fill="#CCCCCC"
         />
       </g>
-      <g clip-path="url(#clip0_4480_6044)">
+      <g clipPath="url(#clip0_4480_6044)">
         <rect x="25" y="22.5" width="375" height="812" rx="40" fill="#F4F6F8" />
-        <g clip-path="url(#clip1_4480_6044)">
+        <g clipPath="url(#clip1_4480_6044)">
           <rect
             x="-6.55859"
             y="33.5859"
@@ -1889,9 +1881,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           width="419"
           height="856"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1924,9 +1916,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           width="4"
           height="30"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1959,9 +1951,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           width="4"
           height="62"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -1994,9 +1986,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           width="4"
           height="62"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2029,9 +2021,9 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           width="4"
           height="100"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -2076,8 +2068,8 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           y2="570.04"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0" />
-          <stop offset="1" stop-color="#090909" />
+          <stop stopColor="white" stop-opacity="0" />
+          <stop offset="1" stopColor="#090909" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_4480_6044"
@@ -2087,8 +2079,8 @@ export const PhoneIcon = (props: SVGProps<any>) => {
           y2="856.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" stop-opacity="0.6" />
-          <stop offset="1" stop-color="white" stop-opacity="0.3" />
+          <stop stopColor="white" stop-opacity="0.6" />
+          <stop offset="1" stopColor="white" stop-opacity="0.3" />
         </linearGradient>
         <clipPath id="clip0_4480_6044">
           <rect x="25" y="22.5" width="375" height="812" rx="40" fill="white" />

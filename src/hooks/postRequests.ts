@@ -1,8 +1,8 @@
 import useAxiosInstance from "./useAxiosInstance";
 import { useMutation } from "@tanstack/react-query";
 import useSetCookies from "./useSetCookies";
-import { UserData } from "@/types";
-import { queryClient } from "@/providers/tanstack-provider";
+import { UserData } from "@/src/types";
+import { queryClient } from "@/src/providers/tanstack-provider";
 import avatar from "@/public/assets/icons/profile-icon.png";
 
 interface SignInData {

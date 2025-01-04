@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
 import "./globals.css";
+import Providers from "../providers";
+import ClientWrapper from "./ClientWrapper";
+import { Toaster } from "sonner";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -16,7 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sora.className} antialiased`}>{children}</body>
+      <body className={`${sora.className} antialiased`}>
+        <Providers>
+          <Toaster richColors position="top-right" closeButton />
+          <ClientWrapper>{children}</ClientWrapper>
+        </Providers>
+      </body>
     </html>
   );
 }

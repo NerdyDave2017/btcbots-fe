@@ -1,10 +1,140 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import Link from "next/link";
 import { GoogleIcon, UserIcon } from "@/public/assets/icons";
+import {
+  useDecode,
+  useSignIn,
+  useSignInSocial,
+} from "@/src/hooks/postRequests";
+import { useGoogleLogin } from "@react-oauth/google";
+import { toast } from "sonner";
+import Router from "next/router";
+import { useSearchParams } from "next/navigation";
+import { isAxiosError } from "axios";
+import { useAppContext } from "@/src/context";
 
 const page = () => {
+  const router = Router;
+  // Access location object using useLocation hook
+  const searchParams = useSearchParams();
+
+  // Get individual query parameters by key
+  const referrer = searchParams.get("referrer");
+
+  const { setIsAuthenticated, setUser } = useAppContext();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { mutate: SignInSocial } = useSignInSocial();
+  const { mutate: Decode, data: decodeData } = useDecode();
+  const { mutate: SignIn, isPending } = useSignIn();
+
+  const handleLogin = async () => {
+    SignIn(
+      { email, password },
+      {
+        onSuccess: (user) => {
+          if (user && typeof window !== undefined && window.Intercom) {
+            window.Intercom("update", {
+              app_id: "xd17lti9",
+              email: user.email,
+              name: user.name,
+              user_id: user._id, // Optional, pass if you have a user ID
+            });
+          }
+          toast.success("Login successful", { position: "top-center" });
+          setUser(user);
+          setIsAuthenticated(true);
+          router.push("/dashboard/bot-explorer");
+        },
+        onError: (error: Error) => {
+          setIsAuthenticated(false);
+          setUser(null);
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data.message, {
+              position: "top-center",
+            });
+          } else {
+            console.error(error);
+            toast.error("An unexpected error occurred", {
+              position: "top-center",
+            });
+          }
+        },
+      }
+    );
+  };
+
+  const handleValidation = () => {
+    if (!email) {
+      toast.error("Email required", { position: "top-center" });
+      return;
+    }
+    if (!password) {
+      toast.error("Password required", { position: "top-center" });
+      return;
+    }
+    handleLogin();
+  };
+
+  const login = useGoogleLogin({
+    onSuccess: (codeResponse) => {
+      loginWithGoogle(codeResponse.access_token);
+    },
+    onError: (e) => toast.error(`Login failed. ${e.error_description}`),
+  });
+
+  const loginWithGoogle = async (accessToken: string) => {
+    Decode(accessToken, {
+      onSuccess: (result) => {
+        SignInSocial(
+          {
+            email: result.email,
+            name: `${result.given_name} ${result.family_name ?? ""}`,
+            referrer: referrer ?? undefined,
+            avatar: result.picture ?? undefined,
+            isEmailVerified: result.verified_email,
+          },
+          {
+            onSuccess: (res) => {
+              toast.success("Login Successful", { position: "top-center" });
+              setUser(res);
+              router.push("/dashboard/bot-explorer");
+            },
+            onError: (error: Error) => {
+              if (isAxiosError(error)) {
+                toast.error(error.response?.data.message, {
+                  position: "top-center",
+                });
+              } else {
+                console.error(error);
+                toast.error("An unexpected error occurred", {
+                  position: "top-center",
+                });
+              }
+            },
+          }
+        );
+      },
+      onError: (error: Error) => {
+        if (isAxiosError(error)) {
+          toast.error(error.response?.data.message, {
+            position: "top-center",
+          });
+        } else {
+          console.error(error);
+          toast.error("An unexpected error occurred", {
+            position: "top-center",
+          });
+        }
+      },
+    });
+  };
+
   return (
     <div className="w-full flex flex-col items-center py-[70px] px-[160px] gap-[48px] text-text-light">
       <div className="w-[475px]">
@@ -15,14 +145,14 @@ const page = () => {
       </div>
 
       <div className="w-[475px] flex flex-col gap-[32px]">
-        <Input label="Email" icon="email" value="" setValue={() => {}} />
+        <Input label="Email" icon="email" value={email} setValue={setEmail} />
 
         <div className="">
           <Input
             label="Password"
             icon="password"
-            value=""
-            setValue={() => {}}
+            value={password}
+            setValue={setPassword}
           />
           <div className="text-right mt-[16px]">
             <Link
@@ -41,7 +171,12 @@ const page = () => {
           </div>
         </div>
 
-        <Button text="Login" className="w-full flex text-text-dark" size="lg" />
+        <Button
+          onClick={handleValidation}
+          text="Login"
+          className="w-full flex text-text-dark"
+          size="lg"
+        />
       </div>
 
       <div className="w-[475px] justify-center items-center gap-4 inline-flex">
@@ -53,7 +188,10 @@ const page = () => {
       </div>
 
       <div className="w-[475px] flex flex-col gap-[32px]">
-        <button className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex">
+        <button
+          onClick={() => login()}
+          className="w-full  px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
+        >
           <GoogleIcon />
           <p className="text-main  font-normal ">Continue with Google</p>
         </button>

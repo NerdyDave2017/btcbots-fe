@@ -1,3 +1,4 @@
+"use client";
 import React, { ReactNode } from "react";
 import AuthSidebar from "./components/auth-sidebar";
 import Footer from "../components/footer";
