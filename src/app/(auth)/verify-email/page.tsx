@@ -74,13 +74,7 @@ const page = () => {
       <div className="w-[475px] flex flex-col gap-[32px]">
         <Button
           onClick={handleButtonClick}
-          text={
-            isSuccess
-              ? "Go to Dashboard"
-              : isError
-              ? "Go to Dashboard"
-              : "Retry"
-          }
+          text={isSuccess ? "Go to login" : isError ? "Go to login" : "Retry"}
           className="w-full flex text-text-dark"
           size="lg"
           disabled={isPending}
