@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  console.log("Middleware executed for route:", pathname);
-
   // Check if the route is a auth route
   const authRoutes = ["/login", "/signup"];
 
