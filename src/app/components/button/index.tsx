@@ -9,6 +9,7 @@ type Props = {
   onClick?: () => void;
   size?: "base" | "lg";
   loading?: boolean;
+  disabled?: boolean;
 };
 
 const Button = ({
@@ -18,9 +19,11 @@ const Button = ({
   onClick,
   size = "base",
   loading,
+  disabled,
 }: Props) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={`${className} relative bg-[#006fe3] rounded-full flex items-center justify-center px-[36px] text-text-dark gap-2.5 ${
         size === "base" ? "py-[12px] h-[47px]" : "py-[16px] h-[55px]"

@@ -3,20 +3,14 @@ import React, { useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import Link from "next/link";
-import { GoogleIcon, UserIcon } from "@/public/assets/icons";
-import {
-  useDecode,
-  useSignIn,
-  useSignInSocial,
-  useGuestSignIn,
-} from "@/src/hooks/postRequests";
-import { useGoogleLogin } from "@react-oauth/google";
+
+import { useSignIn } from "@/src/hooks/postRequests";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { isAxiosError } from "axios";
 import { useAppContext } from "@/src/context";
-import Loader from "../../components/loader";
+import AlternativeSignin from "../components/alternative-signin";
 
 const page = () => {
   const router = useRouter();
@@ -31,39 +25,7 @@ const page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { mutate: SignInSocial } = useSignInSocial();
-  const { mutate: Decode, data: decodeData } = useDecode();
   const { mutate: SignIn, isPending } = useSignIn();
-  const { mutate: GuestSignIn, isPending: guestSignInPending } =
-    useGuestSignIn();
-
-  const handleGuestLogin = async () => {
-    GuestSignIn(
-      {},
-      {
-        onSuccess: (user) => {
-          toast.success("Login successful", { position: "top-center" });
-          setUser(user);
-          setIsAuthenticated(true);
-          router.push("/dashboard");
-        },
-        onError: (error: Error) => {
-          setIsAuthenticated(false);
-          setUser(null);
-          if (isAxiosError(error)) {
-            toast.error(error.response?.data.message, {
-              position: "top-center",
-            });
-          } else {
-            console.error(error);
-            toast.error("An unexpected error occurred", {
-              position: "top-center",
-            });
-          }
-        },
-      }
-    );
-  };
 
   const handleLogin = async () => {
     SignIn(
@@ -111,60 +73,6 @@ const page = () => {
       return;
     }
     handleLogin();
-  };
-
-  const login = useGoogleLogin({
-    onSuccess: (codeResponse) => {
-      loginWithGoogle(codeResponse.access_token);
-    },
-    onError: (e) => toast.error(`Login failed. ${e.error_description}`),
-  });
-
-  const loginWithGoogle = async (accessToken: string) => {
-    Decode(accessToken, {
-      onSuccess: (result) => {
-        SignInSocial(
-          {
-            email: result.email,
-            name: `${result.given_name} ${result.family_name ?? ""}`,
-            referrer: referrer ?? undefined,
-            avatar: result.picture ?? undefined,
-            isEmailVerified: result.verified_email,
-          },
-          {
-            onSuccess: (res) => {
-              toast.success("Login Successful", { position: "top-center" });
-              setUser(res);
-              router.push("/dashboard");
-            },
-            onError: (error: Error) => {
-              if (isAxiosError(error)) {
-                toast.error(error.response?.data.message, {
-                  position: "top-center",
-                });
-              } else {
-                console.error(error);
-                toast.error("An unexpected error occurred", {
-                  position: "top-center",
-                });
-              }
-            },
-          }
-        );
-      },
-      onError: (error: Error) => {
-        if (isAxiosError(error)) {
-          toast.error(error.response?.data.message, {
-            position: "top-center",
-          });
-        } else {
-          console.error(error);
-          toast.error("An unexpected error occurred", {
-            position: "top-center",
-          });
-        }
-      },
-    });
   };
 
   return (
@@ -220,26 +128,7 @@ const page = () => {
         <div className="w-full grow shrink basis-0 h-[0px] border-b border-[#3c3c43]/60"></div>
       </div>
 
-      <div className="w-[475px] flex flex-col gap-[32px]">
-        <button
-          onClick={() => login()}
-          className="w-full h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
-        >
-          <GoogleIcon />
-          <p className="text-main  font-normal ">Continue with Google</p>
-        </button>
-
-        <button
-          onClick={handleGuestLogin}
-          className="w-full  h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
-        >
-          {guestSignInPending && <Loader bg="bg-main" />}
-          {!guestSignInPending && <UserIcon className="text-main" />}
-          {!guestSignInPending && (
-            <p className="text-main  font-normal ">Sign in as guest</p>
-          )}
-        </button>
-      </div>
+      <AlternativeSignin referrer={referrer!} />
     </div>
   );
 };

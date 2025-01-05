@@ -29,5 +29,5 @@ applied to. The middleware function will be executed for requests to any of the 
 ("/", "/login", "/signup", "/dashboard"). This configuration helps specify where the middleware
 logic should be applied within the application. */
 export const config = {
-  matcher: ["/", "/login", "/signup", "/dashboard"],
+  matcher: ["/login", "/signup", "/dashboard"],
 };

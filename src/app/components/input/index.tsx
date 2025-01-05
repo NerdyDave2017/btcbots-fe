@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { Mail, EyeClosed, EyeOpen } from "@/public/assets/icons";
 import { show } from "@intercom/messenger-js-sdk";
