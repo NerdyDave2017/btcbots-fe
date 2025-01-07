@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowRight, SearchIcon, SettingsIcon } from "@/public/assets/icons";
-import { SelectedType } from "../page";
+import { CoinsType, ExchangesType, SelectedType } from "../page";
 import Link from "next/link";
 import Card from "../components/card";
 import Header from "../../components/header";
+import { Masonry } from "react-plock";
 import {
   CB001,
   CB002,
@@ -36,11 +37,55 @@ const CardData = [
 ];
 
 type Props = {
+  depositCoin: CoinsType;
+  profitCoin: CoinsType;
+  selectedExchange: ExchangesType;
   setSelected: (value: SelectedType) => void;
 };
 
-const Strategy = ({ setSelected }: Props) => {
+const Strategy = ({
+  depositCoin,
+  profitCoin,
+  selectedExchange,
+  setSelected,
+}: Props) => {
+  const [filteredCard, setFilteredCard] = useState<typeof CardData>([]);
+
   const nav = ["Data Room", "FAQ", "Help", "Knowledge Base"];
+
+  const filterCardData = () => {
+    if (depositCoin && profitCoin) {
+      setFilteredCard(
+        CardData.filter((item) => {
+          console.log(
+            item.strategy.deposit_coin.includes(depositCoin.toLocaleLowerCase())
+          );
+          console.log(
+            item.strategy.profit_coin.includes(profitCoin.toLocaleLowerCase())
+          );
+          return (
+            depositCoin.toLowerCase().includes(item.strategy.deposit_coin) &&
+            profitCoin.toLowerCase().includes(item.strategy.profit_coin)
+          );
+        })
+      );
+      return;
+    }
+
+    if (selectedExchange) {
+      setFilteredCard(
+        CardData.filter((item) => item.exchanges.includes(selectedExchange))
+      );
+
+      return;
+    }
+
+    setFilteredCard(CardData);
+  };
+
+  useEffect(() => {
+    filterCardData();
+  }, [depositCoin, selectedExchange, profitCoin]);
 
   return (
     <div className="w-full font-normal overflow-scroll pb-[48px]">
@@ -78,15 +123,32 @@ const Strategy = ({ setSelected }: Props) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-4 xl:gap-x-1 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
-        {CardData.map((item, index) => (
+      {/* <div className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 md:gap-x-4 xl:gap-x-1 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
+        {filteredCard.map((item, index) => (
           <Card
             key={index}
             cardDetails={item}
             onClick={() => setSelected("activate")}
           />
         ))}
-      </div>
+      </div> */}
+
+      <Masonry
+        className="w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6"
+        items={filteredCard}
+        config={{
+          columns: [1, 2, 2, 3],
+          gap: [24, 12, 6, 6],
+          media: [640, 770, 1025, 1440],
+        }}
+        render={(item, index) => (
+          <Card
+            key={index}
+            cardDetails={item}
+            onClick={() => setSelected("activate")}
+          />
+        )}
+      />
     </div>
   );
 };

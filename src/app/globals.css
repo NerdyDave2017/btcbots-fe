@@ -88,3 +88,9 @@ div {
     @apply bg-background text-foreground;
   }
 }
+
+.masonry {
+  @apply grid gap-5; /* Tailwind utilities */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 800px;
+}

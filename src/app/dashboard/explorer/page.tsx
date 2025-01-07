@@ -47,7 +47,14 @@ const page = () => {
         />
       )}
 
-      {selected === "strategy" && <Strategy setSelected={setSelected} />}
+      {selected === "strategy" && (
+        <Strategy
+          depositCoin={depositCoin}
+          profitCoin={profitCoin}
+          selectedExchange={selectedExchange}
+          setSelected={setSelected}
+        />
+      )}
 
       {selected === "activate" && (
         <Activate

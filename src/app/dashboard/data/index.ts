@@ -86,14 +86,14 @@ export const CB001 = {
     gemini,
   ],
   exchanges: [
-    "binance",
-    "bybit",
-    "kraken",
-    "okx",
-    "coinbase",
-    "binance_us",
-    "full_gate_io",
-    "gemini",
+    "Binance",
+    "Bybit",
+    "Kraken",
+    "OKX",
+    "Coinbase",
+    "Binance US",
+    "Gate.io",
+    "Gemini",
   ],
 };
 
@@ -115,7 +115,7 @@ export const CB002 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx, full_gate_io],
-  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
+  exchanges: ["Binance", "Bybit", "OKX", "Gate.io"],
 };
 
 export const CB003 = {
@@ -136,7 +136,7 @@ export const CB003 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx, full_gate_io],
-  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
+  exchanges: ["Binance", "Bybit", "OKX", "Gate.io"],
 };
 
 export const CB004 = {
@@ -167,14 +167,14 @@ export const CB004 = {
     gemini,
   ],
   exchanges: [
-    "binance",
-    "bybit",
-    "kraken",
-    "okx",
-    "coinbase",
-    "binance_us",
-    "full_gate_io",
-    "gemini",
+    "Binance",
+    "Bybit",
+    "Kraken",
+    "OKX",
+    "Coinbase",
+    "Binance US",
+    "Gate.io",
+    "Gemini",
   ],
 };
 
@@ -196,7 +196,7 @@ export const CB005 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx],
-  exchanges: ["binance", "bybit", "okx"],
+  exchanges: ["Binance", "Bybit", "OKX"],
 };
 
 export const CB006 = {
@@ -217,7 +217,7 @@ export const CB006 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx, full_gate_io],
-  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
+  exchanges: ["Binance", "Bybit", "OKX", "Gate.io"],
 };
 
 export const CB007 = {
@@ -248,14 +248,14 @@ export const CB007 = {
     gemini,
   ],
   exchanges: [
-    "binance",
-    "bybit",
-    "kraken",
-    "okx",
-    "coinbase",
-    "binance_us",
-    "full_gate_io",
-    "gemini",
+    "Binance",
+    "Bybit",
+    "Kraken",
+    "OKX",
+    "Coinbase",
+    "Binance US",
+    "Gate.io",
+    "Gemini",
   ],
 };
 
@@ -277,7 +277,7 @@ export const CB008 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx],
-  exchanges: ["binance", "bybit", "okx"],
+  exchanges: ["Binance", "Bybit", "OKX"],
 };
 
 export const CB009 = {
@@ -298,7 +298,7 @@ export const CB009 = {
     isAvailable: true,
   },
   wallets: [binance, bybit, okx, full_gate_io],
-  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
+  exchanges: ["Binance", "Bybit", "OKX", "Gate.io"],
 };
 
 export const CB010 = {
@@ -329,14 +329,14 @@ export const CB010 = {
     gemini,
   ],
   exchanges: [
-    "binance",
-    "bybit",
-    "kraken",
-    "okx",
-    "coinbase",
-    "binance_us",
-    "full_gate_io",
-    "gemini",
+    "Binance",
+    "Bybit",
+    "Kraken",
+    "OKX",
+    "Coinbase",
+    "Binance US",
+    "Gate.io",
+    "Gemini",
   ],
 };
 
@@ -358,7 +358,7 @@ export const CB011 = {
     isAvailable: false,
   },
   wallets: [binance, bybit, bitget, okx, full_gate_io],
-  exchanges: ["binance", "bybit", "bitget", "okx", "full_gate_io"],
+  exchanges: ["Binance", "Bybit", "bitget", "OKX", "Gate.io"],
 };
 
 export const SOLETH = {
@@ -379,7 +379,7 @@ export const SOLETH = {
     isAvailable: true,
   },
   wallets: [binance, kraken, okx, coinbase, binance_us, gemini],
-  exchanges: ["binance", "kraken", "okx", "coinbase", "binance_us", "gemini"],
+  exchanges: ["Binance", "Kraken", "OKX", "Coinbase", "Binance US", "Gemini"],
 };
 export const SOLBTC = {
   ...btc_params,
@@ -400,12 +400,12 @@ export const SOLBTC = {
   },
   wallets: [binance, bybit, kraken, okx, coinbase, binance_us, gemini],
   exchanges: [
-    "binance",
-    "bybit",
-    "kraken",
-    "okx",
-    "coinbase",
-    "binance_us",
-    "gemini",
+    "Binance",
+    "Bybit",
+    "Kraken",
+    "OKX",
+    "Coinbase",
+    "Binance US",
+    "Gemini",
   ],
 };

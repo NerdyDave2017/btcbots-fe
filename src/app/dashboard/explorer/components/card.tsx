@@ -60,7 +60,7 @@ const Card = ({ cardDetails, onClick }: Props) => {
   ];
 
   return (
-    <div className="w-[350px] break-inside-avoid mb-[8px]">
+    <div className="w-[350px] break-inside-avoid">
       <div className="h-[115px] bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
         <Image src={cardDetails.logo!} className="w-12 h-12" alt="" />
         <div className="flex flex-col items-start justify-center gap-3">
@@ -184,12 +184,12 @@ const Card = ({ cardDetails, onClick }: Props) => {
 
         <div className="w-full border border-[#E3E3E3]/50"></div>
 
-        <div className="flex-col justify-center items-start gap-1 inline-flex">
+        <div className="w-full flex-col justify-start items-start gap-1 inline-flex">
           <p className="text-right text-[#3c3c43]/60 text-sm font-normal">
             Available Exchanges
           </p>
           <div className="self-stretch justify-start items-center gap-2 flex flex-wrap">
-            {echanges.map((exchange, index) => (
+            {cardDetails.exchanges.map((exchange, index) => (
               <div
                 key={index}
                 className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex"
