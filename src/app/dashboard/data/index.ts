@@ -1,61 +1,67 @@
-import binanceUs from "@/public/assets/icons/binance-us.svg";
-import binance from "@/public/assets/icons/binance.svg";
-import bitget from "@/public/assets/icons/bitget.svg";
-import bybit from "@/public/assets/icons/bybit.svg";
+import bitcoin from "@/public/assets/icons/bitcoin.svg";
+import ethereum from "@/public/assets/icons/ethereum.svg";
+import solana from "@/public/assets/icons/solana.svg";
+import usdc from "@/public/assets/icons/usdc.svg";
+import usdt from "@/public/assets/icons/usdt.svg";
+import okx from "@/public/assets/icons/okx.svg";
+import kraken from "@/public/assets/icons/Kraken.svg";
+import full_gate_io from "@/public/assets/icons/full-gate-io.svg";
 import coinbase from "@/public/assets/icons/coinbase.svg";
-import full_gate from "@/public/assets/icons/full-gate-io.svg";
 import gemini from "@/public/assets/icons/gemini.svg";
-import kraken from "@/public/assets/icons/kraken-vector-logo 1.svg";
-import kucoin from "@/public/assets/icons/kucoin.svg";
-import okex from "@/public/assets/icons/okx.svg";
+import binance from "@/public/assets/icons/binance.svg";
+import binance_us from "@/public/assets/icons/binance-us.svg";
+import bybit from "@/public/assets/icons/bybit.svg";
+import bitget from "@/public/assets/icons/bitget.svg";
+import usdt_usdc from "@/public/assets/icons/usdt_usdc.svg";
 
-import Bitcoin from "@/public/assets/icons/bitcoin.svg";
-import Ethereum from "@/public/assets/icons/ethereum.svg";
-import Solana from "@/public/assets/icons/solana.svg";
-import Usdt from "@/public/assets/icons/usdt.svg";
-import Usdc from "@/public/assets/icons/usdc.svg";
+export const en_videos: Record<string, any> = {
+  "All about crypbots.io":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Intro+to+Cryptobots.io.mp4",
+  "Step By Step to get started":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Getting+started.mp4",
+  "Affiliate Program":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Affiliate+Prog.mp4",
+  Overview:
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Overview.mp4",
+};
 
-export const exchanges = [
-  "Binance.US",
-  "Bybit",
-  "Binance",
-  "OKEX",
-  "Gemini",
-  "Bitget",
-  "Kraken",
-  "Gate.io",
-];
-
-export const coins = ["BTC", "ETH", " SOL", "USDT", "USDC"];
+export const es_videos: Record<string, any> = {
+  "All about crypbots.io":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Intro+to+Cryptobots.io+Spanish.mp4",
+  "Step By Step to get started":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Getting+Started+Spanish.mp4",
+  "Affiliate Program":
+    "https://cryptobots-assets.s3.us-east-1.amazonaws.com/frontend/videos/Affiliate+Prog+Spanish.mp4",
+};
 
 export const btc_params = {
-  logo: [Bitcoin],
+  logo: bitcoin,
   denomination: "BTC",
+  bot: "Bitcoin",
 };
 
 export const eth_params = {
-  logo: [Ethereum],
+  logo: ethereum,
   denomination: "ETH",
+  bot: "Ethereum",
 };
 
 export const sol_params = {
-  logo: [Solana],
-
+  logo: solana,
   denomination: "SOL",
+  bot: "Solana",
 };
 
 export const usd_params = {
-  logo: [Usdc, Usdt],
+  logo: usdt_usdc,
   denomination: "USD",
+  bot: "USD",
 };
 
 export const CB001 = {
   ...btc_params,
-  bg: "",
-  titleColor: "text-[#FB7800A6]",
-  lightCircle: "",
-  textLight: "",
-  textDark: "text-[#FA7800]",
+  profitCurrencyImg: bitcoin,
+  depositCurrencyImg: bitcoin,
   strategy: {
     name: "CB001",
     return: "2%+",
@@ -73,31 +79,28 @@ export const CB001 = {
     binance,
     bybit,
     kraken,
-    okex,
+    okx,
     coinbase,
-    binanceUs,
-    full_gate,
+    binance_us,
+    full_gate_io,
     gemini,
   ],
   exchanges: [
     "binance",
     "bybit",
     "kraken",
-    "okex",
+    "okx",
     "coinbase",
-    "binanceUs",
-    "full_gate",
+    "binance_us",
+    "full_gate_io",
     "gemini",
   ],
 };
 
 export const CB002 = {
   ...btc_params,
-  bg: "bg-[#F7A600]",
-  titleColor: "text-[#FB7800A6]",
-  lightCircle: "bg-[#FA7800]",
-  textLight: "text-[#505155]",
-  textDark: "text-[#FA7800]",
+  profitCurrencyImg: bitcoin,
+  depositCurrencyImg: bitcoin,
   strategy: {
     name: "CB002",
     return: "2%+",
@@ -111,17 +114,14 @@ export const CB002 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex, full_gate],
-  exchanges: ["binance", "bybit", "okex", "full_gate"],
+  wallets: [binance, bybit, okx, full_gate_io],
+  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
 };
 
 export const CB003 = {
   ...btc_params,
-  bg: "bg-[#FCB900]",
-  titleColor: "text-[#FB7800A6]",
-  lightCircle: "bg-[#FA7800]",
-  textLight: "text-[#505155]",
-  textDark: "text-[#FA7800]",
+  profitCurrencyImg: usdt_usdc,
+  depositCurrencyImg: bitcoin,
   strategy: {
     name: "CB003",
     return: "2%+",
@@ -135,17 +135,14 @@ export const CB003 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex, full_gate],
-  exchanges: ["binance", "bybit", "okex", "full_gate"],
+  wallets: [binance, bybit, okx, full_gate_io],
+  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
 };
 
 export const CB004 = {
   ...eth_params,
-  bg: "",
-  titleColor: "text-[#468FDE]",
-  lightCircle: "",
-  textLight: "",
-  textDark: "text-[#3D85C6]",
+  profitCurrencyImg: ethereum,
+  depositCurrencyImg: ethereum,
   strategy: {
     name: "CB004",
     return: "3%+",
@@ -163,31 +160,28 @@ export const CB004 = {
     binance,
     bybit,
     kraken,
-    okex,
+    okx,
     coinbase,
-    binanceUs,
-    full_gate,
+    binance_us,
+    full_gate_io,
     gemini,
   ],
   exchanges: [
     "binance",
     "bybit",
     "kraken",
-    "okex",
+    "okx",
     "coinbase",
-    "binanceUs",
-    "full_gate",
+    "binance_us",
+    "full_gate_io",
     "gemini",
   ],
 };
 
 export const CB005 = {
   ...eth_params,
-  bg: "bg-[#2775CA]",
-  titleColor: "text-[#468FDE]",
-  lightCircle: "bg-[#468FDE]",
-  textLight: "text-[#FFFFFFB2]",
-  textDark: "text-[#3D85C6]",
+  profitCurrencyImg: ethereum,
+  depositCurrencyImg: ethereum,
   strategy: {
     name: "CB005",
     return: "3%+",
@@ -201,17 +195,14 @@ export const CB005 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex],
-  exchanges: ["binance", "bybit", "okex"],
+  wallets: [binance, bybit, okx],
+  exchanges: ["binance", "bybit", "okx"],
 };
 
 export const CB006 = {
   ...eth_params,
-  bg: "bg-[#468FDE]",
-  titleColor: "text-[#2775CA]",
-  lightCircle: "bg-[#2775CA]",
-  textLight: "text-[#FFFFFFB2]",
-  textDark: "text-[#3D85C6]",
+  profitCurrencyImg: usdt_usdc,
+  depositCurrencyImg: ethereum,
   strategy: {
     name: "CB006",
     return: "3%+",
@@ -225,17 +216,14 @@ export const CB006 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex, full_gate],
-  exchanges: ["binance", "bybit", "okex", "full_gate"],
+  wallets: [binance, bybit, okx, full_gate_io],
+  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
 };
 
 export const CB007 = {
   ...sol_params,
-  bg: "",
-  titleColor: "text-[#C69ACE]",
-  lightCircle: "",
-  textLight: "",
-  textDark: "text-[#C69ACE]",
+  profitCurrencyImg: solana,
+  depositCurrencyImg: solana,
   strategy: {
     name: "CB007",
     return: "4%+",
@@ -253,31 +241,28 @@ export const CB007 = {
     binance,
     bybit,
     kraken,
-    okex,
+    okx,
     coinbase,
-    binanceUs,
-    full_gate,
+    binance_us,
+    full_gate_io,
     gemini,
   ],
   exchanges: [
     "binance",
     "bybit",
     "kraken",
-    "okex",
+    "okx",
     "coinbase",
-    "binanceUs",
-    "full_gate",
+    "binance_us",
+    "full_gate_io",
     "gemini",
   ],
 };
 
 export const CB008 = {
   ...sol_params,
-  bg: "bg-[#9864E37F]",
-  titleColor: "text-[#C69ACE]",
-  lightCircle: "bg-[#2D2893]",
-  textLight: "text-[#FFFFFFB2]",
-  textDark: "text-[#C69ACE]",
+  profitCurrencyImg: solana,
+  depositCurrencyImg: solana,
   strategy: {
     name: "CB008",
     return: "4%+",
@@ -291,17 +276,14 @@ export const CB008 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex],
-  exchanges: ["binance", "bybit", "okex"],
+  wallets: [binance, bybit, okx],
+  exchanges: ["binance", "bybit", "okx"],
 };
 
 export const CB009 = {
   ...sol_params,
-  bg: "bg-[#BD95F87F]",
-  titleColor: "text-[#C69ACE]",
-  lightCircle: "bg-[#2D2893]",
-  textLight: "text-[#FFFFFFB2]",
-  textDark: "text-[#C69ACE]",
+  profitCurrencyImg: usdt_usdc,
+  depositCurrencyImg: solana,
   strategy: {
     name: "CB009",
     return: "4%+",
@@ -315,17 +297,14 @@ export const CB009 = {
     safety_net: "-40% to -50%",
     isAvailable: true,
   },
-  wallets: [binance, bybit, okex, full_gate],
-  exchanges: ["binance", "bybit", "okex", "full_gate"],
+  wallets: [binance, bybit, okx, full_gate_io],
+  exchanges: ["binance", "bybit", "okx", "full_gate_io"],
 };
 
 export const CB010 = {
   ...usd_params,
-  bg: "bg-[#02BE89]",
-  titleColor: "text-[#64FFDA]",
-  lightCircle: "bg-[#0C8462]",
-  textLight: "text-[#292C3C]",
-  textDark: "text-[#00FFA3]",
+  profitCurrencyImg: usdt_usdc,
+  depositCurrencyImg: usdt_usdc,
   strategy: {
     name: "CB010",
     return: "2%+",
@@ -343,31 +322,28 @@ export const CB010 = {
     binance,
     bybit,
     kraken,
-    okex,
+    okx,
     coinbase,
-    binanceUs,
-    full_gate,
+    binance_us,
+    full_gate_io,
     gemini,
   ],
   exchanges: [
     "binance",
     "bybit",
     "kraken",
-    "okex",
+    "okx",
     "coinbase",
-    "binanceUs",
-    "full_gate",
+    "binance_us",
+    "full_gate_io",
     "gemini",
   ],
 };
 
 export const CB011 = {
   ...usd_params,
-  bg: "",
-  titleColor: "text-[#64FFDA]",
-  lightCircle: "",
-  textLight: "",
-  textDark: "text-[#00FFA3]",
+  profitCurrencyImg: usdt_usdc,
+  depositCurrencyImg: usdt_usdc,
   strategy: {
     name: "CB011",
     return: "2%+",
@@ -375,26 +351,20 @@ export const CB011 = {
     leverage: "1x",
     minimum_deposit: "1 BTC in USD",
     maximum_deposit: "$4,000,000",
-    market_type: "Linear Derivatives (BTC/INDEX)",
+    market_type: "Linear D. (BTC/INDEX)",
     deposit_coin: "usd",
     profit_coin: "usd",
     safety_net: "100%",
     isAvailable: false,
   },
-  wallets: [binance, bybit, bitget, okex, full_gate],
-  exchanges: ["binance", "bybit", "bitget", "okex", "full_gate"],
+  wallets: [binance, bybit, bitget, okx, full_gate_io],
+  exchanges: ["binance", "bybit", "bitget", "okx", "full_gate_io"],
 };
 
 export const SOLETH = {
   ...eth_params,
-  direction: "BULL",
-  leverage: "N/A",
-  bg: "bg-gradient-to-tr from-[#5741D9] to-[#2775CA]",
-  titleColor:
-    "text-transparent bg-clip-text bg-gradient-to-r from-[#5C54B5] from-50% to-[#468FDE] to-50%",
-  lightCircle: "bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10",
-  textLight: "text-[#D9D9D9]",
-  textDark: "text-[#468FDE]",
+  profitCurrencyImg: ethereum,
+  depositCurrencyImg: solana,
   strategy: {
     name: "SOLETH",
     return: "3%+",
@@ -408,17 +378,13 @@ export const SOLETH = {
     safety_net: "N/A",
     isAvailable: true,
   },
-  wallets: [binance, kraken, okex, coinbase, binanceUs, gemini],
-  exchanges: ["binance", "kraken", "okex", "coinbase", "binanceUs", "gemini"],
+  wallets: [binance, kraken, okx, coinbase, binance_us, gemini],
+  exchanges: ["binance", "kraken", "okx", "coinbase", "binance_us", "gemini"],
 };
 export const SOLBTC = {
   ...btc_params,
-  bg: "bg-gradient-to-tr from-[#7740AA] to-[#DFA01E]",
-  titleColor:
-    "text-transparent bg-clip-text bg-gradient-to-r from-[#C69ACE] from-50% to-[#FCB900] to-50%",
-  lightCircle: "bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10",
-  textLight: "text-[#D9D9D9]",
-  textDark: "text-[#FCB900]",
+  profitCurrencyImg: bitcoin,
+  depositCurrencyImg: solana,
   strategy: {
     name: "SOLBTC",
     return: "2%+",
@@ -432,14 +398,14 @@ export const SOLBTC = {
     safety_net: "N/A",
     isAvailable: true,
   },
-  wallets: [binance, bybit, kraken, okex, coinbase, binanceUs, gemini],
+  wallets: [binance, bybit, kraken, okx, coinbase, binance_us, gemini],
   exchanges: [
     "binance",
     "bybit",
     "kraken",
-    "okex",
+    "okx",
     "coinbase",
-    "binanceUs",
+    "binance_us",
     "gemini",
   ],
 };

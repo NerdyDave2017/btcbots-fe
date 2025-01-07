@@ -1,3 +1,5 @@
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+
 export interface Notification {
   weekly_report: boolean;
   withdraw_activity: boolean;
@@ -40,15 +42,13 @@ export type Strategy = {
 };
 
 export type CardDetails = {
-  logo?: any[];
+  bot: string;
+  logo?: StaticImport;
+  profitCurrencyImg: StaticImport;
+  depositCurrencyImg: StaticImport;
   denomination?: string;
   wallets: any[];
   exchanges: string[];
-  bg: string;
-  titleColor: string;
-  lightCircle: string;
-  textLight: string;
-  textDark: string;
   strategy: Strategy;
 };
 

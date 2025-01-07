@@ -1,15 +1,15 @@
 import React from "react";
 import Container from "../../components/container";
 import binanceUs from "@/public/assets/icons/binance-us.svg";
-import binance from "@/public/assets/icons/binance-vector-logo 1.svg";
+import binance from "@/public/assets/icons/binance.svg";
 import bitget from "@/public/assets/icons/bitget.svg";
-import bybit from "@/public/assets/icons/bybit-seeklogo 1.svg";
+import bybit from "@/public/assets/icons/bybit.svg";
 import coinbase from "@/public/assets/icons/coinbase.svg";
-import full_gate from "@/public/assets/icons/full-gate.io-logo 1.svg";
+import full_gate from "@/public/assets/icons/full-gate-io.svg";
 import gemini from "@/public/assets/icons/gemini.svg";
-import kraken from "@/public/assets/icons/kraken-vector-logo 1.svg";
-import kucoin from "@/public/assets/icons/Kucoin.svg";
-import okex from "@/public/assets/icons/OKX_logo 1.svg";
+import kraken from "@/public/assets/icons/kraken.svg";
+import kucoin from "@/public/assets/icons/kucoin.svg";
+import okex from "@/public/assets/icons/okx.svg";
 import Image from "next/image";
 import { SleepDollar, Discount, MoneyNotFound } from "@/public/assets/icons";
 

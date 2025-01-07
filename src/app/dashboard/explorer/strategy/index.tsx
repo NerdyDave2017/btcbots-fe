@@ -4,6 +4,36 @@ import { SelectedType } from "../page";
 import Link from "next/link";
 import Card from "../components/card";
 import Header from "../../components/header";
+import {
+  CB001,
+  CB002,
+  CB003,
+  CB004,
+  CB005,
+  CB006,
+  CB007,
+  CB008,
+  CB009,
+  CB010,
+  CB011,
+  SOLBTC,
+  SOLETH,
+} from "../../data";
+const CardData = [
+  CB001,
+  CB002,
+  CB003,
+  SOLBTC,
+  CB004,
+  CB005,
+  CB006,
+  SOLETH,
+  CB007,
+  CB008,
+  CB009,
+  CB010,
+  CB011,
+];
 
 type Props = {
   setSelected: (value: SelectedType) => void;
@@ -48,12 +78,14 @@ const Strategy = ({ setSelected }: Props) => {
         </div>
       </div>
 
-      <div className="columns-1 md:columns-2 xl:columns-3 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
-        {/* {data.map((item, index) => ( */}
-        <Card onClick={() => setSelected("activate")} />
-        <Card onClick={() => setSelected("activate")} />
-        <Card onClick={() => setSelected("activate")} />
-        {/* ))} */}
+      <div className="grid grid-cols-1-1 md:grid-cols-2 xl:grid-cols-3 md:gap-x-4 xl:gap-x-1 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
+        {CardData.map((item, index) => (
+          <Card
+            key={index}
+            cardDetails={item}
+            onClick={() => setSelected("activate")}
+          />
+        ))}
       </div>
     </div>
   );
