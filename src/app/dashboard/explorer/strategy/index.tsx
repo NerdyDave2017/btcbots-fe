@@ -20,6 +20,7 @@ import {
   SOLBTC,
   SOLETH,
 } from "../../data";
+import { CardDetails } from "@/src/types";
 const CardData = [
   CB001,
   CB002,
@@ -37,6 +38,7 @@ const CardData = [
 ];
 
 type Props = {
+  setStrategy: (strategy: CardDetails) => void;
   depositCoin: CoinsType;
   profitCoin: CoinsType;
   selectedExchange: ExchangesType;
@@ -44,6 +46,7 @@ type Props = {
 };
 
 const Strategy = ({
+  setStrategy,
   depositCoin,
   profitCoin,
   selectedExchange,
@@ -57,12 +60,6 @@ const Strategy = ({
     if (depositCoin && profitCoin) {
       setFilteredCard(
         CardData.filter((item) => {
-          console.log(
-            item.strategy.deposit_coin.includes(depositCoin.toLocaleLowerCase())
-          );
-          console.log(
-            item.strategy.profit_coin.includes(profitCoin.toLocaleLowerCase())
-          );
           return (
             depositCoin.toLowerCase().includes(item.strategy.deposit_coin) &&
             profitCoin.toLowerCase().includes(item.strategy.profit_coin)
@@ -75,7 +72,9 @@ const Strategy = ({
     if (selectedExchange) {
       console.log(selectedExchange);
       setFilteredCard(
-        CardData.filter((item) => item.exchanges.includes(selectedExchange))
+        CardData.filter((item) => {
+          return item.exchanges.includes(selectedExchange);
+        })
       );
 
       return;
@@ -146,7 +145,10 @@ const Strategy = ({
           <Card
             key={index}
             cardDetails={item}
-            onClick={() => setSelected("activate")}
+            onClick={() => {
+              setStrategy(item);
+              setSelected("activate");
+            }}
           />
         )}
       />

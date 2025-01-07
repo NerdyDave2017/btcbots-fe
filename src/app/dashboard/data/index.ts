@@ -358,7 +358,7 @@ export const CB011 = {
     isAvailable: false,
   },
   wallets: [binance, bybit, bitget, okx, full_gate_io],
-  exchanges: ["Binance", "Bybit", "bitget", "OKX", "Gate.io"],
+  exchanges: ["Binance", "Bybit", "Bitget", "OKX", "Gate.io"],
 };
 
 export const SOLETH = {

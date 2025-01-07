@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight } from "@/public/assets/icons";
-import { ExchangesType, SelectedType } from "../page";
+import { CoinsType, ExchangesType, SelectedType } from "../page";
 import Bitcoin from "@/public/assets/icons/bitcoin.svg";
 import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
@@ -17,14 +17,26 @@ import Input from "@/src/app/components/input";
 import Link from "next/link";
 import SelectExchange from "../components/select-exchange";
 import Header from "../../components/header";
+import { CardDetails } from "@/src/types";
+import Strategy from "../strategy/index";
+import { useCreateBot } from "@/src/hooks/postRequests";
+import { isAxiosError } from "axios";
+import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "sonner";
 
 type Props = {
+  strategy: CardDetails;
+  depositCoin: CoinsType;
+  profitCoin: CoinsType;
   setSelected: (value: SelectedType) => void;
   setSelectedExchange: (value: ExchangesType) => void;
   selectedExchange: ExchangesType;
 };
 
 const Activate = ({
+  strategy,
+  depositCoin,
+  profitCoin,
   setSelected,
   setSelectedExchange,
   selectedExchange,
@@ -32,29 +44,122 @@ const Activate = ({
   const cardData = [
     {
       title: "Avg. Monthly Return",
-      value: "4%+",
+      value: strategy.strategy.return,
     },
     {
       title: "Safety Net",
-      value: "-40% to -50%",
+      value: strategy.strategy.safety_net,
     },
     {
       title: "Minimum Deposit",
-      value: "$10,000",
+      value: strategy.strategy.minimum_deposit,
     },
     {
       title: "Market Type",
-      value: "Inverse Derivation",
+      value: strategy.strategy.market_type,
     },
     {
       title: "Strategy Direction",
-      value: "Long / Short",
+      value: strategy.strategy.direction,
     },
     {
       title: "Leverage Used",
-      value: "1x to 1.5x",
+      value: strategy.strategy.leverage,
     },
   ];
+
+  const [apiKey, setApiKey] = useState("");
+  const [apiSecret, setApiSecret] = useState("");
+  const [apiPassphrase, setApiPassphrase] = useState("");
+  const [agree, setAgree] = useState(false);
+
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const { mutate: CreateBot, isPending } = useCreateBot();
+
+  const checkCoin = (coin: string) => {
+    if (!coin) return "";
+    if (coin.includes("usd")) return "usdt";
+    return coin;
+  };
+
+  const activateBot = async () => {
+    CreateBot(
+      {
+        strategy: strategy.strategy.name,
+        profitCurrency:
+          checkCoin(profitCoin!) || checkCoin(strategy.strategy.profit_coin),
+        depositCurrency:
+          checkCoin(depositCoin!) || checkCoin(strategy.strategy.deposit_coin),
+        exchange: selectedExchange!,
+        apiKey,
+        apiSecret,
+        apiPassphrase,
+      },
+      {
+        onSuccess: (res) => {
+          toast.success(res.message, {
+            position: "top-center",
+          });
+          router.push("/dashboard/my-bots");
+        },
+        onError: (error) => {
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data.message, {
+              position: "top-center",
+            });
+          } else {
+            toast.error("An unexpected error occurred", {
+              position: "top-center",
+            });
+          }
+        },
+      }
+    );
+  };
+
+  const handleValidation = () => {
+    console.log("got Here");
+    if (!selectedExchange) {
+      console.log("APi got Here");
+      toast.error("Please select an exchange network", {
+        position: "top-center",
+      });
+      return;
+    }
+
+    if (!apiKey) {
+      console.log("APi got Here");
+      toast.error("Api key required", {
+        position: "top-center",
+      });
+      return;
+    }
+    if (!apiSecret) {
+      toast.error("Api secret required", {
+        position: "top-center",
+      });
+      return;
+    }
+    if ([, "okx", "bitget"].includes(selectedExchange) && !apiPassphrase) {
+      toast.error("Passphrase is required.", {
+        position: "top-center",
+      });
+      return;
+    }
+    if (!agree) {
+      toast.error(
+        "Please read carefully & agree to our terms of service below.",
+        {
+          position: "top-center",
+        }
+      );
+      return;
+    }
+
+    activateBot();
+  };
 
   return (
     <div className="w-full font-normal mb-[48px]">
@@ -80,16 +185,41 @@ const Activate = ({
               <div className="flex flex-col items-start justify-center gap-3">
                 <div className="flex items-center gap-4">
                   <p className="text-xl text-text-light font-normal">
-                    Bitcoin Bot
+                    {strategy.bot}
                   </p>
                   <div className="px-2.5 py-1.5 bg-main/20 rounded-[90px] justify-center items-center flex">
-                    <p className="text-main text-sm font-normal">CB001</p>
+                    <p className="text-main text-sm font-normal">
+                      {strategy.strategy.name}
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-1">
-                  <p className="text-sm text-text-light font-normal">Spot</p>
-                  <p className="text-sm text-[#e9362b] font-normal">Short</p>
+                  <p className="text-sm text-text-light font-normal flex-1">
+                    {strategy.strategy.market_type}
+                  </p>
+                  <div className="">
+                    {(strategy.strategy.direction.includes("LONG") ||
+                      strategy.strategy.direction.includes("BULL")) && (
+                      <span className="text-[#14ae5c] text-sm font-normal">
+                        {strategy.strategy.direction.split("/")[0]}
+                      </span>
+                    )}
+                    {strategy.strategy.direction.includes("/") && (
+                      <span className="text-[#090909] text-sm font-normal">
+                        {" "}
+                        /{" "}
+                      </span>
+                    )}
+                    {(strategy.strategy.direction.includes("SHORT") ||
+                      strategy.strategy.direction.includes("BEAR")) && (
+                      <span className="text-[#e9362b] text-sm font-normal">
+                        {strategy.strategy.direction.includes("/")
+                          ? strategy.strategy.direction.split("/")[1]
+                          : strategy.strategy.direction}
+                      </span>
+                    )}
+                  </div>
                   <InfoIcon className="cursor-pointer" />
                 </div>
               </div>
@@ -101,7 +231,11 @@ const Activate = ({
                     Deposit with
                   </p>
                   <div className="px-4 py-2 bg-[#d0e0f1] rounded justify-start items-center gap-2 flex">
-                    <Image src={Bitcoin} className="w-8 h-8" alt="" />
+                    <Image
+                      src={strategy.depositCurrencyImg}
+                      className="w-8 h-8"
+                      alt=""
+                    />
                     <p className="text-text-light text-base font-normal ">
                       SOL
                     </p>
@@ -117,7 +251,11 @@ const Activate = ({
                     Profits with
                   </p>
                   <div className="px-4 py-2 bg-[#d0e0f1] rounded justify-start items-center gap-2 flex">
-                    <Image src={Bitcoin} className="w-8 h-8" alt="" />
+                    <Image
+                      src={strategy.profitCurrencyImg}
+                      className="w-8 h-8"
+                      alt=""
+                    />
                     <p className="text-text-light text-base font-normal ">
                       SOL
                     </p>
@@ -138,20 +276,24 @@ const Activate = ({
                     </p>
                     {index === 4 ? (
                       <div>
-                        {item.value.includes("Long") && (
-                          <span className="text-[#14ae5c] text-base font-normal">
-                            Long
+                        {(item.value.includes("LONG") ||
+                          item.value.includes("BULL")) && (
+                          <span className="text-[#14ae5c] text-sm font-normal">
+                            {item.value.split("/")[0]}
                           </span>
                         )}
                         {item.value.includes("/") && (
-                          <span className="text-text-light text-base font-normal">
+                          <span className="text-[#090909] text-sm font-normal">
                             {" "}
                             /{" "}
                           </span>
                         )}
-                        {item.value.includes("Short") && (
-                          <span className="text-[#e9362b] text-base font-normal">
-                            Short
+                        {(item.value.includes("SHORT") ||
+                          item.value.includes("BEAR")) && (
+                          <span className="text-[#e9362b] text-sm font-normal">
+                            {item.value.includes("/")
+                              ? item.value.split("/")[1]
+                              : item.value}
                           </span>
                         )}
                       </div>
@@ -171,11 +313,15 @@ const Activate = ({
               <p className="text-right text-[#3c3c43]/60 text-sm font-normal">
                 Selected Exchange
               </p>
-              <div className="w-full justify-start items-center gap-2 inline-flex">
-                <div className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex">
-                  <p className="text-text-light text-sm font-normal">Binance</p>
+              {selectedExchange && (
+                <div className="w-full justify-start items-center gap-2 inline-flex">
+                  <div className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex">
+                    <p className="text-text-light text-sm font-normal">
+                      {selectedExchange}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -185,7 +331,6 @@ const Activate = ({
               selectedExchange={selectedExchange}
             />
           </div>
-
           <div className="w-full max-w-[500px] mt-[40px] mb-[48px]">
             <span className="text-text-light text-xl font-normal">
               IMPORTANT INFORMATION ABOUT THIS STRATEGY
@@ -247,14 +392,27 @@ const Activate = ({
         </div>
 
         <div className="w-full flex flex-col gap-8">
-          <Input label="API Key" icon="text" setValue={() => {}} value="" />
+          <Input
+            label="API Key"
+            icon="text"
+            setValue={setApiKey}
+            value={apiKey}
+          />
+          {["OKX", "Bitget"].includes(selectedExchange!) && (
+            <Input
+              label="Passphrase"
+              icon="text"
+              setValue={setApiPassphrase}
+              value={apiPassphrase}
+            />
+          )}
 
           <div className="w-full">
             <Input
               label="Secret Phrase"
               icon="text"
-              setValue={() => {}}
-              value=""
+              setValue={setApiSecret}
+              value={apiSecret}
             />
             <Link href="">
               <p className="text-right text-[#006fe3] text-sm font-normal underline mt-4">
@@ -293,8 +451,9 @@ const Activate = ({
 
           <Button
             text="Activate Bot"
-            onClick={() => setSelected(null)}
+            onClick={handleValidation}
             size="lg"
+            loading={isPending}
           />
         </div>
       </div>

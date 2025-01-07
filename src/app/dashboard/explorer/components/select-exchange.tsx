@@ -20,7 +20,7 @@ function SelectExchange({
     "Binance",
     "OKX",
     "Gemini",
-    // "Bitget",
+    "Bitget",
     "Kraken",
     "Gate.io",
   ];

@@ -20,7 +20,7 @@ type Props = {
 };
 
 const Card = ({ cardDetails, onClick }: Props) => {
-  const echanges = [
+  const exchanges = [
     "Binance",
     "Kraken",
     "Coinbase",
@@ -122,7 +122,9 @@ const Card = ({ cardDetails, onClick }: Props) => {
                 className="w-8 h-8"
                 alt=""
               />
-              <p className="text-[#090909] text-base font-normal ">SOL</p>
+              <p className="text-[#090909] text-base font-normal ">
+                {cardDetails.strategy.deposit_coin.toUpperCase()}
+              </p>
             </div>
             <div className="flex items-center">
               <DollarCircleIcon />
@@ -134,7 +136,9 @@ const Card = ({ cardDetails, onClick }: Props) => {
                 className="w-8 h-8"
                 alt=""
               />
-              <p className="text-[#090909] text-base font-normal ">SOL</p>
+              <p className="text-[#090909] text-base font-normal ">
+                {cardDetails.strategy.profit_coin.toUpperCase()}
+              </p>
             </div>
           </div>
         </div>

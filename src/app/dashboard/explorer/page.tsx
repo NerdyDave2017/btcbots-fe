@@ -5,6 +5,7 @@ import Coins from "./coins";
 import Exchanges from "./exchanges";
 import Strategy from "./strategy";
 import Activate from "./activate";
+import { CardDetails } from "@/src/types";
 
 export type SelectedType = "coin" | "exchange" | "strategy" | "activate" | null;
 export type CoinsType = "BTC" | "ETH" | " SOL" | "USDT" | "USDC" | null;
@@ -24,6 +25,7 @@ const page = () => {
   const [depositCoin, setDepositCoin] = useState<CoinsType>(null);
   const [profitCoin, setProfitCoin] = useState<CoinsType>(null);
   const [selectedExchange, setSelectedExchange] = useState<ExchangesType>(null);
+  const [strategy, setStrategy] = useState<CardDetails | null>(null);
 
   return (
     <div className="w-full  text-text-light font-light overflow-scroll">
@@ -55,6 +57,7 @@ const page = () => {
 
       {selected === "strategy" && (
         <Strategy
+          setStrategy={setStrategy}
           depositCoin={depositCoin}
           profitCoin={profitCoin}
           selectedExchange={selectedExchange}
@@ -64,6 +67,9 @@ const page = () => {
 
       {selected === "activate" && (
         <Activate
+          depositCoin={depositCoin}
+          profitCoin={profitCoin}
+          strategy={strategy!}
           setSelected={setSelected}
           setSelectedExchange={setSelectedExchange}
           selectedExchange={selectedExchange}
