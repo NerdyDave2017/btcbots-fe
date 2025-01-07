@@ -91,7 +91,7 @@ export const CB001 = {
     "Kraken",
     "OKX",
     "Coinbase",
-    "Binance US",
+    "Binance.US",
     "Gate.io",
     "Gemini",
   ],
@@ -172,7 +172,7 @@ export const CB004 = {
     "Kraken",
     "OKX",
     "Coinbase",
-    "Binance US",
+    "Binance.US",
     "Gate.io",
     "Gemini",
   ],
@@ -253,7 +253,7 @@ export const CB007 = {
     "Kraken",
     "OKX",
     "Coinbase",
-    "Binance US",
+    "Binance.US",
     "Gate.io",
     "Gemini",
   ],
@@ -334,7 +334,7 @@ export const CB010 = {
     "Kraken",
     "OKX",
     "Coinbase",
-    "Binance US",
+    "Binance.US",
     "Gate.io",
     "Gemini",
   ],
@@ -364,7 +364,7 @@ export const CB011 = {
 export const SOLETH = {
   ...eth_params,
   profitCurrencyImg: ethereum,
-  depositCurrencyImg: solana,
+  depositCurrencyImg: ethereum,
   strategy: {
     name: "SOLETH",
     return: "3%+",
@@ -379,12 +379,12 @@ export const SOLETH = {
     isAvailable: true,
   },
   wallets: [binance, kraken, okx, coinbase, binance_us, gemini],
-  exchanges: ["Binance", "Kraken", "OKX", "Coinbase", "Binance US", "Gemini"],
+  exchanges: ["Binance", "Kraken", "OKX", "Coinbase", "Binance.US", "Gemini"],
 };
 export const SOLBTC = {
   ...btc_params,
   profitCurrencyImg: bitcoin,
-  depositCurrencyImg: solana,
+  depositCurrencyImg: bitcoin,
   strategy: {
     name: "SOLBTC",
     return: "2%+",
@@ -405,7 +405,7 @@ export const SOLBTC = {
     "Kraken",
     "OKX",
     "Coinbase",
-    "Binance US",
+    "Binance.US",
     "Gemini",
   ],
 };

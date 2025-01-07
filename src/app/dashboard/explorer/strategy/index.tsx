@@ -73,6 +73,7 @@ const Strategy = ({
     }
 
     if (selectedExchange) {
+      console.log(selectedExchange);
       setFilteredCard(
         CardData.filter((item) => item.exchanges.includes(selectedExchange))
       );

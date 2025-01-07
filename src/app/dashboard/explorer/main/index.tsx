@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MultiDataIcon, HouseIcon } from "@/public/assets/icons";
-import { type SelectedType } from "../page";
+import { CoinsType, ExchangesType, type SelectedType } from "../page";
 import Header from "../../components/header";
 
 type Props = {
   selected: SelectedType;
+  setProfitCoin: (value: CoinsType) => void;
+  setDepositCoin: (value: CoinsType) => void;
+  setSelectedExchange: (value: ExchangesType) => void;
   setSelected: (value: SelectedType) => void;
 };
 
-const Main = ({ selected, setSelected }: Props) => {
+const Main = ({
+  setProfitCoin,
+  setDepositCoin,
+  setSelectedExchange,
+  selected,
+  setSelected,
+}: Props) => {
   const options = [
     {
       key: "coin",
@@ -25,6 +34,12 @@ const Main = ({ selected, setSelected }: Props) => {
         "Select this option to leverage our bots on leading cryptocurrency exchanges.",
     },
   ];
+
+  useEffect(() => {
+    setDepositCoin(null);
+    setProfitCoin(null);
+    setSelectedExchange(null);
+  }, []);
 
   return (
     <div className="px-5">

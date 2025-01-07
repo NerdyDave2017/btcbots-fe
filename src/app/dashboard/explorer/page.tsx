@@ -28,7 +28,13 @@ const page = () => {
   return (
     <div className="w-full  text-text-light font-light overflow-scroll">
       {selected === null && (
-        <Main selected={selected} setSelected={setSelected} />
+        <Main
+          selected={selected}
+          setSelected={setSelected}
+          setDepositCoin={setDepositCoin}
+          setProfitCoin={setProfitCoin}
+          setSelectedExchange={setSelectedExchange}
+        />
       )}
       {selected === "coin" && (
         <Coins

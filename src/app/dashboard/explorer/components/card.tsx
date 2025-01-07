@@ -60,7 +60,7 @@ const Card = ({ cardDetails, onClick }: Props) => {
   ];
 
   return (
-    <div className="w-[350px] break-inside-avoid">
+    <div className="w-[350px] break-inside-avoid mb-[4px]">
       <div className="h-[115px] bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
         <Image src={cardDetails.logo!} className="w-12 h-12" alt="" />
         <div className="flex flex-col items-start justify-center gap-3">
@@ -200,12 +200,18 @@ const Card = ({ cardDetails, onClick }: Props) => {
           </div>
         </div>
 
-        <Button
-          onClick={onClick}
-          text="Activate Bots"
-          className="w-full"
-          size="lg"
-        />
+        {cardDetails.strategy.isAvailable ? (
+          <Button
+            onClick={onClick}
+            text="Activate Bots"
+            className="w-full"
+            size="lg"
+          />
+        ) : (
+          <div className="w-full h-[55px] cursor-not-allowed px-8 py-4 bg-[#767680]/10 rounded-[90px] justify-center items-center gap-2.5 inline-flex text-[#b3b3b3] text-base font-normal">
+            Not Available
+          </div>
+        )}
 
         <button className="w-full px-8 py-4 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex text-[#006fe3] ">
           See Performance Data

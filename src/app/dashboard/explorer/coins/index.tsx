@@ -48,6 +48,14 @@ const Coins = ({
     },
   ];
 
+  const supported: Record<string, any> = {
+    BTC: ["BTC", "USDT", "USDC"],
+    ETH: ["ETH", "USDT", "USDC"],
+    SOL: ["SOL", "USDT", "USDC"],
+    USDT: ["USDT", "USDC"],
+    USDC: ["USDT", "USDC"],
+  };
+
   return (
     <div className="w-full font-normal">
       <Header
@@ -68,14 +76,17 @@ const Coins = ({
               <p className="mb-2">Deposit with</p>
               <div className="w-full flex items-start justify-start gap-2 flex-wrap">
                 {coins.map((coin) => (
-                  <div
+                  <button
                     key={coin.name}
                     className={`px-2  py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in-out duration-200  ${
                       depositCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"
                     } justify-start items-center gap-2 inline-flex cursor-pointer`}
-                    onClick={() => setDepositCoin(coin.name as CoinsType)}
+                    onClick={() => {
+                      setProfitCoin(null);
+                      return setDepositCoin(coin.name as CoinsType);
+                    }}
                   >
                     <Image
                       className="w-8 h-8 rounded-full"
@@ -83,7 +94,7 @@ const Coins = ({
                       alt={coin.name}
                     />
                     <p className="text-text-light text-base">{coin.name}</p>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -94,13 +105,21 @@ const Coins = ({
               <p className="mb-2">Profits with</p>
               <div className="w-full flex items-start justify-start gap-2 flex-wrap">
                 {coins.map((coin) => (
-                  <div
+                  <button
                     key={coin.name}
                     className={`px-2 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in duration-200  ${
                       profitCoin === coin.name
                         ? "border-[#006fe3]"
                         : "border-transparent"
-                    } justify-start items-center gap-2 inline-flex cursor-pointer`}
+                    } justify-start items-center gap-2 inline-flex cursor-pointer text-text-light  ${
+                      depositCoin === null ||
+                      supported[depositCoin]?.includes(coin.name)
+                        ? ""
+                        : "cursor-not-allowed hover:border-transparent bg-[#767680]/10 text-[#b3b3b3] "
+                    } `}
+                    disabled={
+                      !supported[depositCoin as string]?.includes(coin.name)
+                    }
                     onClick={() => setProfitCoin(coin.name as CoinsType)}
                   >
                     <Image
@@ -108,8 +127,8 @@ const Coins = ({
                       src={coin.icon}
                       alt={coin.name}
                     />
-                    <p className="text-text-light text-base">{coin.name}</p>
-                  </div>
+                    <p className=" text-base">{coin.name}</p>
+                  </button>
                 ))}
               </div>
             </div>
