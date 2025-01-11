@@ -120,34 +120,44 @@ const Activate = ({
   };
 
   const handleValidation = () => {
+    toast.info("Handle Validation");
     console.log("got Here");
     if (!selectedExchange) {
       console.log("APi got Here");
+      console.error("Please select an exchange network");
       toast.error("Please select an exchange network", {
         position: "top-center",
       });
+
+      console.log("After toast");
       return;
     }
 
+    console.log("API got Here 1");
+
     if (!apiKey) {
       console.log("APi got Here");
+      toast.error("Please select an exchange network");
       toast.error("Api key required", {
         position: "top-center",
       });
       return;
     }
+
     if (!apiSecret) {
       toast.error("Api secret required", {
         position: "top-center",
       });
       return;
     }
+
     if ([, "okx", "bitget"].includes(selectedExchange) && !apiPassphrase) {
       toast.error("Passphrase is required.", {
         position: "top-center",
       });
       return;
     }
+
     if (!agree) {
       toast.error(
         "Please read carefully & agree to our terms of service below.",
@@ -181,7 +191,11 @@ const Activate = ({
         <div className="w-full">
           <div className="w-full">
             <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
-              <Image src={Bitcoin} className="w-12 h-12" alt="" />
+              <Image
+                src={strategy.depositCurrencyImg}
+                className="w-12 h-12"
+                alt=""
+              />
               <div className="flex flex-col items-start justify-center gap-3">
                 <div className="flex items-center gap-4">
                   <p className="text-xl text-text-light font-normal">
@@ -237,7 +251,7 @@ const Activate = ({
                       alt=""
                     />
                     <p className="text-text-light text-base font-normal ">
-                      SOL
+                      {strategy.strategy.deposit_coin.toUpperCase()}
                     </p>
                   </div>
                 </div>
@@ -257,7 +271,7 @@ const Activate = ({
                       alt=""
                     />
                     <p className="text-text-light text-base font-normal ">
-                      SOL
+                      {strategy.strategy.profit_coin.toUpperCase()}
                     </p>
                   </div>
                 </div>
@@ -423,8 +437,10 @@ const Activate = ({
 
           <div className="h-[18px] justify-start items-center gap-2 inline-flex">
             <input
+              onChange={() => setAgree(!agree)}
               type="checkbox"
               className="w-3.5 h-[12.76px] bg-[#d9d9d9] rounded-[3.15px]"
+              checked={agree}
             />
             <div className="text-right text-[#3c3c43]/60 text-sm font-normal">
               Read our terms of service carefully.

@@ -33,33 +33,33 @@ const Home = () => {
     },
   ];
 
-  // const transactions = [
-  //   {
-  //     type: "Deposit",
-  //     message:
-  //       "You've successfully deposited $100.00 into your account. Your new balance is $500.00.",
-  //     date: "28th November, 2024",
-  //   },
-  //   {
-  //     type: "Withdrawal",
-  //     message:
-  //       "You've successfully withdrawn $100.00 from your account. Your new balance is $400.00.",
-  //     date: "28th November, 2024",
-  //   },
-  //   {
-  //     type: "Deposit",
-  //     message:
-  //       "You've successfully deposited $100.00 into your account. Your new balance is $500.00.",
-  //     date: "28th November, 2024",
-  //   },
-  //   {
-  //     type: "Withdrawal",
-  //     message:
-  //       "You've successfully withdrawn $100.00 from your account. Your new balance is $400.00.",
-  //     date: "28th November, 2024",
-  //   },
-  // ];
-  const transactions: { type: string; message: string; date: string }[] = [];
+  const transactions = [
+    {
+      type: "Deposit",
+      message:
+        "You've successfully deposited $100.00 into your account. Your new balance is $500.00.",
+      date: "28th November, 2024",
+    },
+    {
+      type: "Withdrawal",
+      message:
+        "You've successfully withdrawn $100.00 from your account. Your new balance is $400.00.",
+      date: "28th November, 2024",
+    },
+    {
+      type: "Deposit",
+      message:
+        "You've successfully deposited $100.00 into your account. Your new balance is $500.00.",
+      date: "28th November, 2024",
+    },
+    {
+      type: "Withdrawal",
+      message:
+        "You've successfully withdrawn $100.00 from your account. Your new balance is $400.00.",
+      date: "28th November, 2024",
+    },
+  ];
+  // const transactions: { type: string; message: string; date: string }[] = [];
 
   return (
     <div className="w-full p-5 lg:p-[48px]  text-text-light font-light">

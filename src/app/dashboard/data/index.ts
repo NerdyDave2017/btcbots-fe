@@ -4,7 +4,7 @@ import solana from "@/public/assets/icons/solana.svg";
 import usdc from "@/public/assets/icons/usdc.svg";
 import usdt from "@/public/assets/icons/usdt.svg";
 import okx from "@/public/assets/icons/okx.svg";
-import kraken from "@/public/assets/icons/Kraken.svg";
+import kraken from "@/public/assets/icons/kraken.svg";
 import full_gate_io from "@/public/assets/icons/full-gate-io.svg";
 import coinbase from "@/public/assets/icons/coinbase.svg";
 import gemini from "@/public/assets/icons/gemini.svg";

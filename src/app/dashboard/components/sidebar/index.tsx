@@ -20,6 +20,9 @@ import {
 } from "@/public/assets/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
+import { deleteCookie } from "cookies-next";
+import { QueryCache } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const pathname = usePathname();
@@ -28,6 +31,8 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
+
+  const queryCache = new QueryCache();
 
   const navigation = [
     {
@@ -76,7 +81,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     {
       name: "Logout",
       icon: LogoutIcon,
-      link: "/login",
+      link: "/",
     },
     {
       name: "Jordan Great",
@@ -98,6 +103,15 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref]);
+
+  const handleSignout = () => {
+    deleteCookie("auth_token");
+    queryCache.clear();
+    // setIsAuthenticated(false);
+    // setUser(null);
+    router.push("/login");
+    toast.success("Logout successful", { position: "top-center" });
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -157,7 +171,11 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
         <div className="flex flex-col">
           {user.map((item, index) => (
             <button
-              onClick={() => router.push(item.link ?? "")}
+              onClick={() =>
+                item.name === "Logout"
+                  ? handleSignout()
+                  : router.push(item.link ?? "")
+              }
               key={index}
               className={`flex items-center gap-[8px] py-[12px] px-[16px] ${
                 index === 1 && "bg-[#f4f6f8] rounded-full"

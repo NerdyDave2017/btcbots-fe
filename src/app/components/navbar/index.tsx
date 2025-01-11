@@ -87,11 +87,6 @@ const Navbar = () => {
           <Link href="/login" className="">
             <Button text="Login" className="font-normal text-text-dark" />
           </Link>
-          {/* <Button
-            onClick={() => router.push("/login")}
-            text="Login"
-            className="font-normal text-text-dark"
-          /> */}
         </div>
       </div>
     </Container>
