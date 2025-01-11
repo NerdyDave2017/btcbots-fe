@@ -97,7 +97,7 @@ const Activate = ({
         depositCurrency:
           checkCoin(depositCoin!.toLowerCase()) ||
           checkCoin(strategy.strategy.deposit_coin),
-        exchange: selectedExchange!.toLowerCase(),
+        exchange: selectedExchange!,
         apiKey,
         apiSecret,
         apiPassphrase,
