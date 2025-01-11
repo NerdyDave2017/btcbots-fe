@@ -6,7 +6,12 @@ import Solana from "@/public/assets/icons/solana.svg";
 import Usdt from "@/public/assets/icons/usdt.svg";
 import Usdc from "@/public/assets/icons/usdc.svg";
 import Usdt_Usdc from "@/public/assets/icons/usdt_usdc.svg";
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/src/app/components/tooltips";
 import {
   DollarArrowIcon,
   DollarCircleIcon,
@@ -16,6 +21,13 @@ import {
 import { motion } from "framer-motion";
 import { BotData } from "@/src/hooks/fetchRequests";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import useDisclosure from "@/src/hooks/useDisclosure";
+import { toast } from "sonner";
+import { useUpdateBot } from "@/src/hooks/postRequests";
+import { isAxiosError } from "axios";
+import Modal from "@/src/app/components/modal";
+import { BOT_INTENT } from "@/src/lib";
+import Loader from "@/src/app/components/loader";
 
 type Props = {
   data: BotData;
@@ -81,6 +93,51 @@ const Card = ({ data, onClick }: Props) => {
       default:
         return "$";
     }
+  };
+
+  const { mutate: UpdateBot, isPending } = useUpdateBot();
+
+  const { isOpen, onClose, onOpen, onToggle, setOpen } = useDisclosure();
+  const {
+    isOpen: isOpen1,
+    onClose: onClose1,
+    onOpen: onOpen1,
+    onToggle: onToggle1,
+    setOpen: setOpen1,
+  } = useDisclosure();
+  const {
+    isOpen: isOpen2,
+    onClose: onClose2,
+    onOpen: onOpen2,
+    onToggle: onToggle2,
+    setOpen: setOpen2,
+  } = useDisclosure();
+
+  const updateBot = async (intent: string) => {
+    // console.log("updating bot", item._id, intent);
+
+    UpdateBot(
+      { intent, bot_id: data._id },
+      {
+        onSuccess: () => {
+          toast.success("Bot updated successfully");
+        },
+        onError: (error: Error) => {
+          if (isAxiosError(error)) {
+            console.log(error);
+            toast.error(error.response?.data.message);
+          } else {
+            console.error(error);
+            toast.error("An unexpected error occurred");
+          }
+        },
+        onSettled: () => {
+          onClose();
+          onClose1();
+          onClose2();
+        },
+      }
+    );
   };
 
   return (
@@ -169,10 +226,12 @@ const Card = ({ data, onClick }: Props) => {
       <div className="justify-center items-center gap-4 inline-flex">
         <p className="text-[#090909] text-base font-normal">Disabled</p>
         <div
-          onClick={toggleSwitch}
+          // onClick={toggleSwitch}
           className={`w-[51px] h-[31px] p-0.5  rounded-[100px] ${
-            enabled ? "justify-end bg-[#34c759]" : "justify-start bg-[#d9dde1]"
-          } items-center flex cursor-pointer`}
+            data.status === "ACTIVE"
+              ? "justify-end bg-[#34c759]"
+              : "justify-start bg-[#d9dde1]"
+          } items-center flex`}
         >
           <motion.div
             layout
@@ -230,28 +289,189 @@ const Card = ({ data, onClick }: Props) => {
 
       <div className="w-full border border-[#E3E3E3]/50"></div>
 
-      <div className="w-full px-4 flex-col justify-start items-start gap-2.5 inline-flex">
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-main text-base font-normal">Resume Bot</p>
+      <TooltipProvider>
+        <div className="w-full px-4 flex-col justify-start items-start gap-2.5 inline-flex">
+          <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
+            <p
+              onClick={() => {
+                if (data.status === "ACTIVE") {
+                  return;
+                }
+                return onOpen();
+              }}
+              className="text-main text-base font-normal"
+            >
+              Resume Bot
+            </p>
 
-          <InfoIcon />
+            <Tooltip>
+              <TooltipTrigger>
+                <InfoIcon />
+              </TooltipTrigger>
+              <TooltipContent>
+                <span className="">
+                  This action will send us a request to activate your bot <br />
+                  after being paused or stopped.
+                </span>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
+            <p
+              onClick={() => {
+                if (data.status !== "ACTIVE") {
+                  return;
+                }
+
+                return onOpen2();
+              }}
+              className="text-main text-base font-normal"
+            >
+              Force Stop Bot
+            </p>
+            <Tooltip>
+              <TooltipTrigger>
+                <InfoIcon />
+              </TooltipTrigger>
+              <TooltipContent>
+                <span className="">
+                  This action will send us a request to cancel the current{" "}
+                  <br />
+                  deal immediately, even while incurring losses, and stop the{" "}
+                  <br />
+                  bot from opening new deals.
+                </span>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
+            <p
+              onClick={() => {
+                if (data.status !== "ACTIVE") {
+                  return;
+                }
+
+                return onOpen1();
+              }}
+              className="text-main text-base font-normal"
+            >
+              Soft Stop Bot
+            </p>
+            <Tooltip>
+              <TooltipTrigger>
+                <InfoIcon />
+              </TooltipTrigger>
+              <TooltipContent>
+                <span className="">
+                  This action will send us a request for us to stop the bot{" "}
+                  <br />
+                  from opening a new deal as soon as the current deal closes.
+                </span>
+              </TooltipContent>
+            </Tooltip>
+          </div>
+          <div
+            onClick={onClick}
+            className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer"
+          >
+            <CastIcon />
+            <p className="text-main text-base font-normal">Display Live data</p>
+          </div>
         </div>
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-main text-base font-normal">Force Stop Bot</p>
-          <InfoIcon />
+      </TooltipProvider>
+
+      <Modal
+        closeModal={onClose}
+        isOpen={isOpen}
+        onOpen={onOpen}
+        onToggle={onToggle}
+      >
+        <div className="p-6 bg-[#eaf0f6] rounded-lg shadow-lg text-center">
+          <h2 className="text-xl font-bold mb-4 text-text-">
+            Confirm bot resume request
+          </h2>
+          <p className="text-[#3c3c43]/60 mb-6">
+            Are you sure you would like to send a request to resume your bot?
+          </p>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={onClose}
+              className="px-6 py-4 border border-main rounded-full text-main"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => updateBot(BOT_INTENT.RESUME)}
+              disabled={isPending}
+              className="px-6 py-4 bg-main text-text-dark rounded-full"
+            >
+              {isPending ? <Loader /> : "Resume"}
+            </button>
+          </div>
         </div>
-        <div className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer">
-          <p className="text-main text-base font-normal">Soft Stop Bot</p>
-          <InfoIcon />
+      </Modal>
+      <Modal
+        closeModal={onClose1}
+        isOpen={isOpen1}
+        onOpen={onOpen1}
+        onToggle={onToggle1}
+      >
+        <div className="p-6 bg-[#eaf0f6] rounded-lg shadow-lg text-center">
+          <h2 className="text-xl font-bold mb-4 text-text-">
+            Confirm soft bot stop request
+          </h2>
+          <p className="text-[#3c3c43]/60 mb-6">
+            Are you sure you would like to send a request to soft stop your bot?
+          </p>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={onClose1}
+              className="px-6 py-4 border border-main rounded-full text-main"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => updateBot(BOT_INTENT.SOFT_STOP)}
+              disabled={isPending}
+              className="px-6 py-4 bg-main text-text-dark rounded-full"
+            >
+              {isPending ? <Loader /> : "Soft stop"}
+            </button>
+          </div>
         </div>
-        <div
-          onClick={onClick}
-          className="self-stretch px-8 py-1 rounded-[90px] justify-center items-center gap-2.5 inline-flex cursor-pointer"
-        >
-          <CastIcon />
-          <p className="text-main text-base font-normal">Display Live data</p>
+      </Modal>
+      <Modal
+        closeModal={onClose2}
+        isOpen={isOpen2}
+        onOpen={onOpen2}
+        onToggle={onToggle2}
+      >
+        <div className=" p-6 bg-[#eaf0f6] rounded-lg shadow-lg text-center">
+          <h2 className="text-xl font-bold mb-4 text-text-">
+            Confirm hard bot stop request
+          </h2>
+          <p className="text-[#3c3c43]/60 mb-6">
+            Are you sure you would like to send a request to hard stop your bot?
+          </p>
+          <div className="flex justify-center gap-4">
+            <button
+              onClick={onClose2}
+              className="px-6 py-4 border border-main rounded-full text-main"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={() => {
+                updateBot(BOT_INTENT.HARD_STOP);
+              }}
+              disabled={isPending}
+              className="px-6 py-4 bg-main text-text-dark rounded-full"
+            >
+              {isPending ? <Loader /> : "Hard stop"}
+            </button>
+          </div>
         </div>
-      </div>
+      </Modal>
     </div>
   );
 };

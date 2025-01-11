@@ -1,6 +1,6 @@
 import React from "react";
 
-const Loader = ({ bg }: { bg: string }) => {
+const Loader = ({ bg = "bg-text-dark" }: { bg?: string }) => {
   return (
     /* From Uiverse.io by yohohopizza */
     <div className="flex flex-row gap-2">

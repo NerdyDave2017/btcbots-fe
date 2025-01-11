@@ -35,3 +35,11 @@ import { twMerge } from "tailwind-merge";
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
+
+export const BOT_INTENT = Object.freeze({
+  START: "START",
+  SOFT_STOP: "SOFT_STOP",
+  HARD_STOP: "HARD_STOP",
+  RESUME: "RESUME",
+  FULFILLED: "FULFILLED",
+});
