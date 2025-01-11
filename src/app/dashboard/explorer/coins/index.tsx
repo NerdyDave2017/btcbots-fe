@@ -107,15 +107,18 @@ const Coins = ({
                 {coins.map((coin) => (
                   <button
                     key={coin.name}
-                    className={`px-2 py-2 bg-[#d0e0f1] rounded border hover:border-main box-border transition-all ease-in duration-200  ${
-                      profitCoin === coin.name
-                        ? "border-[#006fe3]"
-                        : "border-transparent"
-                    } justify-start items-center gap-2 inline-flex cursor-pointer text-text-light  ${
-                      depositCoin === null ||
-                      supported[depositCoin]?.includes(coin.name)
-                        ? ""
-                        : "cursor-not-allowed hover:border-transparent bg-[#767680]/10 text-[#b3b3b3] "
+                    className={`px-2 py-2  rounded border hover:border-main box-border transition-all ease-in duration-200  ${
+                      depositCoin
+                        ? profitCoin === coin.name
+                          ? "border-[#006fe3]"
+                          : "border-transparent"
+                        : ""
+                    } justify-start items-center gap-2 inline-flex  text-text-light  ${
+                      depositCoin
+                        ? supported[depositCoin]?.includes(coin.name)
+                          ? "bg-[#d0e0f1] cursor-pointer"
+                          : "cursor-not-allowed hover:border-transparent bg-[#767680]/10 text-[#b3b3b3]"
+                        : "cursor-not-allowed hover:border-transparent bg-[#767680]/10 text-[#b3b3b3]"
                     } `}
                     disabled={
                       !supported[depositCoin as string]?.includes(coin.name)

@@ -18,7 +18,6 @@ import Link from "next/link";
 import SelectExchange from "../components/select-exchange";
 import Header from "../../components/header";
 import { CardDetails } from "@/src/types";
-import Strategy from "../strategy/index";
 import { useCreateBot } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -84,35 +83,35 @@ const Activate = ({
     return coin;
   };
 
+  // setTimeout(() => {
+  //   return toast.success("Component mounted");
+  // }, 3000);
+
   const activateBot = async () => {
     CreateBot(
       {
         strategy: strategy.strategy.name,
         profitCurrency:
-          checkCoin(profitCoin!) || checkCoin(strategy.strategy.profit_coin),
+          checkCoin(profitCoin!.toLowerCase()) ||
+          checkCoin(strategy.strategy.profit_coin),
         depositCurrency:
-          checkCoin(depositCoin!) || checkCoin(strategy.strategy.deposit_coin),
-        exchange: selectedExchange!,
+          checkCoin(depositCoin!.toLowerCase()) ||
+          checkCoin(strategy.strategy.deposit_coin),
+        exchange: selectedExchange!.toLowerCase(),
         apiKey,
         apiSecret,
         apiPassphrase,
       },
       {
         onSuccess: (res) => {
-          toast.success(res.message, {
-            position: "top-center",
-          });
+          toast.success(res.message);
           router.push("/dashboard/my-bots");
         },
         onError: (error) => {
           if (isAxiosError(error)) {
-            toast.error(error.response?.data.message, {
-              position: "top-center",
-            });
+            toast.error(error.response?.data.message);
           } else {
-            toast.error("An unexpected error occurred", {
-              position: "top-center",
-            });
+            toast.error("An unexpected error occurred");
           }
         },
       }
@@ -120,50 +119,32 @@ const Activate = ({
   };
 
   const handleValidation = () => {
-    toast.info("Handle Validation");
-    console.log("got Here");
+    console.log(selectedExchange, profitCoin, depositCoin);
     if (!selectedExchange) {
-      console.log("APi got Here");
-      console.error("Please select an exchange network");
-      toast.error("Please select an exchange network", {
-        position: "top-center",
-      });
-
-      console.log("After toast");
+      toast.error("Please select an exchange network");
       return;
     }
 
-    console.log("API got Here 1");
-
     if (!apiKey) {
-      console.log("APi got Here");
-      toast.error("Please select an exchange network");
-      toast.error("Api key required", {
-        position: "top-center",
-      });
+      toast.error("Api key required");
       return;
     }
 
     if (!apiSecret) {
-      toast.error("Api secret required", {
-        position: "top-center",
-      });
+      toast.error("Api secret required");
       return;
     }
 
-    if ([, "okx", "bitget"].includes(selectedExchange) && !apiPassphrase) {
-      toast.error("Passphrase is required.", {
-        position: "top-center",
-      });
+    console.log(selectedExchange, profitCoin, depositCoin);
+
+    if (["OKX", "Bitget"].includes(selectedExchange) && !apiPassphrase) {
+      toast.error("Passphrase is required.");
       return;
     }
 
     if (!agree) {
       toast.error(
-        "Please read carefully & agree to our terms of service below.",
-        {
-          position: "top-center",
-        }
+        "Please read carefully & agree to our terms of service below."
       );
       return;
     }
@@ -178,14 +159,6 @@ const Activate = ({
         showArrow={true}
         onClick={() => setSelected("strategy")}
       />
-
-      {/* <div className=" px-[48px] w-full relative mb-[48px]">
-        <ArrowRight
-          onClick={() => setSelected("strategy")}
-          className="absolute rotate-180 top-1/2 -translate-y-1/2 cursor-pointer"
-        />
-        <p className="text-2xl font-normal text-center">Activate your bot</p>
-      </div> */}
 
       <div className="w-full px-5 lg:px-[48px] flex flex-col lg:flex-row justify-center gap-[48px]">
         <div className="w-full">
