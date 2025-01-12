@@ -2,13 +2,14 @@ import React from "react";
 import Header from "../../components/header";
 import Card from "./card";
 import { SelectedType } from "../page";
-import { useFetchBots, useFetchUser } from "@/src/hooks/fetchRequests";
+import { BotData, useFetchBots, useFetchUser } from "@/src/hooks/fetchRequests";
 
 type Props = {
+  setActiveBot: (activeBot: BotData | null) => void;
   setSelected: (value: SelectedType) => void;
 };
 
-const Main = ({ setSelected }: Props) => {
+const Main = ({ setActiveBot, setSelected }: Props) => {
   const {
     data: user,
     error: userError,
@@ -30,13 +31,12 @@ const Main = ({ setSelected }: Props) => {
           <Card
             key={index}
             data={item}
-            onClick={() => setSelected("LiveTrade")}
+            onClick={() => {
+              setActiveBot(item);
+              setSelected("LiveTrade");
+            }}
           />
         ))}
-
-        {/* <Card onClick={() => setSelected("LiveTrade")} />
-        <Card onClick={() => setSelected("LiveTrade")} />
-        <Card onClick={() => setSelected("LiveTrade")} /> */}
       </div>
     </div>
   );
