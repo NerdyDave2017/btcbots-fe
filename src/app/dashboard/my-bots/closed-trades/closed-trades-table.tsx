@@ -610,7 +610,11 @@ const data: BotDeal[] = [
   },
 ];
 
-const ClosedTradesTable = () => {
+type Props = {
+  data: BotDeal[];
+};
+
+const ClosedTradesTable = ({ data }: Props) => {
   const { table, filterFunctions, filterValues, sortingFunctions } =
     useTableGlobal(data as any, columns);
 

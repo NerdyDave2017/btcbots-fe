@@ -6,8 +6,10 @@ import {
   ResolutionString,
 } from "@/public/static/charting_library/charting_library";
 import dynamic from "next/dynamic";
+import { BotData } from "@/src/hooks/fetchRequests";
 
 type Props = {
+  activeBot: BotData | null;
   setSelected: (value: SelectedType) => void;
 };
 
@@ -31,7 +33,7 @@ const defaultWidgetProps: Partial<ChartingLibraryWidgetOptions> = {
   debug: true,
 };
 
-const LiveChart = ({ setSelected }: Props) => {
+const LiveChart = ({ activeBot, setSelected }: Props) => {
   return (
     <div className="w-full pb-[48px]">
       <Header text="Live Chart" onClick={() => setSelected("LiveTrade")} />

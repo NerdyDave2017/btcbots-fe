@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../../components/header";
 import { SelectedType } from "../page";
 import Card from "./card";
@@ -22,6 +22,10 @@ const LiveTrade = ({ activeBot, setSelected }: Props) => {
     isRefetching,
     refetch,
   } = useFetchBotDeals(activeBot!._id ?? "");
+
+  useEffect(() => {
+    refetch();
+  }, [activeBot]);
 
   console.log(BotDeals);
 

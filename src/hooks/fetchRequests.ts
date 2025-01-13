@@ -412,9 +412,9 @@ export const useFetchBotDeals = (id: string) => {
   return useQuery({
     queryKey: ["bot-deals"],
     queryFn: fetchBotDeals,
-    refetchOnMount: true,
+    // refetchOnMount: true,
     enabled: !!id,
-    retryOnMount: true,
+    // retryOnMount: true,
   });
 };
 

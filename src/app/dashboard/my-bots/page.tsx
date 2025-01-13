@@ -28,12 +28,16 @@ const page = () => {
         <LiveTrade activeBot={activeBot} setSelected={setSelected} />
       )}
 
-      {selected === "LiveChart" && <LiveChart setSelected={setSelected} />}
+      {selected === "LiveChart" && (
+        <LiveChart activeBot={activeBot} setSelected={setSelected} />
+      )}
 
-      {selected === "TradeOrders" && <TradeOrders setSelected={setSelected} />}
+      {selected === "TradeOrders" && (
+        <TradeOrders activeBot={activeBot} setSelected={setSelected} />
+      )}
 
       {selected === "ClosedTrades" && (
-        <ClosedTrades setSelected={setSelected} />
+        <ClosedTrades activeBot={activeBot} setSelected={setSelected} />
       )}
     </div>
   );
