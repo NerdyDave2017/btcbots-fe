@@ -5,6 +5,7 @@ import { SelectedType } from "../page";
 import { BotData, useFetchBots, useFetchUser } from "@/src/hooks/fetchRequests";
 import Loader from "@/src/app/components/loader";
 import MainCardSkeleton from "../components/main-card-skeleton";
+import { toast } from "sonner";
 
 type Props = {
   setActiveBot: (activeBot: BotData | null) => void;
@@ -45,6 +46,13 @@ const Main = ({ setActiveBot, setSelected }: Props) => {
               key={index}
               data={item}
               onClick={() => {
+                if (item.status !== "ACTIVE") {
+                  toast.error(
+                    "Bot is not active. Please send a resume request."
+                  );
+                  return;
+                }
+
                 setActiveBot(item);
                 setSelected("LiveTrade");
               }}

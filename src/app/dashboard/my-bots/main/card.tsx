@@ -84,8 +84,6 @@ const Card = ({ data, onClick }: Props) => {
   } = useDisclosure();
 
   const updateBot = async (intent: string) => {
-    // console.log("updating bot", item._id, intent);
-
     UpdateBot(
       { intent, bot_id: data._id },
       {
@@ -268,7 +266,9 @@ const Card = ({ data, onClick }: Props) => {
                 }
                 return onOpen();
               }}
-              className="text-main text-base font-normal"
+              className={`text-main text-base font-normal ${
+                data.status === "ACTIVE" && "cursor-not-allowed"
+              }`}
             >
               Resume Bot
             </p>
@@ -294,7 +294,9 @@ const Card = ({ data, onClick }: Props) => {
 
                 return onOpen2();
               }}
-              className="text-main text-base font-normal"
+              className={`text-main text-base font-normal ${
+                data.status !== "ACTIVE" && "cursor-not-allowed"
+              }`}
             >
               Force Stop Bot
             </p>
@@ -322,7 +324,9 @@ const Card = ({ data, onClick }: Props) => {
 
                 return onOpen1();
               }}
-              className="text-main text-base font-normal"
+              className={`text-main text-base font-normal ${
+                data.status !== "ACTIVE" && "cursor-not-allowed"
+              }`}
             >
               Soft Stop Bot
             </p>
