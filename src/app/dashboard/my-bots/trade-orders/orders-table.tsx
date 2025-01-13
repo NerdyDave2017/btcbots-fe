@@ -306,7 +306,11 @@ const columns = [
   },
 ];
 
-const OrdersTable = () => {
+type Props = {
+  data: BotDealOrder[];
+};
+
+const OrdersTable = ({ data }: Props) => {
   // Get all column finter values and functions from global table instance
   const { table, filterFunctions, filterValues, sortingFunctions } =
     useTableGlobal(data as any, columns);
