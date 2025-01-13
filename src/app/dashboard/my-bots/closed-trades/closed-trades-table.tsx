@@ -36,14 +36,16 @@ const columns = [
                 alt=""
                 className="w-6"
                 src={
-                  coins.filter((e) => e.name === item.from_currency)[0]?.value
+                  coins.filter((e) => e.name === item.from_currency)[0]
+                    ?.value ?? null
                 }
               />
               <Image
                 alt=""
                 className="w-6"
                 src={
-                  coins.filter((e) => e.name === item.from_currency)[0]?.value2
+                  coins.filter((e) => e.name === item.from_currency)[0]
+                    ?.value2 ?? null
                 }
               />
             </div>

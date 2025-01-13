@@ -11,17 +11,21 @@ type BarChartType = {
   profit: number;
 };
 
-const data: BarChartType[] = [
-  { date: "2023-01-01", profit: 100 },
-  { date: "2023-01-02", profit: 200 },
-  { date: "2023-01-03", profit: 150 },
-  { date: "2023-01-04", profit: 300 },
-  { date: "2023-01-05", profit: 250 },
-  { date: "2023-01-06", profit: 400 },
-  { date: "2023-01-07", profit: 350 },
-];
+// const data: BarChartType[] = [
+//   { date: "2023-01-01", profit: 100 },
+//   { date: "2023-01-02", profit: 200 },
+//   { date: "2023-01-03", profit: 150 },
+//   { date: "2023-01-04", profit: 300 },
+//   { date: "2023-01-05", profit: 250 },
+//   { date: "2023-01-06", profit: 400 },
+//   { date: "2023-01-07", profit: 350 },
+// ];
 
-const BarChartComponent = () => {
+type Props = {
+  data: any;
+};
+
+const BarChartComponent = ({ data }: Props) => {
   const [chartData, setChartData] = useState({
     labels: [].map((data: any) => data?.date),
     datasets: [

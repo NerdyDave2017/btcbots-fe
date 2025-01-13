@@ -3,7 +3,12 @@ import { SelectedType } from "../page";
 import Header from "../../components/header";
 import ClosedTradesTable from "./closed-trades-table";
 import BarChartComponent from "./bar-chart";
-import { BotData, BotDeal, useFetchBotDeals } from "@/src/hooks/fetchRequests";
+import {
+  BotData,
+  BotDeal,
+  useFetchBotDeals,
+  useFetchBotProfits,
+} from "@/src/hooks/fetchRequests";
 
 type Props = {
   activeBot: BotData | null;
@@ -21,6 +26,15 @@ const ClosedTrades = ({ activeBot, setSelected }: Props) => {
     refetch,
   } = useFetchBotDeals(activeBot!._id ?? "");
 
+  const {
+    data: profitsData,
+    isSuccess: profitSuccess,
+    isError: profitIsError,
+    error: profitError,
+  } = useFetchBotProfits(activeBot!._id ?? "");
+
+  console.log(profitsData);
+
   return (
     <div className="w-full h-full pb-[48px]">
       <Header
@@ -30,7 +44,7 @@ const ClosedTrades = ({ activeBot, setSelected }: Props) => {
 
       <div className="w-full h-full px-[48px]">
         <div className=" bg-[#eaf0f6] rounded-2xl w-[50%] py-8 px-6 mb-6">
-          <BarChartComponent />
+          <BarChartComponent data={profitsData ?? []} />
         </div>
         <ClosedTradesTable
           data={
