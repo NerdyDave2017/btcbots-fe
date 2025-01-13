@@ -11,6 +11,7 @@ import { SelectedType } from "../page";
 import { BotDeal } from "../closed-trades/closed-trades-table";
 import { BotData } from "@/src/hooks/fetchRequests";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import { formatCurrencyDecimal, formatDate } from "@/src/lib";
 
 type Props = {
   activeBot: BotData | null;
@@ -29,19 +30,25 @@ const card = ({ data, activeBot, setSelected }: Props) => {
   const dataExtract = [
     {
       title: "Completed safety orders",
-      value: "6",
+      value: data?.completed_safety_orders_count,
     },
     {
       title: "Bought average price",
-      value: "59199.0",
+      value: `${Number(data?.bought_average_price).toFixed(
+        formatCurrencyDecimal(data?.to_currency.toLowerCase())
+      )} ${data?.to_currency}`,
     },
     {
       title: "Liquidation Price",
-      value: "15870.0",
+      value: `${
+        Number(data?.last_known_position_info?.liquidation_price ?? 0).toFixed(
+          formatCurrencyDecimal(data?.from_currency.toLowerCase())
+        ) ?? 0
+      } ${data?.from_currency}`,
     },
     {
       title: "Created at",
-      value: "2021-06-05 21:04:52 UTC",
+      value: formatDate(data?.created_at, "MMM DD, YYYY. h:mm a"),
     },
   ];
 
@@ -91,13 +98,17 @@ const card = ({ data, activeBot, setSelected }: Props) => {
               Bot
             </p>
             <div className="px-2.5 py-1.5 bg-main/20 rounded-[90px] justify-center items-center flex">
-              <p className="text-main text-sm font-normal">CB001</p>
+              <p className="text-main text-sm font-normal">
+                {activeBot?.strategy}
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-1">
-            <p className="text-sm text-[#090909] font-normal">BTCUSD_BTC</p>
-            <p className="text-sm text-[#e9362b] font-normal">Short</p>
+            <p className="text-sm text-[#090909] font-normal">{data.pair}</p>
+            <p className="text-sm text-[#e9362b] font-normal">
+              {data?.strategy.charAt(0).toUpperCase() + data?.strategy.slice(1)}
+            </p>
             <InfoIcon className="cursor-pointer" />
           </div>
         </div>
@@ -114,7 +125,11 @@ const card = ({ data, activeBot, setSelected }: Props) => {
           <div className="py-2 rounded justify-start items-center gap-2 inline-flex">
             <div className="flex-col justify-center items-start gap-2 inline-flex">
               <div className="text-[#090909] text-base font-normal">
-                +0.058 SOL
+                {Number(data?.actual_profit) > 0
+                  ? `${Number(data?.actual_profit).toFixed(
+                      formatCurrencyDecimal(data?.from_currency.toLowerCase())
+                    )} ${data?.from_currency}`
+                  : "0"}
               </div>
             </div>
           </div>
@@ -122,7 +137,7 @@ const card = ({ data, activeBot, setSelected }: Props) => {
             <div className="flex-col justify-center items-start gap-2 inline-flex">
               <div className="text-[#090909] text-base font-normal">
                 {" "}
-                20816 SOL
+                {`${data?.bought_amount}  ${data?.to_currency}`}
               </div>
             </div>
           </div>

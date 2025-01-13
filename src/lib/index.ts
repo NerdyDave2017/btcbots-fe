@@ -43,3 +43,33 @@ export const BOT_INTENT = Object.freeze({
   RESUME: "RESUME",
   FULFILLED: "FULFILLED",
 });
+
+export const formatCurrencyDecimal = (value: string) => {
+  switch (value) {
+    case "usd":
+      return 2;
+    case "btc":
+      return 6;
+    case "eth":
+      return 4;
+    case "sol":
+      return 3;
+    default:
+      return 2;
+  }
+};
+
+export const returnSymbol = (value: string) => {
+  switch (value) {
+    case "usd":
+      return "$";
+    case "btc":
+      return "₿";
+    case "eth":
+      return "Ξ";
+    case "sol":
+      return "SOL";
+    default:
+      return "$";
+  }
+};

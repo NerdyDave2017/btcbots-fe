@@ -1,6 +1,12 @@
 import React from "react";
+import { BotDeal } from "@/src/hooks/fetchRequests";
+import { formatDate } from "@/src/lib";
 
-const Events = () => {
+type Props = {
+  data: BotDeal | undefined;
+};
+
+const Events = ({ data }: Props) => {
   const eventData = [
     {
       dateTime: "2023/02/24 6:44 PM",
@@ -39,17 +45,17 @@ const Events = () => {
         <div className="w-full border border-[#E3E3E3]/50"></div>
       </div>
 
-      {eventData.map((event, index) => (
+      {data!.bot_events!.toReversed().map((event, index) => (
         <div
           key={index}
           className="self-stretch px-4 flex-col justify-start items-start gap-3 flex"
         >
           <div className="self-stretch justify-between items-start inline-flex">
             <div className="text-[#090909] text-sm font-light font-['Sora']">
-              {event.dateTime}
+              {formatDate(event.created_at, "MMM DD, YYYY hh:mm A")}
             </div>
             <div className="w-[450px] text-[#090909] text-sm font-light font-['Sora']">
-              {event.event}
+              {event.message}
             </div>
           </div>
         </div>

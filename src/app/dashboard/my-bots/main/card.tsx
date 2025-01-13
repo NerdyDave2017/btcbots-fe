@@ -26,7 +26,7 @@ import { toast } from "sonner";
 import { useUpdateBot } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
 import Modal from "@/src/app/components/modal";
-import { BOT_INTENT } from "@/src/lib";
+import { BOT_INTENT, formatCurrencyDecimal, returnSymbol } from "@/src/lib";
 import Loader from "@/src/app/components/loader";
 
 type Props = {
@@ -63,36 +63,6 @@ const Card = ({ data, onClick }: Props) => {
       img: Usdt_Usdc,
       name: "USD",
     },
-  };
-
-  const formatCurrencyDecimal = (value: string) => {
-    switch (value) {
-      case "usd":
-        return 2;
-      case "btc":
-        return 6;
-      case "eth":
-        return 4;
-      case "sol":
-        return 3;
-      default:
-        return 2;
-    }
-  };
-
-  const returnSymbol = (value: string) => {
-    switch (value) {
-      case "usd":
-        return "$";
-      case "btc":
-        return "₿";
-      case "eth":
-        return "Ξ";
-      case "sol":
-        return "SOL";
-      default:
-        return "$";
-    }
   };
 
   const { mutate: UpdateBot, isPending } = useUpdateBot();
@@ -263,8 +233,7 @@ const Card = ({ data, onClick }: Props) => {
             Cumulative ROI
           </p>
           <p className="text-[#14ae5c] text-base font-normal">
-            ${" "}
-            {data.cummulativeROI?.toFixed(
+            {Number(data.cummulativeROI)?.toFixed(
               formatCurrencyDecimal(
                 data.profitCurrency.includes("usd")
                   ? "usd"

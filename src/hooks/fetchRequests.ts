@@ -161,6 +161,10 @@ export type BotDealOrder = {
   total: string;
   rate: string;
   average_price: string;
+  bot_events?: {
+    message: string;
+    created_at: string;
+  }[];
 };
 
 interface NotificationsData {
