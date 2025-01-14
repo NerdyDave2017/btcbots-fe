@@ -4,27 +4,33 @@ import Bitcoin from "@/public/assets/icons/bitcoin.svg";
 import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
 import Usdt_Usdc from "@/public/assets/icons/usdt_usdc.svg";
+import { BalanceType } from "../page";
 
-const Assets = ({ onClick }: { onClick: () => void }) => {
+type Props = {
+  balance: Record<BalanceType, number>;
+  onClick: () => void;
+};
+
+const Assets = ({ balance, onClick }: Props) => {
   const data = [
     {
       name: "Bitcoin",
-      balance: "0.92357794 BTC",
+      balance: `${balance.btc} BTC`,
       icon: <Image className="w-9 h-9" src={Bitcoin} alt="Bitcoin" />,
     },
     {
       name: "Ethereum",
-      balance: "0.02357794 ETH",
+      balance: `${balance.eth} ETH`,
       icon: <Image className="w-9 h-9" src={Ethereum} alt="Ethereum" />,
     },
     {
       name: "Solana",
-      balance: "12.9 SOL",
+      balance: `${balance.sol} SOL`,
       icon: <Image className="w-9 h-9" src={Solana} alt="Solana" />,
     },
     {
       name: "USDT/USDC",
-      balance: "239 USD",
+      balance: `${balance.usd} USD`,
       icon: <Image className="w-12 h-12" src={Usdt_Usdc} alt="USDT/USDC" />,
     },
   ];

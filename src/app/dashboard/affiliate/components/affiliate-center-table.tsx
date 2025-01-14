@@ -2,6 +2,7 @@ import React from "react";
 import BasicTable from "../../components/table";
 import useTableGlobal from "@/src/hooks/useTableGlobal";
 import { formatDate } from "@/src/lib";
+import { RewardData } from "@/src/hooks/fetchRequests";
 
 type AffiliateShareType = {
   email: string;
@@ -43,7 +44,7 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <span>{item.email}</span>
+          <span>{item.user.email}</span>
         </div>
       );
     },
@@ -59,7 +60,9 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <span className="">{item.reward}</span>
+          <span className="">
+            {item.amount} {item.currency}
+          </span>
         </div>
       );
     },
@@ -75,14 +78,18 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <span className="">{formatDate(item.date, "MMM DD, YYYY")}</span>
+          <span className="">{formatDate(item.createdAt, "MMM DD, YYYY")}</span>
         </div>
       );
     },
   },
 ];
 
-const AffiliateCenterTable = () => {
+type Props = {
+  data: RewardData[];
+};
+
+const AffiliateCenterTable = ({ data }: Props) => {
   // Get all column finter values and functions from global table instance
   const { table, filterFunctions, filterValues, sortingFunctions } =
     useTableGlobal(data as any, columns);

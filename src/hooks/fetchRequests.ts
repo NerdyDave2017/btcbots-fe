@@ -197,13 +197,11 @@ export interface InvoicesData {
 
 export interface RewardData {
   _id: string;
-  invoice: string;
+  strategy: string;
   user: string;
-  referee: string;
   amount: number;
   currency: string;
   createdAt: Date;
-  UpdatedAt: Date;
 }
 
 interface RewardsResponse {
