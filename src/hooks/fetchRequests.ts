@@ -177,7 +177,7 @@ interface NotificationsData {
   UpdatedAt: Date;
 }
 
-interface InvoicesData {
+export interface InvoicesData {
   _id: string;
   bot: BotData;
   user: string;

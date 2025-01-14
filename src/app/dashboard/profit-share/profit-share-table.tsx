@@ -2,6 +2,8 @@ import React from "react";
 import BasicTable from "../components/table";
 import useTableGlobal from "@/src/hooks/useTableGlobal";
 import { formatDate } from "@/src/lib";
+import { InvoicesData } from "@/src/hooks/fetchRequests";
+import Link from "next/link";
 
 type ProfitShareType = {
   strategy: "CB001" | "CB002" | "CB003";
@@ -84,8 +86,7 @@ const columns = [
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
           <span className="text-nowrap">
-            {formatDate(item.start, "MMM DD")} -{" "}
-            {formatDate(item.end, "MMM DD")}
+            {formatDate(item.from, "MMM DD")} - {formatDate(item.to, "MMM DD")}
           </span>
         </div>
       );
@@ -103,7 +104,7 @@ const columns = [
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
           <span className="">
-            {item.totalProfit} {item.currency}
+            {item.amount} {item.currency}
           </span>
         </div>
       );
@@ -120,7 +121,7 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <span className="">{item.rate}</span>
+          <span className="">{item.bot ? item.bot.fee : ""}</span>
         </div>
       );
     },
@@ -136,18 +137,31 @@ const columns = [
       const item = prop.row.original;
       return (
         <div className="flex flex-col px-8 py-4 text-sm">
-          <div className="px-4 py-2 rounded-[90px] border border-main justify-center items-center gap-2.5 inline-flex cursor-pointer">
+          <Link
+            href={
+              item.status == "UNPAID"
+                ? item.checkout.invoice_url
+                  ? item.checkout.invoice_url
+                  : item.checkout.checkoutLink!
+                : ""
+            }
+            className="px-4 py-2 rounded-[90px] border border-main justify-center items-center gap-2.5 inline-flex cursor-pointer"
+          >
             <div className="text-main text-sm font-normal text-nowrap">
-              Proceed to pay
+              {item.status == "UNPAID" ? "Proceed to pay" : "Paid"}
             </div>
-          </div>
+          </Link>
         </div>
       );
     },
   },
 ];
 
-const ProfitShareTable = () => {
+type Props = {
+  data: InvoicesData[];
+};
+
+const ProfitShareTable = ({ data }: Props) => {
   // Get all column finter values and functions from global table instance
   const { table, filterFunctions, filterValues, sortingFunctions } =
     useTableGlobal(data as any, columns);

@@ -54,6 +54,19 @@ export default function BasicTable({
               ))}
             </tr>
           ))}
+          {
+            // Show empty row if no data
+            table.getRowModel().rows.length === 0 && (
+              <tr>
+                <td
+                  className="w-full text-center px-8 py-4"
+                  colSpan={table.getAllColumns().length}
+                >
+                  No data available
+                </td>
+              </tr>
+            )
+          }
         </tbody>
       </table>
       {table.getPageCount() >= 1 && <PaginationControl table={table} />}
