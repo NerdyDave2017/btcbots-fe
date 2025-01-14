@@ -11,10 +11,17 @@ type Props = {
   rewards: RewardData[];
   balance: Record<BalanceType, number>;
   referral: string;
+  setSelectedCoin: (value: BalanceType) => void;
   setSelected: (value: SelectedType) => void;
 };
 
-const Main = ({ rewards, balance, referral, setSelected }: Props) => {
+const Main = ({
+  rewards,
+  balance,
+  referral,
+  setSelectedCoin,
+  setSelected,
+}: Props) => {
   const copyTextToClipboard = (value: string, feedback: string) => {
     navigator.clipboard
       .writeText(value)
@@ -41,7 +48,11 @@ const Main = ({ rewards, balance, referral, setSelected }: Props) => {
         showArrow={false}
       />
       <div className="px-5 lg:px-[48px]">
-        <Assets balance={balance} onClick={() => setSelected("Withdraw")} />
+        <Assets
+          setSelected={setSelected}
+          setSelectedCoin={setSelectedCoin}
+          balance={balance}
+        />
         <div className="py-3 px-4 bg-[#eaf0f6] rounded-lg flex flex-col md:flex-row gap-5 md:gap-10 justify-between items-center my-8 float-right">
           <p className="text-[#090909] text-base font-normal">
             My Referral link

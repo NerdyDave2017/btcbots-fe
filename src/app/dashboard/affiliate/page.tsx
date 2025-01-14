@@ -18,6 +18,8 @@ export type BalanceType = "eth" | "btc" | "usd" | "sol";
 const page = () => {
   const [selected, setSelected] = useState<SelectedType>("Main");
 
+  const [selectedCoin, setSelectedCoin] = useState<BalanceType>("eth");
+
   const [balance, setBalance] = useState<Record<BalanceType, number>>({
     eth: 0,
     btc: 0,
@@ -73,11 +75,18 @@ const page = () => {
           rewards={rewards}
           referral={referralLink}
           balance={balance}
+          setSelectedCoin={setSelectedCoin}
           setSelected={setSelected}
         />
       )}
 
-      {selected === "Withdraw" && <Withdraw setSelected={setSelected} />}
+      {selected === "Withdraw" && (
+        <Withdraw
+          balance={balance}
+          selectedCoin={selectedCoin}
+          setSelected={setSelected}
+        />
+      )}
     </div>
   );
 };
