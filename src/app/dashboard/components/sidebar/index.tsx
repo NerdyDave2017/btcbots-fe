@@ -21,7 +21,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 import { deleteCookie } from "cookies-next";
-import { QueryCache } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useFetchUser, useFetchNotifications } from "@/src/hooks/fetchRequests";
 import avatar from "@/public/assets/icons/avatar.svg";
@@ -34,7 +34,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
 
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
 
-  const queryCache = new QueryCache();
+  const queryClient = useQueryClient();
 
   const { data: userData } = useFetchUser();
 
@@ -115,7 +115,8 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
 
   const handleSignout = () => {
     deleteCookie("auth_token");
-    queryCache.clear();
+    queryClient.clear();
+    queryClient.invalidateQueries();
     // setIsAuthenticated(false);
     // setUser(null);
     router.push("/login");
