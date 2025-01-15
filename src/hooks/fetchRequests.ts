@@ -239,6 +239,7 @@ export const useFetchUser = () => {
   return useQuery({
     queryKey: ["user"],
     queryFn: fetchUser,
+    retryOnMount: true,
     refetchOnMount: true,
     enabled: !!token,
   });

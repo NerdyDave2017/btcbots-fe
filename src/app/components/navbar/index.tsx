@@ -8,10 +8,13 @@ import flag from "@/public/assets/images/Circle.svg";
 import Link from "next/link";
 import Button from "../button";
 import Container from "../container";
+import { useFetchUser } from "@/src/hooks/fetchRequests";
 
 const Navbar = () => {
   const pathname = usePathname();
   const router = useRouter();
+
+  const { data: user } = useFetchUser();
 
   const links = [
     {
@@ -80,13 +83,22 @@ const Navbar = () => {
             <span className="">EN</span>
           </div>
 
-          <Link href="/signup" className="">
-            Sign Up
-          </Link>
+          {!user && (
+            <Link href="/signup" className="">
+              Sign Up
+            </Link>
+          )}
 
-          <Link href="/login" className="">
-            <Button text="Login" className="font-normal text-text-dark" />
-          </Link>
+          {!user && (
+            <Link href="/login" className="">
+              <Button text="Login" className="font-normal text-text-dark" />
+            </Link>
+          )}
+          {user && (
+            <Link href="/dashboard" className="">
+              <Button text="Dashboard" className="font-normal text-text-dark" />
+            </Link>
+          )}
         </div>
       </div>
     </Container>

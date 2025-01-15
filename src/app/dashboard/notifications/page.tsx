@@ -20,6 +20,7 @@ const page = () => {
     isRefetching,
     isLoading,
     error,
+    refetch,
   } = useFetchNotifications();
 
   const { mutate } = useReadNotifications();
@@ -32,6 +33,12 @@ const page = () => {
       mutate(data?._id as string, {});
     }
   }, [pathname, router, token, data]);
+
+  useEffect(() => {
+    if (!notifications) {
+      refetch();
+    }
+  });
 
   useEffect(() => {
     // if (isSuccess) {
