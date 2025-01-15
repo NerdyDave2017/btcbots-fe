@@ -13,6 +13,7 @@ import Image from "next/image";
 import Button from "@/src/app/components/button";
 import { Strategy } from "@/src/types";
 import { CardDetails } from "@/src/types/index";
+import { useRouter } from "next/navigation";
 
 type Props = {
   cardDetails: CardDetails;
@@ -20,6 +21,8 @@ type Props = {
 };
 
 const Card = ({ cardDetails, onClick }: Props) => {
+  const router = useRouter();
+
   const exchanges = [
     "Binance",
     "Kraken",
@@ -205,7 +208,16 @@ const Card = ({ cardDetails, onClick }: Props) => {
         </div>
 
         {cardDetails.strategy.isAvailable ? (
-          <Button text="Activate Bots" className="w-full" size="lg" />
+          <Button
+            onClick={() =>
+              router.push(
+                `/dashboard/explorer?strategy=${cardDetails.strategy.name}`
+              )
+            }
+            text="Activate Bots"
+            className="w-full"
+            size="lg"
+          />
         ) : (
           <div className="w-full h-[55px] cursor-not-allowed px-8 py-4 bg-[#767680]/10 rounded-[90px] justify-center items-center gap-2.5 inline-flex text-[#b3b3b3] text-base font-normal">
             Not Available

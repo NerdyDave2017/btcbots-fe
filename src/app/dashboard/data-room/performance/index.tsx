@@ -16,6 +16,7 @@ import {
 import { isAxiosError } from "axios";
 import { toast } from "sonner";
 import { CardDetails } from "@/src/types";
+import { useRouter } from "next/navigation";
 
 ChartJs.register(CategoryScale);
 
@@ -38,6 +39,8 @@ type Data = {
 };
 
 const Performance = ({ details, setSelected }: Props) => {
+  const router = useRouter();
+
   const [strategyData, setStrategyData] = useState({} as Data);
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
@@ -334,7 +337,16 @@ const Performance = ({ details, setSelected }: Props) => {
 
             <div className="w-full border border-[#E3E3E3]/50"></div>
 
-            <Button className="w-full" text="Activate Bot" size="lg" />
+            <Button
+              onClick={() =>
+                router.push(
+                  `/dashboard/explorer?strategy=${details.strategy.name}`
+                )
+              }
+              className="w-full"
+              text="Activate Bot"
+              size="lg"
+            />
           </div>
         </div>
         <div className="flex-1 flex flex-col gap-8 w-full max-w-[550px]">
