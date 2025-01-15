@@ -14,7 +14,6 @@ import Button from "@/src/app/components/button";
 import { Strategy } from "@/src/types";
 import { CardDetails } from "@/src/types/index";
 import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 
 type Props = {
   cardDetails: CardDetails;

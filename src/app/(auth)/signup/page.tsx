@@ -9,8 +9,10 @@ import { useRouter } from "next/navigation";
 import { useSignUp } from "@/src/hooks/postRequests";
 import { toast } from "sonner";
 import { isAxiosError } from "axios";
+import { Suspense } from "react";
+import Loader from "../../components/loader";
 
-const page = () => {
+const PageContent = () => {
   // Access location object using useLocation hook
   const searchParams = useSearchParams();
 
@@ -139,5 +141,11 @@ const page = () => {
     </div>
   );
 };
+
+const page = () => (
+  <Suspense fallback={<Loader bg="bg-main" />}>
+    <PageContent />
+  </Suspense>
+);
 
 export default page;

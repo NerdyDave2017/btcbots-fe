@@ -72,7 +72,7 @@ const page = () => {
     <div className="w-full ">
       <Header text="Notifications" showArrow={false} />
 
-      <div className="w-full px-5 lg:px-[48px]">
+      <div className="w-full px-5 lg:px-[48px] mb-[48px]">
         {isLoading && <NotificationSkeleton />}
         {!isLoading && (
           <div className="w-full  flex-col justify-center items-start gap-4 inline-flex">
@@ -89,7 +89,7 @@ const page = () => {
                 </div>
                 <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light font-['Sora']">
                   {formatDate(
-                    notification.createdAt.toISOString(),
+                    String(notification.createdAt),
                     "MMM DD, YYYY. h:mm a"
                   )}
                 </div>

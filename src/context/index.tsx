@@ -1,6 +1,6 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { UserData } from "@/types";
+import { UserData } from "@/src/types";
 
 interface AppContextTypes {
   showSidebar: boolean;

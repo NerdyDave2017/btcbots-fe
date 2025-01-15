@@ -7,8 +7,9 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useVerifyInvoicePayment } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
+import { Suspense } from "react";
 
-const page = () => {
+const PageContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const {
@@ -87,5 +88,11 @@ const page = () => {
     </div>
   );
 };
+
+const page = () => (
+  <Suspense fallback={<Loader bg="bg-main" />}>
+    <PageContent />
+  </Suspense>
+);
 
 export default page;

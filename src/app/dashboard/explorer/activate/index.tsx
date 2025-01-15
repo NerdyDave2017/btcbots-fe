@@ -20,7 +20,7 @@ import Header from "../../components/header";
 import { CardDetails } from "@/src/types";
 import { useCreateBot } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 type Props = {
@@ -73,7 +73,6 @@ const Activate = ({
   const [agree, setAgree] = useState(false);
 
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const { mutate: CreateBot, isPending } = useCreateBot();
 

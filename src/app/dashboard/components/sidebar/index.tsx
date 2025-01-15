@@ -23,7 +23,7 @@ import { useMediaQuery } from "react-responsive";
 import { deleteCookie } from "cookies-next";
 import { QueryCache } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { useFetchUser } from "@/src/hooks/fetchRequests";
+import { useFetchUser, useFetchNotifications } from "@/src/hooks/fetchRequests";
 import avatar from "@/public/assets/icons/avatar.svg";
 
 const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
@@ -37,6 +37,8 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const queryCache = new QueryCache();
 
   const { data: userData } = useFetchUser();
+
+  const { data: notifications } = useFetchNotifications();
 
   const navigation = [
     {
@@ -170,6 +172,14 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
                 >
                   {item.name}
                 </span>
+
+                {notifications?.unread! > 0 &&
+                  item.name === "Notifications" && (
+                    <span className="relative flex h-3 w-3">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fff] opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-[#E9362B] border-2 border-[#fff]"></span>
+                    </span>
+                  )}
               </Link>
             ))}
           </div>

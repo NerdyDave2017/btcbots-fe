@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import { useResetPassword } from "@/src/hooks/postRequests";
@@ -7,8 +7,9 @@ import { isAxiosError } from "axios";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import Loader from "../../components/loader";
 
-const page = () => {
+const PageContent = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -87,5 +88,11 @@ const page = () => {
     </div>
   );
 };
+
+const page = () => (
+  <Suspense fallback={<Loader bg="bg-main" />}>
+    <PageContent />
+  </Suspense>
+);
 
 export default page;

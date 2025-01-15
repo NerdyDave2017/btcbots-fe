@@ -34,10 +34,12 @@ const CardData = [
   CB010,
   CB011,
 ];
+import { Suspense } from "react";
+import Loader from "../../components/loader";
 
 export type SelectedType = "Main" | "Performance";
 
-const page = () => {
+const PageContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -67,5 +69,11 @@ const page = () => {
     </div>
   );
 };
+
+const page = () => (
+  <Suspense fallback={<Loader bg="bg-main" />}>
+    <PageContent />
+  </Suspense>
+);
 
 export default page;

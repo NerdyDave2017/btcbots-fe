@@ -3,10 +3,16 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: [
-      "www.tradingview.com",
-      "cryptobots-assets.s3.us-east-1.amazonaws.com",
-      "cryptobots.io.s3.eu-north-1.amazonaws.com",
+    remotePatterns: [
+      {
+        hostname: "www.tradingview.com",
+      },
+      {
+        hostname: "cryptobots-assets.s3.us-east-1.amazonaws.com",
+      },
+      {
+        hostname: "cryptobots.io.s3.eu-north-1.amazonaws.com",
+      },
     ],
   },
   webpack(config) {
