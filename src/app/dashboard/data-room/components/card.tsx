@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Bitcoin from "@/public/assets/icons/bitcoin.svg";
 import Ethereum from "@/public/assets/icons/ethereum.svg";
 import Solana from "@/public/assets/icons/solana.svg";
@@ -14,6 +14,7 @@ import Button from "@/src/app/components/button";
 import { Strategy } from "@/src/types";
 import { CardDetails } from "@/src/types/index";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 type Props = {
   cardDetails: CardDetails;

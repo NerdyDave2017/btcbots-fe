@@ -13,6 +13,7 @@ import Image from "next/image";
 import Button from "@/src/app/components/button";
 import { Strategy } from "@/src/types";
 import { CardDetails } from "@/src/types/index";
+import { useRouter } from "next/navigation";
 
 type Props = {
   cardDetails: CardDetails;
@@ -20,6 +21,8 @@ type Props = {
 };
 
 const Card = ({ cardDetails, onClick }: Props) => {
+  const router = useRouter();
+
   const exchanges = [
     "Binance",
     "Kraken",
@@ -217,7 +220,14 @@ const Card = ({ cardDetails, onClick }: Props) => {
           </div>
         )}
 
-        <button className="w-full px-8 py-4 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex text-[#006fe3] ">
+        <button
+          onClick={() =>
+            router.push(
+              `/dashboard/data-room?strategy=${cardDetails.strategy.name}`
+            )
+          }
+          className="w-full px-8 py-4 rounded-[90px] border border-[#006fe3] justify-center items-center gap-2.5 inline-flex text-[#006fe3] "
+        >
           See Performance Data
         </button>
       </div>
