@@ -38,7 +38,7 @@ type Data = {
 };
 
 const Performance = ({ details, setSelected }: Props) => {
-  // const [data, setData] = useState({} as Data);
+  const [strategyData, setStrategyData] = useState({} as Data);
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [type, setType] = useState("chart");
@@ -48,16 +48,16 @@ const Performance = ({ details, setSelected }: Props) => {
       {
         label: "2023",
         data: [].map((data: Data) => data?.performance.replace("%", "")),
-        backgroundColor: ["#50AF95"],
-        borderColor: "#50AF95",
-        borderWidth: 2,
+        backgroundColor: ["#006FE3"],
+        borderColor: "#006FE3",
+        borderWidth: 1,
       },
       {
         label: "2024",
         data: [].map((data: Data) => data?.performance.replace("%", "")),
-        backgroundColor: ["#50AF95"],
-        borderColor: "#50AF95",
-        borderWidth: 2,
+        backgroundColor: ["#FFFFFF"],
+        borderColor: "#006FE3",
+        borderWidth: 1,
       },
     ],
   });
@@ -66,10 +66,9 @@ const Performance = ({ details, setSelected }: Props) => {
   const { mutate: FetchHistogramData, data: HistogramData } =
     useFetchHistogramData();
 
-  console.log(StrategyData);
-
   const fetchData = async () => {
     if (year === "Histogram") {
+      setStrategyData({} as Data);
       fetchHistogram();
       return;
     }
@@ -93,20 +92,20 @@ const Performance = ({ details, setSelected }: Props) => {
             !res.average_days_in_a_deal ||
             !res.maximum_days_in_a_deal
           ) {
-            // setData({} as Data);
+            setStrategyData({} as Data);
             toast.error("Data Unavailable Currently", {
               position: "top-center",
             });
             return;
           }
 
-          // setData(res);
+          setStrategyData(res);
           toast.success("Data fetched successfully", {
             position: "top-center",
           });
         },
         onError: (error: Error) => {
-          // setData({} as Data);
+          setStrategyData({} as Data);
           if (isAxiosError(error)) {
             if (
               error.response?.data.message ===
@@ -152,10 +151,8 @@ const Performance = ({ details, setSelected }: Props) => {
         res.year2.sort(
           (a: Data, b: Data) => monthOrder[a.month] - monthOrder[b.month]
         );
-        console.log(res.year1);
-        console.log(res.year2);
 
-        // setData({} as Data);
+        setStrategyData({} as Data);
         setChartData({
           labels: res.year1.map((data: Data) => data?.month),
           datasets: [
@@ -166,7 +163,7 @@ const Performance = ({ details, setSelected }: Props) => {
               ),
               backgroundColor: ["#006FE3"],
               borderColor: "#006FE3",
-              borderWidth: 2,
+              borderWidth: 1,
             },
             {
               label: "2024",
@@ -175,7 +172,7 @@ const Performance = ({ details, setSelected }: Props) => {
               ),
               backgroundColor: ["#FFFFFF"],
               borderColor: "#006FE3",
-              borderWidth: 2,
+              borderWidth: 1,
             },
           ],
         });
@@ -205,27 +202,27 @@ const Performance = ({ details, setSelected }: Props) => {
   const data = [
     {
       title: "Market Strategy",
-      value: StrategyData?.strategy_direction ?? "",
+      value: strategyData?.strategy_direction ?? "",
     },
     {
       title: "Average",
-      value: StrategyData?.average_days_in_a_deal ?? "",
+      value: strategyData?.average_days_in_a_deal ?? "",
     },
     {
       title: "Maximum",
-      value: StrategyData?.maximum_days_in_a_deal ?? "",
+      value: strategyData?.maximum_days_in_a_deal ?? "",
     },
     {
       title: "Max Price Deviation",
-      value: StrategyData?.max_price_deviation ?? "",
+      value: strategyData?.max_price_deviation ?? "",
     },
     {
       title: "Profits",
-      value: StrategyData?.performance ?? "",
+      value: strategyData?.performance ?? "",
     },
     {
       title: "Completed trades",
-      value: StrategyData?.deals_completed ?? "",
+      value: strategyData?.deals_completed ?? "",
     },
   ];
 
@@ -238,17 +235,17 @@ const Performance = ({ details, setSelected }: Props) => {
       />
 
       <div className="bg-[#eaf0f6] mb-10 mx-5 p-6 lg:mx-[48px] h-full py-8 rounded-2xl min-h-[55vh] scrollbar-hide overflow-scroll ">
-        {StrategyData?.trading_view_link && (
+        {strategyData?.trading_view_link && (
           <Image
             width={100}
             height={100}
             alt="Trading view chart"
             className="w-full h-full"
-            src={StrategyData?.trading_view_link ?? null}
+            src={strategyData?.trading_view_link ?? null}
             unoptimized
           />
         )}
-        {HistogramData && (
+        {chartData && !strategyData.trading_view_link && (
           <Bar
             data={chartData}
             options={{
@@ -290,7 +287,8 @@ const Performance = ({ details, setSelected }: Props) => {
                 <p className="text-[#3c3c43]/60 text-sm font-normal">Profits</p>
 
                 <p className="text-[#090909] text-base font-normal">
-                  {StrategyData?.performance ?? ""} {StrategyData && "%"}
+                  {strategyData?.performance ?? ""}{" "}
+                  {strategyData?.performance && "%"}
                 </p>
               </div>
               <div className="flex-col justify-center items-end gap-4 inline-flex">
@@ -299,7 +297,7 @@ const Performance = ({ details, setSelected }: Props) => {
                 </p>
 
                 <p className="text-[#090909] text-base font-normal">
-                  {StrategyData?.deals_completed ?? ""}
+                  {strategyData?.deals_completed ?? ""}
                 </p>
               </div>
             </div>
@@ -318,13 +316,17 @@ const Performance = ({ details, setSelected }: Props) => {
 
                   <div
                     className={`text-[#090909] text-base font-normal ${
-                      item.title === "Market Strategy" && item.value === "Long"
-                        ? "text-[#14ae5c]"
-                        : "text-[#e9362b]"
+                      item.title === "Market Strategy"
+                        ? item.value === "Long"
+                          ? "text-[#14ae5c]"
+                          : "text-[#e9362b]"
+                        : ""
                     }`}
                   >
                     {item.value}{" "}
-                    {item.title === "Profits" && StrategyData && "%"}
+                    {item.title === "Profits" &&
+                      strategyData.performance &&
+                      "%"}
                   </div>
                 </div>
               ))}
