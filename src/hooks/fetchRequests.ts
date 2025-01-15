@@ -212,6 +212,19 @@ interface RewardsResponse {
   usd_balance: number;
 }
 
+interface StrategyData {
+  strategy_id: string;
+  month: string;
+  year: number;
+  strategy_direction: string;
+  deals_completed: number;
+  performance: string;
+  maximum_days_in_a_deal: number;
+  average_days_in_a_deal: number;
+  max_price_deviation: string;
+  trading_view_link: string;
+}
+
 const token = getCookie("auth_token");
 
 export const useFetchUser = () => {
@@ -283,7 +296,7 @@ export const useFetchStrategy = () => {
       `/fetch-strategy?strategy=${strategy}&year=${year}&month=${month}`
     );
 
-    return data.strategy;
+    return data.strategy as StrategyData;
   };
 
   return useMutation({

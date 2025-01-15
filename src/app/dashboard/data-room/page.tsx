@@ -16,7 +16,9 @@ const page = () => {
         <Main setStrategy={setStrategy} setSelected={setSelected} />
       )}
 
-      {selected === "Performance" && <Performance setSelected={setSelected} />}
+      {selected === "Performance" && (
+        <Performance details={strategy!} setSelected={setSelected} />
+      )}
     </div>
   );
 };
