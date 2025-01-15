@@ -23,6 +23,8 @@ import { useMediaQuery } from "react-responsive";
 import { deleteCookie } from "cookies-next";
 import { QueryCache } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { useFetchUser } from "@/src/hooks/fetchRequests";
+import avatar from "@/public/assets/icons/avatar.svg";
 
 const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const pathname = usePathname();
@@ -33,6 +35,8 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1023 });
 
   const queryCache = new QueryCache();
+
+  const { data: userData } = useFetchUser();
 
   const navigation = [
     {
@@ -84,8 +88,10 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       link: "/",
     },
     {
-      name: "Jordan Great",
-      icon: UserIcon,
+      name:
+        userData?.name.length! > 20
+          ? `${userData?.name.slice(0, 20)}...`
+          : `${userData?.name}`,
       link: "/dashboard/profile",
     },
   ];
@@ -181,7 +187,17 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
                 index === 1 && "bg-[#f4f6f8] rounded-full"
               } `}
             >
-              <item.icon className="" />
+              {item.name !== "Logout" ? (
+                <Image
+                  alt=""
+                  className="w-[25px]  rounded-full"
+                  src={(userData ? userData!.avatar : avatar) || avatar}
+                  width={100}
+                  height={100}
+                />
+              ) : (
+                item.icon && <item.icon />
+              )}
               <span
                 className={`text-base font-normal ${index === 1 && "text-sm"} `}
               >

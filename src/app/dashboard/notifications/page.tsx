@@ -34,9 +34,9 @@ const page = () => {
   }, [pathname, router, token, data]);
 
   useEffect(() => {
-    if (isSuccess) {
-      toast.success("Notifications fetched successfully");
-    }
+    // if (isSuccess) {
+    //   toast.success("Notifications fetched successfully");
+    // }
 
     if (isError) {
       if (isAxiosError(error)) {
