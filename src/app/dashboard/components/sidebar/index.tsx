@@ -88,10 +88,11 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       link: "/",
     },
     {
-      name:
-        userData?.name.length! > 20
+      name: userData
+        ? userData?.name.length! > 20
           ? `${userData?.name.slice(0, 20)}...`
-          : `${userData?.name}`,
+          : `${userData?.name}`
+        : "Guest",
       link: "/dashboard/profile",
     },
   ];

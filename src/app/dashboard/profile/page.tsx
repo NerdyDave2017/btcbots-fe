@@ -25,6 +25,8 @@ const page = () => {
   const { mutate, isSuccess, isError, error, isPending } = useDeleteAccount();
   const { data: user, isLoading, isSuccess: userSuccess } = useFetchUser();
 
+  console.log(user);
+
   const queryCache = new QueryCache();
 
   const handleDeletion = async () => {
@@ -75,13 +77,13 @@ const page = () => {
                 <div className="flex-col justify-center items-end gap-3 flex">
                   <p className="text-[#3c3c43]/60 text-sm font-normal">Name</p>
                   <p className="text-[#090909] text-base font-normal">
-                    {user?.name ?? ""}
+                    {user?.name ?? "Guest"}
                   </p>
                 </div>
                 <div className="flex-col justify-center items-end gap-3 flex">
                   <p className="text-[#3c3c43]/60 text-sm font-normal">Email</p>
                   <p className="text-[#090909] text-base font-normal">
-                    {user?.email ?? ""}
+                    {user?.email ?? "Guest"}
                   </p>
                 </div>
                 {/* <div className="flex-col justify-center items-end gap-4 flex">

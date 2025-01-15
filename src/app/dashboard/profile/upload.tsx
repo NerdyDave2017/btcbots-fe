@@ -37,7 +37,7 @@ const Upload = ({
     isSuccess,
     error,
     isPending,
-  } = useUploadProfileImage(user._id);
+  } = useUploadProfileImage(user?._id ?? "");
 
   useEffect(() => {
     if (uploadedFiles.length > 0) {
@@ -46,6 +46,8 @@ const Upload = ({
   }, [uploadedFiles]);
 
   const upload = async () => {
+    if (!user) return;
+
     // check file format - should be image only
     if (!uploadedFiles[0].type.includes("image")) {
       toast.error("Only image files are allowed");
@@ -77,13 +79,23 @@ const Upload = ({
       <input {...getInputProps()} />
 
       <div className=" relative w-16 h-16  bg-[#f4f6f8] rounded-full flex-col justify-center items-center inline-flex">
-        <Image
-          alt=""
-          className="w-16 md:w-20 rounded-full"
-          src={file || (user ? user!.avatar : avatar) || avatar}
-          width={100}
-          height={100}
-        />
+        {user ? (
+          <Image
+            alt=""
+            className="w-16 md:w-20 rounded-full"
+            src={file || (user ? user!.avatar : avatar) || avatar}
+            width={100}
+            height={100}
+          />
+        ) : (
+          <Image
+            alt=""
+            className="w-10  rounded-full"
+            src={avatar}
+            width={100}
+            height={100}
+          />
+        )}
 
         {isPending && (
           <div className="absolute w-16 h-16 rounded-full text-white flex-col justify-center items-center inline-flex">
