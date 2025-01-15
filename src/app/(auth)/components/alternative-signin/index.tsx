@@ -27,7 +27,7 @@ const index = ({ referrer }: { referrer: string }) => {
       {},
       {
         onSuccess: (user) => {
-          toast.success("Login successful", { position: "top-center" });
+          toast.success("Login successful");
 
           router.push("/dashboard");
         },
@@ -69,7 +69,7 @@ const index = ({ referrer }: { referrer: string }) => {
           },
           {
             onSuccess: (res) => {
-              toast.success("Login Successful", { position: "top-center" });
+              toast.success("Login Successful");
               setUser(res);
               router.push("/dashboard");
             },
@@ -90,14 +90,10 @@ const index = ({ referrer }: { referrer: string }) => {
       },
       onError: (error: Error) => {
         if (isAxiosError(error)) {
-          toast.error(error.response?.data.message, {
-            position: "top-center",
-          });
+          toast.error(error.response?.data.message);
         } else {
           console.error(error);
-          toast.error("An unexpected error occurred", {
-            position: "top-center",
-          });
+          toast.error("An unexpected error occurred");
         }
       },
     });

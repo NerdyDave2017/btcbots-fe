@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/header";
 import { ProfileUserIcon, WriteIcon } from "@/public/assets/icons";
 import Modal from "@/src/app/components/modal";
@@ -13,9 +13,12 @@ import { toast } from "sonner";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
 import { QueryCache } from "@tanstack/react-query";
+import Upload from "./upload";
 
 const page = () => {
   const router = useRouter();
+
+  const [file, setFile] = useState("");
 
   const { isOpen, onClose, onOpen, onToggle, setOpen } = useDisclosure();
 
@@ -67,14 +70,7 @@ const page = () => {
         {!isLoading && userSuccess && (
           <div className="w-full max-w-[550px] mx-auto p-6 bg-[#eaf0f6] rounded-2xl flex-col justify-start items-start gap-6 flex">
             <div className="self-stretch justify-between items-start inline-flex">
-              <div className=" relative w-16 h-16  bg-[#f4f6f8] rounded-full flex-col justify-center items-center inline-flex">
-                <ProfileUserIcon />
-
-                <div className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 self-stretch p-1 bg-[#deeaf6] rounded-full justify-center items-center inline-flex">
-                  <WriteIcon className="cursor-pointer" />
-                </div>
-              </div>
-
+              <Upload file={file} user={user!} setFile={setFile} />
               <div className="flex-col justify-center items-end gap-[21px] inline-flex">
                 <div className="flex-col justify-center items-end gap-3 flex">
                   <p className="text-[#3c3c43]/60 text-sm font-normal">Name</p>

@@ -103,9 +103,7 @@ const Performance = ({ details, setSelected }: Props) => {
           }
 
           setStrategyData(res);
-          toast.success("Data fetched successfully", {
-            position: "top-center",
-          });
+          toast.success("Data fetched successfully");
         },
         onError: (error: Error) => {
           setStrategyData({} as Data);
@@ -185,14 +183,10 @@ const Performance = ({ details, setSelected }: Props) => {
       },
       onError: (error: Error) => {
         if (isAxiosError(error)) {
-          toast.error(error.response?.data.message, {
-            position: "top-center",
-          });
+          toast.error(error.response?.data.message);
         } else {
           console.error(error);
-          toast.error("Unable to fetch data", {
-            position: "top-center",
-          });
+          toast.error("Unable to fetch data");
         }
       },
     });

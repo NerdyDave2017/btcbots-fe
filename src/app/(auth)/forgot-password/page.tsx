@@ -22,14 +22,10 @@ const page = () => {
       },
       onError: (error: Error) => {
         if (isAxiosError(error)) {
-          toast.error(error.response?.data.message, {
-            position: "top-center",
-          });
+          toast.error(error.response?.data.message);
         } else {
           console.error(error);
-          toast.error("An unexpected error occurred", {
-            position: "top-center",
-          });
+          toast.error("An unexpected error occurred");
         }
       },
     });

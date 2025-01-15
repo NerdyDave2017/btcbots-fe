@@ -40,7 +40,7 @@ const page = () => {
               user_id: user._id, // Optional, pass if you have a user ID
             });
           }
-          toast.success("Login successful", { position: "top-center" });
+          toast.success("Login successful");
           setUser(user);
           setIsAuthenticated(true);
           router.push("/dashboard");
@@ -65,11 +65,11 @@ const page = () => {
 
   const handleValidation = () => {
     if (!email) {
-      toast.error("Email required", { position: "top-center" });
+      toast.error("Email required");
       return;
     }
     if (!password) {
-      toast.error("Password required", { position: "top-center" });
+      toast.error("Password required");
       return;
     }
     handleLogin();

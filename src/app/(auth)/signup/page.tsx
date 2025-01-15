@@ -35,7 +35,7 @@ const page = () => {
       },
       {
         onSuccess: (res) => {
-          toast.success(res.message, { position: "top-center" });
+          toast.success(res.message);
         },
         onError: (error: Error) => {
           if (isAxiosError(error)) {
@@ -55,19 +55,19 @@ const page = () => {
 
   const handleSignupValidation = () => {
     if (!name) {
-      toast.error("Name required", { position: "top-center" });
+      toast.error("Name required");
       return;
     }
     if (!email) {
-      toast.error("Email required", { position: "top-center" });
+      toast.error("Email required");
       return;
     }
     if (!password) {
-      toast.error("Password required", { position: "top-center" });
+      toast.error("Password required");
       return;
     }
     if (!confirmPassword) {
-      toast.error("Confirm Password required", { position: "top-center" });
+      toast.error("Confirm Password required");
       return;
     }
     if (password !== confirmPassword) {

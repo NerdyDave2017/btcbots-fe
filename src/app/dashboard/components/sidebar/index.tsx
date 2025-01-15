@@ -110,7 +110,7 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     // setIsAuthenticated(false);
     // setUser(null);
     router.push("/login");
-    toast.success("Logout successful", { position: "top-center" });
+    toast.success("Logout successful");
   };
 
   return (

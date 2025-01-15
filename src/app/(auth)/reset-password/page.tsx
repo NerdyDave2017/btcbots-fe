@@ -34,7 +34,7 @@ const page = () => {
       },
       {
         onSuccess: () => {
-          toast.success("Password Reset", { position: "top-center" });
+          toast.success("Password Reset");
           router.push("/dashboard/home");
         },
         onError: (error: Error) => {
