@@ -11,13 +11,16 @@ import {
 } from "@/public/assets/icons";
 import Image from "next/image";
 import Button from "@/src/app/components/button";
+import { Strategy } from "@/src/types";
+import { CardDetails } from "@/src/types/index";
 
 type Props = {
+  cardDetails: CardDetails;
   onClick: () => void;
 };
 
-const Card = ({ onClick }: Props) => {
-  const echanges = [
+const Card = ({ cardDetails, onClick }: Props) => {
+  const exchanges = [
     "Binance",
     "Kraken",
     "Coinbase",
@@ -32,45 +35,69 @@ const Card = ({ onClick }: Props) => {
   const cardData = [
     {
       title: "Avg. Monthly Return",
-      value: "4%+",
+      value: cardDetails.strategy.return,
     },
     {
       title: "Safety Net",
-      value: "-40% to -50%",
+      value: cardDetails.strategy.safety_net,
     },
     {
       title: "Minimum Deposit",
-      value: "$10,000",
+      value: cardDetails.strategy.minimum_deposit,
     },
     {
       title: "Market Type",
-      value: "Inverse Derivation",
+      value: cardDetails.strategy.market_type,
     },
     {
       title: "Strategy Direction",
-      value: "Long / Short",
+      value: cardDetails.strategy.direction,
     },
     {
       title: "Leverage Used",
-      value: "1x to 1.5x",
+      value: cardDetails.strategy.leverage,
     },
   ];
 
   return (
-    <div className="w-[350px] break-inside-avoid mb-[10px]">
-      <div className="bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
-        <Image src={Bitcoin} className="w-12 h-12" alt="" />
+    <div className="w-[350px] break-inside-avoid mb-[4px]">
+      <div className="h-[115px] bg-[#c3dbf5] rounded-tl-[32px] rounded-tr-[32px]  py-6 px-4 break-inside-avoid flex items-center justify-start gap-4">
+        <Image src={cardDetails.logo!} className="w-12 h-12" alt="" />
         <div className="flex flex-col items-start justify-center gap-3">
           <div className="flex items-center gap-4">
-            <p className="text-xl text-text-light font-normal">Bitcoin Bot</p>
+            <p className="text-xl text-text-light font-normal">
+              {cardDetails.bot} Bot
+            </p>
             <div className="px-2.5 py-1.5 bg-main/20 rounded-[90px] justify-center items-center flex">
-              <p className="text-main text-sm font-normal">CB001</p>
+              <p className="text-main text-sm font-normal">
+                {cardDetails.strategy.name}
+              </p>
             </div>
           </div>
 
           <div className="flex items-center gap-1">
-            <p className="text-sm text-[#090909] font-normal">Spot</p>
-            <p className="text-sm text-[#e9362b] font-normal">Short</p>
+            <p className="text-sm text-[#090909] font-normal flex-1">
+              {cardDetails.strategy.market_type}
+            </p>
+            <div className="">
+              {(cardDetails.strategy.direction.includes("LONG") ||
+                cardDetails.strategy.direction.includes("BULL")) && (
+                <span className="text-[#14ae5c] text-sm font-normal">
+                  {cardDetails.strategy.direction.split("/")[0]}
+                </span>
+              )}
+              {cardDetails.strategy.direction.includes("/") && (
+                <span className="text-[#090909] text-sm font-normal"> / </span>
+              )}
+              {(cardDetails.strategy.direction.includes("SHORT") ||
+                cardDetails.strategy.direction.includes("BEAR")) && (
+                <span className="text-[#e9362b] text-sm font-normal">
+                  {cardDetails.strategy.direction.includes("/")
+                    ? cardDetails.strategy.direction.split("/")[1]
+                    : cardDetails.strategy.direction}
+                </span>
+              )}
+            </div>
             <InfoIcon className="cursor-pointer" />
           </div>
         </div>
@@ -90,16 +117,28 @@ const Card = ({ onClick }: Props) => {
 
           <div className="flex items-center justify-between">
             <div className="px-4 py-2 bg-[#d0e0f1] rounded justify-start items-center gap-2 flex">
-              <Image src={Bitcoin} className="w-8 h-8" alt="" />
-              <p className="text-[#090909] text-base font-normal ">SOL</p>
+              <Image
+                src={cardDetails.depositCurrencyImg}
+                className="w-8 h-8"
+                alt=""
+              />
+              <p className="text-[#090909] text-base font-normal ">
+                {cardDetails.strategy.deposit_coin.toUpperCase()}
+              </p>
             </div>
             <div className="flex items-center">
               <DollarCircleIcon />
               <DollarArrowIcon />
             </div>
             <div className="px-4 py-2 bg-[#d0e0f1] rounded justify-start items-center gap-2 flex">
-              <Image src={Bitcoin} className="w-8 h-8" alt="" />
-              <p className="text-[#090909] text-base font-normal ">SOL</p>
+              <Image
+                src={cardDetails.profitCurrencyImg}
+                className="w-8 h-8"
+                alt=""
+              />
+              <p className="text-[#090909] text-base font-normal ">
+                {cardDetails.strategy.profit_coin.toUpperCase()}
+              </p>
             </div>
           </div>
         </div>
@@ -117,9 +156,10 @@ const Card = ({ onClick }: Props) => {
               </p>
               {index === 4 ? (
                 <div>
-                  {item.value.includes("Long") && (
+                  {(item.value.includes("LONG") ||
+                    item.value.includes("BULL")) && (
                     <span className="text-[#14ae5c] text-base font-normal">
-                      Long
+                      {item.value.split("/")[0]}
                     </span>
                   )}
                   {item.value.includes("/") && (
@@ -128,9 +168,12 @@ const Card = ({ onClick }: Props) => {
                       /{" "}
                     </span>
                   )}
-                  {item.value.includes("Short") && (
+                  {(item.value.includes("SHORT") ||
+                    item.value.includes("BEAR")) && (
                     <span className="text-[#e9362b] text-base font-normal">
-                      Short
+                      {item.value.includes("/")
+                        ? item.value.split("/")[1]
+                        : item.value}
                     </span>
                   )}
                 </div>
@@ -145,12 +188,12 @@ const Card = ({ onClick }: Props) => {
 
         <div className="w-full border border-[#E3E3E3]/50"></div>
 
-        <div className="flex-col justify-center items-start gap-1 inline-flex">
+        <div className="w-full flex-col justify-start items-start gap-1 inline-flex">
           <p className="text-right text-[#3c3c43]/60 text-sm font-normal">
             Available Exchanges
           </p>
           <div className="self-stretch justify-start items-center gap-2 flex flex-wrap">
-            {echanges.map((exchange, index) => (
+            {cardDetails.exchanges.map((exchange, index) => (
               <div
                 key={index}
                 className="px-4 py-2 bg-[#d9dde1] rounded-[90px] justify-start items-center gap-2 flex"
@@ -161,7 +204,13 @@ const Card = ({ onClick }: Props) => {
           </div>
         </div>
 
-        <Button text="Activate Bots" className="w-full" size="lg" />
+        {cardDetails.strategy.isAvailable ? (
+          <Button text="Activate Bots" className="w-full" size="lg" />
+        ) : (
+          <div className="w-full h-[55px] cursor-not-allowed px-8 py-4 bg-[#767680]/10 rounded-[90px] justify-center items-center gap-2.5 inline-flex text-[#b3b3b3] text-base font-normal">
+            Not Available
+          </div>
+        )}
 
         <button
           onClick={onClick}

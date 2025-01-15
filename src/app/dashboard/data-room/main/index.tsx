@@ -1,15 +1,48 @@
 import React from "react";
 import { ArrowRight, SearchIcon, SettingsIcon } from "@/public/assets/icons";
-import { SelectedType } from "./page";
+import { SelectedType } from "../page";
 import Link from "next/link";
-import Card from "./components/card";
-import Header from "../components/header";
+import Card from "../components/card";
+import Header from "../../components/header";
+import { Masonry } from "react-plock";
+import {
+  CB001,
+  CB002,
+  CB003,
+  CB004,
+  CB005,
+  CB006,
+  CB007,
+  CB008,
+  CB009,
+  CB010,
+  CB011,
+  SOLBTC,
+  SOLETH,
+} from "../../data";
+import { CardDetails } from "@/src/types";
+const CardData = [
+  CB001,
+  CB002,
+  CB003,
+  SOLBTC,
+  CB004,
+  CB005,
+  CB006,
+  SOLETH,
+  CB007,
+  CB008,
+  CB009,
+  CB010,
+  CB011,
+];
 
 type Props = {
+  setStrategy: (strategy: CardDetails) => void;
   setSelected: (value: SelectedType) => void;
 };
 
-const Main = ({ setSelected }: Props) => {
+const Main = ({ setStrategy, setSelected }: Props) => {
   const nav = ["Data Room", "FAQ", "Help", "Knowledge Base"];
 
   return (
@@ -44,13 +77,25 @@ const Main = ({ setSelected }: Props) => {
         </div>
       </div>
 
-      <div className="columns-1 md:columns-2 xl:columns-3 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
-        {/* {data.map((item, index) => ( */}
-        <Card onClick={() => setSelected("Performance")} />
-        <Card onClick={() => setSelected("Performance")} />
-        <Card onClick={() => setSelected("Performance")} />
-        {/* ))} */}
-      </div>
+      <Masonry
+        className="w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6"
+        items={CardData}
+        config={{
+          columns: [1, 2, 2, 3],
+          gap: [24, 12, 6, 6],
+          media: [640, 770, 1025, 1440],
+        }}
+        render={(item, index) => (
+          <Card
+            key={index}
+            cardDetails={item}
+            onClick={() => {
+              setStrategy(item);
+              setSelected("Performance");
+            }}
+          />
+        )}
+      />
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../components/header";
+import Header from "../../components/header";
 import Image from "next/image";
 import Bitcoin from "@/public/assets/icons/bitcoin.svg";
-import Button from "../../components/button";
-import Dropdown from "../../components/dropdown/dropdown";
+import Button from "../../../components/button";
+import Dropdown from "../../../components/dropdown/dropdown";
 import Chart from "@/public/assets/icons/performance-chart.svg";
-import { SelectedType } from "./page";
+import { SelectedType } from "../page";
 
 type Props = {
   setSelected: (value: SelectedType) => void;

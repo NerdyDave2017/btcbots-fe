@@ -123,16 +123,6 @@ const Strategy = ({
         </div>
       </div>
 
-      {/* <div className="grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 md:gap-x-4 xl:gap-x-1 justify-items-center w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6">
-        {filteredCard.map((item, index) => (
-          <Card
-            key={index}
-            cardDetails={item}
-            onClick={() => setSelected("activate")}
-          />
-        ))}
-      </div> */}
-
       <Masonry
         className="w-[350px] md:w-[700px] xl:w-[1070px] m-auto mt-6"
         items={filteredCard}
