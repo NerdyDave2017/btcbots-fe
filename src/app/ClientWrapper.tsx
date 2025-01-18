@@ -14,7 +14,7 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
     if (isTabletOrMobile) {
       setIsOpen(false);
     } else {
-      setIsOpen(true);
+      setIsOpen(false);
     }
   }, [isTabletOrMobile]);
 

@@ -457,6 +457,7 @@ export const HowBar = (props: SVGProps<any>) => {
     </svg>
   );
 };
+
 export const HeroCurrencies = (props: SVGProps<any>) => {
   return (
     <svg
@@ -502,8 +503,8 @@ export const HeroCurrencies = (props: SVGProps<any>) => {
         <rect
           x="78.1719"
           y="10.2031"
-          width="36"
-          height="36"
+          width="34"
+          height="34"
           rx="18"
           fill="url(#pattern3_0_1)"
         />

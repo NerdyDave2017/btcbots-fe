@@ -11,6 +11,7 @@ interface AppContextTypes {
   isAuthenticated: boolean;
   setIsAuthenticated: (isAuthenticated: boolean) => void;
   isTabletOrMobile: boolean;
+  isMobile: boolean;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }
@@ -22,6 +23,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const isTabletOrMobile = useMediaQuery({ maxWidth: 1024 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -34,6 +36,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
         isAuthenticated,
         setIsAuthenticated,
         isTabletOrMobile,
+        isMobile,
         setIsOpen,
         isOpen,
       }}

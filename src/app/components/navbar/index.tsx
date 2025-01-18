@@ -23,24 +23,8 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       href: "/",
     },
     {
-      name: "Bots",
-      href: "/bots",
-    },
-    {
       name: "About Us",
       href: "/about",
-    },
-    {
-      name: "Feature",
-      href: "/feature",
-    },
-    {
-      name: "Performance",
-      href: "/performance",
-    },
-    {
-      name: "Help",
-      href: "/help",
     },
     {
       name: "Contact Us",
