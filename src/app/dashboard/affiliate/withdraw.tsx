@@ -132,10 +132,11 @@ const Withdraw = ({ balance, selectedCoin, setSelected }: Props) => {
           />
 
           <Button
+            loading={isPending}
             className="w-full"
             size="lg"
             text="Withdraw"
-            onClick={() => setSelected("Main")}
+            onClick={withdraw}
           />
         </div>
       </div>

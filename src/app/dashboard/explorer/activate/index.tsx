@@ -82,20 +82,12 @@ const Activate = ({
     return coin;
   };
 
-  // setTimeout(() => {
-  //   return toast.success("Component mounted");
-  // }, 3000);
-
   const activateBot = async () => {
     CreateBot(
       {
         strategy: strategy.strategy.name,
-        profitCurrency:
-          checkCoin(profitCoin!.toLowerCase()) ||
-          checkCoin(strategy.strategy.profit_coin),
-        depositCurrency:
-          checkCoin(depositCoin!.toLowerCase()) ||
-          checkCoin(strategy.strategy.deposit_coin),
+        profitCurrency: checkCoin(strategy.strategy.profit_coin),
+        depositCurrency: checkCoin(strategy.strategy.deposit_coin),
         exchange: selectedExchange!,
         apiKey,
         apiSecret,

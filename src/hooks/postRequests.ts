@@ -3,7 +3,6 @@ import { useMutation } from "@tanstack/react-query";
 import useSetCookies from "./useSetCookies";
 import { UserData } from "@/src/types";
 import { queryClient } from "@/src/providers/tanstack-provider";
-import avatar from "@/public/assets/icons/profile-icon.png";
 
 interface SignInData {
   email: string;

@@ -1,5 +1,4 @@
 import React from "react";
-import { Mail, EyeClosed, EyeOpen, ChevronDown } from "@/public/assets/icons";
 
 type Props = {
   label: string;

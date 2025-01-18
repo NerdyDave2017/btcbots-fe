@@ -13,6 +13,9 @@ const nextConfig: NextConfig = {
       {
         hostname: "cryptobots.io.s3.eu-north-1.amazonaws.com",
       },
+      {
+        hostname: "lh3.googleusercontent.com",
+      },
     ],
   },
   webpack(config) {

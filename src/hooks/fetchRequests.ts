@@ -24,6 +24,7 @@ export type BotData = {
   marginCall: boolean;
   manualProfit: number;
   fee: number;
+  user: UserData | string;
   createdAt: Date;
   UpdatedAt: Date;
 };
@@ -180,7 +181,7 @@ interface NotificationsData {
 export interface InvoicesData {
   _id: string;
   bot: BotData;
-  user: string;
+  user: UserData;
   status: "PAID" | "UNPAID";
   amount: number;
   currency: string;

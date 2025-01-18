@@ -72,7 +72,7 @@ const page = () => {
     <div className="w-full ">
       <Header text="Notifications" showArrow={false} />
 
-      <div className="w-full px-5 lg:px-[48px] mb-[48px]">
+      <div className="w-full px-5 lg:px-[48px] pb-[48px]">
         {isLoading && <NotificationSkeleton />}
         {!isLoading && (
           <div className="w-full  flex-col justify-center items-start gap-4 inline-flex">
