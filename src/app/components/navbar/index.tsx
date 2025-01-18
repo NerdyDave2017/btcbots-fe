@@ -9,8 +9,9 @@ import Link from "next/link";
 import Button from "../button";
 import Container from "../container";
 import { useFetchUser } from "@/src/hooks/fetchRequests";
+import { MenuIcon } from "@/public/assets/icons";
 
-const Navbar = () => {
+const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -84,21 +85,26 @@ const Navbar = () => {
           </div>
 
           {!user && (
-            <Link href="/signup" className="">
+            <Link href="/signup" className="hidden lg:inline-flex">
               Sign Up
             </Link>
           )}
 
           {!user && (
-            <Link href="/login" className="">
+            <Link href="/login" className="hidden lg:inline-flex">
               <Button text="Login" className="font-normal text-text-dark" />
             </Link>
           )}
           {user && (
-            <Link href="/dashboard" className="">
+            <Link href="/dashboard" className="hidden lg:inline-flex">
               <Button text="Dashboard" className="font-normal text-text-dark" />
             </Link>
           )}
+
+          <MenuIcon
+            onClick={() => setIsOpen(true)}
+            className="lg:hidden w-6 h-6"
+          />
         </div>
       </div>
     </Container>

@@ -2,9 +2,21 @@
 import React, { useEffect } from "react";
 import Intercom from "@intercom/messenger-js-sdk";
 import { useFetchUser } from "@/src/hooks/fetchRequests";
+import { useAppContext } from "../context";
+import Sidebar from "./components/sidebar";
 
 const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   const { data } = useFetchUser();
+
+  const { isTabletOrMobile, isOpen, setIsOpen } = useAppContext();
+
+  useEffect(() => {
+    if (isTabletOrMobile) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+  }, [isTabletOrMobile]);
 
   useEffect(() => {
     if (data) {
@@ -22,7 +34,13 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
     }
   }, [data]);
 
-  return <>{children}</>;
+  return (
+    <div className="w-full h-screen relative overflow-scroll">
+      {/* Sidebar */}
+      {isOpen && <Sidebar setIsOpen={setIsOpen} />}
+      {children}
+    </div>
+  );
 };
 
 export default ClientWrapper;
