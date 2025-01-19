@@ -22,8 +22,8 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
   const [showSidebar, setShowSidebar] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 1024 });
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 1020 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   const [isOpen, setIsOpen] = useState(false);
 
   return (

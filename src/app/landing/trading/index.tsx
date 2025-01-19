@@ -12,28 +12,86 @@ import {
   useMotionValueEvent,
   AnimatePresence,
 } from "framer-motion";
+import { useAppContext } from "@/src/context";
 
 const Trading = () => {
   const ref = useRef(null);
+
+  const { isMobile } = useAppContext();
+  const gifContainerRef = useRef(null);
+
+  const gifImageRef = useRef(null);
+
+  const gifContainerLgRef = useRef(null);
+  const gifImageLgRef = useRef(null);
+
   const { scrollYProgress, scrollY } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (isMobile) return;
     latest > 0.5 ? setActive("faster") : setActive("start");
   });
 
   const [active, setActive] = useState<"start" | "faster">("start");
+  const [gifContainerHeight, setGifContainerHeight] = useState(0);
+  const [gifContainerWidth, setGifContainerWidth] = useState(0);
+  const [gifImageWidth, setGifImageWidth] = useState(0);
+
+  useEffect(() => {
+    if (!isMobile) return;
+    if (!gifContainerRef.current) return;
+    if (!gifImageRef.current) return;
+
+    //@ts-ignore
+    setGifContainerHeight(gifContainerRef.current.clientHeight);
+    //@ts-ignore
+    setGifContainerWidth(gifContainerRef.current.clientWidth);
+
+    //@ts-ignore
+    setGifImageWidth(gifImageRef.current.clientWidth);
+
+    return () => {
+      gifContainerRef.current = null;
+      gifImageRef.current = null;
+      setGifContainerHeight(0);
+      setGifContainerWidth(0);
+      setGifImageWidth(0);
+    };
+  }, [gifContainerRef, gifImageRef]);
+
+  useEffect(() => {
+    if (isMobile) return;
+    if (!gifContainerLgRef.current) return;
+    if (!gifImageLgRef.current) return;
+
+    //@ts-ignore
+    setGifContainerHeight(gifContainerLgRef.current.clientHeight);
+    //@ts-ignore
+    setGifContainerWidth(gifContainerLgRef.current.clientWidth);
+
+    //@ts-ignore
+    setGifImageWidth(gifImageLgRef.current.clientWidth);
+
+    return () => {
+      gifContainerLgRef.current = null;
+      gifImageLgRef.current = null;
+      setGifContainerHeight(0);
+      setGifContainerWidth(0);
+      setGifImageWidth(0);
+    };
+  }, [gifContainerLgRef, gifImageLgRef]);
 
   return (
-    <div ref={ref} className="w-full h-[200vh] text-text-light relative">
-      <div className="w-full h-[100vh] flex items-center justify-center sticky top-0">
+    <div ref={ref} className="w-full lg:h-[200vh] text-text-light relative">
+      <div className="w-full lg:h-[100vh] flex items-center justify-center lg:sticky lg:top-0">
         <div className="flex-1">
           <Container>
-            <div className="w-full flex items-center justify-between ">
+            <div className=" w-full hidden lg:flex items-center justify-between ">
               <div className="relative">
-                <div className="absolute w-1 h-[80px] top-3 -left-14">
+                <div className="absolute w-1 h-[80px] top-3 -left-5 xl:-left-14">
                   <motion.div className="w-full h-full bg-main rounded-[10px] bg-opacity-30 absolute"></motion.div>
                   <motion.div
                     className="w-full h-full  bg-main rounded-[10px] bg-opacity-100  top-0 transform left-0"
@@ -48,13 +106,13 @@ const Trading = () => {
                         : "text-[#989898] scale-[0.85]"
                     }   relative flex items-start  gap-[22px] transition-transform duration-150 ease-in`}
                   >
-                    <p className="text-[40px]">
+                    <p className="md:text-[32px] xl:text-[40px]">
                       Start trading in <br /> two steps
                     </p>
                     <ArrowRight
                       className={`${
                         active !== "start" && "rotate-90"
-                      }  absolute -right-14 top-5 w-6 h-6 `}
+                      }  absolute -right-14 top-3 xl:top-5 w-6 h-6 `}
                     />
                   </motion.div>
 
@@ -85,11 +143,13 @@ const Trading = () => {
                         : "text-[#989898] scale-[0.85]"
                     }  relative flex items-start gap-[22px] transition-transform duration-150 ease-in`}
                   >
-                    <p className="text-[40px] ">Faster approach</p>
+                    <p className="md:text-[32px] xl:text-[40px]">
+                      Faster approach
+                    </p>
                     <ArrowRight
                       className={` ${
                         active !== "faster" && "rotate-90"
-                      }  absolute -right-14 top-5 w-6 h-6 `}
+                      }  absolute -right-14 top-3 xl:top-5 w-6 h-6 `}
                     />
                   </motion.div>
                   {active === "faster" && (
@@ -106,14 +166,29 @@ const Trading = () => {
                 </motion.div>
               </div>
               <div className="">
-                <div className="w-[695px] h-[775px] bg-[#8fb8e3] rounded-[32px] relative overflow-clip">
+                <div
+                  ref={gifContainerLgRef}
+                  className="lg:w-[500px] lg:h-[600px] xl:w-[695px] xl:max-h-[775px] bg-[#8fb8e3] rounded-[32px] relative overflow-clip"
+                >
                   {active === "start" && (
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={active}
-                        initial={{ y: 100, x: 112.5, opacity: 0 }}
-                        animate={{ y: 112.5, x: 112.5, opacity: 1 }}
-                        exit={{ y: -100, x: 112.5, opacity: 0 }}
+                        initial={{
+                          y: 100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: 112.5,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 1,
+                        }}
+                        exit={{
+                          y: -100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
                         transition={{
                           duration: 0.6,
                           default: { ease: "easeInOut" },
@@ -121,8 +196,9 @@ const Trading = () => {
                         className=""
                       >
                         <Image
-                          width={475}
-                          // className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20%]"
+                          ref={gifImageLgRef}
+                          // width={300}
+                          className="lg:w-[390px] xl:w-[430px]"
                           src={twostep}
                           alt=""
                         />
@@ -133,9 +209,21 @@ const Trading = () => {
                     <AnimatePresence mode="wait">
                       <motion.div
                         key={active}
-                        initial={{ y: 100, x: 112.5, opacity: 0 }}
-                        animate={{ y: 112.5, x: 112.5, opacity: 1 }}
-                        exit={{ y: -100, x: 112.5, opacity: 0 }}
+                        initial={{
+                          y: 100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: 112.5,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 1,
+                        }}
+                        exit={{
+                          y: -100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
                         transition={{
                           duration: 0.6,
                           default: { ease: "easeInOut" },
@@ -143,8 +231,9 @@ const Trading = () => {
                         className=""
                       >
                         <Image
-                          width={475}
-                          // className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[20%]"
+                          ref={gifImageLgRef}
+                          // width={300}
+                          className="lg:w-[390px] xl:w-[430px]"
                           src={exchangegif}
                           alt=""
                         />
@@ -152,6 +241,152 @@ const Trading = () => {
                     </AnimatePresence>
                   )}
                 </div>
+              </div>
+            </div>
+
+            <div className=" lg:hidden w-full overflow-clip py-10">
+              <div className="">
+                <div
+                  onClick={() => setActive("start")}
+                  className={`${
+                    active === "start"
+                      ? "text-main mb-[54px]"
+                      : "text-[#989898] scale-[0.85]"
+                  }   relative flex items-center justify-between  gap-[22px] transition-transform duration-150 ease-in `}
+                >
+                  <p className="text-[28px]">
+                    Start trading in <br /> two steps
+                  </p>
+                  <ArrowRight
+                    className={`${
+                      active !== "start" && "rotate-90"
+                    }   w-6 h-6 `}
+                  />
+                </div>
+                {active === "start" && (
+                  <div className="font-light space-y-[20px] mb-8">
+                    <div className="flex items-start gap-2 ">
+                      <Checkmark className="text-main" />
+                      <p className="text-base">Select your currency deposit.</p>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <Checkmark className="text-main" />
+                      <p className="text-base">
+                        Select the currency you would <br /> like to receive
+                        profits in.
+                      </p>
+                    </div>
+                  </div>
+                )}
+                {active === "start" && (
+                  <div
+                    ref={gifContainerRef}
+                    className="bg-[#8fb8e3] w-full h-[440px] md:h-[600px]  overflow-clip"
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={active}
+                        initial={{
+                          y: 100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: 112.5,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 1,
+                        }}
+                        exit={{
+                          y: -100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          duration: 0.6,
+                          default: { ease: "easeInOut" },
+                        }}
+                        className=""
+                      >
+                        <Image
+                          ref={gifImageRef}
+                          // width={300}
+                          className=""
+                          src={twostep}
+                          alt=""
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                )}
+              </div>
+              <div className="w-full border-[0.5px] border-main my-8"></div>
+              <div className="">
+                <div
+                  onClick={() => setActive("faster")}
+                  className={`${
+                    active === "faster"
+                      ? "text-main mb-[54px]"
+                      : "text-[#989898] scale-[0.85]"
+                  }  relative flex items-center justify-between gap-[22px] transition-transform duration-150 ease-in `}
+                >
+                  <p className="md:text-[32px] text-[28px]">Faster approach</p>
+                  <ArrowRight
+                    className={` ${
+                      active !== "faster" && "rotate-90"
+                    }  w-6 h-6 `}
+                  />
+                </div>
+                {active === "faster" && (
+                  <motion.div className="font-light space-y-[20px] mb-8">
+                    <div className="flex items-start gap-2">
+                      <Checkmark className="text-main" />
+                      <p className="text-base">
+                        Simply select your favorite <br /> exchange and see what
+                        we have <br /> available for it.{" "}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+                {active === "faster" && (
+                  <div
+                    ref={gifContainerRef}
+                    className="bg-[#8fb8e3] w-full h-[440px] md:h-[600px] overflow-clip"
+                  >
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={active}
+                        initial={{
+                          y: 100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        animate={{
+                          y: 112.5,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 1,
+                        }}
+                        exit={{
+                          y: -100,
+                          x: (gifContainerWidth - gifImageWidth) / 2,
+                          opacity: 0,
+                        }}
+                        transition={{
+                          duration: 0.6,
+                          default: { ease: "easeInOut" },
+                        }}
+                        className=""
+                      >
+                        <Image
+                          ref={gifImageRef}
+                          // width={300}
+                          className=""
+                          src={exchangegif}
+                          alt=""
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                )}
               </div>
             </div>
           </Container>

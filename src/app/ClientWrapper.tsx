@@ -35,7 +35,11 @@ const ClientWrapper = ({ children }: { children: React.ReactNode }) => {
   }, [data]);
 
   return (
-    <div className="w-full h-screen relative overflow-scroll">
+    <div
+      className={`w-full h-screen relative ${
+        isTabletOrMobile && "overflow-scroll"
+      } `}
+    >
       {/* Sidebar */}
       {isOpen && <Sidebar setIsOpen={setIsOpen} />}
       {children}
