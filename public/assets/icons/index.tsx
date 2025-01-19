@@ -1031,6 +1031,42 @@ export const Mail = (props: SVGProps<any>) => {
     </svg>
   );
 };
+export const Email = (props: SVGProps<any>) => {
+  return (
+    <svg
+      width="22"
+      height="21"
+      viewBox="0 0 22 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M1 3.5L7.91302 7.42462C10.4387 8.85846 11.5613 8.85846 14.087 7.42462L21 3.5"
+        stroke="currentColor"
+        stroke-opacity="1"
+        strokeWidth="1"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 18C9.0337 17.9939 8.56682 17.985 8.09883 17.9732C4.95033 17.8941 3.37608 17.8545 2.24496 16.7184C1.11383 15.5823 1.08114 14.0487 1.01577 10.9814C0.994745 9.99512 0.994745 9.01468 1.01576 8.02843C1.08114 4.96113 1.11382 3.42748 2.24495 2.29139C3.37608 1.1553 4.95033 1.11573 8.09882 1.03658C10.0393 0.987803 11.9607 0.987806 13.9012 1.03659C17.0497 1.11574 18.6239 1.15532 19.755 2.29141C20.8862 3.42749 20.9189 4.96114 20.9842 8.02844C20.9939 8.48251 20.9991 8.69649 20.9999 9"
+        stroke="currentColor"
+        stroke-opacity="1"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M18 15.5C18 16.3284 17.3284 17 16.5 17C15.6716 17 15 16.3284 15 15.5C15 14.6716 15.6716 14 16.5 14C17.3284 14 18 14.6716 18 15.5ZM18 15.5V16C18 16.8284 18.6716 17.5 19.5 17.5C20.3284 17.5 21 16.8284 21 16V15.5C21 13.0147 18.9853 11 16.5 11C14.0147 11 12 13.0147 12 15.5C12 17.9853 14.0147 20 16.5 20"
+        stroke="currentColor"
+        stroke-opacity="1"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 export const EyeOpen = (props: SVGProps<any>) => {
   return (
     <svg
