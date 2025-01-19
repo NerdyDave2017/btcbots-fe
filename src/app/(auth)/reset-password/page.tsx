@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import Loader from "../../components/loader";
 
-const PageContent = () => {
+const page = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -88,11 +88,5 @@ const PageContent = () => {
     </div>
   );
 };
-
-const page = () => (
-  <Suspense fallback={<Loader bg="bg-main" />}>
-    <PageContent />
-  </Suspense>
-);
 
 export default page;

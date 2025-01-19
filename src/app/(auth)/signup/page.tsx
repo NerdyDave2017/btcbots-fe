@@ -12,7 +12,7 @@ import { isAxiosError } from "axios";
 import { Suspense } from "react";
 import Loader from "../../components/loader";
 
-const PageContent = () => {
+const page = () => {
   // Access location object using useLocation hook
   const searchParams = useSearchParams();
 
@@ -143,11 +143,5 @@ const PageContent = () => {
     </div>
   );
 };
-
-const page = () => (
-  <Suspense fallback={<Loader bg="bg-main" />}>
-    <PageContent />
-  </Suspense>
-);
 
 export default page;

@@ -9,7 +9,7 @@ import { useVerifyEmail } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
 import { Suspense } from "react";
 
-const PageContent = () => {
+const page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const {
@@ -84,11 +84,5 @@ const PageContent = () => {
     </div>
   );
 };
-
-const page = () => (
-  <Suspense fallback={<Loader bg="bg-main" />}>
-    <PageContent />
-  </Suspense>
-);
 
 export default page;

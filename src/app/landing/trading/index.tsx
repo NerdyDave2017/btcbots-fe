@@ -18,12 +18,12 @@ const Trading = () => {
   const ref = useRef(null);
 
   const { isMobile } = useAppContext();
-  const gifContainerRef = useRef(null);
+  const gifContainerRef = useRef<HTMLDivElement>(null);
 
-  const gifImageRef = useRef(null);
+  const gifImageRef = useRef<HTMLImageElement>(null);
 
-  const gifContainerLgRef = useRef(null);
-  const gifImageLgRef = useRef(null);
+  const gifContainerLgRef = useRef<HTMLDivElement>(null);
+  const gifImageLgRef = useRef<HTMLImageElement>(null);
 
   const { scrollYProgress, scrollY } = useScroll({
     target: ref,
@@ -45,17 +45,12 @@ const Trading = () => {
     if (!gifContainerRef.current) return;
     if (!gifImageRef.current) return;
 
-    //@ts-ignore
     setGifContainerHeight(gifContainerRef.current.clientHeight);
-    //@ts-ignore
     setGifContainerWidth(gifContainerRef.current.clientWidth);
 
-    //@ts-ignore
     setGifImageWidth(gifImageRef.current.clientWidth);
 
     return () => {
-      gifContainerRef.current = null;
-      gifImageRef.current = null;
       setGifContainerHeight(0);
       setGifContainerWidth(0);
       setGifImageWidth(0);
@@ -67,17 +62,12 @@ const Trading = () => {
     if (!gifContainerLgRef.current) return;
     if (!gifImageLgRef.current) return;
 
-    //@ts-ignore
     setGifContainerHeight(gifContainerLgRef.current.clientHeight);
-    //@ts-ignore
     setGifContainerWidth(gifContainerLgRef.current.clientWidth);
 
-    //@ts-ignore
     setGifImageWidth(gifImageLgRef.current.clientWidth);
 
     return () => {
-      gifContainerLgRef.current = null;
-      gifImageLgRef.current = null;
       setGifContainerHeight(0);
       setGifContainerWidth(0);
       setGifImageWidth(0);

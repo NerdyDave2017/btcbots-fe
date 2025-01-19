@@ -1,6 +1,5 @@
 "use client";
-import React, { ReactNode, Suspense, useEffect, useState } from "react";
-import AuthSidebar from "./components/auth-sidebar";
+import React, { ReactNode, useEffect, useState, Suspense } from "react";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { useAppContext } from "@/src/context";
@@ -13,18 +12,6 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (isTabletOrMobile) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(false);
-    }
-  }, [isTabletOrMobile]);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, []);
-
-  useEffect(() => {
     setIsOpen(false);
   }, [isTabletOrMobile]);
   return (
@@ -32,16 +19,11 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
       {/* Sidebar */}
       {isOpen && <Sidebar setIsOpen={setIsOpen} />}
 
-      <div className="">
-        <div className="w-full shadow text-text-light">
-          <Navbar setIsOpen={setIsOpen} />
-        </div>
-        <div className="w-full flex ">
-          <AuthSidebar />
-          <Suspense fallback={<Loader bg="bg-main" />}>{children}</Suspense>
-        </div>
-        <Footer />
+      <div className="w-full shadow text-text-light">
+        <Navbar setIsOpen={setIsOpen} />
       </div>
+      <Suspense fallback={<Loader bg="bg-main" />}>{children}</Suspense>
+      <Footer />
     </div>
   );
 };

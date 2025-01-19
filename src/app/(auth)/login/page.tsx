@@ -13,7 +13,7 @@ import { useAppContext } from "@/src/context";
 import AlternativeSignin from "../components/alternative-signin";
 import Loader from "../../components/loader";
 
-const PageContent = () => {
+const page = () => {
   const router = useRouter();
   // Access location object using useLocation hook
   const searchParams = useSearchParams();
@@ -135,11 +135,5 @@ const PageContent = () => {
     </div>
   );
 };
-
-const page = () => (
-  <Suspense fallback={<Loader bg="bg-main" />}>
-    <PageContent />
-  </Suspense>
-);
 
 export default page;
