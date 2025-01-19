@@ -20,11 +20,7 @@ import {
 } from "@/public/assets/icons";
 import { motion, AnimatePresence } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
-import { deleteCookie } from "cookies-next";
-import { useQueryClient } from "@tanstack/react-query";
-import { toast } from "sonner";
-import { useFetchUser, useFetchNotifications } from "@/src/hooks/fetchRequests";
-import avatar from "@/public/assets/icons/avatar.svg";
+import { useFetchUser } from "@/src/hooks/fetchRequests";
 import Button from "../button";
 
 const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
@@ -48,22 +44,6 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     {
       name: "Contact Us",
       href: "/contact",
-    },
-  ];
-
-  const user = [
-    {
-      name: "Logout",
-      icon: LogoutIcon,
-      link: "/",
-    },
-    {
-      name: userData
-        ? userData?.name.length! > 20
-          ? `${userData?.name.slice(0, 20)}...`
-          : `${userData?.name}`
-        : "Guest",
-      link: "/dashboard/profile",
     },
   ];
 

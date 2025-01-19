@@ -21,8 +21,8 @@ const OurBots = () => {
           alt="Robot Image"
         />
 
-        <div className="w-[880px] mx-auto flex flex-col items-center justify-center gap-[50px]">
-          <p className="text-[26px] md:text-[32px] xl:text-[40px] text-[#f4f6f8] text-center">
+        <div className=" mx-auto flex flex-col items-center justify-center  md:gap-[50px]">
+          <p className="text-[28px] md:text-[32px] xl:text-[40px] text-[#f4f6f8] text-center">
             Our bots buy low, sell high. <br /> It's that simple.
           </p>{" "}
           <CardContainer className="w-full h-full">

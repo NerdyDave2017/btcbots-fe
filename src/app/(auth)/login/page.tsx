@@ -77,15 +77,17 @@ const PageContent = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center py-[70px] px-[160px] gap-[48px] text-text-light">
-      <div className="w-[475px]">
-        <p className="text-[40px] text-main">Welcome back!</p>
+    <div className="w-full flex flex-col items-center py-6 px-5  md:py-10 xl:py-[70px] xl:px-[160px] gap-[48px] text-text-light">
+      <div className="w-full max-w-[475px]">
+        <p className="text-[28px] md:text-[32px] xl:text-[40px] text-main">
+          Welcome back!
+        </p>
         <p className="text-sm font-light text-text-light">
           Please log in to access your account.
         </p>
       </div>
 
-      <div className="w-[475px] flex flex-col gap-[32px]">
+      <div className="w-full max-w-[475px] flex flex-col gap-[32px]">
         <Input label="Email" icon="email" value={email} setValue={setEmail} />
 
         <div className="">
@@ -121,7 +123,7 @@ const PageContent = () => {
         />
       </div>
 
-      <div className="w-[475px] justify-center items-center gap-4 inline-flex">
+      <div className="w-full max-w-[475px] justify-center items-center gap-4 inline-flex">
         <div className="w-full grow shrink basis-0 h-[0px] border-b border-[#3c3c43]/60"></div>
         <div className="text-right text-[#3c3c43]/60 text-sm font-normal ">
           or

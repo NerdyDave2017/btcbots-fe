@@ -10,7 +10,7 @@ const How = () => {
           <p className="text-main text-[28px] md:text-[32px] xl:text-[40px]">
             How it works?
           </p>
-          <div className="w-full flex flex-col md:flex-row  items:start md:items-center justify-between gap-6">
+          <div className="w-full max-w-[880px] flex flex-col md:flex-row  items:start md:items-center justify-between gap-6">
             <div className="">
               <p className="text-lg md:text-xl xl:text-2xl">
                 Completely <br />

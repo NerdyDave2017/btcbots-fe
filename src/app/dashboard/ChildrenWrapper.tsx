@@ -26,7 +26,7 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
   }, [isTabletOrMobile]);
 
   return (
-    <div className="w-full h-screen flex relative overflow-scroll">
+    <div className="w-full flex relative overflow-scroll">
       {isOpen && <Sidebar setIsOpen={setIsOpen} />}
 
       <div className="w-full">

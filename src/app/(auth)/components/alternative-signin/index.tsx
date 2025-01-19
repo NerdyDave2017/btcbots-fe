@@ -100,7 +100,7 @@ const index = ({ referrer }: { referrer: string }) => {
   };
 
   return (
-    <div className="w-[475px] flex flex-col gap-[32px]">
+    <div className="w-full max-w-[475px] flex flex-col gap-[32px]">
       <button
         onClick={() => login()}
         className="w-full h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
