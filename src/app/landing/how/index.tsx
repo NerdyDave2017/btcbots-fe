@@ -6,7 +6,7 @@ const How = () => {
   return (
     <div className="text-text-light py-[70px]">
       <Container>
-        <div className="w-[880px] mx-auto flex flex-col items-center justify-center gap-[50px]">
+        <div className=" mx-auto flex flex-col items-center justify-center gap-[50px]">
           <p className="text-main text-[28px] md:text-[32px] xl:text-[40px]">
             How it works?
           </p>
@@ -26,7 +26,7 @@ const How = () => {
               <HowBar />
             </div>
           </div>
-          <div className="w-full h-[220px] md:h-[400px]  xl:h-[512px] rounded-lg bg-[#D9D9D9]"></div>
+          <div className="w-full max-w-[880px] h-[220px] md:h-[400px]  xl:h-[512px] rounded-lg bg-[#D9D9D9]"></div>
         </div>
       </Container>
     </div>
