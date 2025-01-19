@@ -24,30 +24,32 @@ const Statistics = () => {
   ];
 
   return (
-    <div className="bg-[#f4f6f8] text-text-light py-[70px] pb-[260px]">
+    <div className="bg-[#f4f6f8] text-text-light py-10 pb-36 lg:py-[70px] xl:pb-[260px]">
       <Container>
         <div className="">
-          <div className="flex mb-20">
+          <div className="hidden lg:flex mb-20">
             <div className="flex-1"></div>
-            <div className="flex-1 flex items-center justify-ce">
-              <p className="text-[40px] text-main">Our Statistics</p>
+            <div className="flex-1 flex items-center justify-center">
+              <p className="text-[26px] md:text-[32px] xl:text-[40px] text-main">
+                Our Statistics
+              </p>
             </div>
           </div>
 
-          <div className="flex relative">
-            <div className="flex-1 text-text-light text-2xl">
+          <div className="flex flex-col lg:flex-row relative">
+            <div className="flex-1 text-text-light text-center lg:text-start text-base md:text-xl xl:text-2xl">
               <p className="mb-[24px]">
                 Find reports and articles about the <br /> power of automated
                 trading in:{" "}
               </p>
-              <div className="w-full flex mb-[28px]  ">
+              <div className="w-full flex mb-[28px] mx-auto ">
                 {statistics.map((statistic, index) => (
                   <div key={index} className="">
                     <Image src={statistic.logo} alt={statistic.name} />
                   </div>
                 ))}
               </div>
-              <div className="w-full flex  ">
+              <div className="w-full flex  mx-auto">
                 {statistics2.map((statistic, index) => (
                   <div key={index} className="">
                     <Image src={statistic.logo} alt={statistic.name} />
@@ -55,20 +57,30 @@ const Statistics = () => {
                 ))}
               </div>
             </div>
-            <div className="flex-1 h-[628px] text-[#f4f6f8] ">
-              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-main top-[364px] right-[480.13px]">
-                <p className="text-5xl leading-snug">$3.9m+</p>
-                <p className="text-2xl">In profits generated since 2020</p>
+
+            <div className="flex-1 flex lg:hidden items-center justify-center mb-8">
+              <p className="text-[26px] text-main">Our Statistics</p>
+            </div>
+            <div className="flex-1 lg:h-[650px] text-[#f4f6f8] flex lg:block flex-col items-center justify-center gap-6">
+              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:top-[315px] lg:right-[180px] xl:top-[364px] xl:right-[480.13px]">
+                <p className="text-[32px] xl:text-5xl leading-snug">$3.9m+</p>
+                <p className="text-lg xl:text-2xl">
+                  In profits generated since 2020
+                </p>
               </div>
-              <div className="w-[412px] h-[324px] rounded-lg absolute p-[64px] bg-dark-background top-[162.54px]">
-                <p className="text-5xl leading-tight">42 Countries</p>
-                <p className="text-2xl">
+              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[324px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-dark-background lg:right-[90px] lg:top-[162px] xl:right-auto  xl:top-[162.54px]">
+                <p className="text-[32px] xl:text-5xl leading-tight">
+                  42 Countries
+                </p>
+                <p className="text-lg xl:text-2xl">
                   helping people achieve their financial goals.
                 </p>
               </div>
-              <div className="w-[412px] h-[264px] rounded-lg absolute p-[64px] bg-main right-0">
-                <p className="text-5xl leading-snug">$323K+</p>
-                <p className="text-2xl">paid out to our affiliate partners. </p>
+              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:right-0 xl:right-0">
+                <p className="text-[32px] xl:text-5xl leading-snug">$323K+</p>
+                <p className="text-lg xl:text-2xl">
+                  paid out to our affiliate partners.{" "}
+                </p>
               </div>
             </div>
           </div>
