@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Hero from "../components/hero";
 import Container from "../../components/container";
 import aboutus from "@/public/assets/images/about-us.png";
@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ArrowRight, Checkmark } from "@/public/assets/icons";
 
 const page = () => {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
   const slider = useRef<HTMLDivElement>(null);
   const card = useRef<HTMLDivElement>(null);
 
@@ -15,7 +16,7 @@ const page = () => {
     if (!card.current) return;
 
     slider.current.scrollBy({
-      left: -card.current.clientWidth,
+      left: -(slider.current.scrollWidth / 3),
       behavior: "smooth",
     });
   };
@@ -25,10 +26,18 @@ const page = () => {
     if (!card.current) return;
 
     slider.current.scrollBy({
-      left: card.current.clientWidth,
+      left: slider.current.scrollWidth / 3,
       behavior: "smooth",
     });
   };
+
+  useEffect(() => {
+    if (!window) return;
+
+    console.log(window.innerWidth - 20);
+
+    setWindowWidth(window.innerWidth - 40);
+  }, [window]);
 
   const coreFeatures = [
     {
@@ -117,7 +126,7 @@ const page = () => {
       <Hero title="About Us" />
       <Container>
         <div className="w-full">
-          <div className="mx-auto my-12 max-w-[803.18px] text-[#090909] text-lg font-light">
+          <div className="mx-auto my-12 max-w-[803.18px] text-[#090909] text-base md:text-lg font-light">
             BTCBOTS is fintech software specializing in automated algorithmic
             trading. It facilitates seamless trading of blue-chip digital assets
             such as Bitcoin, Ether, Solana, and leading stable coins.
@@ -128,25 +137,25 @@ const page = () => {
           </div>
 
           <div className="w-full mt-12 mb-24">
-            <div className="text-center text-[#006fe3] text-[32px] font-normal">
+            <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px] font-normal">
               Core Features
             </div>
 
-            <div className="w-full flex items-center justify-center gap-10 mt-12">
+            <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 mt-12">
               {coreFeatures.map((feature, index) => (
                 <div
                   key={index}
-                  className="max-w-[531px] h-[277.88px] px-8 bg-[#e8f0f7] rounded-lg flex-col justify-center items-end inline-flex"
+                  className="w-full md:w-[480px] xl:w-[531px] h-[200px] md:h-[250px] xl:h-[277.88px] px-8 bg-[#e8f0f7] rounded-lg flex-col justify-center items-end inline-flex"
                 >
                   <div className="self-stretch text-center">
-                    <span className="text-[#090909] text-xl font-normal font-['Sora']">
+                    <span className="text-[#090909] text-lg md:text-xl font-normal font-['Sora']">
                       {feature.name}
                       <br />
                     </span>
-                    <span className="text-[#090909] text-2xl font-normal font-['Sora']">
+                    <span className="text-[#090909] text-lg md:text-2xl font-normal font-['Sora']">
                       <br />
                     </span>
-                    <span className="text-[#090909] text-lg font-normal font-['Sora']">
+                    <span className="text-[#090909] text-base md:text-lg font-normal font-['Sora']">
                       {feature.description}
                     </span>
                   </div>
@@ -156,14 +165,14 @@ const page = () => {
           </div>
         </div>
       </Container>
-      <div className="h-auto bg-[#F4F6F8] w-full my-12 py-[100px]">
-        <div className="text-center text-[#006fe3] text-[32px] font-normal">
+      <div className="h-auto bg-[#F4F6F8] w-full my-12 py-10  md:py-[100px]">
+        <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px]] font-normal">
           What does BTCBOTS solve for?
         </div>
 
-        <div className="w-full mt-12 flex items-center justify-center gap-10 before:">
+        <div className="w-full mt-12 flex flex-col lg:flex-row items-center justify-center gap-10 before:">
           <Image src={aboutus} className="w-[351.17px] h-[363px]" alt="" />
-          <div className="w-full max-w-[591.80px] flex-col justify-start items-start gap-8 inline-flex">
+          <div className="w-full px-5 md:px-0 max-w-[591.80px] flex-col justify-start items-start gap-8 inline-flex">
             {solve.map((item, index) => (
               <div key={index} className="card self-stretch">
                 <span className="name text-[#090909] text-lg font-semibold font-['Sora']">
@@ -179,9 +188,9 @@ const page = () => {
         </div>
       </div>
       <Container>
-        <div className="w-full my-[100px] overflow-clip">
+        <div className="w-full my-10 md:my-[100px] overflow-clip">
           <div className="w-full flex items-center justify-between mb-6">
-            <div className="text-center text-[#006fe3] text-[32px] font-normal font-['Sora']">
+            <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px] font-normal font-['Sora']">
               Other important keynotes
             </div>
 
@@ -204,15 +213,15 @@ const page = () => {
           <div
             ref={slider}
             id="slider"
-            className="w-auto flex overflow-scroll gap-8"
+            className="w-auto flex overflow-scroll gap-2 md:gap-4 xl:gap-8"
           >
             {keynotes.map((keynote, index) => (
               <div
                 ref={card}
                 key={index}
-                className="min-w-[531px] h- p-8 rounded-lg border border-[#006fe3] flex-col justify-center items-end gap-2 inline-flex"
+                className={`min-w-[385px] md:min-w-[420px] xl:min-w-[531px] p-8 rounded-lg border border-[#006fe3] flex-col justify-center items-end gap-2 inline-flex`}
               >
-                <div className="self-stretch text-[#006fe3] text-lg font-normal font-['Sora']">
+                <div className="self-stretch text-[#006fe3] text-base md:text-lg font-normal font-['Sora']">
                   {keynote.name}
                 </div>
                 {keynote.items.map((item, idx) => (
@@ -221,7 +230,7 @@ const page = () => {
                     className="self-stretch justify-center items-center gap-2 inline-flex"
                   >
                     <Checkmark className="w-6 h-6 text-[#006fe3]" />
-                    <div className="grow shrink basis-0 text-[#090909] text-lg font-normal font-['Sora']">
+                    <div className="grow shrink basis-0 text-[#090909] text-sm md:text-base xl:text-lg font-normal font-['Sora']">
                       {item}
                     </div>
                   </div>
