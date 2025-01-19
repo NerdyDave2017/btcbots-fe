@@ -5,16 +5,15 @@ import Button from "../../components/button";
 
 const Affiliate = () => {
   return (
-    <div className=" pt-[20px] pb-[70px] ">
+    <div className="pt-[20px] pb-[70px] ">
       <Container>
-        <div className="flex gap-[80px]">
-          <div className="">
-            <div className="w-[720px] h-[550px] bg-[#D9D9D9] rounded-lg absolute -top-[148px] z-50"></div>
-            <div className="w-[720px] h-"></div>
+        <div className=" flex flex-col lg:flex-row lg:gap-[80px]">
+          <div className="flex-1">
+            <div className="w-full lg:w-[470px] xl:w-[720px] h-[220px] md:h-[400px]  xl:h-[512px] bg-[#D9D9D9] rounded-lg -translate-y-[80px] lg:absolute -top- md:-top-[100px] xl:-top-[148px] z-50"></div>
           </div>
           <div className="">
             <div className="font-light space-y-[20px]">
-              <p className="text-[40px] text-main">
+              <p className="text-[28px] md:text-[32px] xl:text-[40px] text-main">
                 Affiliate partner <br /> program
               </p>
               <div className="flex items-start gap-2">

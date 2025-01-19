@@ -24,7 +24,7 @@ const Statistics = () => {
   ];
 
   return (
-    <div className="bg-[#f4f6f8] text-text-light py-10 pb-36 lg:py-[70px] xl:pb-[260px]">
+    <div className="bg-[#f4f6f8] text-text-light py-10 pb-32 lg:py-[70px] xl:pb-[260px]">
       <Container>
         <div className="">
           <div className="hidden lg:flex mb-20">
