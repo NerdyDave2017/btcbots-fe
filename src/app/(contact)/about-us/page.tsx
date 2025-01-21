@@ -7,7 +7,6 @@ import Image from "next/image";
 import { ArrowRight, Checkmark } from "@/public/assets/icons";
 
 const page = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(0);
   const slider = useRef<HTMLDivElement>(null);
   const card = useRef<HTMLDivElement>(null);
 
@@ -30,14 +29,6 @@ const page = () => {
       behavior: "smooth",
     });
   };
-
-  useEffect(() => {
-    if (!window) return;
-
-    console.log(window.innerWidth - 20);
-
-    setWindowWidth(window.innerWidth - 40);
-  }, [window]);
 
   const coreFeatures = [
     {

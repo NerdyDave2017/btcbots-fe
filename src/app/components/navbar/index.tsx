@@ -24,11 +24,11 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
     },
     {
       name: "About Us",
-      href: "/about",
+      href: "/about-us",
     },
     {
       name: "Contact Us",
-      href: "/contact",
+      href: "/contact-us",
     },
   ];
 

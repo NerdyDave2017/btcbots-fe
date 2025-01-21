@@ -45,8 +45,8 @@ const Footer = () => {
           <div className="">
             <nav className="flex flex-col md:flex-row justify-center items-start gap-12 text-[#ebeef1] text-lg font-normal">
               <Link href="/">Home</Link>
-              <Link href="/">About Us</Link>
-              <Link href="/">Contact Us</Link>
+              <Link href="/about-us">About Us</Link>
+              <Link href="/contact-us">Contact Us</Link>
               <div className="flex flex-col gap-6">
                 <div className="text-main text-lg font-normal">Learn more</div>
                 <div className="flex flex-col gap-4">
