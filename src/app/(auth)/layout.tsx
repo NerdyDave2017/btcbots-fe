@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
-import "../globals.css";
 import ChildrenWrapper from "./ChildrenWrapper";
-
-const sora = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,10 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${sora.className} antialiased`}>
-        <ChildrenWrapper>{children}</ChildrenWrapper>
-      </body>
-    </html>
+    <section>
+      <ChildrenWrapper>{children}</ChildrenWrapper>;
+    </section>
   );
 }

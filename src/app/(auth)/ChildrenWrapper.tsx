@@ -38,7 +38,7 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
         </div>
         <div className="w-full flex ">
           <AuthSidebar />
-          <Suspense fallback={<Loader bg="bg-main" />}>{children}</Suspense>
+          {children}
         </div>
         <Footer />
       </div>

@@ -1,21 +1,20 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: `/${"en" | "es"}/dashboard/home`,
+  //       destination: `/dashboard`,
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
   images: {
-    remotePatterns: [
-      {
-        hostname: "www.tradingview.com",
-      },
-      {
-        hostname: "cryptobots-assets.s3.us-east-1.amazonaws.com",
-      },
-      {
-        hostname: "cryptobots.io.s3.eu-north-1.amazonaws.com",
-      },
-      {
-        hostname: "lh3.googleusercontent.com",
-      },
+    domains: [
+      "www.tradingview.com",
+      "cryptobots-assets.s3.us-east-1.amazonaws.com",
+      "cryptobots.io.s3.eu-north-1.amazonaws.com",
     ],
   },
   webpack(config) {

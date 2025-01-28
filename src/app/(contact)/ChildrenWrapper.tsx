@@ -22,7 +22,7 @@ const ChildrenWrapper = ({ children }: { children: ReactNode }) => {
       <div className="w-full shadow text-text-light">
         <Navbar setIsOpen={setIsOpen} />
       </div>
-      <Suspense fallback={<Loader bg="bg-main" />}>{children}</Suspense>
+      {children}
       <Footer />
     </div>
   );
