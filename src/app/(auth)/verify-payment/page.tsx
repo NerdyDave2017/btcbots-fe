@@ -9,6 +9,8 @@ import { useVerifyInvoicePayment } from "@/src/hooks/postRequests";
 import { isAxiosError } from "axios";
 import { Suspense } from "react";
 
+export const dynamic = "force-dynamic";
+
 const page = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
