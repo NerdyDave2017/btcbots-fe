@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <section>
-      <ChildrenWrapper>{children}</ChildrenWrapper>;
+      <ChildrenWrapper>{children}</ChildrenWrapper>
     </section>
   );
 }
