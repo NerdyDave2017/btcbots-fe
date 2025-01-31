@@ -6,7 +6,7 @@ import { toast } from "sonner";
 export const baseUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost:4023"
-    : "http://35.172.78.210";
+    : "https://api.btcbots.us";
 
 const useAxiosInstance = () => {
   const token = getCookie("auth_token");
