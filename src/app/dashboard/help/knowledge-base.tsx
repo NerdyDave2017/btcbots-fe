@@ -67,11 +67,11 @@ const KnowledgeBase = ({ setSelected }: Props) => {
             >
               {card.icon}
               <div className="self-stretch flex-col justify-start items-start gap-2 flex">
-                <div className="text-[#090909] text-base font-normal font-['Sora']">
+                <div className="text-[#090909] text-base font-normal ">
                   {card.title}
                 </div>
                 <div className="self-stretch flex-col justify-start items-start gap-6 flex">
-                  <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
+                  <div className="self-stretch text-[#090909] text-sm font-light ">
                     {card.description}
                   </div>
                 </div>

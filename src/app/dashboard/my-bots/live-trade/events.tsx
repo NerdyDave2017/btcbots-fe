@@ -33,10 +33,10 @@ const Events = ({ data }: Props) => {
     <div className="w-full xl:w-[679px] h-[268px] py-4 bg-[#eaf0f6] rounded-[32px] flex-col justify-start items-start gap-4 inline-flex overflow-scroll">
       <div className="self-stretch px-4 flex-col justify-start items-start gap-3 flex">
         <div className="self-stretch justify-between items-start inline-flex">
-          <div className="w-[140px] text-[#090909] text-base font-normal font-['Sora']">
+          <div className="w-[140px] text-[#090909] text-base font-normal ">
             Date/Time
           </div>
-          <div className="w-[450px] text-[#090909] text-base font-normal font-['Sora']">
+          <div className="w-[450px] text-[#090909] text-base font-normal ">
             Event
           </div>
         </div>
@@ -51,10 +51,10 @@ const Events = ({ data }: Props) => {
           className="self-stretch px-4 flex-col justify-start items-start gap-3 flex"
         >
           <div className="self-stretch justify-between items-start inline-flex">
-            <div className="text-[#090909] text-sm font-light font-['Sora']">
+            <div className="text-[#090909] text-sm font-light ">
               {formatDate(event.created_at, "MMM DD, YYYY hh:mm A")}
             </div>
-            <div className="w-[450px] text-[#090909] text-sm font-light font-['Sora']">
+            <div className="w-[450px] text-[#090909] text-sm font-light ">
               {event.message}
             </div>
           </div>

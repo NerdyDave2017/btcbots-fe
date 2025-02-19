@@ -36,6 +36,14 @@ const OurBots = () => {
               </CardItem>
             </CardBody>
           </CardContainer>
+          <p className=" text-lg font-light text-[#f4f6f8] text-center">
+            Volatility is our daddy.{" "}
+            <span className="font-bold">btcbots.us</span> takes every
+            opportunity the market gives to buy more of your desired asset. The
+            lower it goes, the more it buys, and eventually, it sells higher
+            than its average price, generating constant profit by leveraging
+            market volatility.
+          </p>{" "}
         </div>
       </Container>
     </div>

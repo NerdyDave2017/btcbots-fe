@@ -412,3 +412,23 @@ export const useDecode = () => {
     mutationFn: decode,
   });
 };
+
+export const useContactUs = () => {
+  const axios = useAxiosInstance();
+  const contactUs = async (contactData: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    subject: string;
+    comment: string;
+  }) => {
+    const { data } = await axios.post("/contact-us", {
+      ...contactData,
+    });
+    return data;
+  };
+  return useMutation({
+    mutationKey: ["contact-us"],
+    mutationFn: contactUs,
+  });
+};

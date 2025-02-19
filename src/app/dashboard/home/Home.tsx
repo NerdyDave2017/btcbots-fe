@@ -95,13 +95,13 @@ const Home = () => {
           {transactions.length > 0 ? (
             transactions.map((transaction) => (
               <div className="self-stretch px-[18px] flex-col justify-start items-start gap-4 flex">
-                <div className="text-[#090909] text-base font-medium font-['Sora']">
+                <div className="text-[#090909] text-base font-medium ">
                   {transaction.type}
                 </div>
-                <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
+                <div className="self-stretch text-[#090909] text-sm font-light ">
                   {transaction.message}
                 </div>
-                <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light font-['Sora']">
+                <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light ">
                   {transaction.date}
                 </div>
               </div>

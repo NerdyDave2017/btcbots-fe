@@ -1,42 +1,88 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Hero from "../components/hero";
 import Container from "../../components/container";
 import { Email } from "@/public/assets/icons";
 import Input from "../../components/input";
 import Button from "../../components/button";
+import { useContactUs } from "@/src/hooks/postRequests";
+import { toast } from "sonner";
+import { isAxiosError } from "axios";
 
 const page = () => {
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [comment, setComment] = useState<string>("");
+
+  const { mutate: sendMessage, isPending } = useContactUs();
+
+  const handleSubmit = () => {
+    if (!firstName) return toast.error("First name is required");
+    if (!lastName) return toast.error("Last name is required");
+    if (!email) return toast.error("Email is required");
+    if (!subject) return toast.error("Subject is required");
+    if (!comment) return toast.error("Comment is required");
+
+    sendMessage(
+      {
+        firstName,
+        lastName,
+        email,
+        subject,
+        comment,
+      },
+      {
+        onSuccess: () => {
+          toast.success("Message sent successfully");
+        },
+        onError: (error) => {
+          if (isAxiosError(error)) {
+            toast.error(error.response?.data.message, {
+              position: "top-center",
+            });
+          } else {
+            console.error(error);
+            toast.error("An unexpected error occurred", {
+              position: "top-center",
+            });
+          }
+        },
+      }
+    );
+  };
+
   const Form = [
     {
       label: "First Name",
       type: "text",
-      value: "",
-      setValue: () => {},
+      value: firstName,
+      setValue: setFirstName,
     },
     {
       label: "Last Name",
       type: "text",
-      value: "",
-      setValue: () => {},
+      value: lastName,
+      setValue: setLastName,
     },
     {
       label: "Email",
       type: "email",
-      value: "",
-      setValue: () => {},
+      value: email,
+      setValue: setEmail,
     },
     {
       label: "Subject",
       type: "text",
-      value: "",
-      setValue: () => {},
+      value: subject,
+      setValue: setSubject,
     },
     {
       label: "Comment / Question",
       type: "text",
-      value: "",
-      setValue: () => {},
+      value: comment,
+      setValue: setComment,
     },
   ];
 
@@ -82,7 +128,13 @@ const page = () => {
                   value={field.value}
                 />
               ))}
-              <Button text="Send Message" size="lg" className="w-full" />
+              <Button
+                text="Send Message"
+                size="lg"
+                className="w-full"
+                onClick={handleSubmit}
+                loading={isPending}
+              />
             </div>
           </div>
         </div>

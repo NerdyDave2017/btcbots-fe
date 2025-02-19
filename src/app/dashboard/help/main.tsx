@@ -140,7 +140,7 @@ const Main = ({ setSelected }: Props) => {
                 <div className="self-stretch w-full md:w-[300px] lg:w-[615px] h-[250px] lg:h-[359.42px] flex-col justify-start items-start gap-4 flex">
                   <div className="self-stretch grow shrink basis-0 bg-black/40" />
                 </div>
-                <p className="self-stretch text-center text-[#090909] text-base font-normal font-['Sora']">
+                <p className="self-stretch text-center text-[#090909] text-base font-normal ">
                   {video}
                 </p>
               </div>

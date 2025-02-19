@@ -47,14 +47,15 @@ const Footer = () => {
               <Link href="/">Home</Link>
               <Link href="/about-us">About Us</Link>
               <Link href="/contact-us">Contact Us</Link>
-              <div className="flex flex-col gap-6">
+              <Link href="/contact-us">Learn More</Link>
+              {/* <div className="flex flex-col gap-6">
                 <div className="text-main text-lg font-normal">Learn more</div>
                 <div className="flex flex-col gap-4">
                   <Link href="https://usdbots.com">USDbots.com</Link>
                   <Link href="/knowledge-base">Knowledge Base</Link>
-                  {/* <Link href="/performance">Performance</Link> */}
+                  <Link href="/performance">Performance</Link>
                 </div>
-              </div>
+              </div>  */}
             </nav>
           </div>
           {/* <div className="">
@@ -75,7 +76,10 @@ const Footer = () => {
           </div> */}
         </div>
         <div className="text-center text-[#ebeef1] text-base font-light mt-[60px]">
-          <p className="">© 2024 Cryptobots.io LLC Miami Beach, FL 33141</p>{" "}
+          <p className="">
+            © {new Date().getFullYear()} Miami Asset Group, LLC. Miami, FL
+            33137. USA
+          </p>{" "}
           <p className="mt-[22px]">All Rights Reserved.</p>
         </div>
       </Container>

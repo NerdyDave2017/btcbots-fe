@@ -20,8 +20,9 @@ const How = () => {
             <div className="max-w-[540px] text-lg md:text-xl xl:text-2xl">
               <p className=" mb-[24px]">
                 We want to prove to you, our system really works! Thats why
-                connecting and using cryptobots.io is simple and completely
-                free!
+                connecting and using{" "}
+                <span className="font-bold">btcbots.us</span> is simple and
+                completely free!
               </p>
               <HowBar />
             </div>

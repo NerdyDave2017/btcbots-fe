@@ -65,10 +65,8 @@ const Main = ({
             {option.icon}
 
             <div className="flex-col justify-start items-start gap-2 flex">
-              <p className="text-base font-normal font-['Sora']">
-                {option.title}
-              </p>
-              <p className="self-stretch text-sm md:text-base font-light font-['Sora']">
+              <p className="text-base font-normal ">{option.title}</p>
+              <p className="self-stretch text-sm md:text-base font-light ">
                 {option.description}
               </p>
             </div>

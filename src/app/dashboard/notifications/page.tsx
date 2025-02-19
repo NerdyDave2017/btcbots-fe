@@ -81,13 +81,13 @@ const page = () => {
                 key={index}
                 className="self-stretch bg-[#eaf0f6] rounded-2xl py-4 md:py-8 px-[18px] flex-col justify-start items-start gap-4 flex"
               >
-                <div className="text-[#090909] text-base font-medium font-['Sora']">
+                <div className="text-[#090909] text-base font-medium ">
                   {/* {transaction.type} */}
                 </div>
-                <div className="self-stretch text-[#090909] text-sm font-light font-['Sora']">
+                <div className="self-stretch text-[#090909] text-sm font-light ">
                   {notification.message}
                 </div>
-                <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light font-['Sora']">
+                <div className="self-stretch text-right text-[#3c3c43]/60 text-xs font-light ">
                   {formatDate(
                     String(notification.createdAt),
                     "MMM DD, YYYY. h:mm a"
@@ -97,7 +97,7 @@ const page = () => {
             ))}
             {notifications?.notifications.length === 0 && (
               <div className="w-full bg-[#eaf0f6] rounded-2xl py-4 md:py-8 px-[18px] flex-col justify-center items-center gap-4 flex">
-                <p className="text-[#090909] text-base font-normal font-['Sora']">
+                <p className="text-[#090909] text-base font-normal ">
                   No notifications
                 </p>
               </div>

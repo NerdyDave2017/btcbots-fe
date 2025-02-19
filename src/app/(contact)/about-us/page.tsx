@@ -57,7 +57,7 @@ const page = () => {
     {
       name: "Reduced Counterparty Risks",
       description:
-        "Traditional investments involve multiple intermediaries, increasing risk. BTCBOTS minimizes these risks by streamlining transactions directly between traders and the market, ensuring complete control while generating passive income independently.",
+        "Traditional investments involve multiple intermediaries, increasing risk. BTCBots minimizes these risks by streamlining transactions directly between traders and the market, ensuring complete control while generating passive income independently.",
     },
   ];
 
@@ -118,13 +118,14 @@ const page = () => {
       <Container>
         <div className="w-full">
           <div className="mx-auto my-12 max-w-[803.18px] text-[#090909] text-base md:text-lg font-light">
-            BTCBOTS is fintech software specializing in automated algorithmic
-            trading. It facilitates seamless trading of blue-chip digital assets
-            such as Bitcoin, Ether, Solana, and leading stable coins.
+            BTCBots is a fintech software specializing in automated algorithmic
+            trading. It enables seamless trading of blue-chip digital assets
+            such as Bitcoin, Ether, Solana, and leading stablecoins.
             <br /> <br />
-            Our mission is to democratize access to advanced trading tools,
-            typically reserved for hedge funds and institutional investors,
-            enabling all users to optimize their capital effectively.
+            Our mission is to democratize access to advanced trading
+            tools—typically reserved for hedge funds and institutional
+            investors—empowering all users to optimize their capital
+            effectively.
           </div>
 
           <div className="w-full mt-12 mb-24">
@@ -139,14 +140,14 @@ const page = () => {
                   className="w-full md:w-[480px] xl:w-[531px] h-[200px] md:h-[250px] xl:h-[277.88px] px-8 bg-[#e8f0f7] rounded-lg flex-col justify-center items-end inline-flex"
                 >
                   <div className="self-stretch text-center">
-                    <span className="text-[#090909] text-lg md:text-xl font-normal font-['Sora']">
+                    <span className="text-[#090909] text-lg md:text-xl font-normal ">
                       {feature.name}
                       <br />
                     </span>
-                    <span className="text-[#090909] text-lg md:text-2xl font-normal font-['Sora']">
+                    <span className="text-[#090909] text-lg md:text-2xl font-normal ">
                       <br />
                     </span>
-                    <span className="text-[#090909] text-base md:text-lg font-normal font-['Sora']">
+                    <span className="text-[#090909] text-base md:text-lg font-normal ">
                       {feature.description}
                     </span>
                   </div>
@@ -158,7 +159,7 @@ const page = () => {
       </Container>
       <div className="h-auto bg-[#F4F6F8] w-full my-12 py-10  md:py-[100px]">
         <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px]] font-normal">
-          What does BTCBOTS solve for?
+          What does BTCBots solve for?
         </div>
 
         <div className="w-full mt-12 flex flex-col lg:flex-row items-center justify-center gap-10 before:">
@@ -166,11 +167,11 @@ const page = () => {
           <div className="w-full px-5 md:px-0 max-w-[591.80px] flex-col justify-start items-start gap-8 inline-flex">
             {solve.map((item, index) => (
               <div key={index} className="card self-stretch">
-                <span className="name text-[#090909] text-lg font-semibold font-['Sora']">
+                <span className="name text-[#090909] text-lg font-semibold ">
                   {item.name}
                   <br />
                 </span>
-                <span className="text-[#090909] text-lg font-light font-['Sora']">
+                <span className="text-[#090909] text-lg font-light ">
                   {item.description}
                 </span>
               </div>
@@ -181,7 +182,7 @@ const page = () => {
       <Container>
         <div className="w-full my-10 md:my-[100px] overflow-clip">
           <div className="w-full flex items-center justify-between mb-6">
-            <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px] font-normal font-['Sora']">
+            <div className="text-center text-[#006fe3] text-[24px] md:text-[28px] xl:text-[32px] font-normal ">
               Other important keynotes
             </div>
 
@@ -212,7 +213,7 @@ const page = () => {
                 key={index}
                 className={`min-w-[385px] md:min-w-[420px] xl:min-w-[531px] p-8 rounded-lg border border-[#006fe3] flex-col justify-center items-end gap-2 inline-flex`}
               >
-                <div className="self-stretch text-[#006fe3] text-base md:text-lg font-normal font-['Sora']">
+                <div className="self-stretch text-[#006fe3] text-base md:text-lg font-normal ">
                   {keynote.name}
                 </div>
                 {keynote.items.map((item, idx) => (
@@ -221,7 +222,7 @@ const page = () => {
                     className="self-stretch justify-center items-center gap-2 inline-flex"
                   >
                     <Checkmark className="w-6 h-6 text-[#006fe3]" />
-                    <div className="grow shrink basis-0 text-[#090909] text-sm md:text-base xl:text-lg font-normal font-['Sora']">
+                    <div className="grow shrink basis-0 text-[#090909] text-sm md:text-base xl:text-lg font-normal ">
                       {item}
                     </div>
                   </div>
