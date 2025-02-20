@@ -3,9 +3,11 @@ import React from "react";
 import Container from "../../components/container";
 import Button from "../../components/button";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 const Affiliate = () => {
   const t = useTranslations("Affiliate");
+  const router = useRouter();
 
   return (
     <div className="pt-[20px] pb-[70px] ">
@@ -32,7 +34,11 @@ const Affiliate = () => {
                 </p>
               </div>
 
-              <Button className="text-text-dark font-normal" text={t("8")} />
+              <Button
+                onClick={() => router.push("/signup")}
+                className="text-text-dark font-normal"
+                text={t("8")}
+              />
             </div>
           </div>
         </div>

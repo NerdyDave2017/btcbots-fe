@@ -50,7 +50,7 @@ const Footer = () => {
               <Link href="/">{t("0")}</Link>
               <Link href="/about-us">{t("1")}</Link>
               <Link href="/contact-us">{t("2")}</Link>
-              <Link href="/contact-us">{t("3")}</Link>
+              <Link href="/about-us">{t("3")}</Link>
               {/* <div className="flex flex-col gap-6">
                 <div className="text-main text-lg font-normal">Learn more</div>
                 <div className="flex flex-col gap-4">

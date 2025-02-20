@@ -25,7 +25,7 @@ const Hero = () => {
 
         <Container>
           {/* Hero */}
-          <div className="xl:h-[calc(832px-80px)] flex flex-col lg:flex-row items-center justify-between  ">
+          <div className="xl:min-h-[calc(832px-80px)] flex flex-col lg:flex-row items-center justify-between  xl:pb-12">
             <div className="flex-1 flex flex-col gap-[32px]">
               <p className="text-[44px] md:text-[50px] xl:text-[64px] font-bold">
                 {t("0")}
@@ -37,7 +37,7 @@ const Hero = () => {
                   <Link href="/login" className="">
                     <Button text={t("2")} className="font-normal" />
                   </Link>
-                  <Link href="/" className="w-full md:w-auto">
+                  <Link href="/about-us" className="w-full md:w-auto">
                     <button className="w-full md:w-auto px-[36px] py-[12px] h-[47px] border-[#bec9d5] border-[1px] rounded-full font-normal">
                       {t("3")}
                     </button>
