@@ -9,9 +9,12 @@ const Providers = async ({ children }: { children: React.ReactNode }) => {
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
+
   return (
     <TanstackProvider>
-      <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID! ?? ""}>
+      <GoogleOAuthProvider
+        clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID! ?? ""}
+      >
         <NextIntlClientProvider messages={messages}>
           <AppContextProvider>{children}</AppContextProvider>
         </NextIntlClientProvider>
