@@ -1,11 +1,14 @@
 import React from "react";
 import { SideBarCard, PhoneIcon } from "@/public/assets/icons";
+import { useTranslations } from "next-intl";
 
 const AuthSidebar = () => {
+  const t = useTranslations("Auth");
+
   return (
     <div className="hidden lg:flex bg-[#090909] xl:min-w-[645px] xl:min-h-[900px] p-[30.32px]  flex-col items-center justify-center gap-10">
       <p className="text-[#f4f6f8] text-[30px] xl:text-[40px] text-center ">
-        Trade at convivence
+        {t("0")}
       </p>
 
       {/* <SideBarCard /> */}

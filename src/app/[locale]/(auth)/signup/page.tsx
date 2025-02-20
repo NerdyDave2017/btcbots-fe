@@ -9,10 +9,11 @@ import { useRouter } from "next/navigation";
 import { useSignUp } from "@/src/hooks/postRequests";
 import { toast } from "sonner";
 import { isAxiosError } from "axios";
-import { Suspense } from "react";
-import Loader from "../../components/loader";
+import { useTranslations } from "next-intl";
 
 const page = () => {
+  const t = useTranslations("Sign-up");
+
   // Access location object using useLocation hook
   const searchParams = useSearchParams();
 
@@ -85,18 +86,16 @@ const page = () => {
     <div className="w-full flex flex-col items-center py-6 px-5  md:py-10 xl:py-[70px] xl:px-[160px] gap-[48px] text-text-light">
       <div className="w-full max-w-[475px]">
         <p className="text-[28px] md:text-[32px] xl:text-[40px] text-main">
-          Create your account
+          {t("0")}
         </p>
-        <p className="text-sm font-light text-text-light">
-          Fill your details and start making profits today!
-        </p>
+        <p className="text-sm font-light text-text-light">{t("1")}</p>
       </div>
 
       <div className="w-full max-w-[475px] flex flex-col gap-[32px]">
-        <Input label="Name" icon="text" value={name} setValue={setName} />
-        <Input label="Email" icon="email" value={email} setValue={setEmail} />
+        <Input label={t("2")} icon="text" value={name} setValue={setName} />
+        <Input label={t("3")} icon="email" value={email} setValue={setEmail} />
         <Input
-          label="Password"
+          label={t("4")}
           icon="password"
           value={password}
           setValue={setPassword}
@@ -104,27 +103,25 @@ const page = () => {
 
         <div className="">
           <Input
-            label="Confirm Password"
+            label={t("5")}
             icon="password"
             value={confirmPassword}
             setValue={setConfirmPassword}
           />
           <div className="text-right mt-[16px]">
-            <span className=" text-sm font-normal">
-              do you have an account?
-            </span>{" "}
+            <span className=" text-sm font-normal">{t("6")}</span>{" "}
             <Link
               href="/login"
               className="text-main text-sm font-normal  underline"
             >
-              Login
+              {t("7")}
             </Link>
           </div>
         </div>
 
         <Button
           onClick={handleSignupValidation}
-          text="Sign Up"
+          text={t("8")}
           className="w-full flex text-text-dark"
           size="lg"
           loading={isPending}
@@ -134,7 +131,7 @@ const page = () => {
       <div className="w-full max-w-[475px] justify-center items-center gap-4 inline-flex">
         <div className="w-full grow shrink basis-0 h-[0px] border-b border-[#3c3c43]/60"></div>
         <div className="text-right text-[#3c3c43]/60 text-sm font-normal ">
-          or
+          {t("9")}
         </div>
         <div className="w-full grow shrink basis-0 h-[0px] border-b border-[#3c3c43]/60"></div>
       </div>

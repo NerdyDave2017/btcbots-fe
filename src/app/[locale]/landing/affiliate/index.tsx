@@ -2,8 +2,11 @@ import { Checkmark } from "@/public/assets/icons";
 import React from "react";
 import Container from "../../components/container";
 import Button from "../../components/button";
+import { useTranslations } from "next-intl";
 
 const Affiliate = () => {
+  const t = useTranslations("Affiliate");
+
   return (
     <div className="pt-[20px] pb-[70px] ">
       <Container>
@@ -14,28 +17,22 @@ const Affiliate = () => {
           <div className="">
             <div className="font-light space-y-[20px]">
               <p className="text-[28px] md:text-[32px] xl:text-[40px] text-main">
-                Affiliate partner <br /> program
+                {t("0")} <br /> {t("1")}
               </p>
               <div className="flex items-start gap-2">
                 <Checkmark className="text-main" />
                 <p className="text-lg">
-                  Earn Passive Income with Our Referral <br /> Program. Refer
-                  friends, and receive a 25% <br /> commission on their profit
-                  share, directly <br /> deposited to your account.
+                  {t("2")}l <br /> {t("3")} <br /> {t("4")} <br /> {t("5")}
                 </p>
               </div>
               <div className="flex items-start gap-2">
                 <Checkmark className="text-main" />
                 <p className="text-lg">
-                  No active trading required. Simply register <br /> and start
-                  earning.
+                  {t("6")} <br /> {t("7")}
                 </p>
               </div>
 
-              <Button
-                className="text-text-dark font-normal"
-                text="Getting Started"
-              />
+              <Button className="text-text-dark font-normal" text={t("8")} />
             </div>
           </div>
         </div>

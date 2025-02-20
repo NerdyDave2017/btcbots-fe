@@ -6,9 +6,6 @@ import Button from "../../components/button";
 import Navbar from "../../components/navbar";
 import HeroImg from "@/public/assets/images/heroimage.jpeg";
 import { HeroCurrencies } from "@/public/assets/icons";
-import Sidebar from "../../components/sidebar";
-import { useFetchUser } from "@/src/hooks/fetchRequests";
-import { useMediaQuery } from "react-responsive";
 import { useAppContext } from "@/src/context";
 import { useTranslations } from "next-intl";
 
@@ -31,28 +28,25 @@ const Hero = () => {
           <div className="xl:h-[calc(832px-80px)] flex flex-col lg:flex-row items-center justify-between  ">
             <div className="flex-1 flex flex-col gap-[32px]">
               <p className="text-[44px] md:text-[50px] xl:text-[64px] font-bold">
-                The World's Most Trusted Crypto Trading Bot.
+                {t("0")}
               </p>
 
               <div className="flex flex-col gap-[24px]">
-                <p className="md:w-[90%] text-base  xl:text-xl">
-                  A trading system that empowers you. Retain full <br /> control
-                  of your funds and pay commissions only on successful trades.
-                </p>
+                <p className="md:w-[90%] text-base  xl:text-xl">{t("1")}</p>
                 <div className="w-fit md:w-auto flex flex-col md:flex-row items-center justify-start gap-[30px]">
                   <Link href="/login" className="">
-                    <Button text="Go to dashboard" className="font-normal" />
+                    <Button text={t("2")} className="font-normal" />
                   </Link>
                   <Link href="/" className="w-full md:w-auto">
                     <button className="w-full md:w-auto px-[36px] py-[12px] h-[47px] border-[#bec9d5] border-[1px] rounded-full font-normal">
-                      Learn more
+                      {t("3")}
                     </button>
                   </Link>
                 </div>
               </div>
 
               <div className="flex flex-col items-start justify-start">
-                <span className="text-base xl:text-lg ">We support:</span>
+                <span className="text-base xl:text-lg ">{t("4")}</span>
                 <HeroCurrencies
                   height={isMobile ? 50 : 50}
                   width={isMobile ? 109 : 141}

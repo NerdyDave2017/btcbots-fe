@@ -4,9 +4,10 @@ import Chart from "@/public/assets/images/Chart.svg";
 import robot from "@/public/assets/images/robotic.svg";
 import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "../../components/ui/3d-card";
-import LogoGreyscale from "@/public/assets/images/LogoGreyscale.svg";
+import { useTranslations } from "next-intl";
 
 const OurBots = () => {
+  const t = useTranslations("Bots");
   return (
     <div className="bg-main py-[70px] overflow-clip">
       <Container>
@@ -23,7 +24,7 @@ const OurBots = () => {
 
         <div className=" mx-auto flex flex-col items-center justify-center  md:gap-[50px]">
           <p className="text-[28px] md:text-[32px] xl:text-[40px] text-[#f4f6f8] text-center">
-            Our bots buy low, sell high. <br /> It's that simple.
+            {t("0")} <br /> {t("1")}
           </p>{" "}
           <CardContainer className="w-full h-full">
             <CardBody className="w-full h-full">
@@ -37,12 +38,7 @@ const OurBots = () => {
             </CardBody>
           </CardContainer>
           <p className=" text-lg font-light text-[#f4f6f8] text-center">
-            Volatility is our daddy.{" "}
-            <span className="font-bold">btcbots.us</span> takes every
-            opportunity the market gives to buy more of your desired asset. The
-            lower it goes, the more it buys, and eventually, it sells higher
-            than its average price, generating constant profit by leveraging
-            market volatility.
+            {t("2")} <span className="font-bold">{t("3")}</span> {t("4")}
           </p>{" "}
         </div>
       </Container>

@@ -8,6 +8,7 @@ import Button from "../../components/button";
 import { useContactUs } from "@/src/hooks/postRequests";
 import { toast } from "sonner";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 
 const page = () => {
   const [firstName, setFirstName] = useState<string>("");
@@ -17,6 +18,8 @@ const page = () => {
   const [comment, setComment] = useState<string>("");
 
   const { mutate: sendMessage, isPending } = useContactUs();
+
+  const t = useTranslations("Contact-us");
 
   const handleSubmit = () => {
     if (!firstName) return toast.error("First name is required");
@@ -55,31 +58,31 @@ const page = () => {
 
   const Form = [
     {
-      label: "First Name",
+      label: t("5"),
       type: "text",
       value: firstName,
       setValue: setFirstName,
     },
     {
-      label: "Last Name",
+      label: t("6"),
       type: "text",
       value: lastName,
       setValue: setLastName,
     },
     {
-      label: "Email",
+      label: t("7"),
       type: "email",
       value: email,
       setValue: setEmail,
     },
     {
-      label: "Subject",
+      label: t("8"),
       type: "text",
       value: subject,
       setValue: setSubject,
     },
     {
-      label: "Comment / Question",
+      label: t("9"),
       type: "text",
       value: comment,
       setValue: setComment,
@@ -88,13 +91,13 @@ const page = () => {
 
   return (
     <div className="">
-      <Hero title="Contact Us" />
+      <Hero title={t("0")} />
       <Container>
         <div className="w-full  flex justify-center gap-10 md:gap-12 xl:gap-[120px] flex-col md:flex-row py-10 md:py-[100px]">
           <div className="flex-col justify-start items-start gap-4 inline-flex">
             <div className="self-stretch justify-start items-center gap-[30px] inline-flex">
               <div className="text-[#006fe3] md:text-lg font-light">
-                Contact information
+                {t("1")}
               </div>
             </div>
             <div className="flex-col justify-center items-start gap-4 flex">
@@ -102,7 +105,7 @@ const page = () => {
                 <Email className="w-6 h-6 text-[#006fe3]" />
 
                 <div className="text-[#090909] md:text-lg font-light">
-                  Email: info@btcbots.us
+                  {t("2")}: info@btcbots.us
                 </div>
               </div>
             </div>
@@ -111,11 +114,10 @@ const page = () => {
           <div className="md:max-w-[450px]  xl:max-w-[600px] flex-col justify-start items-center gap-11 inline-flex">
             <div className="self-stretch flex-col justify-center items-start gap-2 flex">
               <div className="self-stretch text-[#006fe3] text-[28px] md:text-[32px] xl:text-[40px]">
-                Contact form
+                {t("3")}
               </div>
               <div className="self-stretch text-[#090909] text-base">
-                If you would like to send us a question or comment, please fill
-                out the form below.
+                {t("4")}
               </div>
             </div>
             <div className="self-stretch flex-col justify-start items-start gap-8 flex">
@@ -129,7 +131,7 @@ const page = () => {
                 />
               ))}
               <Button
-                text="Send Message"
+                text={t("10")}
                 size="lg"
                 className="w-full"
                 onClick={handleSubmit}

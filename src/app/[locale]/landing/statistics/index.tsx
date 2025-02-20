@@ -8,8 +8,11 @@ import forbes from "@/public/assets/icons/forbes.svg";
 import reuters from "@/public/assets/icons/reuters.svg";
 import wired from "@/public/assets/icons/wired.svg";
 import yahoo from "@/public/assets/icons/yahoo.svg";
+import { useTranslations } from "next-intl";
 
 const Statistics = () => {
+  const t = useTranslations("Statistics");
+
   const statistics = [
     { name: "CoinDesk", logo: coindesk },
     { name: "Bloomberg", logo: bloomberg },
@@ -31,7 +34,7 @@ const Statistics = () => {
             <div className="flex-1"></div>
             <div className="flex-1 flex items-center justify-center">
               <p className="text-[26px] md:text-[32px] xl:text-[40px] text-main">
-                Our Statistics
+                {t("0")}
               </p>
             </div>
           </div>
@@ -39,8 +42,7 @@ const Statistics = () => {
           <div className="flex flex-col lg:flex-row relative">
             <div className="flex-1 text-text-light text-center lg:text-start text-base md:text-xl xl:text-2xl">
               <p className="mb-[24px]">
-                Find reports and articles about the <br /> power of automated
-                trading in:{" "}
+                {t("1")} <br /> {t("2")}{" "}
               </p>
               <div className="w-full flex mb-[28px] mx-auto ">
                 {statistics.map((statistic, index) => (
@@ -59,28 +61,22 @@ const Statistics = () => {
             </div>
 
             <div className="flex-1 flex lg:hidden items-center justify-center mb-8">
-              <p className="text-[26px] text-main">Our Statistics</p>
+              <p className="text-[26px] text-main">{t("0")}</p>
             </div>
             <div className="flex-1 lg:h-[650px] text-[#f4f6f8] flex lg:block flex-col items-center justify-center gap-6">
               <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:top-[315px] lg:right-[180px] xl:top-[364px] xl:right-[480.13px]">
-                <p className="text-[32px] xl:text-5xl leading-snug">$3.9m+</p>
-                <p className="text-lg xl:text-2xl">
-                  In profits generated since 2020
-                </p>
+                <p className="text-[32px] xl:text-5xl leading-snug">{t("7")}</p>
+                <p className="text-lg xl:text-2xl">{t("8")}</p>
               </div>
               <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[324px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-dark-background lg:right-[90px] lg:top-[162px] xl:right-auto  xl:top-[162.54px]">
                 <p className="text-[32px] xl:text-5xl leading-tight">
-                  42 Countries
+                  {t("5")}
                 </p>
-                <p className="text-lg xl:text-2xl">
-                  helping people achieve their financial goals.
-                </p>
+                <p className="text-lg xl:text-2xl">{t("6")}</p>
               </div>
               <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:right-0 xl:right-0">
-                <p className="text-[32px] xl:text-5xl leading-snug">$323K+</p>
-                <p className="text-lg xl:text-2xl">
-                  paid out to our affiliate partners.{" "}
-                </p>
+                <p className="text-[32px] xl:text-5xl leading-snug">{t("3")}</p>
+                <p className="text-lg xl:text-2xl">{t("4")} </p>
               </div>
             </div>
           </div>

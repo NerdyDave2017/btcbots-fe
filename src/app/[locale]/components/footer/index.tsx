@@ -5,8 +5,11 @@ import MainLogo from "@/public/assets/images/MainLogo.svg";
 import { Facebook, Instagram, TikTok, YouTube, X } from "@/public/assets/icons";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("Footer");
+
   // const socials = [
   //   {
   //     name: "Facebook",
@@ -44,10 +47,10 @@ const Footer = () => {
           </div>
           <div className="">
             <nav className="flex flex-col md:flex-row justify-center items-start gap-12 text-[#ebeef1] text-lg font-normal">
-              <Link href="/">Home</Link>
-              <Link href="/about-us">About Us</Link>
-              <Link href="/contact-us">Contact Us</Link>
-              <Link href="/contact-us">Learn More</Link>
+              <Link href="/">{t("0")}</Link>
+              <Link href="/about-us">{t("1")}</Link>
+              <Link href="/contact-us">{t("2")}</Link>
+              <Link href="/contact-us">{t("3")}</Link>
               {/* <div className="flex flex-col gap-6">
                 <div className="text-main text-lg font-normal">Learn more</div>
                 <div className="flex flex-col gap-4">
@@ -80,7 +83,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Miami Asset Group, LLC. Miami, FL
             33137. USA
           </p>{" "}
-          <p className="mt-[22px]">All Rights Reserved.</p>
+          <p className="mt-[22px]">{t("4")}</p>
         </div>
       </Container>
     </div>

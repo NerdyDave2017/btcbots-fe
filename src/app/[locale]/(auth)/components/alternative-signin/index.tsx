@@ -11,8 +11,11 @@ import Loader from "../../../components/loader";
 import { toast } from "sonner";
 import { isAxiosError } from "axios";
 import { useAppContext } from "@/src/context";
+import { useTranslations } from "next-intl";
 
 const index = ({ referrer }: { referrer: string }) => {
+  const t = useTranslations("Auth");
+
   const router = useRouter();
 
   const { setIsAuthenticated, setUser } = useAppContext();
@@ -106,7 +109,7 @@ const index = ({ referrer }: { referrer: string }) => {
         className="w-full h-[55px] px-8 py-4 rounded-full border border-main justify-center items-center gap-2.5 inline-flex"
       >
         <GoogleIcon />
-        <p className="text-main  font-normal ">Continue with Google</p>
+        <p className="text-main  font-normal ">{t("1")}</p>
       </button>
 
       <button
@@ -116,7 +119,7 @@ const index = ({ referrer }: { referrer: string }) => {
         {guestSignInPending && <Loader bg="bg-main" />}
         {!guestSignInPending && <UserIcon className="text-main" />}
         {!guestSignInPending && (
-          <p className="text-main  font-normal ">Sign in as guest</p>
+          <p className="text-main  font-normal ">{t("2")}</p>
         )}
       </button>
     </div>

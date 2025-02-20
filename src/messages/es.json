@@ -2,9 +2,10 @@
   "Nav": {
     "0": "Inicio",
     "1": "Sobre Nosotros",
-    "2": "Contáctanos",
+    "2": "Contáctenos",
     "3": "Registrarse",
-    "4": "Iniciar Sesión"
+    "4": "Iniciar Sesión",
+    "5": "Panel"
   },
   "Hero": {
     "0": "El Bot de Trading de Criptomonedas Más Confiable del Mundo.",
@@ -15,7 +16,7 @@
   },
   "Exchanges": {
     "0": "Trading automatizado en exchanges líderes.",
-    "1": "Genera ingresos pasivos de forma independiente",
+    "1": "Genera flujo de caja pasivo de forma independiente",
     "2": "Gana y retira el 25% de todas las comisiones de rendimiento de tus referidos.",
     "3": "$0 para comenzar. no se requiere tarjeta de crédito."
   },
@@ -23,49 +24,125 @@
     "0": "¿Cómo funciona?",
     "1": "Completamente",
     "2": "GRATIS",
-    "3": "¡Queremos demostrarte que nuestro sistema realmente funciona! Por eso conectarse y usar",
+    "3": "¡Queremos demostrarte que nuestro sistema realmente funciona! Por eso conectar y usar",
     "4": "btcbots.us",
     "5": "¡es simple y completamente gratis!"
   },
   "Bots": {
-    "0": "Nuestros bots compran bajo y venden alto. Así de simple.",
-    "1": "La volatilidad es nuestro aliado.",
-    "2": "btcbots.us",
-    "3": "aprovecha cada oportunidad que el mercado ofrece para comprar más de tu activo deseado. Cuanto más bajo cae, más compra, y eventualmente, vende más alto que su precio promedio, generando ganancias constantes aprovechando la volatilidad del mercado."
+    "0": "Nuestros bots compran bajo, venden alto.",
+    "1": "Así de simple.",
+    "2": "La volatilidad es nuestro aliado.",
+    "3": "btcbots.us",
+    "4": "aprovecha cada oportunidad que el mercado ofrece para comprar más de tu activo deseado. Cuanto más bajo va, más compra, y eventualmente, vende más alto que su precio promedio, generando ganancias constantes aprovechando la volatilidad del mercado."
   },
   "Trading": {
-    "0": "Comienza a operar en dos pasos",
-    "1": "Selecciona tu depósito de moneda.",
-    "2": "Selecciona la moneda en la que te gustaría recibir las ganancias.",
-    "3": "Enfoque más rápido",
-    "4": "Simplemente selecciona tu exchange favorito y mira lo que tenemos disponible para él."
+    "0": "Comienza a operar en",
+    "1": "dos pasos",
+    "2": "Selecciona tu depósito de moneda.",
+    "3": "Selecciona la moneda en la que",
+    "4": "deseas recibir ganancias.",
+    "5": "Enfoque más rápido",
+    "6": "Simplemente selecciona tu",
+    "7": "exchange favorito y mira lo que",
+    "8": "tenemos disponible."
   },
   "Statistics": {
     "0": "Nuestras Estadísticas",
-    "1": "Encuentra informes y artículos sobre el poder del trading automatizado en:",
-    "2": "$323K+",
-    "3": "pagados a nuestros socios afiliados.",
-    "4": "42 Países",
-    "5": "ayudando a las personas a alcanzar sus metas financieras.",
-    "6": "$3.9m+",
-    "7": "En ganancias generadas desde 2020"
+    "1": "Encuentra reportes y artículos sobre el",
+    "2": "poder del trading automatizado en:",
+    "3": "$323K+",
+    "4": "pagados a nuestros socios afiliados.",
+    "5": "42 Países",
+    "6": "ayudando a las personas a alcanzar sus metas financieras.",
+    "7": "$3.9m+",
+    "8": "En ganancias generadas desde 2020"
   },
   "Affiliate": {
-    "0": "Programa de socios afiliados",
-    "1": "Gana Ingresos Pasivos con Nuestro Programa",
-    "2": "de Referidos. Refiere amigos y recibe un 25%",
-    "3": "de comisión sobre su participación en las ganancias,",
-    "4": "depositado directamente en tu cuenta.",
-    "5": "No se requiere trading activo. Simplemente regístrate",
-    "6": "y comienza a ganar.",
-    "7": "Comenzar"
+    "0": "Programa de socios",
+    "1": "afiliados",
+    "2": "Gana Ingresos Pasivos con Nuestro Programa",
+    "3": "de Referidos. Refiere amigos y recibe un 25%",
+    "4": "de comisión sobre su participación en ganancias,",
+    "5": "depositado directamente en tu cuenta.",
+    "6": "No se requiere trading activo. Simplemente regístrate",
+    "7": "y comienza a ganar.",
+    "8": "Comenzar"
   },
-
   "Footer": {
     "0": "Inicio",
     "1": "Sobre Nosotros",
-    "2": "Contáctanos",
+    "2": "Contáctenos",
     "3": "Aprende Más",
-    "4": "Todos los derechos reservados."
+    "4": "Todos los Derechos Reservados."
+  },
+  "About-us": {
+    "0": "Sobre Nosotros",
+    "1": "BTCBots es un software fintech especializado en trading algorítmico automatizado. Permite el trading fluido de activos digitales blue-chip como Bitcoin, Ether, Solana y las principales stablecoins.",
+    "2": "Nuestra misión es democratizar el acceso a herramientas de trading avanzadas —típicamente reservadas para fondos de cobertura e inversores institucionales— empoderando a todos los usuarios para optimizar su capital de manera efectiva.",
+    "3": "Características Principales",
+    "4": "Trading Automatizado",
+    "5": "Nuestros algoritmos ejecutan operaciones basadas en estrategias probadas, equilibrando el tamaño de la posición, precio de entrada y exposición al riesgo.",
+    "6": "Transparencia de Datos",
+    "7": "Refinamos continuamente nuestras estrategias y presentamos patrones de datos valiosos en nuestra Sala de Datos.",
+    "8": "¿Qué problemas resuelve BTCBots?",
+    "9": "Atendiendo necesidades de flujo de caja",
+    "10": "Los activos digitales a menudo carecen de flujo de caja estable, a diferencia de inversiones tradicionales como bienes raíces, restaurantes o acciones con dividendos.",
+    "11": "Trading Automatizado",
+    "12": "Nuestras estrategias de trading automatizado generan ingresos líquidos pasivos consistentes a partir de la volatilidad de las criptomonedas, atendiendo efectivamente las necesidades de flujo de caja.",
+    "13": "Reducción de Riesgos de Contraparte",
+    "14": "Las inversiones tradicionales involucran múltiples intermediarios, aumentando el riesgo. BTCBots minimiza estos riesgos al optimizar transacciones directamente entre traders y el mercado, asegurando control total mientras genera ingresos pasivos de forma independiente.",
+    "15": "Otros puntos importantes",
+    "16": "Programa de Referidos",
+    "17": "Participación en Ingresos: 25% de todos los ingresos generados por clientes referidos.",
+    "18": "Sin Requisito de Servicio Activo: La participación no requiere servicio activo.",
+    "19": "Acceso Inmediato a Ganancias: Después de la liquidación de la factura del cliente.",
+    "20": "Soporte al Cliente y Educación",
+    "21": "Recursos: Preguntas frecuentes completas y materiales educativos.",
+    "22": "Equipo de Soporte: Disponible a través del sistema de chat de la aplicación y correo electrónico.",
+    "23": "Asistencia IA: Un modelo de lenguaje grande entrenado (IA) listo para responder preguntas relacionadas con el servicio.",
+    "24": "Gestión de Riesgos",
+    "25": "Diversificación: A través de exchanges, estrategias y activos.",
+    "26": "Enfoque No Custodial: Minimiza riesgos de contraparte.",
+    "27": "Herramientas Sofisticadas: Para evaluación y gestión de riesgos."
+  },
+  "Contact-us": {
+    "0": "Contáctenos",
+    "1": "Información de contacto",
+    "2": "Correo electrónico",
+    "3": "Formulario de contacto",
+    "4": "Si desea enviarnos una pregunta o comentario, por favor complete el formulario a continuación.",
+    "5": "Nombre",
+    "6": "Apellido",
+    "7": "Correo electrónico",
+    "8": "Asunto",
+    "9": "Comentario / Pregunta",
+    "10": "Enviar Mensaje"
+  },
+  "Auth": {
+    "0": "Opera con conveniencia",
+    "1": "Continuar con Google",
+    "2": "Iniciar sesión como invitado"
+  },
+  "Sign-up": {
+    "0": "Crea tu cuenta",
+    "1": "¡Completa tus datos y comienza a generar ganancias hoy!",
+    "2": "Nombre",
+    "3": "Correo electrónico",
+    "4": "Contraseña",
+    "5": "Confirmar Contraseña",
+    "6": "¿Ya tienes una cuenta?",
+    "7": "Iniciar Sesión",
+    "8": "Registrarse",
+    "9": "o"
+  },
+  "Log-in": {
+    "0": "¡Bienvenido de nuevo!",
+    "1": "Por favor inicia sesión para acceder a tu cuenta.",
+    "2": "Correo electrónico",
+    "3": "Contraseña",
+    "4": "¿Olvidaste tu contraseña?",
+    "5": "o",
+    "6": "Registrarse",
+    "7": "Iniciar Sesión"
   }
 }

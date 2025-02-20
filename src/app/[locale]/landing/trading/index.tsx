@@ -13,8 +13,11 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useAppContext } from "@/src/context";
+import { useTranslations } from "next-intl";
 
 const Trading = () => {
+  const t = useTranslations("Trading");
+
   const ref = useRef(null);
 
   const { isMobile } = useAppContext();
@@ -97,7 +100,7 @@ const Trading = () => {
                     }   relative flex items-start  gap-[22px] transition-transform duration-150 ease-in`}
                   >
                     <p className="md:text-[32px] xl:text-[40px]">
-                      Start trading in <br /> two steps
+                      {t("0")} <br /> {t("1")}
                     </p>
                     <ArrowRight
                       className={`${
@@ -110,13 +113,12 @@ const Trading = () => {
                     <motion.div className="font-light space-y-[20px] layout">
                       <div className="flex items-start gap-2">
                         <Checkmark className="text-main" />
-                        <p className="text-lg">Select your currency deposit.</p>
+                        <p className="text-lg">{t("2")}</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <Checkmark className="text-main" />
                         <p className="text-lg">
-                          Select the currency you would <br /> like to receive
-                          profits in.
+                          {t("3")} <br /> {t("4")}
                         </p>
                       </div>
                     </motion.div>
@@ -133,9 +135,7 @@ const Trading = () => {
                         : "text-[#989898] scale-[0.85]"
                     }  relative flex items-start gap-[22px] transition-transform duration-150 ease-in`}
                   >
-                    <p className="md:text-[32px] xl:text-[40px]">
-                      Faster approach
-                    </p>
+                    <p className="md:text-[32px] xl:text-[40px]">{t("5")}</p>
                     <ArrowRight
                       className={` ${
                         active !== "faster" && "rotate-90"
@@ -147,8 +147,7 @@ const Trading = () => {
                       <div className="flex items-start gap-2">
                         <Checkmark className="text-main" />
                         <p className="text-lg">
-                          Simply select your favorite <br /> exchange and see
-                          what we have <br /> available for it.{" "}
+                          {t("6")} <br /> {t("7")} <br /> {t("8")}{" "}
                         </p>
                       </div>
                     </motion.div>
