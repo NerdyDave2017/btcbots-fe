@@ -1,0 +1,71 @@
+{
+  "Nav": {
+    "0": "Home",
+    "1": "About Us",
+    "2": "Contact Us",
+    "3": "Sign Up",
+    "4": "Login",
+    "5": "Panel"
+  },
+  "Hero": {
+    "0": "The World's Most Trusted Crypto Trading Bot.",
+    "1": "A trading system that empowers you. Retain full control of your funds and pay commissions only on successful trades.",
+    "2": "Go to dashboard",
+    "3": "Learn More",
+    "4": "We support:"
+  },
+  "Exchanges": {
+    "0": "Automated trading on leading exchanges.",
+    "1": "Generate passive cash-flow independently",
+    "2": "Earn and withdraw 25% of all your referrals performance fees.",
+    "3": "$0 to start. no credit card required."
+  },
+  "How": {
+    "0": "How it works?",
+    "1": "Completely",
+    "2": "FREE",
+    "3": "We want to prove to you, our system really works! Thats why connecting and using",
+    "4": "btcbots.us",
+    "5": "is simple and completely free!"
+  },
+  "Bots": {
+    "0": "Our bots buy low, sell high. It's that simple.",
+    "1": "Volatility is our daddy.",
+    "2": "btcbots.us",
+    "3": "takes every opportunity the market gives to buy more of your desired asset. The lower it goes, the more it buys, and eventually, it sells higher than its average price, generating constant profit by leveraging market volatility."
+  },
+  "Trading": {
+    "0": "Start trading in two steps",
+    "1": "Select your currency deposit.",
+    "2": "Select the currency you would like to receive profits in.",
+    "3": "Faster approach",
+    "4": "Simply select your favorite exchange and see what we have available for it."
+  },
+  "Statistics": {
+    "0": "Our Statistics",
+    "1": "Find reports and articles about the power of automated trading in:",
+    "2": "$323K+",
+    "3": "paid out to our affiliate partners.",
+    "4": "42 Countries",
+    "5": "helping people achieve their financial goals.",
+    "6": "$3.9m+",
+    "7": "In profits generated since 2020"
+  },
+  "Affiliate": {
+    "0": "Affiliate partner program",
+    "1": "Earn Passive Income with Our Referral",
+    "2": "Program. Refer friends, and receive a 25%",
+    "3": "commission on their profit share, directly",
+    "4": "deposited to your account.",
+    "5": "No active trading required. Simply register",
+    "6": "and start earning.",
+    "7": "Getting Started"
+  },
+  "Footer": {
+    "0": "Home",
+    "1": "About Us",
+    "2": "Contact Us",
+    "3": "Learn More",
+    "4": "All Rights Reserved."
+  }
+}

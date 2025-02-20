@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "@/src/i18n/routing";
+export const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -19,6 +22,11 @@ export async function middleware(req: NextRequest) {
     const loginUrl = new URL("/login", req.url);
     return NextResponse.redirect(loginUrl);
   }
+
+  // Apply the `next-intl` middleware for locale handling
+  const response = intlMiddleware(req);
+
+  return response;
 }
 
 /* The `export const config` object is defining configuration settings for the middleware function. In
@@ -27,5 +35,22 @@ applied to. The middleware function will be executed for requests to any of the 
 ("/", "/login", "/signup", "/dashboard"). This configuration helps specify where the middleware
 logic should be applied within the application. */
 export const config = {
-  matcher: ["/login", "/", "/dashboard"],
+  matcher: [
+    // Enable a redirect to a matching locale at the root
+    "/",
+
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    "/(en|es)/:path*",
+
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    "/((?!_next|_vercel|.*\\..*).*)",
+
+    "/login",
+
+    "/signup",
+
+    "/dashboard",
+  ],
 };

@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
   experimental: {
@@ -16,8 +19,7 @@ const nextConfig = {
   images: {
     domains: [
       "www.tradingview.com",
-      "cryptobots-assets.s3.us-east-1.amazonaws.com",
-      "cryptobots.io.s3.eu-north-1.amazonaws.com",
+      "btcbots-assets.s3.us-east-1.amazonaws.com",
     ],
   },
   webpack(config) {
@@ -38,4 +40,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

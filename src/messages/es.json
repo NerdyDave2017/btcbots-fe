@@ -1,0 +1,71 @@
+{
+  "Nav": {
+    "0": "Inicio",
+    "1": "Sobre Nosotros",
+    "2": "Contáctanos",
+    "3": "Registrarse",
+    "4": "Iniciar Sesión"
+  },
+  "Hero": {
+    "0": "El Bot de Trading de Criptomonedas Más Confiable del Mundo.",
+    "1": "Un sistema de trading que te empodera. Mantén el control total de tus fondos y paga comisiones solo en operaciones exitosas.",
+    "2": "Ir al panel",
+    "3": "Aprende Más",
+    "4": "Soportamos:"
+  },
+  "Exchanges": {
+    "0": "Trading automatizado en exchanges líderes.",
+    "1": "Genera ingresos pasivos de forma independiente",
+    "2": "Gana y retira el 25% de todas las comisiones de rendimiento de tus referidos.",
+    "3": "$0 para comenzar. no se requiere tarjeta de crédito."
+  },
+  "How": {
+    "0": "¿Cómo funciona?",
+    "1": "Completamente",
+    "2": "GRATIS",
+    "3": "¡Queremos demostrarte que nuestro sistema realmente funciona! Por eso conectarse y usar",
+    "4": "btcbots.us",
+    "5": "¡es simple y completamente gratis!"
+  },
+  "Bots": {
+    "0": "Nuestros bots compran bajo y venden alto. Así de simple.",
+    "1": "La volatilidad es nuestro aliado.",
+    "2": "btcbots.us",
+    "3": "aprovecha cada oportunidad que el mercado ofrece para comprar más de tu activo deseado. Cuanto más bajo cae, más compra, y eventualmente, vende más alto que su precio promedio, generando ganancias constantes aprovechando la volatilidad del mercado."
+  },
+  "Trading": {
+    "0": "Comienza a operar en dos pasos",
+    "1": "Selecciona tu depósito de moneda.",
+    "2": "Selecciona la moneda en la que te gustaría recibir las ganancias.",
+    "3": "Enfoque más rápido",
+    "4": "Simplemente selecciona tu exchange favorito y mira lo que tenemos disponible para él."
+  },
+  "Statistics": {
+    "0": "Nuestras Estadísticas",
+    "1": "Encuentra informes y artículos sobre el poder del trading automatizado en:",
+    "2": "$323K+",
+    "3": "pagados a nuestros socios afiliados.",
+    "4": "42 Países",
+    "5": "ayudando a las personas a alcanzar sus metas financieras.",
+    "6": "$3.9m+",
+    "7": "En ganancias generadas desde 2020"
+  },
+  "Affiliate": {
+    "0": "Programa de socios afiliados",
+    "1": "Gana Ingresos Pasivos con Nuestro Programa",
+    "2": "de Referidos. Refiere amigos y recibe un 25%",
+    "3": "de comisión sobre su participación en las ganancias,",
+    "4": "depositado directamente en tu cuenta.",
+    "5": "No se requiere trading activo. Simplemente regístrate",
+    "6": "y comienza a ganar.",
+    "7": "Comenzar"
+  },
+
+  "Footer": {
+    "0": "Inicio",
+    "1": "Sobre Nosotros",
+    "2": "Contáctanos",
+    "3": "Aprende Más",
+    "4": "Todos los derechos reservados."
+  }
+}
