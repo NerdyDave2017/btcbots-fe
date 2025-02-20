@@ -8,6 +8,7 @@ import HeroImg from "@/public/assets/images/heroimage.jpeg";
 import { HeroCurrencies } from "@/public/assets/icons";
 import { useAppContext } from "@/src/context";
 import { useTranslations } from "next-intl";
+import PoweredBy from "@/public/assets/icons/Powered by.svg";
 
 const Hero = () => {
   const t = useTranslations("Hero");
@@ -61,6 +62,13 @@ const Hero = () => {
             </div>
           </div>
         </Container>
+
+        <Image
+          src={PoweredBy}
+          alt=""
+          className="absolute -bottom-28 md:-bottom-16 -left-10 w-[200px] lg:w-[230px]"
+          // width={70}
+        />
       </div>
     </>
   );
