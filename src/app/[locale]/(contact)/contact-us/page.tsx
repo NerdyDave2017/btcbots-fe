@@ -39,6 +39,11 @@ const page = () => {
       {
         onSuccess: () => {
           toast.success("Message sent successfully");
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setSubject("");
+          setComment("");
         },
         onError: (error) => {
           if (isAxiosError(error)) {
