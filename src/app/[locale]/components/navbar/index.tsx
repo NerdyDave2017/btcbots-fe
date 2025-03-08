@@ -25,17 +25,18 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const links = [
     {
       name: t("0"),
-      href: "/en",
+      href: "/",
     },
     {
       name: t("1"),
-      href: "/en/about-us",
+      href: "/about-us",
     },
     {
       name: t("2"),
-      href: "/en/contact-us",
+      href: "/contact-us",
     },
   ];
+  console.log(pathname);
   return (
     <Container>
       <div className="w-full h-[80px] flex items-center justify-between text-base font-normal">
@@ -43,7 +44,11 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
           <Link href="/">
             <Image
               className="w-[130px] lg:w-[180px]"
-              src={pathname !== "/en" ? MainLogoBlack : MainLogo}
+              src={
+                pathname.match(new RegExp(`^/(en|es)$`))
+                  ? MainLogo
+                  : MainLogoBlack
+              }
               alt="Logo"
             />
           </Link>
@@ -52,7 +57,11 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
             {links.map((item, index) => (
               <Link
                 className={`${
-                  pathname === item.href && "text-touch"
+                  pathname.match(
+                    new RegExp(
+                      `^/(en|es)${item.href === "/" ? "$" : item.href}`
+                    )
+                  ) && "text-touch"
                 } hover:text-touch group relative transition-colors ease-in-out`}
                 href={item.href}
                 key={index}
@@ -60,7 +69,11 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
                 <li>{item.name}</li>
                 <span
                   className={`absolute left-0 -translate-x-0 bottom-0 w-0 h-[1.5px] ${
-                    pathname === item.href && "w-1/2 bg-touch"
+                    pathname.match(
+                      new RegExp(
+                        `^/(en|es)${item.href === "/" ? "$" : item.href}`
+                      )
+                    ) && "w-1/2 bg-touch"
                   } bg-touch transition-all duration-300 ease-in-out group-hover:w-1/2`}
                 ></span>
               </Link>

@@ -28,7 +28,7 @@ const Hero = () => {
           {/* Hero */}
           <div className="xl:min-h-[calc(832px-80px)] flex flex-col lg:flex-row items-center justify-between  xl:pb-12">
             <div className="flex-1 flex flex-col gap-[32px]">
-              <p className="text-[44px] md:text-[50px] xl:text-[64px] font-bold">
+              <p className="text-[44px] md:text-[50px] xl:text-[50px] font-bold">
                 {t("0")}
               </p>
 
