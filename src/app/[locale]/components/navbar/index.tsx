@@ -3,7 +3,8 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import Image from "next/image";
 import Logo from "@/public/assets/images/LOGO.svg";
-import MainLogo from "@/public/assets/images/MainLogo.svg";
+import MainLogo from "@/public/assets/images/btcbots.svg";
+import MainLogoBlack from "@/public/assets/images/btcbots1.svg";
 import flag from "@/public/assets/images/Circle.svg";
 import Link from "next/link";
 import Button from "../button";
@@ -24,24 +25,27 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
   const links = [
     {
       name: t("0"),
-      href: "/",
+      href: "/en",
     },
     {
       name: t("1"),
-      href: "/about-us",
+      href: "/en/about-us",
     },
     {
       name: t("2"),
-      href: "/contact-us",
+      href: "/en/contact-us",
     },
   ];
-
   return (
     <Container>
       <div className="w-full h-[80px] flex items-center justify-between text-base font-normal">
         <div className="flex items-center gap-[48px]">
           <Link href="/">
-            <Image className="w-[130px]" src={MainLogo} alt="Logo" />
+            <Image
+              className="w-[130px] lg:w-[180px]"
+              src={pathname !== "/en" ? MainLogoBlack : MainLogo}
+              alt="Logo"
+            />
           </Link>
 
           <ul className="hidden lg:inline-flex gap-5">
