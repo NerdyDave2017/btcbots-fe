@@ -70,6 +70,7 @@ const How = () => {
             <div className="flex overflow-hidden">
               {data.map((item, index) => (
                 <div
+                  key={index}
                   className={`w-full flex-shrink-0 transform transition-all duration-500 ease-in-out -translate-x-[${
                     active * 100
                   }%]`}
@@ -89,6 +90,7 @@ const How = () => {
               <div className="flex overflow-hidden">
                 {data.map((item, index) => (
                   <div
+                    key={index}
                     className={`text-lg md:text-xl xl:text-2xl flex-shrink-0 w-full transform transition-all duration-1000 ease-in-out -translate-x-[${
                       active * 100
                     }%]`}
@@ -122,7 +124,7 @@ const How = () => {
           <div className="w-full max-w-[880px] flex gap- flex-row overflow-hidden">
             {data.map((item, index) => (
               <div
-                key={item.id}
+                key={index}
                 className={`w-full flex-shrink-0 max-w-[880px] h-[220px] md:h-[400px]  xl:h-[512px] rounded-lg bg-[${
                   item.color
                 }] transform transition-all duration-700 ease-in-out -translate-x-[${
