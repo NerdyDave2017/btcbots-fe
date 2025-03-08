@@ -4,6 +4,8 @@ import Container from "../../components/container";
 import Button from "../../components/button";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import img from "@/public/assets/images/img4.png";
 
 const Affiliate = () => {
   const t = useTranslations("Affiliate");
@@ -14,7 +16,13 @@ const Affiliate = () => {
       <Container>
         <div className=" flex flex-col lg:flex-row lg:gap-[80px]">
           <div className="flex-1">
-            <div className="w-full lg:w-[470px] xl:w-[720px] h-[220px] md:h-[400px]  xl:h-[512px] bg-[#D9D9D9] rounded-lg -translate-y-[80px] lg:absolute -top- md:-top-[100px] xl:-top-[148px] z-50"></div>
+            <div className="w-full lg:w-[470px] xl:w-[720px] h-[220px] md:h-[400px]  xl:h-[512px] bg-[#D9D9D9] rounded-lg -translate-y-[80px] lg:absolute -top- md:-top-[100px] xl:-top-[148px] z-50">
+              <Image
+                src={img}
+                alt="img"
+                className="w-full h-full object-cover rounded-lg"
+              />
+            </div>
           </div>
           <div className="">
             <div className="font-light space-y-[20px]">

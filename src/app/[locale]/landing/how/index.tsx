@@ -1,7 +1,11 @@
-import React, { useState, useId, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Container from "../../components/container";
 import { HowBar } from "@/public/assets/icons";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
+import img1 from "@/public/assets/images/img1.png";
+import img2 from "@/public/assets/images/img3.png";
+import img3 from "@/public/assets/images/img5.png";
 
 const How = () => {
   const t = useTranslations("How");
@@ -17,6 +21,7 @@ const How = () => {
       body: t("3"),
       body1: t("4"),
       body2: t("5"),
+      img: img1,
     },
     {
       id: "2",
@@ -25,6 +30,7 @@ const How = () => {
       title2: t("7"),
       title3: t("8"),
       body: t("9"),
+      img: img2,
     },
     {
       id: "3",
@@ -33,6 +39,7 @@ const How = () => {
       title2: t("11"),
       title3: t("12"),
       body: t("13"),
+      img: img3,
     },
   ];
 
@@ -41,17 +48,20 @@ const How = () => {
     const adjustedActive = active % totalSlides;
 
     if (adjustedActive === totalSlides - 1) {
+      console.log("Last slide reached");
       // When reaching the last slide, smoothly transition back to first slide
       setTimeout(() => {
         setActive(0);
       }, 700); // Match this with your transition duration
     } else {
+      console.log("Next slide reached");
+      // When reaching the next slide, smoothly transition to next slide
       setActive(active + 1);
     }
   };
 
   useEffect(() => {
-    // console.log(active);
+    console.log(active);
     const interval = setInterval(() => {
       carouselInfiniteScroll();
     }, 4000);
@@ -67,13 +77,14 @@ const How = () => {
             {t("0")}
           </p>
           <div className="w-full max-w-[880px] flex flex-col md:flex-row  items:start md:items-center justify-between gap-6">
-            <div className="flex overflow-hidden">
+            <div className="w-full flex overflow-hidden">
               {data.map((item, index) => (
                 <div
+                  style={{
+                    transform: `translateX(-${active * 100}%)`,
+                  }}
                   key={index}
-                  className={`w-full flex-shrink-0 transform transition-all duration-500 ease-in-out -translate-x-[${
-                    active * 100
-                  }%]`}
+                  className={`w-full flex-shrink-0 transform transition-all duration-500 ease-in-out`}
                 >
                   <p className="text-lg md:text-xl xl:text-2xl">
                     {item.title1}
@@ -87,13 +98,14 @@ const How = () => {
               ))}
             </div>
             <div className="max-w-[540px] ">
-              <div className="flex overflow-hidden">
+              <div className="w-full flex overflow-hidden">
                 {data.map((item, index) => (
                   <div
+                    style={{
+                      transform: `translateX(-${active * 100}%)`,
+                    }}
                     key={index}
-                    className={`text-lg md:text-xl xl:text-2xl flex-shrink-0 w-full transform transition-all duration-1000 ease-in-out -translate-x-[${
-                      active * 100
-                    }%]`}
+                    className={`text-lg md:text-xl xl:text-2xl flex-shrink-0 w-full transform transition-all duration-1000 ease-in-out `}
                   >
                     <p key={index} className=" mb-[24px]">
                       {item.body}{" "}
@@ -124,13 +136,19 @@ const How = () => {
           <div className="w-full max-w-[880px] flex gap- flex-row overflow-hidden">
             {data.map((item, index) => (
               <div
+                style={{
+                  transform: `translateX(-${active * 100}%)`,
+                  backgroundColor: item.color,
+                }}
                 key={index}
-                className={`w-full flex-shrink-0 max-w-[880px] h-[220px] md:h-[400px]  xl:h-[512px] rounded-lg bg-[${
-                  item.color
-                }] transform transition-all duration-700 ease-in-out -translate-x-[${
-                  active * 100
-                }%]`}
-              ></div>
+                className={`w-full flex-shrink-0 max-w-[880px] h-[220px] md:h-[400px]  xl:h-[512px] rounded-lg transform transition-all duration-700 ease-in-out`}
+              >
+                <Image
+                  src={item.img}
+                  alt="image"
+                  className="w-full h-full rounded-lg"
+                />
+              </div>
             ))}
           </div>
         </div>
