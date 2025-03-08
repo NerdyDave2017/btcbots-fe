@@ -64,17 +64,17 @@ const Statistics = () => {
               <p className="text-[26px] text-main">{t("0")}</p>
             </div>
             <div className="flex-1 lg:h-[650px] text-[#f4f6f8] flex lg:block flex-col items-center justify-center gap-6">
-              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:top-[315px] lg:right-[180px] xl:top-[364px] xl:right-[480.13px]">
+              <div className="w-[323px] h-[182px] flex flex-col items-start justify-center xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:top-[315px] lg:right-[180px] xl:top-[364px] xl:right-[480.13px]">
                 <p className="text-[32px] xl:text-5xl leading-snug">{t("7")}</p>
                 <p className="text-lg xl:text-2xl">{t("8")}</p>
               </div>
-              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[324px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-dark-background lg:right-[90px] lg:top-[162px] xl:right-auto  xl:top-[162.54px]">
+              <div className="w-[323px] h-[182px] xl:w-[412px] flex flex-col items-start justify-center xl:h-[324px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-dark-background lg:right-[90px] lg:top-[162px] xl:right-auto  xl:top-[162.54px]">
                 <p className="text-[32px] xl:text-5xl leading-tight">
                   {t("5")}
                 </p>
                 <p className="text-lg xl:text-2xl">{t("6")}</p>
               </div>
-              <div className="w-[323px] h-[182px] xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:right-0 xl:right-0">
+              <div className="w-[323px] h-[182px] flex flex-col items-start justify-center xl:w-[412px] xl:h-[264px] rounded-lg lg:absolute p-[40px] xl:p-[64px] bg-main lg:right-0 xl:right-0">
                 <p className="text-[32px] xl:text-5xl leading-snug">{t("3")}</p>
                 <p className="text-lg xl:text-2xl">{t("4")} </p>
               </div>
