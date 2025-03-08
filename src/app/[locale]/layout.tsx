@@ -8,7 +8,7 @@ import { Toaster } from "sonner";
 const sora = Sora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Btcbots",
+  title: "BTC Bots",
   description: "btcbots.us",
 };
 

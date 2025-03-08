@@ -12,21 +12,21 @@
     "1": "Un sistema de comercio en el que usted permanece con el control de sus fondos en todo momento y no paga comisiones a menos que obtenga ganancias primero.",
     "2": "Ir al panel",
     "3": "Aprende Más",
-    "4": "Soportamos:"
+    "4": "Trabajamos con:"
   },
   "Exchanges": {
-    "0": "Trading automatizado en exchanges líderes.",
+    "0": "Nuestro sistema de comercio automatizado se ejecuta sobre los exchanges mas confiables y con mayor liquides del mundo.",
     "1": "Genera flujo de caja pasivo de forma independiente",
-    "2": "Gana y retira el 25% de todas las comisiones de rendimiento de tus referidos.",
-    "3": "$0 para comenzar. no se requiere tarjeta de crédito."
+    "2": "Gane y retire el 25% de todas las comisiones del rendimiento generado por sus referidos.",
+    "3": "$0 para comenzar. No se requiere tarjeta de credito."
   },
   "How": {
     "0": "¿Cómo funciona?",
     "1": "Completamente",
     "2": "GRATIS",
-    "3": "¡Queremos demostrarte que nuestro sistema realmente funciona! Por eso conectar y usar",
+    "3": "¡Queremos demostrarle que nuestro sistema realmente funciona! ¡Es por eso que conectarse y usar",
     "4": "btcbots.us",
-    "5": "¡es simple y completamente gratis!"
+    "5": "es simple y completamente gratuito!"
   },
   "Bots": {
     "0": "Nuestros bots compran bajo, venden alto.",
@@ -83,7 +83,7 @@
     "4": "Trading Automatizado",
     "5": "Nuestros algoritmos ejecutan operaciones basadas en estrategias probadas, equilibrando el tamaño de la posición, precio de entrada y exposición al riesgo.",
     "6": "Transparencia de Datos",
-    "7": "Refinamos continuamente nuestras estrategias y ofrecemos valiosos conocimientos basados en datos.",
+    "7": "Refinamos continuamente nuestras estrategias y proporcionamos valiosos conocimientos basados en datos.",
     "8": "¿Qué problemas resuelve BTC Bots?",
     "9": "Atendiendo necesidades de flujo de caja",
     "10": "Los activos digitales a menudo carecen de flujo de caja estable, a diferencia de inversiones tradicionales como bienes raíces, restaurantes o acciones con dividendos.",
@@ -102,7 +102,7 @@
     "23": "Asistencia IA: Un modelo de lenguaje grande entrenado (IA) listo para responder preguntas relacionadas con el servicio.",
     "24": "Gestión de Riesgos",
     "25": "Diversificación: A través de exchanges, estrategias y activos.",
-    "26": "Enfoque No Custodial: Minimiza riesgos de contraparte.",
+    "26": "Enfoque Non-Custodial: Minimiza riesgos de contraparte.",
     "27": "Herramientas Sofisticadas: Para evaluación y gestión de riesgos."
   },
   "Contact-us": {
