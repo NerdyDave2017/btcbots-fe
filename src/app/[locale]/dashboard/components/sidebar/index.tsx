@@ -158,17 +158,19 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
                 href={item.link}
                 key={index}
                 className={`${
-                  pathname === item.link && "bg-main rounded-full"
+                  pathname.endsWith(item.link) && "bg-main rounded-full"
                 } flex items-center gap-[8px] py-[12px] px-[16px]`}
               >
                 <item.icon
                   className={`${
-                    pathname === item.link ? "text-[#f4f6f8]" : "text-main"
+                    pathname.endsWith(item.link)
+                      ? "text-[#f4f6f8]"
+                      : "text-main"
                   } `}
                 />
                 <span
                   className={`${
-                    pathname === item.link && "text-[#f4f6f8]"
+                    pathname.endsWith(item.link) && "text-[#f4f6f8]"
                   } text-base font-normal`}
                 >
                   {item.name}
