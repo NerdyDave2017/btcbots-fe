@@ -71,16 +71,16 @@ const Sidebar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       icon: NotificationIcon,
       link: "/dashboard/notifications",
     },
-    {
-      name: "Data Room",
-      icon: DataIcon,
-      link: "/dashboard/data-room",
-    },
-    {
-      name: "Help",
-      icon: HelpIcon,
-      link: "/dashboard/help",
-    },
+    // {
+    //   name: "Data Room",
+    //   icon: DataIcon,
+    //   link: "/dashboard/data-room",
+    // },
+    // {
+    //   name: "Help",
+    //   icon: HelpIcon,
+    //   link: "/dashboard/help",
+    // },
   ];
 
   const user = [
