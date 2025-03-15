@@ -36,7 +36,7 @@ const Navbar = ({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) => {
       href: "/contact-us",
     },
   ];
-  console.log(pathname);
+
   return (
     <Container>
       <div className="w-full h-[80px] flex items-center justify-between text-base font-normal">
