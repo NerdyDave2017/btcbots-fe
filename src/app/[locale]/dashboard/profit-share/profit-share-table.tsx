@@ -3,7 +3,7 @@ import BasicTable from "../components/table";
 import useTableGlobal from "@/src/hooks/useTableGlobal";
 import { formatDate } from "@/src/lib";
 import { InvoicesData } from "@/src/hooks/fetchRequests";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 
 type ProfitShareType = {
   strategy: "CB001" | "CB002" | "CB003";

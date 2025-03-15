@@ -12,7 +12,7 @@ import {
   ApiIcon,
 } from "@/public/assets/icons";
 import Button from "../../components/button";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 
 type Props = {
   setSelected: (selected: SelectedType) => void;

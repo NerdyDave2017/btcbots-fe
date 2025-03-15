@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Container from "../../components/container";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import Button from "../../components/button";
 import Navbar from "../../components/navbar";
 import HeroImg from "@/public/assets/images/heroimage.jpeg";

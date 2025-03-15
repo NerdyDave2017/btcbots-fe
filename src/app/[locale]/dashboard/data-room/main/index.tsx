@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, SearchIcon, SettingsIcon } from "@/public/assets/icons";
 import { SelectedType } from "../page";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import Card from "../components/card";
 import Header from "../../components/header";
 import { Masonry } from "react-plock";

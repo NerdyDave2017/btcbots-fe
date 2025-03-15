@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "@/src/i18n/routing";
-export const intlMiddleware = createMiddleware(routing);
+export const intlMiddleware = createMiddleware({
+  ...routing,
+  // Add locale detection and persistence configuration
+  localeDetection: true,
+  localePrefix: "always",
+});
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
@@ -25,6 +30,11 @@ export async function middleware(req: NextRequest) {
 
   // Apply the `next-intl` middleware for locale handling
   const response = intlMiddleware(req);
+
+  // Ensure the locale cookie is set
+  if (!req.cookies.get("NEXT_LOCALE")) {
+    response.cookies.set("NEXT_LOCALE", routing.defaultLocale);
+  }
 
   return response;
 }

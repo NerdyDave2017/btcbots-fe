@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Logo from "@/public/assets/images/LogoBig.svg";
 import MainLogo from "@/public/assets/images/MainLogo.svg";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import { usePathname } from "next/navigation";
 import {
   HomeIcon,

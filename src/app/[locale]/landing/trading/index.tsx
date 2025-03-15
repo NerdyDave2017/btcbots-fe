@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Container from "../../components/container";
 import { ArrowRight } from "@/public/assets/icons";
 import { Checkmark } from "@/public/assets/icons";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import exchangegif from "@/public/assets/images/Exchange-only-method.gif";
 import twostep from "@/public/assets/images/Two-step-method.gif";
 import Image from "next/image";

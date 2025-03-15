@@ -14,7 +14,7 @@ import {
 import Image from "next/image";
 import Button from "@/src/app/[locale]/components/button";
 import Input from "@/src/app/[locale]/components/input";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import SelectExchange from "../components/select-exchange";
 import Header from "../../components/header";
 import { CardDetails } from "@/src/types";

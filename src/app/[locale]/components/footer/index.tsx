@@ -4,7 +4,7 @@ import Logo from "@/public/assets/images/LOGO.svg";
 import MainLogo from "@/public/assets/images/btcbots.svg";
 import { Facebook, Instagram, TikTok, YouTube, X } from "@/public/assets/icons";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import { useTranslations } from "next-intl";
 
 const Footer = () => {

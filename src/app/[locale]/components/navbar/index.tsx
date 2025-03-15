@@ -6,7 +6,7 @@ import Logo from "@/public/assets/images/LOGO.svg";
 import MainLogo from "@/public/assets/images/btcbots.svg";
 import MainLogoBlack from "@/public/assets/images/btcbots1.svg";
 import flag from "@/public/assets/images/Circle.svg";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import Button from "../button";
 import Container from "../container";
 import { useFetchUser } from "@/src/hooks/fetchRequests";

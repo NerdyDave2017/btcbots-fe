@@ -1,5 +1,8 @@
 import { defineRouting } from "next-intl/routing";
-import { createSharedPathnamesNavigation } from "next-intl/navigation";
+import {
+  createSharedPathnamesNavigation,
+  createNavigation,
+} from "next-intl/navigation";
 
 export const routing = defineRouting({
   // A list of all locales that are supported
@@ -10,6 +13,11 @@ export const routing = defineRouting({
 
   pathnames: {
     "/": "/",
+    "/login": "/login",
+    "/signup": "/signup",
+    "/dashboard": "/dashboard",
+    "/about-us": "/about-us",
+    "/contact-us": "/contact-us",
   },
 });
 

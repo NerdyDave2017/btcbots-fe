@@ -2,7 +2,7 @@
 import React, { Suspense, useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 
 import { useSignIn } from "@/src/hooks/postRequests";
 import { toast } from "sonner";

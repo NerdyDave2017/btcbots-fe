@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Input from "../../components/input";
 import Button from "../../components/button";
-import Link from "next/link";
+import { Link } from "@/src/i18n/routing";
 import AlternativeSignin from "../components/alternative-signin";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
